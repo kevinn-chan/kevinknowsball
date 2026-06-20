@@ -3,10 +3,12 @@
 import { useState, useEffect } from "react";
 
 const links = [
+  { label: "Groups", href: "#groups" },
   { label: "Odds", href: "#odds" },
   { label: "Predictor", href: "#predictor" },
-  { label: "Groups", href: "#groups" },
   { label: "Teams", href: "#teams" },
+  { label: "Players", href: "#players" },
+  { label: "Challenge", href: "#minigame" },
 ];
 
 export default function Navbar() {

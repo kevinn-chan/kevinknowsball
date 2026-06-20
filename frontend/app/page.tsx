@@ -4,6 +4,8 @@ import TournamentBracket from "./components/TournamentBracket";
 import TournamentOdds from "./components/TournamentOdds";
 import MatchPredictor from "./components/MatchPredictor";
 import TeamExplorer from "./components/TeamExplorer";
+import PlayerExplorer from "./components/PlayerExplorer";
+import Minigame from "./components/Minigame";
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
       <TournamentOdds />
       <MatchPredictor />
       <TeamExplorer />
+      <PlayerExplorer />
+      <Minigame />
 
       {/* Footer */}
       <footer

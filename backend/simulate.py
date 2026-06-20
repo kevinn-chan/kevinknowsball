@@ -47,14 +47,26 @@ if os.path.exists(_CACHE_FILE):
     print(f"  Loaded {len(_PRED_CACHE)} pre-computed predictions")
 
 
+_HOST_NATIONS = {"United States", "Mexico", "Canada"}
+_HOST_BOOST = 0.05  # ~40 ELO points of home-crowd advantage
+
 def predict_match(home: str, away: str) -> dict:
     key = f"{home}|{away}"
-    if key in _PRED_CACHE:
-        return _PRED_CACHE[key]
-    # Fallback to live inference for any pair not in cache
-    result = _predict_match(home, away, _MODELS, _SQUAD, _ARCH)
-    _PRED_CACHE[key] = result
-    return result
+    result = _PRED_CACHE.get(key) or _predict_match(home, away, _MODELS, _SQUAD, _ARCH)
+
+    # Host nations (USA/MEX/CAN) get a crowd boost in their own cities
+    boost = _HOST_BOOST if home in _HOST_NATIONS else (-_HOST_BOOST if away in _HOST_NATIONS else 0)
+    if boost == 0:
+        return result
+
+    r = dict(result)
+    r["home_win"] = round(max(0.02, min(0.97, r["home_win"] + boost)), 4)
+    r["away_win"] = round(max(0.02, min(0.97, r["away_win"] - boost)), 4)
+    total = r["home_win"] + r["draw"] + r["away_win"]
+    r["home_win"] = round(r["home_win"] / total, 4)
+    r["draw"]     = round(r["draw"]     / total, 4)
+    r["away_win"] = round(r["away_win"] / total, 4)
+    return r
 
 
 def warm_cache(groups_df: pd.DataFrame):

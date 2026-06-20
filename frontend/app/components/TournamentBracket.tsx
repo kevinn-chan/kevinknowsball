@@ -283,7 +283,7 @@ export default function TournamentBracket() {
   const ko = data?.knockout;
 
   return (
-    <section style={{ padding: "40px 24px", maxWidth: 1600, margin: "0 auto" }}>
+    <section id="groups" style={{ padding: "40px 24px", maxWidth: 1600, margin: "0 auto" }}>
       {/* Header */}
       <div style={{ textAlign: "center", marginBottom: 28 }}>
         <p style={{ fontSize: 11, letterSpacing: 4, color: "rgba(255,255,255,0.35)", textTransform: "uppercase", marginBottom: 6 }}>

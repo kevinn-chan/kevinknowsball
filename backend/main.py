@@ -149,6 +149,35 @@ def get_groups():
     return output
 
 
+_PLAYERS_CSV = os.path.join(BASE, "data", "engineered", "players_with_clusters.csv")
+_players_df: Optional[pd.DataFrame] = None
+
+def _load_players() -> pd.DataFrame:
+    global _players_df
+    if _players_df is None:
+        _players_df = pd.read_csv(_PLAYERS_CSV).fillna(0)
+    return _players_df
+
+@app.get("/players")
+def get_players(country: Optional[str] = None, position: Optional[str] = None,
+                role: Optional[str] = None, limit: int = 50):
+    """Player-level data with FM26-style roles. Filter by country, position, role."""
+    df = _load_players()
+    if country:
+        df = df[df["country"].str.lower() == country.lower()]
+    if position:
+        df = df[df["general_position"].str.lower() == position.lower()]
+    if role:
+        df = df[df["role"].str.lower().str.contains(role.lower())]
+    cols = ["player_name", "country", "wc_group", "club_team", "age",
+            "general_position", "specific_position", "market_value",
+            "international_caps", "international_goals",
+            "goals_per_90", "assists_per_90", "interceptions",
+            "tackles_won", "crosses", "role", "versatility"]
+    available = [c for c in cols if c in df.columns]
+    return df[available].sort_values("market_value", ascending=False).head(limit).to_dict(orient="records")
+
+
 @app.get("/teams")
 def get_teams():
     """All 48 WC teams with current Elo, squad value, formation, group."""
