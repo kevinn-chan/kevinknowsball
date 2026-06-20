@@ -336,7 +336,8 @@ export default function TournamentBracket() {
         </p>
       )}
 
-      {(loading || warming) && (
+      {/* Only show spinner if we have no data at all yet */}
+      {(loading || warming) && !data && (
         <div style={{ textAlign: "center", padding: 60 }}>
           <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1.4, ease: "linear" }}
             style={{ fontSize: 44, display: "inline-block" }}>⚽</motion.div>
