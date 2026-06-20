@@ -68,17 +68,27 @@ def health():
 
 
 def _build_bracket_cache():
-    """Run once at startup: warm pred cache then simulate one bracket."""
+    """Run once at startup: simulate one bracket immediately (lazy cache),
+    then warm the full prediction cache in the background for Monte Carlo."""
     global _bracket_cache
+    # Step 1: run bracket sim right away — only needs ~200 unique predictions,
+    # each computed and cached lazily on first access. Takes ~5-10s not minutes.
+    _bracket_cache = _run_bracket_sim()
+    # Step 2: warm the remaining 2000+ matchups for Monte Carlo speed.
     groups_df = pd.read_csv(GROUPS_CSV)
-    warm_cache(groups_df)               # fills _PRED_CACHE (~2256 matchups)
-    _bracket_cache = _run_bracket_sim() # ~104 fast cache lookups
+    warm_cache(groups_df)
 
 
 @app.on_event("startup")
 async def startup():
     import threading
     threading.Thread(target=_build_bracket_cache, daemon=True).start()
+
+
+@app.get("/ready")
+def ready():
+    """Health check that also reports whether the bracket cache is populated."""
+    return {"status": "ok", "bracket_ready": _bracket_cache is not None}
 
 
 @app.post("/predict")

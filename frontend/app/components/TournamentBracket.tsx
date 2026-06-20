@@ -255,10 +255,27 @@ export default function TournamentBracket() {
   const simulate = useCallback((fresh = false) => {
     setLoading(true);
     setError(null);
-    fetch(`${API}/simulate/bracket${fresh ? "?fresh=true" : ""}`)
-      .then((r) => { if (!r.ok) throw new Error(`API error ${r.status}`); return r.json(); })
-      .then((d: BracketData) => { setData(d); setLoading(false); })
-      .catch((e) => { setError(e.message); setLoading(false); });
+
+    const run = () =>
+      fetch(`${API}/simulate/bracket${fresh ? "?fresh=true" : ""}`)
+        .then((r) => { if (!r.ok) throw new Error(`API error ${r.status}`); return r.json(); })
+        .then((d: BracketData) => { setData(d); setLoading(false); })
+        .catch((e) => { setError(e.message); setLoading(false); });
+
+    // On page load (not fresh), check if backend is ready first — if not, poll every 3s
+    if (!fresh) {
+      const poll = () =>
+        fetch(`${API}/ready`)
+          .then((r) => r.json())
+          .then((s) => {
+            if (s.bracket_ready) { run(); }
+            else { setTimeout(poll, 3000); }
+          })
+          .catch(() => setTimeout(poll, 5000));
+      poll();
+    } else {
+      run();
+    }
   }, []);
 
   useEffect(() => { simulate(false); }, [simulate]);
