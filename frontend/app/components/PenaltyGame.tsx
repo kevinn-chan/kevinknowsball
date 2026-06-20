@@ -11,11 +11,11 @@ const GOAL_H = 200;
 const ZONES = 5;
 const ZONE_W = GOAL_W / ZONES; // 84px each
 // Power: green = 35–65, yellow = 18–82, else miss
-const GREEN = [35, 65] as const;
-const YELLOW = [18, 82] as const;
+const GREEN = [42, 58] as const;  // narrowed from 35-65
+const YELLOW = [22, 78] as const;
 // Aim sweeps at this many units per ms (units = 0..100)
-const AIM_SPEED   = 0.045; // ~2.2s for full sweep
-const POWER_SPEED = 0.070; // ~1.4s for full sweep
+const AIM_SPEED   = 0.060; // ~1.7s for full sweep
+const POWER_SPEED = 0.095; // ~1.1s for full sweep
 
 // Keeper covers: L(zones 0-1), C(zone 2), R(zones 3-4)
 type KeeperSide = "L" | "C" | "R";
