@@ -163,10 +163,11 @@ export default function TournamentOdds() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   useEffect(() => {
+    if (!inView) return;  // wait until section is visible before firing
     const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
 
     const attempt = (retries = 8) => {
-      fetch(`${API}/monte-carlo?n=5000`)
+      fetch(`${API}/monte-carlo?n=1000`)
         .then((r) => r.json())
         .then((data: MonteCarloResponse) => {
           if (data.leaderboard) {
@@ -195,7 +196,7 @@ export default function TournamentOdds() {
     };
 
     attempt();
-  }, []);
+  }, [inView]);
 
   return (
     <section

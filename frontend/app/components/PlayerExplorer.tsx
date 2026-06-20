@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState, useCallback, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 
 const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
 
@@ -215,6 +215,9 @@ export default function PlayerExplorer() {
   const [country, setCountry] = useState("Argentina");
   const [position, setPosition] = useState("All");
   const [loading, setLoading] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const hasLoaded = useRef(false);
+  const inView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   const load = useCallback((c: string, p: string) => {
     setLoading(true);
@@ -225,10 +228,21 @@ export default function PlayerExplorer() {
       .catch(() => setLoading(false));
   }, []);
 
-  useEffect(() => { load(country, position); }, [country, position, load]);
+  // Only fire the initial fetch when section scrolls into view
+  useEffect(() => {
+    if (inView && !hasLoaded.current) {
+      hasLoaded.current = true;
+      load(country, position);
+    }
+  }, [inView, country, position, load]);
+
+  // Re-fetch on filter change (only if already loaded)
+  useEffect(() => {
+    if (hasLoaded.current) load(country, position);
+  }, [country, position, load]);
 
   return (
-    <section id="players" style={{ padding: "60px 24px", background: "linear-gradient(180deg, #0a1a0f 0%, #0d2015 100%)" }}>
+    <section id="players" ref={sectionRef} style={{ padding: "60px 24px", background: "linear-gradient(180deg, #0a1a0f 0%, #0d2015 100%)" }}>
       <div style={{ maxWidth: 1400, margin: "0 auto" }}>
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 36 }}>
