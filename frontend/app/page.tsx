@@ -7,6 +7,7 @@ import TeamExplorer from "./components/TeamExplorer";
 import PlayerExplorer from "./components/PlayerExplorer";
 import Minigame from "./components/Minigame";
 import PenaltyGame from "./components/PenaltyGame";
+import GameHub from "./components/GameHub";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <PlayerExplorer />
       <Minigame />
       <PenaltyGame />
+      <GameHub />
 
       {/* Footer */}
       <footer

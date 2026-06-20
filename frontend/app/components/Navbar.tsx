@@ -10,6 +10,7 @@ const links = [
   { label: "Players", href: "#players" },
   { label: "Challenge", href: "#minigame" },
   { label: "Penalty", href: "#penalty" },
+  { label: "Games", href: "#games" },
 ];
 
 export default function Navbar() {
