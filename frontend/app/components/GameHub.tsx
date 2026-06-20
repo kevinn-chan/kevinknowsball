@@ -58,36 +58,61 @@ const POS_LABEL: Record<Pos, string> = { GK:"Goalkeeper", DEF:"Defender", MID:"M
 const POS_API: Record<Pos, string> = { GK:"GK", DEF:"DEF", MID:"MID", MID2:"MID", ATT:"ATT" };
 const BUDGET = 150_000_000;
 
+function randPlayer(pool: Player[], exclude: string[]): Player {
+  const eligible = pool.filter(p => !exclude.includes(p.player_name));
+  return eligible[Math.floor(Math.random() * eligible.length)];
+}
+
 function SquadBuilder({ allPlayers }: { allPlayers: Player[] }) {
+  // candidate[pos] = the player currently shown for that slot (not yet accepted)
   const [squad, setSquad]       = useState<Record<Pos, Player|null>>({ GK:null, DEF:null, MID:null, MID2:null, ATT:null });
-  const [search, setSearch]     = useState<Record<Pos, string>>({ GK:"", DEF:"", MID:"", MID2:"", ATT:"" });
-  const [activeSlot, setActive] = useState<Pos|null>(null);
+  const [candidate, setCandidate] = useState<Record<Pos, Player|null>>({ GK:null, DEF:null, MID:null, MID2:null, ATT:null });
   const [result, setResult]     = useState<any>(null);
   const [simming, setSimming]   = useState(false);
+  const [activePos, setActivePos] = useState<Pos|null>(null);
 
+  const acceptedNames = Object.values(squad).filter(Boolean).map(p => p!.player_name);
   const spent = Object.values(squad).reduce((s, p) => s + (p?.market_value ?? 0), 0);
   const remaining = BUDGET - spent;
   const full = Object.values(squad).every(Boolean);
 
-  const suggestions = useCallback((pos: Pos, q: string) => {
-    if (q.length < 2) return [];
+  const poolFor = useCallback((pos: Pos) => {
     const apiPos = POS_API[pos];
-    return allPlayers
-      .filter(p => p.general_position === apiPos && p.player_name.toLowerCase().includes(q.toLowerCase()))
-      .filter(p => !Object.values(squad).some(s => s?.player_name === p.player_name))
-      .filter(p => (p.market_value ?? 0) <= remaining + (squad[pos]?.market_value ?? 0))
-      .slice(0, 6);
-  }, [allPlayers, squad, remaining]);
+    return allPlayers.filter(p => p.general_position === apiPos && p.market_value > 0);
+  }, [allPlayers]);
 
-  const pick = (pos: Pos, p: Player) => {
+  const deal = useCallback((pos: Pos) => {
+    if (!allPlayers.length) return;
+    const exclude = acceptedNames.concat(candidate[pos]?.player_name ?? []);
+    const pool = poolFor(pos);
+    const p = pool.filter(x => !exclude.includes(x.player_name));
+    if (!p.length) return;
+    const pick = p[Math.floor(Math.random() * p.length)];
+    setCandidate(c => ({ ...c, [pos]: pick }));
+    setActivePos(pos);
+    setResult(null);
+  }, [allPlayers, acceptedNames, candidate, poolFor]);
+
+  const accept = (pos: Pos) => {
+    const p = candidate[pos];
+    if (!p) return;
+    // Check budget: accepted value + this player
+    const otherSpend = Object.entries(squad)
+      .filter(([k]) => k !== pos)
+      .reduce((s, [, v]) => s + (v?.market_value ?? 0), 0);
+    if (otherSpend + p.market_value > BUDGET) return; // over budget — force reroll
     setSquad(s => ({ ...s, [pos]: p }));
-    setSearch(s => ({ ...s, [pos]: "" }));
-    setActive(null);
+    setCandidate(c => ({ ...c, [pos]: null }));
+    setActivePos(null);
     setResult(null);
   };
 
+  const reject = (pos: Pos) => deal(pos);
+
   const clear = (pos: Pos) => {
     setSquad(s => ({ ...s, [pos]: null }));
+    setCandidate(c => ({ ...c, [pos]: null }));
+    setActivePos(null);
     setResult(null);
   };
 
@@ -110,10 +135,10 @@ function SquadBuilder({ allPlayers }: { allPlayers: Player[] }) {
   return (
     <div>
       {/* Budget bar */}
-      <div style={{ marginBottom:20 }}>
+      <div style={{ marginBottom:16 }}>
         <div style={{ display:"flex", justifyContent:"space-between", fontSize:11,
           color:"rgba(255,255,255,0.4)", letterSpacing:1, textTransform:"uppercase", marginBottom:6 }}>
-          <span>Budget</span>
+          <span>Budget · €150M</span>
           <span style={{ color: remaining < 0 ? "#FF6B6B" : "#4ADE80" }}>
             {remaining < 0 ? "OVER BUDGET" : `${fmt(remaining)} remaining`}
           </span>
@@ -127,112 +152,114 @@ function SquadBuilder({ allPlayers }: { allPlayers: Player[] }) {
       </div>
 
       {/* Slots */}
-      <div style={{ display:"flex", flexDirection:"column", gap:8, marginBottom:20 }}>
+      <div style={{ display:"flex", flexDirection:"column", gap:6, marginBottom:16 }}>
         {POSITIONS.map(pos => {
           const player = squad[pos];
-          const q = search[pos];
-          const sugg = suggestions(pos, q);
-          const isActive = activeSlot === pos;
+          const cand = candidate[pos];
 
           return (
-            <div key={pos} style={{ position:"relative" }}>
+            <div key={pos}>
+              {/* Accepted row */}
               <div style={{
                 display:"flex", alignItems:"center", gap:10, padding:"10px 14px",
-                background: player ? "rgba(74,222,128,0.07)" : "rgba(255,255,255,0.04)",
-                border: `1px solid ${player ? "rgba(74,222,128,0.25)" : isActive ? "rgba(255,215,0,0.35)" : "rgba(255,255,255,0.08)"}`,
-                borderRadius:10, cursor: player ? "default" : "text",
-                transition:"border-color 0.2s",
-              }}
-                onClick={() => !player && setActive(pos)}
-              >
-                {/* Position badge */}
-                <div style={{ width:36, height:36, borderRadius:8, flexShrink:0,
+                background: player ? "rgba(74,222,128,0.07)" : "rgba(255,255,255,0.03)",
+                border: `1px solid ${player ? "rgba(74,222,128,0.2)" : "rgba(255,255,255,0.07)"}`,
+                borderRadius: cand ? "10px 10px 0 0" : 10,
+              }}>
+                <div style={{ width:32, height:32, borderRadius:7, flexShrink:0,
                   background:"rgba(255,255,255,0.06)", display:"flex", alignItems:"center",
-                  justifyContent:"center", fontSize:10, fontWeight:800, color:"rgba(255,215,0,0.7)",
+                  justifyContent:"center", fontSize:9, fontWeight:800, color:"rgba(255,215,0,0.6)",
                   letterSpacing:1 }}>
                   {pos === "MID2" ? "MID" : pos}
                 </div>
 
                 {player ? (
                   <>
-                    <Flag country={player.country} size={16} />
+                    <Flag country={player.country} size={15} />
                     <div style={{ flex:1, minWidth:0 }}>
-                      <div style={{ fontSize:13, fontWeight:700, color:"#fff",
+                      <div style={{ fontSize:12, fontWeight:700, color:"#fff",
                         overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap" }}>
                         {player.player_name}
                       </div>
-                      <div style={{ fontSize:10, color:"rgba(255,255,255,0.35)" }}>
+                      <div style={{ fontSize:10, color:"rgba(255,255,255,0.3)" }}>
                         {player.club_team} · {player.specific_position}
                       </div>
                     </div>
-                    <div style={{ fontSize:12, fontWeight:700, color:"#4ADE80", flexShrink:0 }}>
+                    <span style={{ fontSize:11, fontWeight:700, color:"#4ADE80", flexShrink:0 }}>
                       {fmt(player.market_value)}
-                    </div>
+                    </span>
                     <button onClick={() => clear(pos)} style={{
-                      background:"none", border:"none", color:"rgba(255,255,255,0.25)",
-                      cursor:"pointer", fontSize:16, padding:"0 0 0 4px", lineHeight:1,
+                      background:"none", border:"none", color:"rgba(255,255,255,0.2)",
+                      cursor:"pointer", fontSize:15, padding:"0 0 0 4px", lineHeight:1,
                     }}>✕</button>
                   </>
                 ) : (
                   <>
-                    <div style={{ flex:1 }}>
-                      <div style={{ fontSize:11, color:"rgba(255,255,255,0.25)", marginBottom:4 }}>
-                        {POS_LABEL[pos]}
-                      </div>
-                      {isActive && (
-                        <input autoFocus value={q}
-                          onChange={e => setSearch(s => ({ ...s, [pos]: e.target.value }))}
-                          onBlur={() => setTimeout(() => setActive(null), 150)}
-                          placeholder={`Search ${POS_LABEL[pos]}…`}
-                          style={{
-                            background:"none", border:"none", outline:"none", width:"100%",
-                            color:"#fff", fontSize:13,
-                          }} />
-                      )}
-                      {!isActive && <div style={{ fontSize:12, color:"rgba(255,255,255,0.15)" }}>
-                        Click to search…
-                      </div>}
+                    <div style={{ flex:1, fontSize:11, color:"rgba(255,255,255,0.2)" }}>
+                      {POS_LABEL[pos]} — empty
                     </div>
+                    {!cand && (
+                      <motion.button onClick={() => deal(pos)}
+                        whileHover={{ scale:1.05 }} whileTap={{ scale:0.95 }}
+                        style={{
+                          padding:"5px 12px", borderRadius:20, border:"1px solid rgba(255,215,0,0.3)",
+                          background:"rgba(255,215,0,0.07)", color:"#FFD700",
+                          fontSize:10, fontWeight:800, cursor:"pointer", letterSpacing:1,
+                        }}>
+                        DRAW
+                      </motion.button>
+                    )}
                   </>
                 )}
               </div>
 
-              {/* Suggestions dropdown */}
-              {isActive && sugg.length > 0 && (
-                <div style={{
-                  position:"absolute", top:"calc(100% + 4px)", left:0, right:0, zIndex:50,
-                  background:"rgba(10,22,14,0.98)", border:"1px solid rgba(255,215,0,0.2)",
-                  borderRadius:10, overflow:"hidden",
-                  boxShadow:"0 8px 32px rgba(0,0,0,0.6)",
-                }}>
-                  {sugg.map(p => (
-                    <div key={p.player_name}
-                      onMouseDown={() => pick(pos, p)}
-                      style={{
-                        display:"flex", alignItems:"center", gap:10, padding:"10px 14px",
-                        cursor:"pointer", borderBottom:"1px solid rgba(255,255,255,0.04)",
-                        transition:"background 0.15s",
-                      }}
-                      onMouseEnter={e => (e.currentTarget.style.background="rgba(255,215,0,0.07)")}
-                      onMouseLeave={e => (e.currentTarget.style.background="transparent")}
-                    >
-                      <Flag country={p.country} size={14} />
+              {/* Candidate reveal panel */}
+              <AnimatePresence>
+                {cand && !player && (
+                  <motion.div
+                    initial={{ opacity:0, height:0 }} animate={{ opacity:1, height:"auto" }}
+                    exit={{ opacity:0, height:0 }} transition={{ duration:0.2 }}
+                    style={{
+                      overflow:"hidden",
+                      background:"rgba(255,215,0,0.05)",
+                      border:"1px solid rgba(255,215,0,0.2)", borderTop:"none",
+                      borderRadius:"0 0 10px 10px",
+                    }}>
+                    <div style={{ padding:"12px 14px", display:"flex", alignItems:"center", gap:10 }}>
+                      <Flag country={cand.country} size={18} />
                       <div style={{ flex:1, minWidth:0 }}>
-                        <div style={{ fontSize:12, fontWeight:700, color:"#fff",
+                        <div style={{ fontSize:14, fontWeight:800, color:"#FFD700",
                           overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap" }}>
-                          {p.player_name}
+                          {cand.player_name}
                         </div>
-                        <div style={{ fontSize:10, color:"rgba(255,255,255,0.3)" }}>
-                          {p.specific_position} · {p.country}
+                        <div style={{ fontSize:10, color:"rgba(255,255,255,0.4)" }}>
+                          {cand.specific_position} · {cand.country} · {fmt(cand.market_value)}
                         </div>
                       </div>
-                      <span style={{ fontSize:11, color:"#4ADE80", fontWeight:700, flexShrink:0 }}>
-                        {fmt(p.market_value)}
-                      </span>
+                      <div style={{ display:"flex", gap:6, flexShrink:0 }}>
+                        <motion.button onClick={() => accept(pos)}
+                          whileHover={{ scale:1.08 }} whileTap={{ scale:0.93 }}
+                          style={{
+                            padding:"6px 14px", borderRadius:20, border:"none",
+                            background:"#4ADE80", color:"#000",
+                            fontSize:11, fontWeight:900, cursor:"pointer",
+                          }}>
+                          ✓ Keep
+                        </motion.button>
+                        <motion.button onClick={() => reject(pos)}
+                          whileHover={{ scale:1.08 }} whileTap={{ scale:0.93 }}
+                          style={{
+                            padding:"6px 14px", borderRadius:20, border:"1px solid rgba(255,107,107,0.4)",
+                            background:"rgba(255,107,107,0.1)", color:"#FF6B6B",
+                            fontSize:11, fontWeight:900, cursor:"pointer",
+                          }}>
+                          ✗ Next
+                        </motion.button>
+                      </div>
                     </div>
-                  ))}
-                </div>
-              )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           );
         })}
@@ -249,7 +276,7 @@ function SquadBuilder({ allPlayers }: { allPlayers: Player[] }) {
           fontWeight:900, fontSize:15, letterSpacing:2, textTransform:"uppercase",
           marginBottom: result ? 20 : 0,
         }}>
-        {simming ? "Calculating…" : full ? "⚡ Simulate Squad" : `Pick all 5 players to simulate`}
+        {simming ? "Calculating…" : full ? "⚡ Simulate Squad" : "Fill all 5 slots to simulate"}
       </motion.button>
 
       {/* Result */}
@@ -695,7 +722,7 @@ export default function GameHub() {
             fontSize:"clamp(26px,5vw,50px)", fontWeight:900, color:"#FFD700",
             textShadow:"0 0 28px rgba(255,215,0,0.35)", textTransform:"uppercase",
             letterSpacing:3, margin:"0 0 6px",
-          }}>Game Zone</h2>
+          }}>Game Zone <span style={{ fontSize:"clamp(14px,2.5vw,22px)", color:"rgba(255,255,255,0.35)", fontWeight:700 }}>(For The Nerds)</span></h2>
         </div>
 
         {/* Tabs */}
