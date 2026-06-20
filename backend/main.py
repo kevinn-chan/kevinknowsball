@@ -29,7 +29,7 @@ sys.path.insert(0, os.path.join(BASE, "backend"))
 
 from simulate import (
     predict_match, simulate_scoreline, simulate_group,
-    simulate_tournament, monte_carlo, warm_cache, GROUPS_CSV,
+    simulate_tournament, monte_carlo, GROUPS_CSV,
     _MODELS, _SQUAD, _ARCH
 )
 
@@ -67,23 +67,10 @@ def health():
     return {"status": "ok"}
 
 
-def _warm_on_startup():
-    """Pre-compute all match predictions so bracket sims are fast (~5-10s each)."""
-    groups_df = pd.read_csv(GROUPS_CSV)
-    warm_cache(groups_df)
-
-
-@app.on_event("startup")
-async def startup():
-    import threading
-    threading.Thread(target=_warm_on_startup, daemon=True).start()
-
-
 @app.get("/ready")
 def ready():
-    """Reports whether the prediction cache is warm (sims will be fast)."""
-    from simulate import _PRED_CACHE
-    return {"status": "ok", "bracket_ready": len(_PRED_CACHE) > 100}
+    """Always ready — predictions compute lazily on first sim."""
+    return {"status": "ok", "bracket_ready": True}
 
 
 @app.post("/predict")
