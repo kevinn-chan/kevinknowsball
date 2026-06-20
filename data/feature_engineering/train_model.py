@@ -252,6 +252,30 @@ def predict_match(home: str, away: str, models: dict,
     lam_h = float(np.clip(lam_h * (1 + 0.10 * squad_adv), 0.20, 5.0))
     lam_a = float(np.clip(lam_a * (1 - 0.10 * squad_adv), 0.20, 5.0))
 
+    # ELO-calibration anchor: blend model probs with pure ELO expectation (neutral venue).
+    # The classifier over-learned real home advantage from training data — at WC neutral
+    # venues a 400-point ELO gap should give the stronger team ~85%+ win probability, not
+    # produce a coin flip. Blending 50/50 anchors predictions to the ELO reality while
+    # keeping squad/form signal from the model.
+    elo_home_win = 1.0 / (1.0 + 10.0 ** (-elo_diff / 400.0))  # standard ELO
+    draw_rate    = 0.22  # typical WC draw rate (roughly constant across mismatches)
+    elo_away_win = max(1.0 - elo_home_win - draw_rate, 0.02)
+    # Normalize ELO prior so [away_win, draw, home_win] sums to 1
+    elo_prior = np.array([elo_away_win, draw_rate, elo_home_win])
+    elo_prior /= elo_prior.sum()
+
+    # ponytail: 50/50 blend — tune weight if model ever gets retrained on WC-only data
+    BLEND = 0.50
+    probs_adj = BLEND * probs_adj + (1.0 - BLEND) * elo_prior
+    probs_adj /= probs_adj.sum()
+
+    # Floor the stronger team's λ: if one team is 150+ ELO points better, they should
+    # score at least 0.9 goals in expectation (equivalent to ~0.6 GPG over 90 min).
+    if elo_diff < -150:   # away team much stronger
+        lam_a = max(lam_a, 0.20 + 0.006 * min(abs(elo_diff), 300))
+    elif elo_diff > 150:  # home team much stronger
+        lam_h = max(lam_h, 0.20 + 0.006 * min(elo_diff, 300))
+
     return {
         "home": home, "away": away,
         "away_win":  round(float(probs_adj[0]), 4),
