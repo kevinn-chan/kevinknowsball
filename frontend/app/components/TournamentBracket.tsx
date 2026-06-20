@@ -250,6 +250,7 @@ export default function TournamentBracket() {
   const [data, setData] = useState<BracketData | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [warming, setWarming] = useState(false);
   const [tab, setTab] = useState<"groups" | "bracket">("groups");
 
   const simulate = useCallback((fresh = false) => {
@@ -264,14 +265,14 @@ export default function TournamentBracket() {
 
     // On page load (not fresh), check if backend is ready first — if not, poll every 3s
     if (!fresh) {
-      const poll = () =>
+        const poll = () =>
         fetch(`${API}/ready`)
           .then((r) => r.json())
           .then((s) => {
-            if (s.bracket_ready) { run(); }
-            else { setTimeout(poll, 3000); }
+            if (s.bracket_ready) { setWarming(false); run(); }
+            else { setWarming(true); setTimeout(poll, 3000); }
           })
-          .catch(() => setTimeout(poll, 5000));
+          .catch(() => { setWarming(true); setTimeout(poll, 5000); });
       poll();
     } else {
       run();
@@ -321,17 +322,22 @@ export default function TournamentBracket() {
         </button>
       </div>
 
-      {error && (
+      {error && !warming && (
         <p style={{ textAlign: "center", color: "#f87171", marginBottom: 20 }}>
           ⚠ {error} — is the backend running at {API}?
         </p>
       )}
 
-      {loading && (
+      {(loading || warming) && (
         <div style={{ textAlign: "center", padding: 60 }}>
-          <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+          <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1.4, ease: "linear" }}
             style={{ fontSize: 44, display: "inline-block" }}>⚽</motion.div>
-          <p style={{ color: "rgba(255,255,255,0.4)", marginTop: 14, fontSize: 13 }}>Running simulation…</p>
+          <p style={{ color: "rgba(255,255,255,0.5)", marginTop: 14, fontSize: 14, fontWeight: 600 }}>
+            {warming ? "Waking up the server…" : "Running simulation…"}
+          </p>
+          <p style={{ color: "rgba(255,255,255,0.25)", marginTop: 6, fontSize: 12 }}>
+            {warming ? "First visit after a quiet period takes ~30s. Hang tight ⚽" : "Simulating 104 matches"}
+          </p>
         </div>
       )}
 

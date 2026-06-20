@@ -164,26 +164,37 @@ export default function TournamentOdds() {
 
   useEffect(() => {
     const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
-    fetch(`${API}/monte-carlo?n=5000`)
-      .then((r) => r.json())
-      .then((data: MonteCarloResponse) => {
-        if (data.leaderboard) {
-          setLeaderboard(data.leaderboard);
-          setCached(data.cached);
-        } else if (data.results) {
-          // Build leaderboard from results object
-          const ranked = Object.entries(data.results)
-            .map(([team, stats], i) => ({ rank: i + 1, team, ...stats }))
-            .sort((a, b) => b.win - a.win)
-            .map((t, i) => ({ ...t, rank: i + 1 }));
-          setLeaderboard(ranked);
-          setCached(data.cached);
-        } else if (data.status === "simulation_in_progress") {
-          setError("Simulation in progress — please refresh in ~60 seconds.");
-        }
-      })
-      .catch(() => setError("Failed to load tournament odds."))
-      .finally(() => setLoading(false));
+
+    const attempt = (retries = 8) => {
+      fetch(`${API}/monte-carlo?n=5000`)
+        .then((r) => r.json())
+        .then((data: MonteCarloResponse) => {
+          if (data.leaderboard) {
+            setLeaderboard(data.leaderboard);
+            setCached(data.cached);
+            setLoading(false);
+          } else if (data.results) {
+            const ranked = Object.entries(data.results)
+              .map(([team, stats], i) => ({ rank: i + 1, team, ...stats }))
+              .sort((a, b) => b.win - a.win)
+              .map((t, i) => ({ ...t, rank: i + 1 }));
+            setLeaderboard(ranked);
+            setCached(data.cached);
+            setLoading(false);
+          } else if (data.status === "simulation_in_progress") {
+            // Monte Carlo running — retry after 8s
+            if (retries > 0) setTimeout(() => attempt(retries - 1), 8000);
+            else { setError("Monte Carlo timed out — refresh to retry."); setLoading(false); }
+          }
+        })
+        // Server warming up (502/network error) — retry silently
+        .catch(() => {
+          if (retries > 0) setTimeout(() => attempt(retries - 1), 5000);
+          else { setError("Server unavailable — refresh to retry."); setLoading(false); }
+        });
+    };
+
+    attempt();
   }, []);
 
   return (
