@@ -253,40 +253,32 @@ export default function TournamentBracket() {
   const [warming, setWarming] = useState(false);
   const [tab, setTab] = useState<"groups" | "bracket">("groups");
 
-  const simulate = useCallback((fresh = false) => {
+  const simulate = useCallback(() => {
     setLoading(true);
     setError(null);
-
-    const run = () =>
-      fetch(`${API}/simulate/bracket${fresh ? "?fresh=true" : ""}`)
-        .then((r) => { if (!r.ok) throw new Error(`API error ${r.status}`); return r.json(); })
-        .then((d: BracketData) => { setData(d); setLoading(false); })
-        .catch((e) => { setError(e.message); setLoading(false); });
-
-    // On page load (not fresh), check if backend is ready first — if not, poll every 3s
-    if (!fresh) {
-        const poll = () =>
-        fetch(`${API}/ready`)
-          .then((r) => r.json())
-          .then((s) => {
-            if (s.bracket_ready) { setWarming(false); run(); }
-            else { setWarming(true); setTimeout(poll, 3000); }
-          })
-          .catch(() => { setWarming(true); setTimeout(poll, 5000); });
-      poll();
-    } else {
-      run();
-    }
+    fetch(`${API}/simulate/bracket`)
+      .then((r) => { if (!r.ok) throw new Error(`API error ${r.status}`); return r.json(); })
+      .then((d: BracketData) => { setData(d); setLoading(false); setWarming(false); })
+      .catch((e) => { setError(e.message); setLoading(false); });
   }, []);
 
-  // Load static fallback instantly so users see something right away,
-  // then poll for a fresh live simulation in the background
   useEffect(() => {
+    // Show static fallback instantly
     fetch("/bracket-fallback.json")
       .then((r) => r.json())
-      .then((d) => { if (!data) setData(d); })
+      .then((d) => setData(d))
       .catch(() => {});
-    simulate(false);
+
+    // Poll until prediction cache is warm, then fetch fresh sim
+    const poll = () =>
+      fetch(`${API}/ready`)
+        .then((r) => r.json())
+        .then((s) => {
+          if (s.bracket_ready) { simulate(); }
+          else { setWarming(true); setTimeout(poll, 3000); }
+        })
+        .catch(() => { setWarming(true); setTimeout(poll, 5000); });
+    poll();
   }, []);
 
   const ko = data?.knockout;
@@ -320,7 +312,7 @@ export default function TournamentBracket() {
             {t === "groups" ? "Group Stage" : "Knockout Bracket"}
           </button>
         ))}
-        <button onClick={() => simulate(true)} disabled={loading} style={{
+        <button onClick={() => simulate()} disabled={loading} style={{
           padding: "7px 22px", borderRadius: 20, border: "1px solid rgba(255,215,0,0.35)",
           background: "transparent", color: "#FFD700", fontWeight: 700,
           fontSize: 12, cursor: loading ? "not-allowed" : "pointer", letterSpacing: 1,

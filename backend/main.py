@@ -67,14 +67,8 @@ def health():
     return {"status": "ok"}
 
 
-def _build_bracket_cache():
-    """Run once at startup: simulate one bracket immediately (lazy cache),
-    then warm the full prediction cache in the background for Monte Carlo."""
-    global _bracket_cache
-    # Step 1: run bracket sim right away — only needs ~200 unique predictions,
-    # each computed and cached lazily on first access. Takes ~5-10s not minutes.
-    _bracket_cache = _run_bracket_sim()
-    # Step 2: warm the remaining 2000+ matchups for Monte Carlo speed.
+def _warm_on_startup():
+    """Pre-compute all match predictions so bracket sims are fast (~5-10s each)."""
     groups_df = pd.read_csv(GROUPS_CSV)
     warm_cache(groups_df)
 
@@ -82,13 +76,14 @@ def _build_bracket_cache():
 @app.on_event("startup")
 async def startup():
     import threading
-    threading.Thread(target=_build_bracket_cache, daemon=True).start()
+    threading.Thread(target=_warm_on_startup, daemon=True).start()
 
 
 @app.get("/ready")
 def ready():
-    """Health check that also reports whether the bracket cache is populated."""
-    return {"status": "ok", "bracket_ready": _bracket_cache is not None}
+    """Reports whether the prediction cache is warm (sims will be fast)."""
+    from simulate import _PRED_CACHE
+    return {"status": "ok", "bracket_ready": len(_PRED_CACHE) > 100}
 
 
 @app.post("/predict")
@@ -261,17 +256,9 @@ def _run_bracket_sim() -> dict:
 
 
 @app.get("/simulate/bracket")
-def simulate_bracket(fresh: bool = False):
-    """
-    Returns a full tournament simulation.
-    Served from startup cache (<1s). Pass ?fresh=true to re-simulate.
-    """
-    global _bracket_cache
-    if not fresh and _bracket_cache is not None:
-        return _bracket_cache
-    # Re-simulate (also updates cache for next visitor)
-    _bracket_cache = _run_bracket_sim()
-    return _bracket_cache
+def simulate_bracket():
+    """Fresh simulation for every request — each user gets their own universe."""
+    return _run_bracket_sim()
 
 
 @app.get("/monte-carlo")
