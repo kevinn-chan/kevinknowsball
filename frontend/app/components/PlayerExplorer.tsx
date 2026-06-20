@@ -32,23 +32,37 @@ const COUNTRIES = [
 const POSITIONS = ["All", "ATT", "MID", "DEF", "GK"];
 
 const ROLE_COLORS: Record<string, string> = {
-  "Poacher": "#FF6B35",
-  "Inside Forward": "#FF6B35",
-  "False Nine": "#FF6B35",
+  // Attackers — orange
+  "Poacher":            "#FF6B35",
+  "Inside Forward":     "#FF6B35",
+  "False Nine":         "#FF6B35",
   "Traditional Winger": "#FF6B35",
-  "Advanced Playmaker": "#00D4FF",
-  "Attacking Midfielder": "#00D4FF",
-  "Midfield Playmaker": "#00D4FF",
-  "Wide Playmaker": "#00D4FF",
-  "Box-to-Box": "#4ADE80",
-  "Pressing CM": "#4ADE80",
-  "Box-to-Box DM": "#4ADE80",
-  "Deep-Lying Playmaker": "#4ADE80",
-  "Stopper CB": "#A78BFA",
-  "Traditional CB": "#A78BFA",
-  "Full-Back": "#A78BFA",
-  "Holding Full-Back": "#A78BFA",
-  "Sweeper Keeper": "#FFD700",
+  "Complete Forward":   "#FF6B35",
+  "Target Man":         "#FF6B35",
+  // Attacking / creative midfield — cyan
+  "Advanced Playmaker":    "#00D4FF",
+  "Attacking Midfielder":  "#00D4FF",
+  "Midfield Playmaker":    "#00D4FF",
+  "Wide Playmaker":        "#00D4FF",
+  "Trequartista":          "#00D4FF",
+  // Defensive / central midfield — green
+  "Box-to-Box":            "#4ADE80",
+  "Pressing CM":           "#4ADE80",
+  "Box-to-Box DM":         "#4ADE80",
+  "Deep-Lying Playmaker":  "#4ADE80",
+  "Anchor Man":            "#4ADE80",
+  "Ball-Winning Midfielder":"#4ADE80",
+  // Defenders — purple
+  "Stopper CB":         "#A78BFA",
+  "Traditional CB":     "#A78BFA",
+  "Ball-Playing CB":    "#A78BFA",
+  "Libero":             "#A78BFA",
+  "Full-Back":          "#A78BFA",
+  "Holding Full-Back":  "#A78BFA",
+  "Wing-Back":          "#A78BFA",
+  // Keepers — gold
+  "Goalkeeper":         "#FFD700",
+  "Sweeper Keeper":     "#FFD700",
   "Rushing Goalkeeper": "#FFD700",
 };
 
@@ -72,16 +86,21 @@ interface Player {
   versatility: number;
 }
 
-function fmBar(value: number, max: number, color: string) {
-  const pct = Math.min(Math.round((value / max) * 100), 100);
-  const fmScore = Math.round((value / max) * 20); // FM-style 1-20
+function fmBar(label: string, value: number, max: number, color: string) {
+  const pct = Math.min((value / max) * 100, 100);
+  const score = Math.max(1, Math.round((value / max) * 20));
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-      <div style={{ flex: 1, height: 6, background: "rgba(255,255,255,0.08)", borderRadius: 3, overflow: "hidden" }}>
-        <div style={{ width: `${pct}%`, height: "100%", background: color, borderRadius: 3,
-          transition: "width 0.6s ease" }} />
+    <div style={{ display: "grid", gridTemplateColumns: "52px 1fr 20px", alignItems: "center", gap: 6 }}>
+      <span style={{ fontSize: 10, color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: 0.5 }}>{label}</span>
+      <div style={{ height: 5, background: "rgba(255,255,255,0.07)", borderRadius: 3, overflow: "hidden" }}>
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: `${pct}%` }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          style={{ height: "100%", background: color, borderRadius: 3 }}
+        />
       </div>
-      <span style={{ width: 18, textAlign: "right", fontSize: 12, fontWeight: 700, color }}>{fmScore}</span>
+      <span style={{ fontSize: 11, fontWeight: 800, color, textAlign: "right" }}>{score}</span>
     </div>
   );
 }
@@ -90,119 +109,158 @@ function formatValue(v: number) {
   if (v >= 1e8) return `€${(v / 1e6).toFixed(0)}M`;
   if (v >= 1e6) return `€${(v / 1e6).toFixed(1)}M`;
   if (v >= 1e3) return `€${(v / 1e3).toFixed(0)}K`;
-  return `€${v}`;
+  return v > 0 ? `€${v}` : "—";
+}
+
+// Pick the 4 most meaningful stats for a player based on position
+function pickStats(p: Player) {
+  const pos = p.general_position;
+  const all = [
+    pos !== "GK" && p.goals_per_90 > 0   ? { label: "G / 90",  val: p.goals_per_90,    max: pos === "ATT" ? 1.0 : 0.5, color: "#FF6B35" } : null,
+    pos !== "GK" && p.assists_per_90 > 0  ? { label: "A / 90",  val: p.assists_per_90,  max: 0.7,  color: "#00D4FF" } : null,
+    p.tackles_won > 0                     ? { label: "Tackles", val: p.tackles_won,      max: 100,  color: "#4ADE80" } : null,
+    p.interceptions > 0                   ? { label: "Intercpt",val: p.interceptions,    max: 80,   color: "#A78BFA" } : null,
+    p.crosses > 0 && pos !== "GK"         ? { label: "Crosses", val: p.crosses,          max: 180,  color: "#FFD700" } : null,
+    { label: "Versatil", val: p.versatility, max: 1, color: "rgba(200,200,200,0.7)" },
+  ].filter(Boolean) as { label: string; val: number; max: number; color: string }[];
+
+  // Prefer position-relevant stats: ATT → goals first, DEF → tackles first, else default order
+  return all.slice(0, 4);
 }
 
 function PlayerCard({ p, index }: { p: Player; index: number }) {
   const [flipped, setFlipped] = useState(false);
   const iso = ISO2[p.country];
-  const roleColor = ROLE_COLORS[p.role] ?? "rgba(255,255,255,0.5)";
+  const roleColor = ROLE_COLORS[p.role] ?? "#8B9EB0";
+  const stats = pickStats(p);
+  const shortName = p.player_name.length > 20 ? p.player_name.slice(0, 19) + "…" : p.player_name;
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.04 }}
+      transition={{ delay: Math.min(index * 0.035, 0.5) }}
       onClick={() => setFlipped(f => !f)}
-      style={{ cursor: "pointer", perspective: 600 }}
+      style={{ cursor: "pointer", perspective: 700, height: 240 }}
     >
       <motion.div
         animate={{ rotateY: flipped ? 180 : 0 }}
-        transition={{ duration: 0.4 }}
-        style={{ position: "relative", transformStyle: "preserve-3d", minHeight: 220 }}
+        transition={{ duration: 0.45, ease: "easeInOut" }}
+        style={{ position: "relative", width: "100%", height: "100%", transformStyle: "preserve-3d" }}
       >
-        {/* Front */}
+        {/* ── FRONT ── */}
         <div style={{
           backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden",
           position: "absolute", inset: 0,
-          background: "linear-gradient(135deg, rgba(15,35,22,0.97), rgba(8,20,12,0.97))",
-          border: `1px solid ${roleColor}33`,
-          borderRadius: 12, padding: 14, overflow: "hidden",
+          background: "linear-gradient(160deg, rgba(18,40,26,0.98) 0%, rgba(8,18,12,0.98) 100%)",
+          border: `1px solid ${roleColor}40`,
+          borderRadius: 14, padding: "14px 14px 12px",
+          display: "flex", flexDirection: "column", gap: 10,
+          boxShadow: `0 4px 24px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04)`,
         }}>
-          {/* Position badge */}
-          <div style={{ position: "absolute", top: 10, right: 10,
-            background: `${roleColor}22`, border: `1px solid ${roleColor}44`,
-            borderRadius: 6, padding: "2px 7px", fontSize: 9, fontWeight: 800,
-            color: roleColor, letterSpacing: 1, textTransform: "uppercase" }}>
-            {p.specific_position}
-          </div>
-
-          {/* Flag + name */}
-          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
-            {iso && <img src={`https://flagcdn.com/w40/${iso}.png`} width={22} height={15}
-              style={{ borderRadius: 2, objectFit: "cover", flexShrink: 0 }}
-              onError={(e) => ((e.target as HTMLImageElement).style.display = "none")} />}
-            <div>
-              <div style={{ fontSize: 13, fontWeight: 800, color: "#fff", lineHeight: 1.1 }}>{p.player_name}</div>
-              <div style={{ fontSize: 10, color: "rgba(255,255,255,0.35)" }}>{p.club_team}</div>
+          {/* Header row: flag + name/club + pos badge */}
+          <div style={{ display: "flex", alignItems: "flex-start", gap: 9 }}>
+            {iso && (
+              <img src={`https://flagcdn.com/w40/${iso}.png`} width={26} height={18}
+                style={{ borderRadius: 3, objectFit: "cover", flexShrink: 0, marginTop: 2,
+                  boxShadow: "0 1px 4px rgba(0,0,0,0.4)" }}
+                onError={(e) => ((e.target as HTMLImageElement).style.display = "none")} />
+            )}
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ fontSize: 14, fontWeight: 800, color: "#fff", lineHeight: 1.15,
+                whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                {shortName}
+              </div>
+              <div style={{ fontSize: 10, color: "rgba(255,255,255,0.32)", marginTop: 1,
+                whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                {p.club_team === "Unknown" ? p.country : p.club_team}
+              </div>
+            </div>
+            {/* Position badge — right-aligned, doesn't overlap name */}
+            <div style={{
+              flexShrink: 0, background: `${roleColor}18`,
+              border: `1px solid ${roleColor}50`, borderRadius: 5,
+              padding: "2px 6px", fontSize: 8, fontWeight: 800,
+              color: roleColor, letterSpacing: 0.8, textTransform: "uppercase",
+              maxWidth: 70, textAlign: "center", lineHeight: 1.3,
+            }}>
+              {p.specific_position}
             </div>
           </div>
 
           {/* Role pill */}
-          <div style={{ display: "inline-block", background: `${roleColor}18`,
-            border: `1px solid ${roleColor}55`, borderRadius: 20,
-            padding: "2px 10px", fontSize: 10, color: roleColor, fontWeight: 700, marginBottom: 12 }}>
-            {p.role}
+          <div style={{
+            display: "inline-flex", alignItems: "center", gap: 5,
+            background: `${roleColor}15`, border: `1px solid ${roleColor}45`,
+            borderRadius: 20, padding: "3px 10px", alignSelf: "flex-start",
+          }}>
+            <div style={{ width: 5, height: 5, borderRadius: "50%", background: roleColor, flexShrink: 0 }} />
+            <span style={{ fontSize: 10, color: roleColor, fontWeight: 700 }}>{p.role || p.specific_position}</span>
           </div>
 
-          {/* FM-style stats */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4px 12px", fontSize: 10,
-            color: "rgba(255,255,255,0.45)" }}>
-            {p.goals_per_90 > 0 && (
-              <div><div style={{ marginBottom: 2 }}>G/90</div>{fmBar(p.goals_per_90, 1.2, "#FF6B35")}</div>
-            )}
-            {p.assists_per_90 > 0 && (
-              <div><div style={{ marginBottom: 2 }}>A/90</div>{fmBar(p.assists_per_90, 0.8, "#00D4FF")}</div>
-            )}
-            {p.tackles_won > 0 && (
-              <div><div style={{ marginBottom: 2 }}>Tackles</div>{fmBar(p.tackles_won, 100, "#4ADE80")}</div>
-            )}
-            {p.interceptions > 0 && (
-              <div><div style={{ marginBottom: 2 }}>Intercept</div>{fmBar(p.interceptions, 80, "#A78BFA")}</div>
-            )}
-            {p.crosses > 0 && (
-              <div><div style={{ marginBottom: 2 }}>Crosses</div>{fmBar(p.crosses, 200, "#FFD700")}</div>
-            )}
-            <div><div style={{ marginBottom: 2 }}>Versatility</div>{fmBar(p.versatility, 1, "rgba(255,255,255,0.6)")}</div>
+          {/* Stats */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 7, flex: 1 }}>
+            {stats.map(s => fmBar(s.label, s.val, s.max, s.color))}
           </div>
 
-          {/* Tap hint */}
-          <div style={{ position: "absolute", bottom: 8, right: 10,
-            fontSize: 9, color: "rgba(255,255,255,0.18)", letterSpacing: 1 }}>TAP FOR SCOUT REPORT</div>
+          {/* Footer */}
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center",
+            borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: 8 }}>
+            <span style={{ fontSize: 9, color: "rgba(255,255,255,0.18)", letterSpacing: 1.5,
+              textTransform: "uppercase" }}>Tap · Scout Report</span>
+            <span style={{ fontSize: 10, color: "rgba(255,255,255,0.25)" }}>↺</span>
+          </div>
         </div>
 
-        {/* Back (scout report) */}
+        {/* ── BACK (Scout Report) ── */}
         <div style={{
           backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden",
           transform: "rotateY(180deg)",
           position: "absolute", inset: 0,
-          background: "linear-gradient(135deg, rgba(10,25,15,0.98), rgba(5,15,8,0.98))",
-          border: `1px solid ${roleColor}44`,
-          borderRadius: 12, padding: 14,
+          background: "linear-gradient(160deg, rgba(10,26,16,0.99) 0%, rgba(5,14,9,0.99) 100%)",
+          border: `1px solid ${roleColor}55`,
+          borderRadius: 14, padding: "14px 14px 12px",
+          display: "flex", flexDirection: "column", gap: 10,
+          boxShadow: `0 4px 24px rgba(0,0,0,0.6), 0 0 0 1px ${roleColor}20`,
         }}>
-          <div style={{ fontSize: 11, color: roleColor, fontWeight: 800, letterSpacing: 2,
-            textTransform: "uppercase", marginBottom: 10 }}>Scout Report</div>
+          {/* Scout report header */}
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <span style={{ fontSize: 9, color: roleColor, fontWeight: 800, letterSpacing: 2,
+              textTransform: "uppercase" }}>Scout Report</span>
+            <span style={{ fontSize: 10, color: "rgba(255,255,255,0.2)" }}>↺</span>
+          </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, fontSize: 11 }}>
+          {/* Player name on back */}
+          <div>
+            <div style={{ fontSize: 15, fontWeight: 900, color: "#fff", lineHeight: 1.1 }}>{p.player_name}</div>
+            <div style={{ fontSize: 10, color: roleColor, marginTop: 2 }}>{p.country} · Group {p.wc_group}</div>
+          </div>
+
+          {/* Stats grid */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px 12px", flex: 1 }}>
             {[
-              ["Age", p.age],
-              ["Value", formatValue(p.market_value)],
-              ["Caps", Math.round(p.international_caps)],
-              ["Int'l Goals", Math.round(p.international_goals)],
-              ["Group", p.wc_group],
-              ["Versatility", `${(p.versatility * 100).toFixed(0)}%`],
-            ].map(([label, val]) => (
-              <div key={label as string}>
-                <div style={{ color: "rgba(255,255,255,0.3)", fontSize: 9, letterSpacing: 1, textTransform: "uppercase" }}>{label}</div>
-                <div style={{ color: "#fff", fontWeight: 700, marginTop: 2 }}>{val}</div>
+              { label: "Age",       val: p.age ? `${Math.round(p.age)} yrs` : "—" },
+              { label: "Value",     val: formatValue(p.market_value) },
+              { label: "Caps",      val: p.international_caps ? Math.round(p.international_caps) : "—" },
+              { label: "Int'l G",   val: p.international_goals ? Math.round(p.international_goals) : "—" },
+              { label: "Position",  val: p.specific_position },
+              { label: "Versatil.", val: `${(p.versatility * 100).toFixed(0)}%` },
+            ].map(({ label, val }) => (
+              <div key={label}>
+                <div style={{ fontSize: 8, color: "rgba(255,255,255,0.28)", letterSpacing: 1.2,
+                  textTransform: "uppercase", marginBottom: 2 }}>{label}</div>
+                <div style={{ fontSize: 12, color: "#fff", fontWeight: 700,
+                  whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{val}</div>
               </div>
             ))}
           </div>
 
-          <div style={{ marginTop: 12, padding: "8px 10px",
-            background: `${roleColor}12`, border: `1px solid ${roleColor}33`,
-            borderRadius: 8, fontSize: 10, color: "rgba(255,255,255,0.6)", lineHeight: 1.5 }}>
-            {p.country} · {p.specific_position} · {p.club_team}
+          {/* Club tag */}
+          <div style={{ padding: "7px 10px",
+            background: `${roleColor}10`, border: `1px solid ${roleColor}30`,
+            borderRadius: 8, fontSize: 10, color: "rgba(255,255,255,0.5)",
+            whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+            🏟 {p.club_team === "Unknown" ? "Club data unavailable" : p.club_team}
           </div>
         </div>
       </motion.div>
@@ -228,18 +286,11 @@ export default function PlayerExplorer() {
       .catch(() => setLoading(false));
   }, []);
 
-  // Only fire the initial fetch when section scrolls into view
   useEffect(() => {
-    if (inView && !hasLoaded.current) {
-      hasLoaded.current = true;
-      load(country, position);
-    }
+    if (!inView) return;
+    hasLoaded.current = true;
+    load(country, position);
   }, [inView, country, position, load]);
-
-  // Re-fetch on filter change (only if already loaded)
-  useEffect(() => {
-    if (hasLoaded.current) load(country, position);
-  }, [country, position, load]);
 
   return (
     <section id="players" ref={sectionRef} style={{ padding: "60px 24px", background: "linear-gradient(180deg, #0a1a0f 0%, #0d2015 100%)" }}>
