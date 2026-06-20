@@ -722,7 +722,9 @@ export default function GameHub() {
             fontSize:"clamp(26px,5vw,50px)", fontWeight:900, color:"#FFD700",
             textShadow:"0 0 28px rgba(255,215,0,0.35)", textTransform:"uppercase",
             letterSpacing:3, margin:"0 0 6px",
-          }}>Game Zone <span style={{ fontSize:"clamp(14px,2.5vw,22px)", color:"rgba(255,255,255,0.35)", fontWeight:700 }}>(For The Nerds)</span></h2>
+          }}>Game Zone</h2>
+          <p style={{ fontSize:13, color:"rgba(255,255,255,0.3)", fontWeight:600, margin:"4px 0 0",
+            letterSpacing:1, textTransform:"none" }}>(for the nerds)</p>
         </div>
 
         {/* Tabs */}
