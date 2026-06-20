@@ -1,0 +1,21 @@
+# Raw Kaggle source files — too large for git (140MB+), not needed at runtime
+data/raw_kaggle/appearances.csv
+data/raw_kaggle/players.csv
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.env
+
+# PyCharm
+.idea/
+
+# Node / Next.js
+frontend/node_modules/
+frontend/.next/
+frontend/.env.local
+
+# macOS
+.DS_Store
