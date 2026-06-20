@@ -279,7 +279,15 @@ export default function TournamentBracket() {
     }
   }, []);
 
-  useEffect(() => { simulate(false); }, [simulate]);
+  // Load static fallback instantly so users see something right away,
+  // then poll for a fresh live simulation in the background
+  useEffect(() => {
+    fetch("/bracket-fallback.json")
+      .then((r) => r.json())
+      .then((d) => { if (!data) setData(d); })
+      .catch(() => {});
+    simulate(false);
+  }, []);
 
   const ko = data?.knockout;
 
