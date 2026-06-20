@@ -9,7 +9,7 @@ Transitioning from Gemini to Claude. Full architecture from Gemini conversations
 Build a **State-of-the-Art Football Analytics Engine** for the 2026 FIFA World Cup (48 teams, Groups A–L):
 - Simulate the tournament group stage → knockout rounds via Monte Carlo
 - Predict win probabilities for any matchup using XGBoost
-- Surface everything in a Streamlit "Football Manager" UI
+- Surface everything in a Next.js "Football Manager" UI
 
 ---
 
@@ -119,20 +119,72 @@ Outputs:
 
 ---
 
-## Phase 4: Machine Learning Predictor 🔜 NEXT
+## Phase 4: Machine Learning Predictor ✅ COMPLETE
 
-`train_model.py` — XGBoost gradient-boosted classifier
-- **Training data**: historical World Cup matches (2014, 2018, 2022) with retroactive Elo + squad metrics reconstructed at match date
+`data/feature_engineering/train_model.py` — HistGradientBoosting (XGBoost-equivalent, scikit-learn)
+
+- **Training data**: 49,214 international matches with time-decay sample weights (4-year half-life)
 - **Inputs per matchup**: Elo difference, squad value difference, manager rating, tactical balance, burnout, club linkage, avg caps
-- **Output**: P(Team A win), P(Draw), P(Team B win)
+- **Outputs**:
+  - λ_home, λ_away (Poisson rate parameters for scoreline simulation)
+  - W/D/L classifier probabilities
+- **Dixon-Coles ρ** calibrated from WC data (≈ 0.0)
+- **CV log-loss**: improved 1.1127 → 0.9604
+
+Output: `data/engineered/xgb_model.pkl`
 
 ---
 
-## Phase 5: Streamlit UI 🔜 TO DO (use UIUX Pro Max github skill, and 21st.dev)
+## Backend ✅ COMPLETE
 
-`app.py` — "Football Manager" dashboard, Joga Bonito vibes, have some worlc up 2026 atnmosphere
-- **Simulator**: user picks matchup → model returns win probabilities
-- **Roster viewer**: show players with positions, values, cluster archetypes
+`backend/main.py` — FastAPI application
+
+Endpoints:
+- `GET /health` — liveness check
+- `GET /teams` — list all 48 teams with metadata
+- `POST /predict` — head-to-head win/draw/loss probabilities
+- `POST /simulate/bracket` — full tournament bracket simulation (group stage + knockout)
+- `POST /simulate/match` — single match Poisson scoreline simulation
+- `GET /monte-carlo` — Monte Carlo tournament odds (championship %, semifinal %, etc.)
+
+**Performance**: 2,256 matchups pre-computed and cached at startup. Bracket result cached server-side.
+
+**Deployed**: https://kevinknowsball.onrender.com
+
+---
+
+## Frontend ✅ COMPLETE
+
+Next.js 14 app
+
+Components:
+- `SplineHero` — animated 3D hero section (Spline scene URL to be supplied)
+- `TournamentBracket` — group stage + full knockout bracket with Re-Simulate button
+- `TournamentOdds` — championship / semifinal / QF odds table
+- `MatchPredictor` — head-to-head prediction UI
+- `TeamExplorer` — squad viewer with player archetypes
+- `Navbar` — site navigation
+
+**Deployed**: Vercel
+
+---
+
+## Deployment ✅ COMPLETE
+
+| Layer | Platform | URL |
+|---|---|---|
+| Source | GitHub | https://github.com/kevinn-chan/kevinknowsball |
+| Backend | Render (free tier) | https://kevinknowsball.onrender.com |
+| Frontend | Vercel | (Vercel dashboard URL) |
+
+---
+
+## Known Issues / Future Work
+
+- **Model calibration mismatch**: W/D/L classifier and λ regressors are not perfectly calibrated against each other — bracket simulation uses λ-based scorelines which are slightly more upset-prone than classifier probabilities suggest
+- **Render cold start**: free tier sleeps after 15 min inactivity → ~30s cold start on first request
+- **Spline hero**: 3D animated hero is a placeholder — user to supply Spline scene URL when ready
+- **Monte Carlo not wired to frontend**: `/monte-carlo` endpoint exists and works but the TournamentOdds section is rendered separately rather than fetching live from this endpoint
 
 ---
 
@@ -144,14 +196,18 @@ WC2026/
 │   ├── raw_kaggle/          # Transfermarkt Kaggle dump (static)
 │   ├── raw_scraped/         # FBref, manager, injury, official squads
 │   ├── cleaned/             # Final cleaned CSVs → model inputs
+│   ├── engineered/          # Model outputs (elo, squad metrics, clusters, pkl)
 │   ├── scraping_process/    # All scraping scripts
-│   └── cleaning_process/    # All ETL scripts
+│   ├── cleaning_process/    # All ETL scripts
+│   └── feature_engineering/ # build_elo.py, squad_metrics.py, tactical_clusters.py, train_model.py
+├── backend/
+│   └── main.py              # FastAPI app
 ├── handoff.md               # This file
 └── .venv/                   # Python 3.12
 ```
 
 ### Installed deps (relevant)
-`duckdb`, `rapidfuzz`, `soccerdata`, `scikit-learn`, `pandas`, `numpy`, `requests`, `beautifulsoup4`, `seleniumbase`
+`duckdb`, `rapidfuzz`, `soccerdata`, `scikit-learn`, `pandas`, `numpy`, `requests`, `beautifulsoup4`, `seleniumbase`, `fastapi`, `uvicorn`
 
 ---
 
