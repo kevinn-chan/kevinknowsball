@@ -34,31 +34,32 @@ with open(MODEL_PKL, "rb") as f:
 _SQUAD  = pd.read_csv(SQUAD_MET)
 _ARCH   = pd.read_csv(ARCHETYPE)
 
-# Pre-compute prediction cache: {(home, away): result_dict}
-# Populated lazily and reused across all MC iterations
-_PRED_CACHE: dict[tuple, dict] = {}
-
-# Dixon-Coles ρ: loaded from model pickle (calibrated from WC data).
-# Falls back to -0.10 if the model predates calibration.
+# Dixon-Coles ρ
 DC_RHO = _MODELS.get("dc_rho", -0.10)
 
+# Load pre-computed predictions (generated locally, committed to repo)
+_CACHE_FILE = os.path.join(BASE, "data", "engineered", "predictions_cache.json")
+_PRED_CACHE: dict[str, dict] = {}
+if os.path.exists(_CACHE_FILE):
+    import json as _json
+    with open(_CACHE_FILE) as _f:
+        _PRED_CACHE = _json.load(_f)
+    print(f"  Loaded {len(_PRED_CACHE)} pre-computed predictions")
 
-# ── Prediction (cached) ───────────────────────────────────────────────────────
 
 def predict_match(home: str, away: str) -> dict:
-    key = (home, away)
-    if key not in _PRED_CACHE:
-        _PRED_CACHE[key] = _predict_match(home, away, _MODELS, _SQUAD, _ARCH)
-    return _PRED_CACHE[key]
+    key = f"{home}|{away}"
+    if key in _PRED_CACHE:
+        return _PRED_CACHE[key]
+    # Fallback to live inference for any pair not in cache
+    result = _predict_match(home, away, _MODELS, _SQUAD, _ARCH)
+    _PRED_CACHE[key] = result
+    return result
 
 
 def warm_cache(groups_df: pd.DataFrame):
-    """Pre-compute all group-stage matchup predictions before MC starts."""
-    teams = groups_df["country"].tolist()
-    for h, a in combinations(teams, 2):
-        predict_match(h, a)
-        predict_match(a, h)   # both directions for knockout rounds
-    print(f"  Cache warmed: {len(_PRED_CACHE)} matchups pre-computed")
+    """No-op — cache is pre-loaded from JSON at startup."""
+    print(f"  Cache already loaded: {len(_PRED_CACHE)} matchups")
 
 
 # ── Dixon-Coles correction ────────────────────────────────────────────────────
