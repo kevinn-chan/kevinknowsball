@@ -9,6 +9,7 @@ const links = [
   { label: "Teams", href: "#teams" },
   { label: "Players", href: "#players" },
   { label: "Challenge", href: "#minigame" },
+  { label: "Penalty", href: "#penalty" },
 ];
 
 export default function Navbar() {
