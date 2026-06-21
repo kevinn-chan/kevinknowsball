@@ -126,6 +126,18 @@ def build_master_database():
     """
     master_df = con.execute(final_query).df()
 
+    # Deduplicate: same player_id can appear multiple times when FBref has >1 row
+    # for a player name (e.g. "Rodri" at Man City AND "Rodri" at Moreirense).
+    # Keep the row where FBref stats are non-null (main club), then by highest market_value.
+    master_df['_has_fbref'] = master_df['goals_per_90'].notna().astype(int)
+    master_df = (master_df
+                 .sort_values(['player_id', '_has_fbref', 'market_value'],
+                              ascending=[True, False, False])
+                 .drop_duplicates(subset='player_id', keep='first')
+                 .drop(columns='_has_fbref')
+                 .reset_index(drop=True))
+    print(f"After dedup: {len(master_df)} unique players (removed {len(con.execute(final_query).df()) - len(master_df)} duplicate rows)")
+
     # 6. Machine Learning KNN Imputation
     print("Executing KNN Imputation for Missing Tactical Data...")
     outfield_mask = master_df['general_position'] != 'GK'
