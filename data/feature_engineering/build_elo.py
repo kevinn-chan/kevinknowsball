@@ -25,6 +25,51 @@ HOT_DECAY_HALFLIFE = 365      # hot_elo: weight of a match halves after 12 month
                               # Replaces the hard 24-month reset (which was too blunt —
                               # a reset landing after a bad patch wiped earned momentum)
 
+# Confederation mean reversion anchors.
+# Teams revert toward their confederation mean during inactivity, not global 1500.
+# Anchors derived from long-run average ELOs within each confederation.
+# UEFA ~1680, CONMEBOL ~1700, CAF ~1620, AFC ~1600, CONCACAF ~1560, OFC ~1480
+_CONF_ANCHOR = {
+    'UEFA':     1680,
+    'CONMEBOL': 1700,
+    'CAF':      1620,
+    'AFC':      1600,
+    'CONCACAF': 1560,
+    'OFC':      1480,
+}
+_TEAM_CONF = {
+    # UEFA
+    'Germany':'UEFA','France':'UEFA','Spain':'UEFA','England':'UEFA','Portugal':'UEFA',
+    'Netherlands':'UEFA','Belgium':'UEFA','Italy':'UEFA','Croatia':'UEFA','Switzerland':'UEFA',
+    'Denmark':'UEFA','Austria':'UEFA','Turkey':'UEFA','Türkiye':'UEFA','Czech Republic':'UEFA',
+    'Slovakia':'UEFA','Serbia':'UEFA','Slovenia':'UEFA','Ukraine':'UEFA','Poland':'UEFA',
+    'Hungary':'UEFA','Romania':'UEFA','Greece':'UEFA','Scotland':'UEFA','Wales':'UEFA',
+    'Albania':'UEFA','North Macedonia':'UEFA','Finland':'UEFA','Iceland':'UEFA','Norway':'UEFA',
+    'Sweden':'UEFA','Bosnia and Herzegovina':'UEFA','Kosovo':'UEFA','Georgia':'UEFA',
+    # CONMEBOL
+    'Brazil':'CONMEBOL','Argentina':'CONMEBOL','Uruguay':'CONMEBOL','Colombia':'CONMEBOL',
+    'Chile':'CONMEBOL','Ecuador':'CONMEBOL','Peru':'CONMEBOL','Paraguay':'CONMEBOL',
+    'Bolivia':'CONMEBOL','Venezuela':'CONMEBOL',
+    # CAF
+    'Morocco':'CAF','Senegal':'CAF','Nigeria':'CAF','Egypt':'CAF','Cameroon':'CAF',
+    'Ghana':'CAF','Ivory Coast':'CAF','Mali':'CAF','South Africa':'CAF','Tunisia':'CAF',
+    'Algeria':'CAF','DR Congo':'CAF','Zambia':'CAF','Zimbabwe':'CAF','Tanzania':'CAF',
+    'Kenya':'CAF','Angola':'CAF','Guinea':'CAF','Cape Verde':'CAF','Benin':'CAF',
+    'Gabon':'CAF','Uganda':'CAF','Mozambique':'CAF',
+    # AFC
+    'Japan':'AFC','South Korea':'AFC','Iran':'AFC','Saudi Arabia':'AFC','Australia':'AFC',
+    'Qatar':'AFC','Iraq':'AFC','Jordan':'AFC','Uzbekistan':'AFC','Indonesia':'AFC',
+    'China':'AFC','UAE':'AFC','Oman':'AFC','Bahrain':'AFC','Kuwait':'AFC',
+    'New Zealand':'AFC',  # now AFC
+    # CONCACAF
+    'Mexico':'CONCACAF','United States':'CONCACAF','Canada':'CONCACAF',
+    'Costa Rica':'CONCACAF','Honduras':'CONCACAF','Panama':'CONCACAF',
+    'Jamaica':'CONCACAF','Haiti':'CONCACAF','El Salvador':'CONCACAF',
+    'Trinidad and Tobago':'CONCACAF','Guatemala':'CONCACAF','Cuba':'CONCACAF',
+    # OFC
+    'Fiji':'OFC','Papua New Guinea':'OFC','Vanuatu':'OFC','Solomon Islands':'OFC',
+}
+
 # ── Successor state mapping ───────────────────────────────────────────────────
 # ⚠️  PROBLEM: Team continuity breaks across political events.
 # These dissolved nations should seed their successor's Elo rather than starting cold.
@@ -78,22 +123,18 @@ def actual_score(home_goals: float, away_goals: float) -> tuple[float, float]:
 
 
 # ── Mean reversion ────────────────────────────────────────────────────────────
-def apply_mean_reversion(elo: float, days_inactive: int) -> float:
+def apply_mean_reversion(elo: float, days_inactive: int, team: str = '') -> float:
     """
-    ⚠️  PROBLEM: Teams that don't play for years (WWII gap 1939–1946, or newly
-    formed nations) retain stale Elo indefinitely. Fix: pull rating 1/3 of the
-    way back to 1500 per full year of inactivity beyond 18 months.
-
-    💡 IDEA: A 'federation strength prior' would be more accurate than pure mean
-    reversion — a nation returning from a 2-year break should regress toward
-    their confederation average (UEFA ~1650, CONCACAF ~1450), not the global 1500.
-    That's a ~15-point improvement in calibration; implement post-MVP.
+    Pull rating toward confederation anchor (not global 1500) per year of
+    inactivity beyond 18 months. Prevents CONCACAF isolation from inflating
+    ratings — a Mexican team on a break reverts toward ~1560, not 1500.
     """
     if days_inactive <= 548:   # under 18 months → no reversion
         return elo
+    anchor = _CONF_ANCHOR.get(_TEAM_CONF.get(team, ''), INITIAL_ELO)
     years_inactive = (days_inactive - 548) / 365
     reversion_rate = 1/3
-    return elo + (INITIAL_ELO - elo) * reversion_rate * years_inactive
+    return elo + (anchor - elo) * reversion_rate * years_inactive
 
 
 # ── Core engine ──────────────────────────────────────────────────────────────
@@ -130,11 +171,12 @@ def build_elo(results_path: Path) -> tuple[pd.DataFrame, dict]:
         # ── Mean reversion for long inactivity ────────────────────────────────
         for team in [home, away]:
             days_idle = (date - last_played[team]).days
-            full_elo[team] = apply_mean_reversion(full_elo[team], days_idle)
-            # hot_elo: decay toward 1500 exponentially with time idle
+            full_elo[team] = apply_mean_reversion(full_elo[team], days_idle, team)
+            # hot_elo: decay toward confederation anchor exponentially with time idle
             # A team inactive for 12 months has its gap to 1500 halved.
             decay = math.exp(-math.log(2) * days_idle / HOT_DECAY_HALFLIFE)
-            hot_elo[team] = INITIAL_ELO + (hot_elo[team] - INITIAL_ELO) * decay
+            conf_anchor = _CONF_ANCHOR.get(_TEAM_CONF.get(team, ''), INITIAL_ELO)
+            hot_elo[team] = conf_anchor + (hot_elo[team] - conf_anchor) * decay
 
         # ── Capture pre-match ratings (for XGBoost training rows) ─────────────
         pre_home_full = full_elo[home]

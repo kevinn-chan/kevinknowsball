@@ -48,13 +48,12 @@ if os.path.exists(_CACHE_FILE):
 
 
 _HOST_NATIONS = {"United States", "Mexico", "Canada"}
-_HOST_BOOST = 0.05  # ~40 ELO points of home-crowd advantage
+_HOST_BOOST   = 0.025  # ~20 ELO points of home-crowd advantage
 
 def predict_match(home: str, away: str) -> dict:
     key = f"{home}|{away}"
     result = _PRED_CACHE.get(key) or _predict_match(home, away, _MODELS, _SQUAD, _ARCH)
 
-    # Host nations (USA/MEX/CAN) get a crowd boost in their own cities
     boost = _HOST_BOOST if home in _HOST_NATIONS else (-_HOST_BOOST if away in _HOST_NATIONS else 0)
     if boost == 0:
         return result
