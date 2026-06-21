@@ -63,6 +63,20 @@ function randPlayer(pool: Player[], exclude: string[]): Player {
   return eligible[Math.floor(Math.random() * eligible.length)];
 }
 
+const MAX_SKIPS = 5;
+
+function aiScoutLine(r: any): string {
+  const s = r.score;
+  const hasChem = r.chemistry_bonus > 0;
+  const hasStar = r.star_bonus > 0;
+  const overBudget = r.total_value > 150_000_000;
+  if (s >= 85) return `An elite WC squad. ${hasChem ? "Strong team cohesion gives them an edge in high-pressure knockout games." : "Star power and depth — this side could go deep in the tournament."}`;
+  if (s >= 70) return `Solid but not flawless. ${hasStar ? "The marquee signing carries real goal threat," : "Decent across the board,"} ${hasChem ? "and the chemistry bonus shows good squad harmony." : "though a shared club or nation would tighten the bond."}`;
+  if (s >= 55) return `Mid-table WC material. ${overBudget ? "Overspent on names rather than roles — balance is key." : "A few shrewd picks but the squad lacks a defining quality."}`;
+  if (s >= 40) return `Struggles ahead. The individual ratings don't add up to a cohesive unit — the group stage looks tricky.`;
+  return `This squad wouldn't survive the group stage. No chemistry, no star power, questionable positional balance.`;
+}
+
 function SquadBuilder({ allPlayers }: { allPlayers: Player[] }) {
   // candidate[pos] = the player currently shown for that slot (not yet accepted)
   const [squad, setSquad]       = useState<Record<Pos, Player|null>>({ GK:null, DEF:null, MID:null, MID2:null, ATT:null });
@@ -70,6 +84,10 @@ function SquadBuilder({ allPlayers }: { allPlayers: Player[] }) {
   const [result, setResult]     = useState<any>(null);
   const [simming, setSimming]   = useState(false);
   const [activePos, setActivePos] = useState<Pos|null>(null);
+  const [skipsLeft, setSkipsLeft] = useState(MAX_SKIPS);
+
+  // Only WC participants
+  const wcPlayers = allPlayers.filter(p => p.wc_group && p.wc_group !== "0");
 
   const acceptedNames = Object.values(squad).filter(Boolean).map(p => p!.player_name);
   const spent = Object.values(squad).reduce((s, p) => s + (p?.market_value ?? 0), 0);
@@ -78,8 +96,9 @@ function SquadBuilder({ allPlayers }: { allPlayers: Player[] }) {
 
   const poolFor = useCallback((pos: Pos) => {
     const apiPos = POS_API[pos];
-    return allPlayers.filter(p => p.general_position === apiPos && p.market_value > 0);
-  }, [allPlayers]);
+    return wcPlayers.filter(p => p.general_position === apiPos && p.market_value > 0);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [wcPlayers.length]);
 
   const deal = useCallback((pos: Pos) => {
     if (!allPlayers.length) return;
@@ -107,13 +126,25 @@ function SquadBuilder({ allPlayers }: { allPlayers: Player[] }) {
     setResult(null);
   };
 
-  const reject = (pos: Pos) => deal(pos);
+  const reject = (pos: Pos) => {
+    if (skipsLeft <= 0) return;
+    setSkipsLeft(s => s - 1);
+    deal(pos);
+  };
 
   const clear = (pos: Pos) => {
     setSquad(s => ({ ...s, [pos]: null }));
     setCandidate(c => ({ ...c, [pos]: null }));
     setActivePos(null);
     setResult(null);
+  };
+
+  const resetAll = () => {
+    setSquad({ GK:null, DEF:null, MID:null, MID2:null, ATT:null });
+    setCandidate({ GK:null, DEF:null, MID:null, MID2:null, ATT:null });
+    setSkipsLeft(MAX_SKIPS);
+    setResult(null);
+    setActivePos(null);
   };
 
   const simulate = async () => {
@@ -139,9 +170,14 @@ function SquadBuilder({ allPlayers }: { allPlayers: Player[] }) {
         <div style={{ display:"flex", justifyContent:"space-between", fontSize:11,
           color:"rgba(255,255,255,0.4)", letterSpacing:1, textTransform:"uppercase", marginBottom:6 }}>
           <span>Budget · €150M</span>
-          <span style={{ color: remaining < 0 ? "#FF6B6B" : "#4ADE80" }}>
-            {remaining < 0 ? "OVER BUDGET" : `${fmt(remaining)} remaining`}
-          </span>
+          <div style={{ display:"flex", gap:12, alignItems:"center" }}>
+            <span style={{ color: skipsLeft <= 1 ? "#FF6B6B" : skipsLeft <= 3 ? "#FFD700" : "rgba(255,255,255,0.4)" }}>
+              {skipsLeft === 0 ? "NO SKIPS LEFT" : `${skipsLeft} skip${skipsLeft !== 1 ? "s" : ""} left`}
+            </span>
+            <span style={{ color: remaining < 0 ? "#FF6B6B" : "#4ADE80" }}>
+              {remaining < 0 ? "OVER BUDGET" : `${fmt(remaining)} remaining`}
+            </span>
+          </div>
         </div>
         <div style={{ height:6, background:"rgba(255,255,255,0.07)", borderRadius:3, overflow:"hidden" }}>
           <motion.div animate={{ width:`${Math.min((spent/BUDGET)*100, 100)}%` }}
@@ -247,13 +283,16 @@ function SquadBuilder({ allPlayers }: { allPlayers: Player[] }) {
                           ✓ Keep
                         </motion.button>
                         <motion.button onClick={() => reject(pos)}
-                          whileHover={{ scale:1.08 }} whileTap={{ scale:0.93 }}
+                          disabled={skipsLeft <= 0}
+                          whileHover={skipsLeft > 0 ? { scale:1.08 } : {}} whileTap={skipsLeft > 0 ? { scale:0.93 } : {}}
                           style={{
-                            padding:"6px 14px", borderRadius:20, border:"1px solid rgba(255,107,107,0.4)",
-                            background:"rgba(255,107,107,0.1)", color:"#FF6B6B",
-                            fontSize:11, fontWeight:900, cursor:"pointer",
+                            padding:"6px 14px", borderRadius:20,
+                            border:`1px solid ${skipsLeft > 0 ? "rgba(255,107,107,0.4)" : "rgba(255,255,255,0.1)"}`,
+                            background: skipsLeft > 0 ? "rgba(255,107,107,0.1)" : "rgba(255,255,255,0.04)",
+                            color: skipsLeft > 0 ? "#FF6B6B" : "rgba(255,255,255,0.2)",
+                            fontSize:11, fontWeight:900, cursor: skipsLeft > 0 ? "pointer" : "not-allowed",
                           }}>
-                          ✗ Next
+                          ✗ Skip {skipsLeft > 0 && `(${skipsLeft})`}
                         </motion.button>
                       </div>
                     </div>
@@ -274,10 +313,20 @@ function SquadBuilder({ allPlayers }: { allPlayers: Player[] }) {
           background: full && remaining >= 0 ? "linear-gradient(135deg,#FFD700,#e6a800)" : "rgba(255,255,255,0.06)",
           color: full && remaining >= 0 ? "#000" : "rgba(255,255,255,0.25)",
           fontWeight:900, fontSize:15, letterSpacing:2, textTransform:"uppercase",
-          marginBottom: result ? 20 : 0,
+          marginBottom: result ? 20 : 8,
         }}>
-        {simming ? "Calculating…" : full ? "⚡ Simulate Squad" : "Fill all 5 slots to simulate"}
+        {simming ? "Scouting Report Loading…" : full ? "🤖 Get AI Rating" : "Fill all 5 slots to get AI rating"}
       </motion.button>
+
+      {(full || result) && (
+        <button onClick={resetAll} style={{
+          display:"block", margin:"0 auto", background:"none", border:"none",
+          color:"rgba(255,255,255,0.2)", fontSize:11, cursor:"pointer", letterSpacing:1,
+          textDecoration:"underline", marginBottom: result ? 12 : 0,
+        }}>
+          Reset Squad
+        </button>
+      )}
 
       {/* Result */}
       <AnimatePresence>
@@ -289,13 +338,17 @@ function SquadBuilder({ allPlayers }: { allPlayers: Player[] }) {
             }}>
             {/* Score ring */}
             <div style={{ textAlign:"center", marginBottom:16 }}>
-              <div style={{ fontSize:11, color:"rgba(255,255,255,0.3)", letterSpacing:2,
-                textTransform:"uppercase", marginBottom:4 }}>Squad Power Score</div>
+              <div style={{ fontSize:10, color:"rgba(255,255,255,0.25)", letterSpacing:3,
+                textTransform:"uppercase", marginBottom:4 }}>🤖 AI Scouting Report</div>
               <div style={{ fontSize:72, fontWeight:900, lineHeight:1, color:scoreColor,
                 textShadow:`0 0 32px ${scoreColor}55` }}>
                 {result.score}
               </div>
               <div style={{ fontSize:16, fontWeight:800, color:scoreColor, marginTop:4 }}>{result.verdict}</div>
+              <div style={{ fontSize:11, color:"rgba(255,255,255,0.4)", marginTop:10, lineHeight:1.6,
+                padding:"0 8px", fontStyle:"italic" }}>
+                {aiScoutLine(result)}
+              </div>
             </div>
 
             {/* Bonuses */}
