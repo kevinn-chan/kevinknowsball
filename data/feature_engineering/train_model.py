@@ -231,7 +231,20 @@ def predict_match(home: str, away: str, models: dict,
     lam_h = float(np.clip(models["reg_h"].predict(X)[0], 0.20, 5.0))
     lam_a = float(np.clip(models["reg_a"].predict(X)[0], 0.20, 5.0))
 
-    # Squad-metric soft nudge (20% weight on top of Elo signal)
+    # ELO-calibration anchor: blend classifier with pure ELO expectation first.
+    elo_home_win = 1.0 / (1.0 + 10.0 ** (-elo_diff / 400.0))
+    draw_rate    = 0.22
+    elo_away_win = max(1.0 - elo_home_win - draw_rate, 0.02)
+    elo_prior = np.array([elo_away_win, draw_rate, elo_home_win])
+    elo_prior /= elo_prior.sum()
+
+    BLEND = 0.50
+    probs_adj = BLEND * probs.copy() + (1.0 - BLEND) * elo_prior
+    probs_adj /= probs_adj.sum()
+
+    # Squad-metric nudge applied AFTER ELO blend so it isn't washed out.
+    # Captures what ELO misses: squad depth, elite-league exposure, market value,
+    # age profile, tactical variety. Weighted ~15% of final probability.
     squad_adv = (
         0.30 * np.tanh((h["total_squad_value"]  - a["total_squad_value"])  / 1e8)
         + 0.15 * np.tanh((h["age_peak_score"]   - a["age_peak_score"])     * 5)
@@ -242,30 +255,14 @@ def predict_match(home: str, away: str, models: dict,
         + 0.05 * np.tanh(h["tactical_entropy"]  - a["tactical_entropy"])
         + 0.05 * np.tanh((h["avg_versatility"]  - a["avg_versatility"])    * 5)
     )
-    nudge = 0.20 * squad_adv
-    probs_adj = probs.copy()
+    nudge = 0.15 * squad_adv  # 15% weight — meaningful but ELO still dominates
     probs_adj[2] = np.clip(probs_adj[2] + nudge, 0.01, 0.98)
     probs_adj[0] = np.clip(probs_adj[0] - nudge, 0.01, 0.98)
     probs_adj /= probs_adj.sum()
 
-    # Also nudge λ values — clip again after nudge
+    # Nudge λ values with squad signal
     lam_h = float(np.clip(lam_h * (1 + 0.10 * squad_adv), 0.20, 5.0))
     lam_a = float(np.clip(lam_a * (1 - 0.10 * squad_adv), 0.20, 5.0))
-
-    # ELO-calibration anchor: blend model probs with pure ELO expectation (neutral venue).
-    # The classifier over-learned real home advantage from training data — at WC neutral
-    # venues a 400-point ELO gap should give the stronger team ~85%+ win probability, not
-    # produce a coin flip. Blending 50/50 anchors predictions to the ELO reality while
-    # keeping squad/form signal from the model.
-    elo_home_win = 1.0 / (1.0 + 10.0 ** (-elo_diff / 400.0))
-    draw_rate    = 0.22  # typical WC draw rate (roughly constant across mismatches)
-    elo_away_win = max(1.0 - elo_home_win - draw_rate, 0.02)
-    elo_prior = np.array([elo_away_win, draw_rate, elo_home_win])
-    elo_prior /= elo_prior.sum()
-
-    BLEND = 0.50
-    probs_adj = BLEND * probs_adj + (1.0 - BLEND) * elo_prior
-    probs_adj /= probs_adj.sum()
 
     # Floor the stronger team's λ: if one team is 150+ ELO points better, they should
     # score at least 0.9 goals in expectation (equivalent to ~0.6 GPG over 90 min).
