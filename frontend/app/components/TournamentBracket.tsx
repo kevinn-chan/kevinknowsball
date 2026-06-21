@@ -36,12 +36,33 @@ const GROUPS: Record<string, string[]> = {
 
 function Flag({ country, size = 20 }: { country: string; size?: number }) {
   const iso = ISO2[country];
-  if (!iso) return <span style={{ width: size, height: Math.round(size * 0.67), display: "inline-block", background: "rgba(255,255,255,0.1)", borderRadius: 2 }} />;
+  const abbr = (country || "?").slice(0, 3).toUpperCase();
+  const placeholder = (
+    <span style={{
+      width: size, height: Math.round(size * 0.67), display: "inline-flex",
+      alignItems: "center", justifyContent: "center",
+      background: "rgba(255,255,255,0.12)", borderRadius: 2,
+      fontSize: size * 0.35, color: "rgba(255,255,255,0.6)", flexShrink: 0,
+    }}>{abbr}</span>
+  );
+  if (!iso) return placeholder;
   return (
     <img src={`https://flagcdn.com/w40/${iso}.png`} alt={country} width={size}
       height={Math.round(size * 0.67)}
       style={{ objectFit: "cover", borderRadius: 2, flexShrink: 0 }}
-      onError={(e) => ((e.target as HTMLImageElement).style.display = "none")} />
+      onError={(e) => {
+        const el = e.target as HTMLImageElement;
+        el.style.display = "none";
+        const span = document.createElement("span");
+        span.textContent = abbr;
+        Object.assign(span.style, {
+          display: "inline-flex", alignItems: "center", justifyContent: "center",
+          width: `${size}px`, height: `${Math.round(size * 0.67)}px`,
+          background: "rgba(255,255,255,0.12)", borderRadius: "2px",
+          fontSize: `${size * 0.35}px`, color: "rgba(255,255,255,0.6)", flexShrink: "0",
+        });
+        el.parentNode?.insertBefore(span, el.nextSibling);
+      }} />
   );
 }
 

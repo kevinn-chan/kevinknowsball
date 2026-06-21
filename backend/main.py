@@ -30,7 +30,7 @@ sys.path.insert(0, os.path.join(BASE, "backend"))
 from simulate import (
     predict_match, simulate_scoreline, simulate_group,
     simulate_tournament, monte_carlo, GROUPS_CSV,
-    _MODELS, _SQUAD, _ARCH
+    _MODELS, _SQUAD, _ARCH, _build_r32_pairs
 )
 
 app = FastAPI(title="WC 2026 AI Predictor", version="1.0.0")
@@ -278,64 +278,66 @@ def get_teams():
 
 
 def _run_bracket_sim() -> dict:
-    """Pure simulation — no I/O, called from startup thread and on-demand."""
+    """
+    Simulate one full bracket for the /simulate/bracket endpoint.
+    Uses the same group-stage + fixed R32 bracket logic as simulate_tournament().
+    Returns richly-structured data (with scores + probabilities) for the frontend.
+    """
     import random as _random
+
     groups_df = pd.read_csv(GROUPS_CSV)
 
+    # ── Group stage ───────────────────────────────────────────────────────────
     group_results: dict = {}
     all_thirds: list = []
     for grp, gdf in groups_df.groupby("group"):
-        teams = gdf["country"].tolist()
-        standing = simulate_group(teams)
+        standing = simulate_group(gdf["country"].tolist())
         group_results[grp] = standing
         all_thirds.append({**standing[2], "group": grp})
 
-    best_thirds = sorted(all_thirds, key=lambda x: (x["pts"], x["gd"], x["gf"]), reverse=True)[:8]
+    best_thirds = sorted(
+        all_thirds,
+        key=lambda x: (x["pts"], x["gd"], x["gf"]),
+        reverse=True
+    )[:8]
 
-    grp_order = sorted(group_results.keys())
-    firsts  = [group_results[g][0]["team"] for g in grp_order]
-    seconds = [group_results[g][1]["team"] for g in grp_order]
-    thirds  = [t["team"] for t in best_thirds]
-    thirds_s = thirds[:]
-    _random.shuffle(thirds_s)
-
-    r32_pairs = (
-        list(zip(firsts[:8], thirds_s)) +
-        list(zip(firsts[8:], seconds[:4])) +
-        [(seconds[i], seconds[i + 1]) for i in range(4, 12, 2)]
-    )
+    # ── R32 bracket (fixed seeding — no shuffle) ──────────────────────────────
+    r32_pairs = _build_r32_pairs(group_results, best_thirds)
 
     def play_round(pairs):
         matches, winners = [], []
         for home, away in pairs:
             res = predict_match(home, away)
             hg, ag = simulate_scoreline(res["lambda_home"], res["lambda_away"])
+            # Extra time: keep trying until a goal is scored (up to 5 periods)
             attempts = 0
             while hg == ag and attempts < 5:
                 hg2, ag2 = simulate_scoreline(res["lambda_home"] * 0.6, res["lambda_away"] * 0.6)
                 hg += hg2; ag += ag2
                 attempts += 1
             if hg == ag:
-                # Resolve pens using model win probability (normalised, ignoring draw)
                 pen_p = res["home_win"] / (res["home_win"] + res["away_win"])
                 winner = home if _random.random() < pen_p else away
                 score = f"{hg}-{ag} (pens)"
             else:
                 winner = home if hg > ag else away
                 score = f"{hg}-{ag}"
-            matches.append({"home": home, "away": away, "score": score, "winner": winner,
-                             "home_win_prob": res["home_win"], "draw_prob": res["draw"],
-                             "away_win_prob": res["away_win"]})
+            matches.append({
+                "home": home, "away": away, "score": score, "winner": winner,
+                "home_win_prob": res["home_win"], "draw_prob": res["draw"],
+                "away_win_prob": res["away_win"],
+            })
             winners.append(winner)
         return matches, winners
 
-    r32, r16t  = play_round(r32_pairs)
-    r16, qft   = play_round([(r16t[i], r16t[i + 1]) for i in range(0, 16, 2)])
-    qf,  sft   = play_round([(qft[i],  qft[i + 1])  for i in range(0,  8, 2)])
-    sf,  fint  = play_round([(sft[i],  sft[i + 1])  for i in range(0,  4, 2)])
-    losers = [m["home"] if m["winner"] == m["away"] else m["away"] for m in sf]
-    tp, _ = play_round([(losers[0], losers[1])] if len(losers) >= 2 else [])
-    fin, _ = play_round([(fint[0], fint[1])])
+    r32,  r16t = play_round(r32_pairs)
+    r16,  qft  = play_round([(r16t[i], r16t[i+1]) for i in range(0, 16, 2)])
+    qf,   sft  = play_round([(qft[i],  qft[i+1])  for i in range(0,  8, 2)])
+    sf,   fint = play_round([(sft[i],  sft[i+1])  for i in range(0,  4, 2)])
+
+    sf_losers = [m["home"] if m["winner"] == m["away"] else m["away"] for m in sf]
+    tp,  _     = play_round([(sf_losers[0], sf_losers[1])] if len(sf_losers) >= 2 else [])
+    fin, _     = play_round([(fint[0], fint[1])])
 
     return {
         "group_stage": group_results,

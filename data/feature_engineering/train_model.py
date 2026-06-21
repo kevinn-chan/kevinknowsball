@@ -36,7 +36,7 @@ TRAIN_FEATURES = ["elo_diff", "hot_elo_diff", "tournament_weight"]
 
 # Half-life for time-decay weighting: 4 years = 1461 days
 _DECAY_HALFLIFE_DAYS = 1461
-_REFERENCE_DATE = pd.Timestamp("2026-06-01")
+_REFERENCE_DATE = pd.Timestamp("2026-06-11")  # WC2026 kick-off date
 
 
 # ── 1. Build training data ────────────────────────────────────────────────────

@@ -3,7 +3,7 @@ Poisson + Monte Carlo simulation engine.
 All models and data are loaded once at module level for Monte Carlo speed.
 
 simulate_scoreline(lam_h, lam_a) → (home_goals, away_goals)
-simulate_group(teams)            → sorted group standings
+simulate_group(teams)            → sorted group standings (FIFA tiebreaker rules)
 simulate_tournament(groups_df)   → {team: finishing_position}
 monte_carlo(n)                   → {team: {win, final, semi, quarter, r16}}
 """
@@ -40,6 +40,8 @@ DC_RHO = _MODELS.get("dc_rho", -0.10)
 # Load pre-computed predictions (generated locally, committed to repo)
 _CACHE_FILE = os.path.join(BASE, "data", "engineered", "predictions_cache.json")
 _PRED_CACHE: dict[str, dict] = {}
+_cache_misses = 0
+
 if os.path.exists(_CACHE_FILE):
     import json as _json
     with open(_CACHE_FILE) as _f:
@@ -51,8 +53,14 @@ _HOST_NATIONS = {"United States", "Mexico", "Canada"}
 _HOST_BOOST   = 0.025  # ~20 ELO points of home-crowd advantage
 
 def predict_match(home: str, away: str) -> dict:
+    global _cache_misses
     key = f"{home}|{away}"
-    result = _PRED_CACHE.get(key) or _predict_match(home, away, _MODELS, _SQUAD, _ARCH)
+    result = _PRED_CACHE.get(key)
+    if result is None:
+        _cache_misses += 1
+        if _cache_misses <= 10:
+            print(f"  [WARN] Cache miss #{_cache_misses}: {key}", flush=True)
+        result = _predict_match(home, away, _MODELS, _SQUAD, _ARCH)
 
     boost = _HOST_BOOST if home in _HOST_NATIONS else (-_HOST_BOOST if away in _HOST_NATIONS else 0)
     if boost == 0:
@@ -76,14 +84,9 @@ def warm_cache(groups_df: pd.DataFrame):
 # ── Dixon-Coles correction ────────────────────────────────────────────────────
 
 def _dc_tau(hg: int, ag: int, lh: float, la: float) -> float:
-    # Dixon-Coles (1997) correction — DC1997 Eq. 4:
-    #   τ(0,0) = 1 − λ_h · λ_a · ρ
-    #   τ(1,0) = 1 + λ_h · ρ    (home scored, uses λ_home)
-    #   τ(0,1) = 1 + λ_a · ρ    (away scored, uses λ_away)
-    #   τ(1,1) = 1 − ρ
     if hg == 0 and ag == 0: return 1 - lh * la * DC_RHO
-    if hg == 0 and ag == 1: return 1 + la * DC_RHO   # fixed: was lh (wrong)
-    if hg == 1 and ag == 0: return 1 + lh * DC_RHO   # fixed: was la (wrong)
+    if hg == 0 and ag == 1: return 1 + la * DC_RHO
+    if hg == 1 and ag == 0: return 1 + lh * DC_RHO
     if hg == 1 and ag == 1: return 1 - DC_RHO
     return 1.0
 
@@ -103,9 +106,19 @@ def simulate_scoreline(lam_h: float, lam_a: float) -> tuple[int, int]:
 # ── Group stage ───────────────────────────────────────────────────────────────
 
 def simulate_group(teams: list[str]) -> list[dict]:
-    """Round-robin 6 matches, return standings sorted pts → GD → GF → H2H."""
-    stats = {t: {"pts": 0, "gf": 0, "ga": 0} for t in teams}
-    h2h   = defaultdict(int)   # h2h[(t1,t2)] = pts earned by t1 vs t2
+    """
+    Round-robin 6 matches. Standings sorted by official FIFA tiebreaker rules:
+      1. Points
+      2. Goal difference (all group matches)
+      3. Goals scored (all group matches)
+      4. Head-to-head points (among tied teams only)
+      5. Head-to-head goal difference (among tied teams only)
+      6. Head-to-head goals scored (among tied teams only)
+      7. Drawing of lots (random)
+    """
+    stats    = {t: {"pts": 0, "gf": 0, "ga": 0} for t in teams}
+    h2h_pts  = defaultdict(int)   # h2h_pts[(t1,t2)]  = pts t1 earned vs t2
+    h2h_gf   = defaultdict(int)   # h2h_gf[(t1,t2)]   = goals t1 scored vs t2
 
     for home, away in combinations(teams, 2):
         res = predict_match(home, away)
@@ -113,50 +126,138 @@ def simulate_group(teams: list[str]) -> list[dict]:
 
         stats[home]["gf"] += hg;  stats[home]["ga"] += ag
         stats[away]["gf"] += ag;  stats[away]["ga"] += hg
+        h2h_gf[(home, away)] += hg
+        h2h_gf[(away, home)] += ag
 
         if hg > ag:
             stats[home]["pts"] += 3
-            h2h[(home, away)] += 3
+            h2h_pts[(home, away)] += 3
         elif hg < ag:
             stats[away]["pts"] += 3
-            h2h[(away, home)] += 3
+            h2h_pts[(away, home)] += 3
         else:
             stats[home]["pts"] += 1;  stats[away]["pts"] += 1
-            h2h[(home, away)] += 1;   h2h[(away, home)] += 1
+            h2h_pts[(home, away)] += 1;   h2h_pts[(away, home)] += 1
 
-    def sort_key(t):
+    def overall_key(t):
         s = stats[t]
-        gd    = s["gf"] - s["ga"]
-        h2h_p = sum(v for (t1, _), v in h2h.items() if t1 == t)
-        return (s["pts"], gd, s["gf"], h2h_p)
+        return (s["pts"], s["gf"] - s["ga"], s["gf"])
 
-    ranked = sorted(teams, key=sort_key, reverse=True)
+    def h2h_key(t, group):
+        """H2H pts, GD, GF against other members of the tied group only."""
+        opps = [o for o in group if o != t]
+        pts  = sum(h2h_pts[(t, o)] for o in opps)
+        gf   = sum(h2h_gf[(t, o)] for o in opps)
+        ga   = sum(h2h_gf[(o, t)] for o in opps)
+        return (pts, gf - ga, gf)
+
+    # Sort by overall criteria first
+    pre_sorted = sorted(teams, key=overall_key, reverse=True)
+
+    # Break remaining ties with H2H within the tied subset, then random
+    result = []
+    i = 0
+    while i < len(pre_sorted):
+        key = overall_key(pre_sorted[i])
+        j   = i
+        while j < len(pre_sorted) and overall_key(pre_sorted[j]) == key:
+            j += 1
+        tied = pre_sorted[i:j]
+
+        if len(tied) == 1:
+            result.extend(tied)
+        else:
+            # Sort tied group by H2H (only between each other)
+            h2h_sorted = sorted(tied, key=lambda t: h2h_key(t, tied), reverse=True)
+
+            # Check if H2H fully resolved the tie; for remaining ties use random lots
+            # Group by H2H key, randomise within each sub-tie
+            h2h_pre: list[str] = []
+            k = 0
+            while k < len(h2h_sorted):
+                hkey = h2h_key(h2h_sorted[k], tied)
+                l = k
+                while l < len(h2h_sorted) and h2h_key(h2h_sorted[l], tied) == hkey:
+                    l += 1
+                sub_tie = h2h_sorted[k:l]
+                random.shuffle(sub_tie)   # drawing of lots for final tie
+                h2h_pre.extend(sub_tie)
+                k = l
+
+            result.extend(h2h_pre)
+        i = j
+
     return [
-        {"team": t, "pos": i+1,
+        {"team": t, "pos": i + 1,
          "pts": stats[t]["pts"], "gf": stats[t]["gf"], "ga": stats[t]["ga"],
          "gd": stats[t]["gf"] - stats[t]["ga"]}
-        for i, t in enumerate(ranked)
+        for i, t in enumerate(result)
     ]
 
 
 # ── Knockout match ────────────────────────────────────────────────────────────
 
 def simulate_knockout(home: str, away: str) -> str:
-    """Return winner. Draw → extra-time/penalties with 60/40 edge to higher-Elo team.
-
-    Real WC penalty shootout data (1982–2022) shows the team kicking first
-    wins ~57–60% of shootouts. We proxy 'kicks first' with the model's
-    stronger team (home_win > away_win). This replaces the arbitrary ±0.05 nudge.
-    """
+    """Return winner. Draw → penalties resolved by model's relative win probability."""
     res = predict_match(home, away)
     r   = random.random()
     if r < res["home_win"]:
         return home
     elif r < res["home_win"] + res["draw"]:
-        # 60/40 to stronger team (statistically grounded from WC shootout data)
-        edge = 0.60 if res["home_win"] >= res["away_win"] else 0.40
-        return home if random.random() < edge else away
+        pen_p = res["home_win"] / (res["home_win"] + res["away_win"])
+        return home if random.random() < pen_p else away
     return away
+
+
+# ── WC 2026 R32 bracket ───────────────────────────────────────────────────────
+#
+# Official FIFA WC2026 structure:
+#   - 12 groups (A–L) paired as (A,B),(C,D),(E,F),(G,H),(I,J),(K,L)
+#   - Each group pair produces two R32 matches: 1X vs 2Y and 1Y vs 2X
+#   - 8 best 3rd-place teams are seeded 1–8, paired #1v#8, #2v#7, #3v#6, #4v#5
+#   - The 4 thirds-matches are placed one per bracket quarter
+#
+# Bracket quarters (each QT → 1 QF winner → SF):
+#   QT1: 1A vs 2B, 1C vs 2D, 3rd#1 vs 3rd#8, 1E vs 2F
+#   QT2: 1B vs 2A, 1D vs 2C, 3rd#2 vs 3rd#7, 1F vs 2E
+#   QT3: 1G vs 2H, 1I vs 2J, 3rd#3 vs 3rd#6, 1K vs 2L
+#   QT4: 1H vs 2G, 1J vs 2I, 3rd#4 vs 3rd#5, 1L vs 2K
+#
+# Group-pair teams can meet no earlier than the semi-finals.
+# Best-thirds are seeded to prevent #1 playing #2 before QF.
+
+def _build_r32_pairs(group_results: dict, best_thirds: list[dict]) -> list[tuple[str, str]]:
+    """
+    Return the 16 R32 matchups in bracket order.
+    best_thirds must already be sorted best→worst (index 0 = best).
+    """
+    def first(g):  return group_results[g][0]["team"]
+    def second(g): return group_results[g][1]["team"]
+
+    t = [x["team"] for x in best_thirds]  # t[0]=best, t[7]=worst
+
+    return [
+        # Quarter 1
+        (first("A"), second("B")),
+        (first("C"), second("D")),
+        (t[0], t[7]),              # 3rd #1 vs 3rd #8
+        (first("E"), second("F")),
+        # Quarter 2
+        (first("B"), second("A")),
+        (first("D"), second("C")),
+        (t[1], t[6]),              # 3rd #2 vs 3rd #7
+        (first("F"), second("E")),
+        # Quarter 3
+        (first("G"), second("H")),
+        (first("I"), second("J")),
+        (t[2], t[5]),              # 3rd #3 vs 3rd #6
+        (first("K"), second("L")),
+        # Quarter 4
+        (first("H"), second("G")),
+        (first("J"), second("I")),
+        (t[3], t[4]),              # 3rd #4 vs 3rd #5
+        (first("L"), second("K")),
+    ]
 
 
 # ── Full tournament ───────────────────────────────────────────────────────────
@@ -173,52 +274,43 @@ def simulate_tournament(groups_df: pd.DataFrame) -> dict[str, int]:
         standing = simulate_group(gdf["country"].tolist())
         group_results[grp] = standing
         all_thirds.append({**standing[2], "group": grp})
+        # 4th-place teams eliminated
+        positions[standing[3]["team"]] = 49
 
     # ── 8 best third-place teams ──────────────────────────────────────────────
-    best_thirds = sorted(all_thirds, key=lambda x: (x["pts"], x["gd"], x["gf"]), reverse=True)[:8]
+    best_thirds = sorted(
+        all_thirds,
+        key=lambda x: (x["pts"], x["gd"], x["gf"]),
+        reverse=True
+    )[:8]
     third_teams = {t["team"] for t in best_thirds}
 
-    # Mark eliminated thirds (4 who didn't qualify)
     for t in all_thirds:
         if t["team"] not in third_teams:
-            positions[t["team"]] = 37   # group stage exit (3rd, not best)
+            positions[t["team"]] = 37   # eliminated 3rd-place
 
-    # ── Build R32 field ───────────────────────────────────────────────────────
-    grp_order = sorted(group_results.keys())
-    firsts  = [group_results[g][0]["team"] for g in grp_order]
-    seconds = [group_results[g][1]["team"] for g in grp_order]
-    thirds  = [t["team"] for t in best_thirds]
-    random.shuffle(thirds)   # ponytail: simplified bracket seeding
-
-    # 32 teams: pair 12 firsts vs 8 thirds, remaining 4 firsts vs 4 seconds,
-    # 8 remaining seconds paired among themselves
-    r32_pairs = (
-        list(zip(firsts[:8],  thirds)) +          # 8 winners vs 8 best thirds
-        list(zip(firsts[8:],  seconds[:4])) +     # 4 winners vs 4 runners-up
-        [(seconds[i], seconds[i+1]) for i in range(4, 12, 2)]  # 4 runner-up pairs
-    )
+    # ── Build R32 bracket (fixed, seeded — no randomness) ────────────────────
+    r32_pairs = _build_r32_pairs(group_results, best_thirds)
 
     # ── Knockout rounds ───────────────────────────────────────────────────────
     def run_round(pairs, loser_pos):
-        winners, losers = [], []
+        winners = []
         for h, a in pairs:
             w = simulate_knockout(h, a)
             winners.append(w)
-            losers.append(a if w == h else h)
-        for t in losers:
-            positions[t] = loser_pos
+            positions[a if w == h else h] = loser_pos
         return winners
 
-    r16    = run_round(r32_pairs,                                      33)  # R32 losers
-    qf     = run_round([(r16[i], r16[i+1]) for i in range(0,16,2)],   17)  # R16 losers
-    sf     = run_round([(qf[i],  qf[i+1])  for i in range(0, 8,2)],    9)  # QF losers
-    finals = run_round([(sf[i],  sf[i+1])  for i in range(0, 4,2)],    5)  # SF losers
+    r16    = run_round(r32_pairs,                                       33)
+    qf     = run_round([(r16[i], r16[i+1]) for i in range(0, 16, 2)],  17)
+    sf     = run_round([(qf[i],  qf[i+1])  for i in range(0,  8, 2)],   9)
+    finals = run_round([(sf[i],  sf[i+1])  for i in range(0,  4, 2)],   5)
 
-    # 3rd-place match
+    # 3rd-place playoff
     sf_losers = [t for t in sf if t not in finals]
     if len(sf_losers) >= 2:
-        third = simulate_knockout(sf_losers[0], sf_losers[1])
-        fourth = sf_losers[1] if third == sf_losers[0] else sf_losers[0]
+        third   = simulate_knockout(sf_losers[0], sf_losers[1])
+        fourth  = sf_losers[1] if third == sf_losers[0] else sf_losers[0]
         positions[third]  = 3
         positions[fourth] = 4
 
