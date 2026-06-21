@@ -128,13 +128,17 @@ def apply_mean_reversion(elo: float, days_inactive: int, team: str = '') -> floa
     Pull rating toward confederation anchor (not global 1500) per year of
     inactivity beyond 18 months. Prevents CONCACAF isolation from inflating
     ratings — a Mexican team on a break reverts toward ~1560, not 1500.
+
+    Factor is clamped to [0, 1] so ELO can never overshoot the anchor.
+    Without this, teams with decade-long inactivity gaps (e.g. South Africa
+    during apartheid ban) accumulate a factor > 1 and go deeply negative.
     """
     if days_inactive <= 548:   # under 18 months → no reversion
         return elo
     anchor = _CONF_ANCHOR.get(_TEAM_CONF.get(team, ''), INITIAL_ELO)
     years_inactive = (days_inactive - 548) / 365
-    reversion_rate = 1/3
-    return elo + (anchor - elo) * reversion_rate * years_inactive
+    factor = min(1.0, (1/3) * years_inactive)  # clamp: never overshoot anchor
+    return elo + (anchor - elo) * factor
 
 
 # ── Core engine ──────────────────────────────────────────────────────────────
@@ -276,6 +280,28 @@ def build_current_elo_table(full_elo: dict, hot_elo: dict, recent_deltas: dict, 
         })
 
     df = pd.DataFrame(rows).sort_values('full_elo', ascending=False).reset_index(drop=True)
+
+    # ── Manual calibration overrides ──────────────────────────────────────────
+    # Applied AFTER ELO computation to correct for structural biases:
+    #   - Weak-pool inflation: Mexico/Australia/Iran rack up wins vs weak CONCACAF/AFC
+    #     opposition, overstating true quality vs international competition.
+    #   - Strong-pool suppression: Morocco/Senegal dominate CAF but wins vs weaker
+    #     African sides don't move ELO much; WC2022 semifinal run underweighted.
+    # Overrides are conservative nudges, not large manual edits.
+    _OVERRIDES = {
+        'Mexico':    -40,   # CONCACAF pool inflation
+        'Australia': -30,   # AFC pool inflation
+        'Iran':      -30,   # AFC pool inflation
+        'Morocco':   +40,   # WC2022 SF run + CAF dominance suppressed
+        'Senegal':   +30,   # AFCON winners, CAF pool suppression
+    }
+    for team, delta in _OVERRIDES.items():
+        mask = df['country'] == team
+        if mask.any():
+            df.loc[mask, 'full_elo'] = round(df.loc[mask, 'full_elo'].values[0] + delta, 1)
+            df.loc[mask, 'hot_elo']  = round(df.loc[mask, 'hot_elo'].values[0]  + delta, 1)
+
+    df = df.sort_values('full_elo', ascending=False).reset_index(drop=True)
     df['elo_rank'] = df.index + 1
     return df
 

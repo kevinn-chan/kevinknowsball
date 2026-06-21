@@ -1,5 +1,5 @@
 country,group,manager,tenure_days,has_elite_pedigree
-Mexico,A,Javier Aguirre,650,1
+Mexico,A,Javier Aguirre,650,0
 South Africa,A,Hugo Broos,1824,0
 South Korea,A,Hong Myung-bo,664,0
 Czech Republic,A,Miroslav Koubek,135,0
@@ -19,7 +19,7 @@ Germany,E,Julian Nagelsmann,954,1
 Curaçao,E,Fred Rutten,69,0
 Ivory Coast,E,Emerse Faé,830,0
 Ecuador,E,Sebastián Beccacece,639,0
-Netherlands,F,Ronald Koeman,1196,1
+Netherlands,F,Ronald Koeman,1196,0
 Japan,F,Hajime Moriyasu,2838,0
 Sweden,F,Graham Potter,195,1
 Tunisia,F,Sabri Lamouchi,109,0

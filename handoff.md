@@ -1,6 +1,6 @@
 # WC2026 Project Handoff
 
-Transitioning from Gemini to Claude. Full architecture from Gemini conversations + codebase.
+Last updated: **June 22, 2026**
 
 ---
 
@@ -8,8 +8,10 @@ Transitioning from Gemini to Claude. Full architecture from Gemini conversations
 
 Build a **State-of-the-Art Football Analytics Engine** for the 2026 FIFA World Cup (48 teams, Groups A–L):
 - Simulate the tournament group stage → knockout rounds via Monte Carlo
-- Predict win probabilities for any matchup using XGBoost
+- Predict win probabilities for any matchup using XGBoost + squad quality nudge
 - Surface everything in a Next.js "Football Manager" UI
+
+**Live:** [kevinknowsball.vercel.app](https://kevinknowsball.vercel.app) · API: [kevinknowsball.onrender.com](https://kevinknowsball.onrender.com)
 
 ---
 
@@ -17,13 +19,13 @@ Build a **State-of-the-Art Football Analytics Engine** for the 2026 FIFA World C
 
 | Source | File | Contents |
 |---|---|---|
-| Kaggle (Transfermarkt) | `raw_kaggle/results.csv` | 100+ years of international match history |
+| Kaggle (Transfermarkt) | `raw_kaggle/results.csv` | 100+ years of international match history (to Jun 27 2026) |
 | Kaggle (Transfermarkt) | `raw_kaggle/players.csv` | Financial data, positions, caps |
-| Kaggle (Transfermarkt) | `raw_kaggle/appearances.csv` | Club minutes played (for burnout metric) |
+| Kaggle (Transfermarkt) | `raw_kaggle/appearances.csv` | Club minutes played (to May 24 2026 — covers full domestic season) |
 | FBref (soccerdata) | `raw_scraped/fbref_global_stats.csv` | Per-90 tactical stats, 10 leagues, 2025/26 season |
 | Wikipedia | `raw_scraped/manager_tenures.csv` | National team managers + appointment dates |
 | Transfermarkt | `raw_scraped/wc_injured_players.csv` | Players missing WC due to injury (return > Jul 19 2026) |
-| Wikipedia | `raw_scraped/wc2026_official_squads.csv` | **NEW** — Official 26-man squads for all 48 teams |
+| Wikipedia | `raw_scraped/wc2026_official_squads.csv` | Official 26-man squads for all 48 teams (scraped Jun 20 2026) |
 
 ---
 
@@ -32,122 +34,156 @@ Build a **State-of-the-Art Football Analytics Engine** for the 2026 FIFA World C
 | Script | Output | Key Technique |
 |---|---|---|
 | `clean_results.py` | `cleaned/cleaned_results.csv` (~49k matches) | Tournament weighting: WC=60, continental=50, qualifiers/NL=30, friendly=10 |
-| `clean_manager.py` | `cleaned/cleaned_wc_managers.csv` | tenure_days + has_elite_pedigree binary flag |
-| `clean_players.py` | `cleaned/squad_strength.csv` | Top-26-by-value aggregate per country (now superseded by official squads) |
-| `players_database.py` | `cleaned/players_masterlist.csv` (~18k players) | DuckDB joins + RapidFuzz entity resolution (TM ↔ FBref) + KNN imputation |
+| `clean_manager.py` | `cleaned/cleaned_wc_managers.csv` | tenure_days + has_elite_pedigree binary flag (14 managers) |
+| `players_database.py` | `cleaned/players_masterlist.csv` (17,358 players) | DuckDB joins + RapidFuzz entity resolution (TM ↔ FBref) + KNN imputation |
 
-### players_masterlist.csv schema (the feature matrix)
+### players_masterlist.csv schema
 ```
 player_id, player_name, country, wc_group, club_team, age, general_position,
 specific_position, market_value, international_caps, international_goals,
 goals_per_90, assists_per_90, interceptions, tackles_won, crosses
 ```
-The tactical stats (goals_per_90 … crosses) feed the K-Means clusterer.
-Market value + caps feed the XGBoost predictor.
 
-### wc2026_official_squads.csv schema (NEW — actual selections)
-```
-country, shirt_no, position, player_name, dob, caps, goals, club, age_at_wc, general_position
-```
-Scraped from Wikipedia. 1,248 players, 26 per team, zero nulls. Replaces the top-26-by-value proxy.
+### players_database.py — key fixes applied
+- **FBref name collision dedup**: FBref has multiple players with same name (e.g. "Rodri" at Man City and "Rodri" at Moreirense). Fixed by deduplicating FBref on `norm_name` before JOIN, then deduplicating final result by `player_id`. Result: 17,358 unique players, 0 duplicates (was 19,191 with duplicates).
+
+### elite_pedigree managers (clean_manager.py)
+Currently flagged as elite (has_elite_pedigree=1):
+Scaloni, Deschamps, Ancelotti, Tuchel, R. Martínez, Nagelsmann, Marsch, Lopetegui, Pochettino, G. Potter, R. Garcia, De la Fuente, Bielsa, Rangnick
+
+**Removed from list**: Javier Aguirre (Mexico), Ronald Koeman (Netherlands) — Jun 22 2026
 
 ---
 
 ## Phase 3: Advanced Feature Engineering ✅ COMPLETE
 
 ### A. `build_elo.py` ✅ COMPLETE
-538-style Elo engine with:
-- Margin of Victory multiplier
-- Home advantage (zeroed on neutral ground)
+
+538-style Elo engine:
+- Margin of Victory multiplier (538-style autocorrelation correction)
+- Home advantage (zeroed on neutral ground — all WC games neutral)
 - Predecessor team inheritance (USSR→Russia, Yugoslavia→Serbia/Croatia, etc.)
-- Exponential `hot_elo` decay (365-day half-life)
-- Mean reversion for long inactivity
+- Exponential `hot_elo` decay (365-day half-life, replaced hard 24-month reset)
+- Confederation-anchored mean reversion (UEFA 1680, CONMEBOL 1700, CAF 1620, etc.)
+
+**Bug fixed (Jun 22 2026):** Mean reversion was unbounded — South Africa's apartheid-era inactivity gap (~22yr) caused `factor > 1`, overshooting the anchor and producing `full_elo = -787`. Fixed by clamping `factor = min(1.0, reversion_rate * years_inactive)`. South Africa now correctly at 1686.
+
+**Manual calibration overrides** (applied after ELO computation):
+
+| Team | Adjustment | Reason |
+|---|---|---|
+| Mexico | −40 | CONCACAF weak-pool inflation |
+| Australia | −30 | AFC weak-pool inflation |
+| Iran | −30 | AFC weak-pool inflation |
+| Morocco | +40 | WC2022 SF run suppressed by CAF pool |
+| Senegal | +30 | AFCON winners, CAF pool suppression |
 
 Outputs:
-- `data/engineered/elo_history.csv` — 98k rows of full match-by-match Elo history
+- `data/engineered/elo_history.csv` — full match-by-match Elo history
 - `data/engineered/team_elo_current.csv` — 48 teams as of June 2026
 
-Top teams: Argentina 2015.8, Spain 2011.8, France 1963.8
+Current top 5: Argentina 2086, Spain 2068, France 2047, England 2012, Brazil 2004
 
 ### B. `squad_metrics.py` ✅ COMPLETE
-Fuzzy entity resolution (Transfermarkt ↔ FBref) with 3-pass matching: exact → reversed tokens (Korean names) → WRatio ≥ 85. Match rate 96.4%.
 
-Features per team (34 columns total):
-- `total_squad_value`, `star_reliance_gini`, `avg_age`
-- `age_peak_score` — asymmetric: no penalty for youth/prime, −0.225/yr past prime, −0.30/yr way past prime
-- Position-specific prime thresholds: GK 36, CB/DM/CM 33, FB/AM/Winger/FW 31
-- `pct_elite_league`, `avg_caps`, `burnout` (total club minutes)
-- `club_linkage` (max_club_players, top_club)
-- `depth_gk/def/mid/att`
-- Manager features: `tenure_days`, `has_elite_pedigree`
-- `full_elo`, `hot_elo`
-- Formation selection: best of {4-3-3, 4-4-2, 4-2-3-1, 5-3-2} maximising starting XI market value
+Fuzzy entity resolution (official squads ↔ masterlist) with **6-pass position+country-scoped matching**:
 
-Output: `data/engineered/team_squad_metrics.csv` — 48 teams, 34 columns
+1. Exact match, same country + same position
+2. Exact match, same country (any position)
+3. Reversed tokens, same country + same position (Korean/East Asian names)
+4. Reversed tokens, same country (any position)
+5. Fuzzy WRatio ≥ 85, same country (position bucket first, then any)
+6. Fuzzy WRatio ≥ 85, globally (fallback for countries absent from masterlist)
 
-### C. `tactical_clusters.py` ✅ COMPLETE (v2 two-step position-first approach)
-FM26-inspired taxonomy: split players by `specific_position` into 8 groups, then K-Means within each group using role-relevant features.
+**Key guards:**
+- `_pos_ok()`: rejects GK↔outfield swaps at every fuzzy pass — prevents e.g. GK matching to a striker with a similar name
+- Caps-gap rejection: if caps gap > 40 AND name similarity < 50%, reject (wrong person)
+- Within each position bucket, highest `international_caps` breaks ties
 
-20 roles total:
-- GK → Goalkeeper
-- CB (k=3) → Ball-Playing CB / Stopper CB / Traditional CB
-- FB (k=3) → Attacking Wing-Back / Full-Back / Holding Full-Back
-- DM (k=2) → Deep-Lying Playmaker / Box-to-Box DM
-- CM (k=3) → Midfield Playmaker / Box-to-Box / Pressing CM
-- AM (k=2) → Advanced Playmaker / Attacking Midfielder
-- WG (k=3) → Inside Forward / Traditional Winger / Wide Playmaker
-- FW (k=3) → Poacher / False Nine / Target Forward
-- Special: Data-Limited (all-zero FBref stats, mostly K-League players)
+**Match rate: 93.7%** (1,171/1,250 players). 79 genuinely unmatched (Iran transliteration, Cape Verde single-names, Haiti, DR Congo) get safe defaults.
 
-Implementation details:
-- Fit on WC-only outfield players, predict on all 16,719 deduplicated masterlist players
-- Winsorize at p99 per group before fitting; RobustScaler
-- Versatility score = 1/(centroid_gap+1)
+**Previous issues fixed (Jun 22 2026):**
+- Emiliano Martínez (ARG GK) was matching to Uruguay MID → now correct (GK, 59 caps, Aston Villa)
+- Mohamed Alaa (EGY GK) was matching to Mohamed Salah (ATT) → now correct (GK)
+- Panama/Morocco/Haiti/Algeria GKs were matching to outfield players → all fixed
+- 83 critical wrong matches reduced to 0 GK position mismatches
+
+**Club data source**: `club` column comes from `wc2026_official_squads.csv` (scraped Jun 2026, authoritative). Masterlist `club_team` from Transfermarkt is stale and NOT used for club linkage.
+
+18 squad_adv features and weights (sum = 1.00):
+
+| Feature | Weight | Notes |
+|---|---|---|
+| `first_xi_value` | 0.17 | Best starting XI market value |
+| `pct_elite_league` | 0.16 | % players in Big 5 leagues |
+| `avg_caps` | 0.09 | International experience |
+| `total_squad_value` | 0.08 | Full squad depth |
+| `has_elite_pedigree` | 0.07 | Manager elite pedigree flag |
+| `age_peak_score` | 0.06 | Asymmetric age scoring |
+| `star_player_value` | 0.05 | Top-3 players avg value |
+| `club_linkage_score` | 0.05 | Chemistry: 3+ players same club |
+| `star_reliance_gini` | 0.04 | High = star-reliant = fragile (sign: a−h) |
+| `total_club_minutes` | 0.04 | Match sharpness / burnout |
+| `tenure_days` | 0.04 | Manager continuity |
+| `depth_def` | 0.03 | Defensive depth score |
+| `depth_att` | 0.03 | Attacking depth score |
+| `depth_mid` | 0.03 | Midfield depth score |
+| `depth_gk` | 0.03 | GK depth score |
+| `goals_per_player` | 0.01 | Attacking threat distribution |
+| `tactical_entropy` | 0.01 | Role diversity (from archetypes) |
+| `avg_versatility` | 0.01 | Player multi-role capability |
+
+Output: `data/engineered/team_squad_metrics.csv` — 48 teams, 37 columns
+
+### C. `tactical_clusters.py` ✅ COMPLETE
+
+FM26-inspired two-step K-Means (position-first → role within position). 20 roles:
+
+GK · Ball-Playing CB · Stopper CB · Traditional CB · Attacking Wing-Back · Full-Back · Holding Full-Back · Deep-Lying Playmaker · Box-to-Box DM · Midfield Playmaker · Box-to-Box · Pressing CM · Advanced Playmaker · Attacking Midfielder · Inside Forward · Traditional Winger · Wide Playmaker · Poacher · False Nine · Target Forward · Data-Limited
 
 Outputs:
 - `data/engineered/players_with_clusters.csv`
-- `data/engineered/team_archetype_balance.csv`
+- `data/engineered/team_archetype_balance.csv` (includes `tactical_entropy`, `avg_versatility`)
 - `data/engineered/cluster_model.pkl`
-
-### Key fixes made during Phase 3
-- Bosnia and Herzegovina, Ivory Coast, Curaçao were missing from masterlist — fixed country name mappings in `players_database.py` and `clean_players.py`
-- Changed `position` to `sub_position` in SQL to get specific positions (Centre-Back vs Left-Back)
-- Korean name ordering fix (family-first on Wikipedia, given-first on Transfermarkt) — token reversal in fuzzy matching
-- Hot Elo hard-reset replaced with exponential decay
-- Data-Limited archetype for players with zero FBref stats
-- Masterlist deduplicated (19,191 → 16,719 unique players) before clustering
 
 ---
 
 ## Phase 4: Machine Learning Predictor ✅ COMPLETE
 
-`data/feature_engineering/train_model.py` — HistGradientBoosting (XGBoost-equivalent, scikit-learn)
+`data/feature_engineering/train_model.py`
 
-- **Training data**: 49,214 international matches with time-decay sample weights (4-year half-life)
-- **Inputs per matchup**: Elo difference, squad value difference, manager rating, tactical balance, burnout, club linkage, avg caps
-- **Outputs**:
-  - λ_home, λ_away (Poisson rate parameters for scoreline simulation)
-  - W/D/L classifier probabilities
-- **Dixon-Coles ρ** calibrated from WC data (≈ 0.0)
-- **CV log-loss**: improved 1.1127 → 0.9604
+- **Algorithm**: XGBoost (via scikit-learn HistGradientBoosting)
+- **Training data**: 49,214 international matches, time-decay weighted (4-year half-life)
+- **Training features**: `elo_diff`, `hot_elo_diff`, `tournament_weight` — ELO only, intentionally
+- **Squad metrics used at inference only** via `squad_adv` nudge (`nudge = 0.22 * squad_adv`), not during training — squad data doesn't exist for historical matches
+- **Outputs**: λ_home, λ_away (Poisson rates) + W/D/L classifier probabilities
+- **Dixon-Coles ρ** calibrated from WC data
 
 Output: `data/engineered/xgb_model.pkl`
 
 ---
 
+## Phase 5: Predictions Cache ✅ COMPLETE
+
+`data/engineered/predictions_cache.json` — 2,256 entries (48 × 47 permutations)
+
+Pre-computes every possible matchup. Cache must be regenerated after any change to:
+- `team_squad_metrics.csv` (squad_metrics.py)
+- `team_archetype_balance.csv` (tactical_clusters.py)
+- `team_elo_current.csv` (build_elo.py)
+- `xgb_model.pkl` (train_model.py)
+
+---
+
 ## Backend ✅ COMPLETE
 
-`backend/main.py` — FastAPI application
+`backend/simulate.py` — core prediction engine:
+- **Neutral ground symmetrization**: averages `predict(A,B)` and `predict(B,A)` to cancel classifier home-team bias for all non-host WC matches
+- **Host nation boost**: USA, Canada, Mexico get ±0.025 crowd advantage
+- Cache-first with live fallback on miss
 
-Endpoints:
-- `GET /health` — liveness check
-- `GET /teams` — list all 48 teams with metadata
-- `POST /predict` — head-to-head win/draw/loss probabilities
-- `POST /simulate/bracket` — full tournament bracket simulation (group stage + knockout)
-- `POST /simulate/match` — single match Poisson scoreline simulation
-- `GET /monte-carlo` — Monte Carlo tournament odds (championship %, semifinal %, etc.)
-
-**Performance**: 2,256 matchups pre-computed and cached at startup. Bracket result cached server-side.
+`backend/main.py` — FastAPI endpoints:
+- `GET /health` · `GET /teams` · `POST /predict` · `POST /simulate/match` · `GET /simulate/bracket` · `GET /monte-carlo`
 
 **Deployed**: https://kevinknowsball.onrender.com
 
@@ -155,36 +191,35 @@ Endpoints:
 
 ## Frontend ✅ COMPLETE
 
-Next.js 14 app
+Next.js 14 — Vercel
 
-Components:
-- `SplineHero` — animated 3D hero section (Spline scene URL to be supplied)
-- `TournamentBracket` — group stage + full knockout bracket with Re-Simulate button
-- `TournamentOdds` — championship / semifinal / QF odds table
-- `MatchPredictor` — head-to-head prediction UI
-- `TeamExplorer` — squad viewer with player archetypes
-- `Navbar` — site navigation
-
-**Deployed**: Vercel
+Components: SplineHero · TournamentBracket · TournamentOdds · MatchPredictor · TeamExplorer · Navbar
 
 ---
 
-## Deployment ✅ COMPLETE
+## Rebuild Order (after any data change)
 
-| Layer | Platform | URL |
-|---|---|---|
-| Source | GitHub | https://github.com/kevinn-chan/kevinknowsball |
-| Backend | Render (free tier) | https://kevinknowsball.onrender.com |
-| Frontend | Vercel | (Vercel dashboard URL) |
+```
+1. players_database.py        → cleaned/players_masterlist.csv
+2. clean_manager.py           → cleaned/cleaned_wc_managers.csv
+3. build_elo.py               → engineered/team_elo_current.csv + elo_history.csv
+4. squad_metrics.py           → engineered/team_squad_metrics.csv
+5. tactical_clusters.py       → engineered/team_archetype_balance.csv + cluster_model.pkl
+6. [retrain if ELO history changed] train_model.py → engineered/xgb_model.pkl
+7. regen cache                → engineered/predictions_cache.json
+```
 
 ---
 
-## Known Issues / Future Work
+## Key Gotchas
 
-- **Model calibration mismatch**: W/D/L classifier and λ regressors are not perfectly calibrated against each other — bracket simulation uses λ-based scorelines which are slightly more upset-prone than classifier probabilities suggest
-- **Render cold start**: free tier sleeps after 15 min inactivity → ~30s cold start on first request
-- **Spline hero**: 3D animated hero is a placeholder — user to supply Spline scene URL when ready
-- **Monte Carlo not wired to frontend**: `/monte-carlo` endpoint exists and works but the TournamentOdds section is rendered separately rather than fetching live from this endpoint
+- **Country name normalisation**: canonical names are `Türkiye`, `Czech Republic`, `United States`, `South Korea`, `Iran`, `DR Congo`, `Cape Verde`, `Bosnia and Herzegovina`, `Ivory Coast`, `Curaçao`
+- **Club linkage uses squad CSV clubs**, not masterlist `club_team` (Transfermarkt data is stale)
+- **`tactical_entropy` and `avg_versatility`** live in `team_archetype_balance.csv`, not `team_squad_metrics.csv` — joined at inference in `get_team_features()`
+- **Mean reversion clamp**: `factor = min(1.0, ...)` — do not remove, prevents negative ELO for teams with long historical inactivity
+- **Saudi League** not on FBref — Saudi players have KNN-imputed tactical stats
+- **Injury scrape** may silently return empty if Transfermarkt blocks
+- **elite_managers list** in `clean_manager.py` is hardcoded — review before each tournament
 
 ---
 
@@ -193,29 +228,17 @@ Components:
 ```
 WC2026/
 ├── data/
-│   ├── raw_kaggle/          # Transfermarkt Kaggle dump (static)
-│   ├── raw_scraped/         # FBref, manager, injury, official squads
-│   ├── cleaned/             # Final cleaned CSVs → model inputs
-│   ├── engineered/          # Model outputs (elo, squad metrics, clusters, pkl)
-│   ├── scraping_process/    # All scraping scripts
-│   ├── cleaning_process/    # All ETL scripts
-│   └── feature_engineering/ # build_elo.py, squad_metrics.py, tactical_clusters.py, train_model.py
+│   ├── raw_kaggle/           # Transfermarkt Kaggle dump (archive-4 = latest, May 2026)
+│   ├── raw_scraped/          # FBref, manager, injury, official squads
+│   ├── cleaned/              # Cleaned CSVs → model inputs
+│   ├── engineered/           # Model outputs (elo, squad metrics, clusters, pkl, cache)
+│   ├── scraping_process/     # Scraping scripts
+│   ├── cleaning_process/     # ETL scripts
+│   └── feature_engineering/  # build_elo.py, squad_metrics.py, tactical_clusters.py, train_model.py
 ├── backend/
-│   └── main.py              # FastAPI app
-├── handoff.md               # This file
-└── .venv/                   # Python 3.12
+│   ├── main.py               # FastAPI app
+│   └── simulate.py           # Prediction engine + neutral symmetrization
+├── README.md
+├── handoff.md                # This file
+└── .venv/                    # Python 3.12
 ```
-
-### Installed deps (relevant)
-`duckdb`, `rapidfuzz`, `soccerdata`, `scikit-learn`, `pandas`, `numpy`, `requests`, `beautifulsoup4`, `seleniumbase`, `fastapi`, `uvicorn`
-
----
-
-## Key Gotchas
-
-- **Country name normalisation** — `country_mapping` dict must stay consistent across all scripts. Current canonical names: `Türkiye`, `Czech Republic`, `United States`, `South Korea`, `Iran`, `DR Congo`, `Cape Verde`
-- **Saudi League** — not on FBref via soccerdata; Saudi players have KNN-imputed tactical stats
-- **elite_managers list** in `clean_manager.py` is hardcoded — **Carlo Ancelotti (Brazil)** needs to be added; audit others
-- **Injury scrape** may silently return empty if Transfermarkt blocks (no auth header check)
-- **KNN imputation** runs only on outfield players; GKs get fillna(0) for tactical cols
-- **Official squads** (`wc2026_official_squads.csv`) now make `squad_strength.csv` largely obsolete — Phase 3 should filter masterlist to actual selected players only

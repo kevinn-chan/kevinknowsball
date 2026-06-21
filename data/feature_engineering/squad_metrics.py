@@ -168,46 +168,153 @@ def replacement_depth(squad: pd.DataFrame) -> dict:
 
 def fuse_squads_to_masterlist(squads: pd.DataFrame, master: pd.DataFrame) -> pd.DataFrame:
     """
-    Three-pass matching strategy:
-      Pass 1: exact normalised match
-      Pass 2: name-reversed match (handles Korean/East Asian family-first ordering)
-      Pass 3: fuzzy WRatio >= FUZZY_THRESHOLD
+    Six-pass matching strategy, position+country-scoped first to prevent GK↔outfield swaps:
+      Pass 1: exact match, same country, same position
+      Pass 2: exact match, same country (any position)
+      Pass 3: reversed tokens, same country, same position
+      Pass 4: reversed tokens, same country
+      Pass 5: fuzzy WRatio >= FUZZY_THRESHOLD, same country (position bucket first, then any)
+      Pass 6: fuzzy WRatio >= FUZZY_THRESHOLD globally (fallback for missing countries)
 
-    ⚠️  PROBLEM: ~3-5% of players in smaller WC nations (Jordan, Haiti, Qatar) are
-    genuinely absent from Transfermarkt — they play in domestic leagues with no TM
-    presence. These get squad-mean market value and null tactical stats. Acceptable
-    at squad level; don't over-engineer a lookup for <50 players.
+    Position-scoping prevents common-name collisions where e.g. GK "Mohamed Alaa" would
+    otherwise fuzzy-match "Mohamed Salah" (ATT) within Egypt's roster.
+    Within each position bucket, highest international_caps breaks ties.
     """
     master = master.copy()
     master['norm'] = master['player_name'].apply(strip_accents)
     squads = squads.copy()
     squads['norm'] = squads['player_name'].apply(strip_accents)
 
+    # Normalise squad position to masterlist general_position codes
+    POS_MAP = {'GK': 'GK', 'GKP': 'GK', 'DEF': 'DEF', 'MID': 'MID',
+               'ATT': 'ATT', 'FWD': 'ATT', 'FW': 'ATT', 'MF': 'MID', 'DF': 'DEF'}
+
     def reverse_tokens(s: str) -> str:
         parts = s.split()
         return ' '.join(parts[1:] + parts[:1]) if len(parts) >= 2 else s
 
-    master_norm_to_idx = dict(zip(master['norm'], master.index))
-    master_norms = list(master_norm_to_idx.keys())
+    from collections import defaultdict
+
+    # Build country+pos lookup: (country, pos) → {norm_name → master_idx}
+    # and country-only lookup: country → {norm_name → master_idx}
+    # Ties broken by highest international_caps.
+    def _upsert(lookup, key, nm, idx, caps):
+        if nm not in lookup[key]:
+            lookup[key][nm] = idx
+        else:
+            existing_caps = master.loc[lookup[key][nm], 'international_caps']
+            if pd.notna(caps) and caps > (existing_caps or 0):
+                lookup[key][nm] = idx
+
+    country_pos_lookup: dict[tuple, dict[str, int]] = defaultdict(dict)
+    country_lookup:     dict[str,   dict[str, int]] = defaultdict(dict)
+
+    for idx, mrow in master.iterrows():
+        c   = mrow['country']
+        nm  = mrow['norm']
+        pos = mrow.get('general_position', '')
+        caps = mrow['international_caps']
+        _upsert(country_pos_lookup, (c, pos), nm, idx, caps)
+        _upsert(country_lookup, c, nm, idx, caps)
+
+    # Global fallback: highest-caps player wins when multiple share a name
+    global_lookup = {}
+    for idx, mrow in master.sort_values('international_caps', ascending=False).iterrows():
+        nm = mrow['norm']
+        if nm not in global_lookup:
+            global_lookup[nm] = idx
+    global_norms = list(global_lookup.keys())
+
+    def _fuzzy_best(nm, nm_r, norm_pool, lookup):
+        r1 = process.extractOne(nm,   norm_pool, scorer=fuzz.WRatio)
+        r2 = process.extractOne(nm_r, norm_pool, scorer=fuzz.WRatio)
+        best = max([r for r in [r1, r2] if r], key=lambda x: x[1], default=None)
+        if best and best[1] >= FUZZY_THRESHOLD:
+            return lookup[best[0]]
+        return None
+
+    def _pos_ok(mid: int, sq_pos: str) -> bool:
+        """Reject GK↔outfield swaps. ATT/MID/DEF mismatches are tolerated (label differences)."""
+        if mid is None:
+            return False
+        ml_pos = master.loc[mid, 'general_position']
+        if sq_pos == 'GK' and ml_pos != 'GK':
+            return False
+        if sq_pos != 'GK' and ml_pos == 'GK':
+            return False
+        return True
 
     matches = []
     for _, row in squads.iterrows():
-        nm   = row['norm']
-        nm_r = reverse_tokens(nm)   # family-first → given-first attempt
+        country  = row['country']
+        nm       = row['norm']
+        nm_r     = reverse_tokens(nm)
+        sq_pos   = POS_MAP.get(str(row.get('position', '')).upper(), '')
+        cp_key   = (country, sq_pos)
 
-        if nm in master_norm_to_idx:
-            matches.append({'player_name': row['player_name'], 'master_idx': master_norm_to_idx[nm]})
-        elif nm_r in master_norm_to_idx:
-            matches.append({'player_name': row['player_name'], 'master_idx': master_norm_to_idx[nm_r]})
+        cp_lookup = country_pos_lookup.get(cp_key, {})
+        c_lookup  = country_lookup.get(country, {})
+        cp_norms  = list(cp_lookup.keys())
+        c_norms   = list(c_lookup.keys())
+
+        mid = None
+
+        # Pass 1: exact, same country+pos
+        if nm in cp_lookup:
+            mid = cp_lookup[nm]
+        # Pass 2: exact, same country any pos (with GK guard)
+        elif nm in c_lookup:
+            candidate = c_lookup[nm]
+            mid = candidate if _pos_ok(candidate, sq_pos) or sq_pos not in ('GK',) else None
+            if mid is None and nm in c_lookup:
+                mid = c_lookup[nm]  # accept anyway for non-GK — outfield label diffs are fine
+        # Pass 3: reversed, same country+pos
+        elif nm_r in cp_lookup:
+            mid = cp_lookup[nm_r]
+        # Pass 4: reversed, same country any pos
+        elif nm_r in c_lookup:
+            candidate = c_lookup[nm_r]
+            mid = candidate if _pos_ok(candidate, sq_pos) or sq_pos not in ('GK',) else None
+            if mid is None:
+                mid = c_lookup[nm_r]
+        # Pass 5a: fuzzy within same country+pos (position bucket first)
+        elif cp_norms:
+            mid = _fuzzy_best(nm, nm_r, cp_norms, cp_lookup)
+            if mid is None and c_norms:
+                candidate = _fuzzy_best(nm, nm_r, c_norms, c_lookup)
+                # Reject GK↔outfield swaps from cross-position fuzzy
+                mid = candidate if (candidate is None or _pos_ok(candidate, sq_pos)) else None
+            if mid is None:
+                candidate = _fuzzy_best(nm, nm_r, global_norms, global_lookup)
+                mid = candidate if (candidate is None or _pos_ok(candidate, sq_pos)) else None
+        # Pass 5b: fuzzy within same country (no position bucket available)
+        elif c_norms:
+            candidate = _fuzzy_best(nm, nm_r, c_norms, c_lookup)
+            mid = candidate if (candidate is None or _pos_ok(candidate, sq_pos)) else None
+            if mid is None:
+                candidate = _fuzzy_best(nm, nm_r, global_norms, global_lookup)
+                mid = candidate if (candidate is None or _pos_ok(candidate, sq_pos)) else None
+        # Pass 6: fuzzy global fallback (country absent from masterlist)
         else:
-            # Try fuzzy on both orderings, take the better score
-            r1 = process.extractOne(nm,   master_norms, scorer=fuzz.WRatio)
-            r2 = process.extractOne(nm_r, master_norms, scorer=fuzz.WRatio)
-            best = max([r for r in [r1, r2] if r], key=lambda x: x[1], default=None)
-            if best and best[1] >= FUZZY_THRESHOLD:
-                matches.append({'player_name': row['player_name'], 'master_idx': master_norm_to_idx[best[0]]})
-            else:
-                matches.append({'player_name': row['player_name'], 'master_idx': None})
+            candidate = _fuzzy_best(nm, nm_r, global_norms, global_lookup)
+            mid = candidate if (candidate is None or _pos_ok(candidate, sq_pos)) else None
+
+        # Reject matches where caps gap > 40 AND name similarity < 50% — wrong person
+        # Squad caps = 0 means unknown, so skip the check in that case.
+        if mid is not None:
+            sq_caps = row.get('caps', None)
+            ml_caps = master.loc[mid, 'international_caps']
+            if (pd.notna(sq_caps) and float(sq_caps) > 5
+                    and pd.notna(ml_caps)
+                    and abs(float(sq_caps) - float(ml_caps)) > 40):
+                sq_n = nm.replace(' ', '')
+                ml_n = strip_accents(master.loc[mid, 'player_name']).replace(' ', '')
+                import rapidfuzz.distance as _rfd
+                ratio = 1 - _rfd.Levenshtein.distance(sq_n, ml_n) / max(len(sq_n), len(ml_n), 1)
+                if ratio < 0.5:
+                    mid = None  # caps + name both wrong → better to have no match
+
+        matches.append({'player_name': row['player_name'], 'master_idx': mid})
 
     match_df = pd.DataFrame(matches)
     merged = squads.merge(match_df, on='player_name')

@@ -25,8 +25,8 @@ def cleaning_managers():
     merge_df['tenure_days'] = merge_df['tenure_days'].fillna(0).astype(int)
 
     #manually define the managers who have elite club/international pedigree
-    elite_managers = ['Lionel Scaloni','Didier Deschamps','Carlo Ancelotti','Thomas Tuchel','Roberto Martínez','Julian Nagelsmann','Javier Aguirre',
-                    'Jesse Marsch','Julen Lopetegui','Mauricio Pochettino','Ronald Koeman','Graham Potter','Rudi Garcia','Luis de la Fuente','Marcelo Bielsa','Ralf Rangnick']
+    elite_managers = ['Lionel Scaloni','Didier Deschamps','Carlo Ancelotti','Thomas Tuchel','Roberto Martínez','Julian Nagelsmann',
+                    'Jesse Marsch','Julen Lopetegui','Mauricio Pochettino','Graham Potter','Rudi Garcia','Luis de la Fuente','Marcelo Bielsa','Ralf Rangnick']
 
     #create binary flag
     merge_df['has_elite_pedigree'] = np.where(merge_df['manager'].isin(elite_managers), 1, 0)
