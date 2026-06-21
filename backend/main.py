@@ -158,6 +158,83 @@ def _load_players() -> pd.DataFrame:
         _players_df = pd.read_csv(_PLAYERS_CSV).fillna(0)
     return _players_df
 
+@app.get("/players/quiz")
+def player_quiz():
+    """Random player + 3 decoy names for Who Am I? game."""
+    df = _load_players()
+    # Only use players with at least some stats
+    valid = df[
+        (df["market_value"] > 1_000_000) &
+        (df["international_caps"] > 5)
+    ]
+    if len(valid) < 4:
+        valid = df
+    row = valid.sample(1).iloc[0]
+    decoys = valid[valid["player_name"] != row["player_name"]].sample(3)["player_name"].tolist()
+    import random as _r
+    options = decoys + [row["player_name"]]
+    _r.shuffle(options)
+    return {
+        "player": row[[
+            "player_name","country","wc_group","general_position","specific_position",
+            "market_value","international_caps","international_goals",
+            "goals_per_90","assists_per_90","interceptions","tackles_won","crosses",
+            "role","versatility","club_team","age",
+        ]].fillna(0).to_dict(),
+        "options": options,
+    }
+
+
+class SquadRequest(BaseModel):
+    players: list[dict]  # list of player dicts from /players endpoint
+
+@app.post("/squad/score")
+def squad_score(req: SquadRequest):
+    """Score a 5-a-side squad (1 GK, 1 DEF, 2 MID, 1 ATT) out of 100."""
+    from collections import Counter
+    ps = req.players
+    if len(ps) != 5:
+        raise HTTPException(status_code=400, detail="Need exactly 5 players")
+
+    total_value = sum(p.get("market_value", 0) for p in ps)
+    if total_value > 300_000_000:
+        raise HTTPException(status_code=400, detail="Budget exceeded")
+
+    def _score(p: dict) -> float:
+        pos = p.get("general_position", "MID")
+        if pos == "GK":
+            return min(p.get("versatility", 0) * 15 + min(p.get("international_caps", 0), 100) / 100 * 5, 20)
+        if pos == "DEF":
+            return min(p.get("tackles_won", 0) / 100 * 10 + p.get("interceptions", 0) / 80 * 10, 20)
+        if pos == "ATT":
+            return min(p.get("goals_per_90", 0) / 1.0 * 14 + p.get("assists_per_90", 0) / 0.6 * 6, 20)
+        # MID
+        return min(p.get("goals_per_90", 0) / 0.5 * 7 + p.get("assists_per_90", 0) / 0.6 * 7 + p.get("tackles_won", 0) / 80 * 6, 20)
+
+    base = sum(_score(p) for p in ps)
+    breakdown = {p["player_name"]: round(_score(p), 1) for p in ps}
+
+    countries = [p.get("country", "") for p in ps]
+    clubs = [p.get("club_team", "") for p in ps if p.get("club_team", "Unknown") != "Unknown"]
+    chem = (5 if max(Counter(countries).values()) >= 2 else 0) + \
+           (3 if clubs and max(Counter(clubs).values()) >= 2 else 0)
+    star = 3 if any(p.get("market_value", 0) >= 80_000_000 for p in ps) else 0
+
+    total = min(100, round(base + chem + star))
+    verdict = (
+        "World Class ⭐" if total >= 85 else
+        "Strong Squad 💪" if total >= 70 else
+        "Decent Side 👍" if total >= 55 else
+        "Work in Progress 🔧" if total >= 40 else
+        "Back to the Bench 😬"
+    )
+    return {
+        "score": total, "base": round(base, 1),
+        "chemistry_bonus": chem, "star_bonus": star,
+        "total_value": total_value, "breakdown": breakdown, "verdict": verdict,
+    }
+
+
 @app.get("/players")
 def get_players(country: Optional[str] = None, position: Optional[str] = None,
                 role: Optional[str] = None, limit: int = 50):

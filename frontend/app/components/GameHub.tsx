@@ -44,19 +44,19 @@ function fmt(v: number) {
 // ── Tab shell ─────────────────────────────────────────────────────────────────
 type Tab = "squad" | "whoami" | "hol";
 const TABS: { id: Tab; label: string; emoji: string }[] = [
-  { id:"squad",  label:"€150M Squad Builder", emoji:"🏗" },
+  { id:"squad",  label:"€300M Squad Builder", emoji:"🏗" },
   { id:"whoami", label:"Who Am I?",            emoji:"🎭" },
   { id:"hol",    label:"Higher or Lower",      emoji:"📈" },
 ];
 
 // ══════════════════════════════════════════════════════════════════════════════
-// GAME 1 — €150M Squad Builder
+// GAME 1 — €300M Squad Builder
 // ══════════════════════════════════════════════════════════════════════════════
 const POSITIONS = ["GK","DEF","MID","MID2","ATT"] as const;
 type Pos = (typeof POSITIONS)[number];
 const POS_LABEL: Record<Pos, string> = { GK:"Goalkeeper", DEF:"Defender", MID:"Midfielder", MID2:"Midfielder", ATT:"Attacker" };
 const POS_API: Record<Pos, string> = { GK:"GK", DEF:"DEF", MID:"MID", MID2:"MID", ATT:"ATT" };
-const BUDGET = 150_000_000;
+const BUDGET = 300_000_000;
 
 function randPlayer(pool: Player[], exclude: string[]): Player {
   const eligible = pool.filter(p => !exclude.includes(p.player_name));
@@ -69,7 +69,7 @@ function aiScoutLine(r: any): string {
   const s = r.score;
   const hasChem = r.chemistry_bonus > 0;
   const hasStar = r.star_bonus > 0;
-  const overBudget = r.total_value > 150_000_000;
+  const overBudget = r.total_value > 300_000_000;
   if (s >= 85) return `An elite WC squad. ${hasChem ? "Strong team cohesion gives them an edge in high-pressure knockout games." : "Star power and depth — this side could go deep in the tournament."}`;
   if (s >= 70) return `Solid but not flawless. ${hasStar ? "The marquee signing carries real goal threat," : "Decent across the board,"} ${hasChem ? "and the chemistry bonus shows good squad harmony." : "though a shared club or nation would tighten the bond."}`;
   if (s >= 55) return `Mid-table WC material. ${overBudget ? "Overspent on names rather than roles — balance is key." : "A few shrewd picks but the squad lacks a defining quality."}`;
@@ -169,7 +169,7 @@ function SquadBuilder({ allPlayers }: { allPlayers: Player[] }) {
       <div style={{ marginBottom:16 }}>
         <div style={{ display:"flex", justifyContent:"space-between", fontSize:11,
           color:"rgba(255,255,255,0.4)", letterSpacing:1, textTransform:"uppercase", marginBottom:6 }}>
-          <span>Budget · €150M</span>
+          <span>Budget · €300M</span>
           <div style={{ display:"flex", gap:12, alignItems:"center" }}>
             <span style={{ color: skipsLeft <= 1 ? "#FF6B6B" : skipsLeft <= 3 ? "#FFD700" : "rgba(255,255,255,0.4)" }}>
               {skipsLeft === 0 ? "NO SKIPS LEFT" : `${skipsLeft} skip${skipsLeft !== 1 ? "s" : ""} left`}
