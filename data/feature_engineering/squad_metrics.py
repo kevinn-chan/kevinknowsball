@@ -111,17 +111,11 @@ FORMATIONS = {
     '5-3-2':   {'GK': 1, 'DEF': 5, 'MID': 3, 'ATT': 2},
 }
 
-def best_formation(squad: pd.DataFrame) -> tuple[str, dict]:
+def best_formation(squad: pd.DataFrame) -> tuple[str, dict, float]:
     """
     Selects the formation (from 4-3-3 / 4-4-2 / 4-2-3-1 / 5-3-2) that maximises
-    the total market value of the starting XI, using only players in their natural
-    general_position. Returns (formation_name, starter_counts_dict).
-
-    ⚠️  PROBLEM: We don't have versatility data (e.g., a fullback who can play
-    central midfield in an emergency). This means formations that require more
-    players at a position than the squad has in that role are marked infeasible,
-    even though in practice a manager would adapt. Acceptable for now — the chosen
-    formation will always be genuinely achievable with the squad's natural positions.
+    the total market value of the starting XI.
+    Returns (formation_name, starter_counts_dict, first_xi_value).
     """
     pos_vals = {
         pos: sorted(grp['market_value'].fillna(0).tolist(), reverse=True)
@@ -135,7 +129,10 @@ def best_formation(squad: pd.DataFrame) -> tuple[str, dict]:
         xi_val = sum(sum(pos_vals[pos][:n]) for pos, n in slots.items())
         if xi_val > best_val:
             best_val, best_name, best_slots = xi_val, name, slots
-    return best_name, best_slots
+    # Fallback: top-11 by value when no formation is feasible
+    if best_name is None:
+        best_val = float(squad['market_value'].fillna(0).nlargest(11).sum())
+    return best_name, best_slots, float(best_val)
 
 
 def replacement_depth(squad: pd.DataFrame) -> dict:
@@ -152,7 +149,7 @@ def replacement_depth(squad: pd.DataFrame) -> dict:
     ⚠️  PROBLEM: market_value undervalues versatile utility players (worth €2M but
     covers three roles). K-Means archetypes will improve this in the next phase.
     """
-    formation, slots = best_formation(squad)
+    formation, slots, _ = best_formation(squad)
     depth_ratios = {'formation': formation}
 
     for pos, n_starters in slots.items():
@@ -293,6 +290,15 @@ def aggregate_country(country: str, squad: pd.DataFrame,
     club_counts      = squad['club'].value_counts()
     max_club_players = int(club_counts.iloc[0])
     top_club         = club_counts.index[0]
+    # Chemistry bonus kicks in at 3+ players from same club (normalised to squad size)
+    club_linkage_score = round(max(0, max_club_players - 2) / max(len(squad), 1), 3)
+
+    # ── First XI value ────────────────────────────────────────────────────────
+    _, _, first_xi_value = best_formation(squad)
+    first_xi_value = round(first_xi_value, 0)
+
+    # ── Goal-scoring pedigree ─────────────────────────────────────────────────
+    goals_per_player = round(total_goals / max(len(squad), 1), 2)
 
     # ── Replacement depth ─────────────────────────────────────────────────────
     depth = replacement_depth(squad)
@@ -325,8 +331,12 @@ def aggregate_country(country: str, squad: pd.DataFrame,
         'avg_club_minutes':   avg_minutes,
         'burnout_coverage':   burnout_coverage,
         # Club linkage
-        'max_club_players':   max_club_players,
-        'top_club':           top_club,
+        'max_club_players':    max_club_players,
+        'top_club':            top_club,
+        'club_linkage_score':  club_linkage_score,
+        # First XI & goals
+        'first_xi_value':      first_xi_value,
+        'goals_per_player':    goals_per_player,
         # Replacement depth
         **depth,
         # Injuries
