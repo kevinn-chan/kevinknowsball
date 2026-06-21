@@ -243,19 +243,28 @@ def predict_match(home: str, away: str, models: dict,
     probs_adj /= probs_adj.sum()
 
     # Squad-metric nudge applied AFTER ELO blend so it isn't washed out.
-    # Captures what ELO misses: squad depth, elite-league exposure, market value,
-    # age profile, tactical variety. Weighted ~15% of final probability.
+    # All features contribute meaningfully; pct_elite_league most discriminating
+    # (flags CONCACAF/weak-league inflation). avg_caps adds experience signal.
+    # star_reliance_gini: high = over-reliant on one star → penalised (a-h sign).
+    # Positional depths split for finer granularity over depth_overall.
     squad_adv = (
-        0.30 * np.tanh((h["total_squad_value"]  - a["total_squad_value"])  / 1e8)
-        + 0.15 * np.tanh((h["age_peak_score"]   - a["age_peak_score"])     * 5)
-        + 0.15 * np.tanh((h["pct_elite_league"] - a["pct_elite_league"])   * 3)
-        + 0.15 * np.tanh((h["depth_overall"]    - a["depth_overall"])      * 5)
-        + 0.10 * np.tanh((a["total_club_minutes"]- h["total_club_minutes"]) / 1e4)
-        + 0.05 * (float(h["has_elite_pedigree"]) - float(a["has_elite_pedigree"]))
-        + 0.05 * np.tanh(h["tactical_entropy"]  - a["tactical_entropy"])
-        + 0.05 * np.tanh((h["avg_versatility"]  - a["avg_versatility"])    * 5)
-    )
-    nudge = 0.15 * squad_adv  # 15% weight — meaningful but ELO still dominates
+        0.20 * np.tanh((h["pct_elite_league"]    - a["pct_elite_league"])    * 3)    # league quality — most discriminating
+        + 0.16 * np.tanh((h["total_squad_value"] - a["total_squad_value"])   / 1e8)  # squad market value
+        + 0.10 * np.tanh((h["avg_caps"]          - a["avg_caps"])            / 20)   # international experience
+        + 0.08 * np.tanh((h["star_player_value"] - a["star_player_value"])   / 8e7)  # star quality gap
+        + 0.08 * np.tanh((h["age_peak_score"]    - a["age_peak_score"])      * 5)    # age-prime profile
+        + 0.07 * np.tanh((h["depth_def"]         - a["depth_def"])           * 8)    # defensive depth
+        + 0.06 * np.tanh((h["depth_att"]         - a["depth_att"])           * 7)    # attacking depth
+        + 0.05 * np.tanh((h["depth_mid"]         - a["depth_mid"])           * 7)    # midfield depth
+        + 0.05 * np.tanh((a["star_reliance_gini"]- h["star_reliance_gini"])  * 4)    # fragility: high gini = risky
+        + 0.04 * np.tanh((a["total_club_minutes"]- h["total_club_minutes"])  / 1e4)  # burnout/fatigue
+        + 0.04 * (float(h["has_elite_pedigree"])  - float(a["has_elite_pedigree"]))  # manager pedigree
+        + 0.03 * np.tanh((h["depth_gk"]          - a["depth_gk"])           * 4)    # goalkeeper depth
+        + 0.02 * np.tanh((h["tenure_days"]        - a["tenure_days"])        / 500)  # manager stability
+        + 0.01 * np.tanh(h["tactical_entropy"]   - a["tactical_entropy"])            # tactical flexibility
+        + 0.01 * np.tanh((h["avg_versatility"]   - a["avg_versatility"])     * 5)    # player versatility
+    )  # weights sum = 1.00
+    nudge = 0.22 * squad_adv
     probs_adj[2] = np.clip(probs_adj[2] + nudge, 0.01, 0.98)
     probs_adj[0] = np.clip(probs_adj[0] - nudge, 0.01, 0.98)
     probs_adj /= probs_adj.sum()

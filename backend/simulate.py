@@ -52,7 +52,8 @@ if os.path.exists(_CACHE_FILE):
 _HOST_NATIONS = {"United States", "Mexico", "Canada"}
 _HOST_BOOST   = 0.025  # ~20 ELO points of home-crowd advantage
 
-def predict_match(home: str, away: str) -> dict:
+def _raw_predict(home: str, away: str) -> dict:
+    """Fetch from cache (or compute) without any neutral/host adjustment."""
     global _cache_misses
     key = f"{home}|{away}"
     result = _PRED_CACHE.get(key)
@@ -61,19 +62,47 @@ def predict_match(home: str, away: str) -> dict:
         if _cache_misses <= 10:
             print(f"  [WARN] Cache miss #{_cache_misses}: {key}", flush=True)
         result = _predict_match(home, away, _MODELS, _SQUAD, _ARCH)
+    return result
 
-    boost = _HOST_BOOST if home in _HOST_NATIONS else (-_HOST_BOOST if away in _HOST_NATIONS else 0)
-    if boost == 0:
-        return result
 
-    r = dict(result)
-    r["home_win"] = round(max(0.02, min(0.97, r["home_win"] + boost)), 4)
-    r["away_win"] = round(max(0.02, min(0.97, r["away_win"] - boost)), 4)
-    total = r["home_win"] + r["draw"] + r["away_win"]
-    r["home_win"] = round(r["home_win"] / total, 4)
-    r["draw"]     = round(r["draw"]     / total, 4)
-    r["away_win"] = round(r["away_win"] / total, 4)
-    return r
+def predict_match(home: str, away: str) -> dict:
+    """
+    Predict home/away/draw probs for a WC match.
+
+    The underlying model was trained on home-advantage data, so for neutral
+    venues (all WC games except host-nation matches) we symmetrise by averaging
+    the forward and reverse cache entries.  This cancels the implicit home bias
+    while preserving the real team-strength gap.
+
+    Host nations (USA/Canada/Mexico) keep a small crowd-boost.
+    """
+    is_host_home  = home in _HOST_NATIONS
+    is_host_away  = away in _HOST_NATIONS
+
+    if is_host_home or is_host_away:
+        # True home-advantage scenario: use raw forward prediction + boost
+        result = _raw_predict(home, away)
+        boost  = _HOST_BOOST if is_host_home else -_HOST_BOOST
+        r = dict(result)
+        r["home_win"] = round(max(0.02, min(0.97, r["home_win"] + boost)), 4)
+        r["away_win"] = round(max(0.02, min(0.97, r["away_win"] - boost)), 4)
+        total = r["home_win"] + r["draw"] + r["away_win"]
+        r["home_win"] = round(r["home_win"] / total, 4)
+        r["draw"]     = round(r["draw"]     / total, 4)
+        r["away_win"] = round(r["away_win"] / total, 4)
+        return r
+
+    # Neutral venue: symmetrise forward + reverse to cancel classifier home bias
+    fwd = _raw_predict(home, away)   # home labelled as home → home gets bias
+    rev = _raw_predict(away, home)   # away labelled as home → away gets bias
+    hw  = round((fwd["home_win"] + rev["away_win"]) / 2, 4)
+    aw  = round((fwd["away_win"] + rev["home_win"]) / 2, 4)
+    d   = round(1.0 - hw - aw, 4)
+    lh  = round((fwd["lambda_home"] + rev["lambda_away"]) / 2, 3)
+    la  = round((fwd["lambda_away"] + rev["lambda_home"]) / 2, 3)
+    return {"home": home, "away": away,
+            "home_win": hw, "draw": d, "away_win": aw,
+            "lambda_home": lh, "lambda_away": la}
 
 
 def warm_cache(groups_df: pd.DataFrame):
