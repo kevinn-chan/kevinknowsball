@@ -256,18 +256,18 @@ def predict_match(home: str, away: str, models: dict,
         + 0.16 * np.tanh((h["pct_elite_league"]   - a["pct_elite_league"])    * 3)    # league quality — CONCACAF correction
         + 0.09 * np.tanh((h["avg_caps"]           - a["avg_caps"])            / 20)   # international experience
         + 0.08 * np.tanh((h["total_squad_value"]  - a["total_squad_value"])   / 1e8)  # full squad bench depth
+        + 0.07 * (float(h["has_elite_pedigree"])   - float(a["has_elite_pedigree"]))  # manager pedigree
         + 0.06 * np.tanh((h["age_peak_score"]     - a["age_peak_score"])      * 5)    # peak age profile
-        + 0.06 * (float(h["has_elite_pedigree"])   - float(a["has_elite_pedigree"]))  # manager pedigree ↑
-        + 0.05 * np.tanh((h["depth_def"]          - a["depth_def"])           * 8)    # defensive depth ↓
-        + 0.05 * np.tanh((h["star_player_value"]  - a["star_player_value"])   / 8e7)  # star quality gap ↓
-        + 0.04 * np.tanh((h["depth_att"]          - a["depth_att"])           * 7)    # attacking depth ↓
+        + 0.05 * np.tanh((h["star_player_value"]  - a["star_player_value"])   / 8e7)  # star quality gap
+        + 0.05 * np.tanh((h["club_linkage_score"] - a["club_linkage_score"])  * 8)    # club chemistry
         + 0.04 * np.tanh((a["star_reliance_gini"] - h["star_reliance_gini"])  * 4)    # star fragility (a-h: high gini = fragile)
         + 0.04 * np.tanh((a["total_club_minutes"] - h["total_club_minutes"])  / 1e4)  # burnout/fatigue
-        + 0.04 * np.tanh((h["club_linkage_score"] - a["club_linkage_score"])  * 8)    # club chemistry ↑
-        + 0.03 * np.tanh((h["depth_mid"]          - a["depth_mid"])           * 7)    # midfield depth ↓
-        + 0.03 * np.tanh((h["tenure_days"]         - a["tenure_days"])        / 500)  # manager stability ↑
-        + 0.02 * np.tanh((h["depth_gk"]           - a["depth_gk"])           * 4)    # GK depth ↓
-        + 0.02 * np.tanh((h["goals_per_player"]   - a["goals_per_player"])    / 3)    # goal-scoring pedigree
+        + 0.04 * np.tanh((h["tenure_days"]         - a["tenure_days"])        / 500)  # manager stability
+        + 0.03 * np.tanh((h["depth_def"]          - a["depth_def"])           * 8)    # defensive depth
+        + 0.03 * np.tanh((h["depth_att"]          - a["depth_att"])           * 7)    # attacking depth
+        + 0.03 * np.tanh((h["depth_mid"]          - a["depth_mid"])           * 7)    # midfield depth
+        + 0.03 * np.tanh((h["depth_gk"]           - a["depth_gk"])           * 4)    # GK depth
+        + 0.01 * np.tanh((h["goals_per_player"]   - a["goals_per_player"])    / 3)    # goal-scoring pedigree
         + 0.01 * np.tanh(h["tactical_entropy"]    - a["tactical_entropy"])            # tactical flexibility
         + 0.01 * np.tanh((h["avg_versatility"]    - a["avg_versatility"])     * 5)    # player versatility
     )  # weights sum = 1.00

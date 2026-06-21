@@ -287,10 +287,16 @@ def aggregate_country(country: str, squad: pd.DataFrame,
     burnout_coverage = round((mins_series > 0).sum() / max(len(squad_ids), 1), 3)
 
     # ── Club linkage ──────────────────────────────────────────────────────────
-    club_counts      = squad['club'].value_counts()
-    max_club_players = int(club_counts.iloc[0])
-    top_club         = club_counts.index[0]
-    # Chemistry bonus kicks in at 3+ players from same club (normalised to squad size)
+    # Exclude null / unknown clubs so unmatched players don't get grouped under
+    # the same blank label and produce a fake chemistry bonus.
+    _UNKNOWN_CLUBS = {'unknown', 'n/a', 'none', ''}
+    valid_clubs      = squad['club'].dropna()
+    valid_clubs      = valid_clubs[~valid_clubs.str.lower().isin(_UNKNOWN_CLUBS)]
+    club_counts      = valid_clubs.value_counts() if len(valid_clubs) else pd.Series(dtype=int)
+    max_club_players = int(club_counts.iloc[0]) if len(club_counts) else 1
+    top_club         = club_counts.index[0]  if len(club_counts) else 'Unknown'
+    # Normalise by full squad size (not just valid_clubs) — keeps score honest
+    # for teams where some club data is missing.
     club_linkage_score = round(max(0, max_club_players - 2) / max(len(squad), 1), 3)
 
     # ── First XI value ────────────────────────────────────────────────────────
