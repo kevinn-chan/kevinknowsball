@@ -257,14 +257,12 @@ def predict_match(home: str, away: str, models: dict,
     # venues a 400-point ELO gap should give the stronger team ~85%+ win probability, not
     # produce a coin flip. Blending 50/50 anchors predictions to the ELO reality while
     # keeping squad/form signal from the model.
-    elo_home_win = 1.0 / (1.0 + 10.0 ** (-elo_diff / 400.0))  # standard ELO
+    elo_home_win = 1.0 / (1.0 + 10.0 ** (-elo_diff / 400.0))
     draw_rate    = 0.22  # typical WC draw rate (roughly constant across mismatches)
     elo_away_win = max(1.0 - elo_home_win - draw_rate, 0.02)
-    # Normalize ELO prior so [away_win, draw, home_win] sums to 1
     elo_prior = np.array([elo_away_win, draw_rate, elo_home_win])
     elo_prior /= elo_prior.sum()
 
-    # ponytail: 50/50 blend — tune weight if model ever gets retrained on WC-only data
     BLEND = 0.50
     probs_adj = BLEND * probs_adj + (1.0 - BLEND) * elo_prior
     probs_adj /= probs_adj.sum()
