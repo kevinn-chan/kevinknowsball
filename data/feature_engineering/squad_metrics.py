@@ -211,6 +211,10 @@ def fuse_squads_to_masterlist(squads: pd.DataFrame, master: pd.DataFrame) -> pd.
 
     match_df = pd.DataFrame(matches)
     merged = squads.merge(match_df, on='player_name')
+    # NOTE: we deliberately do NOT pull club_team from the masterlist — it comes
+    # from stale Kaggle/Transfermarkt data (e.g. Haaland→Feyenoord, Kane→Leicester).
+    # The 'club' column from wc2026_official_squads.csv (scraped Jun 2026) is the
+    # authoritative, up-to-date source for club linkage.
     merged = merged.merge(
         master[['player_id', 'market_value', 'specific_position',
                 'goals_per_90', 'assists_per_90', 'interceptions',
