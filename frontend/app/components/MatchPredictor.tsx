@@ -167,7 +167,7 @@ export default function MatchPredictor() {
           "Portugal", "Netherlands", "Morocco", "Mexico", "Uruguay", "Japan",
           "Belgium", "Colombia", "Senegal", "Norway", "Ecuador", "Switzerland",
           "United States", "Canada", "Australia", "Croatia", "Ghana", "Egypt",
-          "Ivory Coast", "South Korea", "Turkey", "Algeria", "Austria", "Jordan",
+          "Ivory Coast", "South Korea", "Türkiye", "Algeria", "Austria", "Jordan",
           "DR Congo", "Uzbekistan", "Scotland", "Haiti", "Cape Verde",
           "Saudi Arabia", "Qatar", "Iran", "Iraq", "Sweden", "Tunisia",
           "New Zealand", "Paraguay", "Curaçao", "Bosnia and Herzegovina",
