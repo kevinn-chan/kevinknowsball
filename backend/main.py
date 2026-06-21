@@ -190,48 +190,90 @@ class SquadRequest(BaseModel):
 
 @app.post("/squad/score")
 def squad_score(req: SquadRequest):
-    """Score a 5-a-side squad (1 GK, 1 DEF, 2 MID, 1 ATT) out of 100."""
-    from collections import Counter
+    """
+    Score a 5-player squad out of 100 across 5 football-logic dimensions (20 pts each):
+      1. Attacking threat  — goals+assists per 90 for ATT/MID
+      2. Defensive solidity — tackles+interceptions per 90 for GK/DEF
+      3. Experience        — average international caps (80 caps = full marks)
+      4. Star vs balance   — elite star value + penalty for over-reliance (Gini-style)
+      5. Budget efficiency — rewrads spending 85-100% of the €300M budget
+    """
+    BUDGET = 300_000_000
+
     ps = req.players
     if len(ps) != 5:
         raise HTTPException(status_code=400, detail="Need exactly 5 players")
 
     total_value = sum(p.get("market_value", 0) for p in ps)
-    if total_value > 300_000_000:
+    if total_value > BUDGET:
         raise HTTPException(status_code=400, detail="Budget exceeded")
 
-    def _score(p: dict) -> float:
-        pos = p.get("general_position", "MID")
-        if pos == "GK":
-            return min(p.get("versatility", 0) * 15 + min(p.get("international_caps", 0), 100) / 100 * 5, 20)
-        if pos == "DEF":
-            return min(p.get("tackles_won", 0) / 100 * 10 + p.get("interceptions", 0) / 80 * 10, 20)
-        if pos == "ATT":
-            return min(p.get("goals_per_90", 0) / 1.0 * 14 + p.get("assists_per_90", 0) / 0.6 * 6, 20)
-        # MID
-        return min(p.get("goals_per_90", 0) / 0.5 * 7 + p.get("assists_per_90", 0) / 0.6 * 7 + p.get("tackles_won", 0) / 80 * 6, 20)
+    # ── 1. Attacking threat (20 pts) ─────────────────────────────────────────
+    att_players = [p for p in ps if p.get("general_position") in ("ATT", "MID")]
+    if att_players:
+        avg_g90  = sum(p.get("goals_per_90",   0) for p in att_players) / len(att_players)
+        avg_a90  = sum(p.get("assists_per_90", 0) for p in att_players) / len(att_players)
+        att_score = min(avg_g90 / 0.45 * 13 + avg_a90 / 0.35 * 7, 20)
+    else:
+        att_score = 0.0
 
-    base = sum(_score(p) for p in ps)
-    breakdown = {p["player_name"]: round(_score(p), 1) for p in ps}
+    # ── 2. Defensive solidity (20 pts) ───────────────────────────────────────
+    def_players = [p for p in ps if p.get("general_position") in ("GK", "DEF")]
+    if def_players:
+        avg_tkl  = sum(p.get("tackles_won",   0) for p in def_players) / len(def_players)
+        avg_int  = sum(p.get("interceptions", 0) for p in def_players) / len(def_players)
+        # Reference: a solid WC defender averages ~60 tackles, ~50 interceptions per season
+        def_score = min(avg_tkl / 60 * 11 + avg_int / 50 * 9, 20)
+    else:
+        def_score = 0.0
 
-    countries = [p.get("country", "") for p in ps]
-    clubs = [p.get("club_team", "") for p in ps if p.get("club_team", "Unknown") != "Unknown"]
-    chem = (5 if max(Counter(countries).values()) >= 2 else 0) + \
-           (3 if clubs and max(Counter(clubs).values()) >= 2 else 0)
-    star = 3 if any(p.get("market_value", 0) >= 80_000_000 for p in ps) else 0
+    # ── 3. Experience (20 pts) ────────────────────────────────────────────────
+    avg_caps   = sum(p.get("international_caps", 0) for p in ps) / len(ps)
+    exp_score  = min(avg_caps / 80, 1.0) * 20   # 80 caps average = full marks
 
-    total = min(100, round(base + chem + star))
+    # ── 4. Star power vs squad balance (20 pts) ───────────────────────────────
+    values     = [max(p.get("market_value", 0), 0) for p in ps]
+    total_mv   = sum(values) or 1
+    max_mv     = max(values)
+    star_share = max_mv / total_mv                          # fraction eaten by top star
+    star_pts   = min(max_mv / 150_000_000, 1.0) * 14       # up to 14 for a €150M+ player
+    balance_pts = (1 - star_share) * 6                     # up to 6 for balanced squad
+    star_score  = star_pts + balance_pts
+
+    # ── 5. Budget efficiency (20 pts) ────────────────────────────────────────
+    efficiency = total_value / BUDGET
+    if efficiency >= 0.85:
+        budget_score = 20.0
+    elif efficiency >= 0.60:
+        budget_score = 10 + (efficiency - 0.60) / 0.25 * 10
+    else:
+        budget_score = efficiency / 0.60 * 10
+
+    total = min(100, round(att_score + def_score + exp_score + star_score + budget_score))
     verdict = (
-        "World Class ⭐" if total >= 85 else
-        "Strong Squad 💪" if total >= 70 else
-        "Decent Side 👍" if total >= 55 else
-        "Work in Progress 🔧" if total >= 40 else
+        "World Class ⭐"        if total >= 85 else
+        "Strong Squad 💪"       if total >= 70 else
+        "Decent Side 👍"        if total >= 55 else
+        "Work in Progress 🔧"   if total >= 40 else
         "Back to the Bench 😬"
     )
     return {
-        "score": total, "base": round(base, 1),
-        "chemistry_bonus": chem, "star_bonus": star,
-        "total_value": total_value, "breakdown": breakdown, "verdict": verdict,
+        "score":    total,
+        "verdict":  verdict,
+        "total_value": total_value,
+        "dimensions": {
+            "attacking":  round(att_score,    1),
+            "defending":  round(def_score,    1),
+            "experience": round(exp_score,    1),
+            "star_power": round(star_score,   1),
+            "efficiency": round(budget_score, 1),
+        },
+        # kept for frontend backwards compat
+        "chemistry_bonus": 0,
+        "star_bonus":      round(star_pts, 1),
+        "breakdown":       {p["player_name"]: round(
+            (att_score + def_score) / max(len(att_players) + len(def_players), 1), 1
+        ) for p in ps},
     }
 
 

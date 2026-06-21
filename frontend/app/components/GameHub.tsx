@@ -67,14 +67,17 @@ const MAX_SKIPS = 5;
 
 function aiScoutLine(r: any): string {
   const s = r.score;
-  const hasChem = r.chemistry_bonus > 0;
-  const hasStar = r.star_bonus > 0;
-  const overBudget = r.total_value > 300_000_000;
-  if (s >= 85) return `An elite WC squad. ${hasChem ? "Strong team cohesion gives them an edge in high-pressure knockout games." : "Star power and depth — this side could go deep in the tournament."}`;
-  if (s >= 70) return `Solid but not flawless. ${hasStar ? "The marquee signing carries real goal threat," : "Decent across the board,"} ${hasChem ? "and the chemistry bonus shows good squad harmony." : "though a shared club or nation would tighten the bond."}`;
-  if (s >= 55) return `Mid-table WC material. ${overBudget ? "Overspent on names rather than roles — balance is key." : "A few shrewd picks but the squad lacks a defining quality."}`;
-  if (s >= 40) return `Struggles ahead. The individual ratings don't add up to a cohesive unit — the group stage looks tricky.`;
-  return `This squad wouldn't survive the group stage. No chemistry, no star power, questionable positional balance.`;
+  const d = r.dimensions || {};
+  const weakest = d ? Object.entries(d).sort((a,b) => (a[1] as number)-(b[1] as number))[0]?.[0] : null;
+  const weakLabel: Record<string,string> = {
+    attacking:"attacking threat", defending:"defensive solidity",
+    experience:"international experience", star_power:"star quality", efficiency:"budget usage",
+  };
+  if (s >= 85) return `An elite WC squad built to go deep. Every dimension is firing — this side could challenge for the title.`;
+  if (s >= 70) return `Solid across the board. ${weakest ? `The one area to strengthen is ${weakLabel[weakest] ?? weakest}.` : "A balanced, dangerous squad."}`;
+  if (s >= 55) return `Mid-table WC material. ${weakest ? `Biggest gap is ${weakLabel[weakest] ?? weakest} — fix that and this squad climbs.` : "A few good picks, but lacks a defining quality."}`;
+  if (s >= 40) return `Struggles ahead. ${weakest ? `${weakLabel[weakest] ?? weakest} is well below WC standard.` : "The ratings don't add up to a cohesive unit."} The group stage looks tricky.`;
+  return `This squad wouldn't survive the group stage. Go back to the drawing board — budget, experience, and quality are all missing.`;
 }
 
 function SquadBuilder({ allPlayers }: { allPlayers: Player[] }) {
@@ -351,37 +354,32 @@ function SquadBuilder({ allPlayers }: { allPlayers: Player[] }) {
               </div>
             </div>
 
-            {/* Bonuses */}
-            {(result.chemistry_bonus > 0 || result.star_bonus > 0) && (
-              <div style={{ display:"flex", gap:8, justifyContent:"center", marginBottom:14, flexWrap:"wrap" }}>
-                {result.chemistry_bonus > 0 && (
-                  <span style={{ fontSize:11, padding:"3px 10px", borderRadius:20,
-                    background:"rgba(0,212,255,0.12)", border:"1px solid rgba(0,212,255,0.3)", color:"#00D4FF" }}>
-                    ⚗ Chemistry +{result.chemistry_bonus}
-                  </span>
-                )}
-                {result.star_bonus > 0 && (
-                  <span style={{ fontSize:11, padding:"3px 10px", borderRadius:20,
-                    background:"rgba(255,215,0,0.12)", border:"1px solid rgba(255,215,0,0.3)", color:"#FFD700" }}>
-                    ⭐ Star Player +{result.star_bonus}
-                  </span>
-                )}
+            {/* 5-dimension breakdown */}
+            {result.dimensions && (
+              <div style={{ display:"flex", flexDirection:"column", gap:6 }}>
+                {([
+                  ["attacking",  "⚽ Attack",     "Goals & assists per 90"],
+                  ["defending",  "🛡 Defence",    "Tackles & interceptions"],
+                  ["experience", "🎖 Experience", "Avg international caps"],
+                  ["star_power", "⭐ Star Power", "Elite value vs balance"],
+                  ["efficiency", "💰 Budget",     "How well you spent €300M"],
+                ] as [string, string, string][]).map(([key, label, tip]) => {
+                  const val = result.dimensions[key] ?? 0;
+                  return (
+                    <div key={key} style={{ display:"flex", alignItems:"center", gap:8 }} title={tip}>
+                      <span style={{ fontSize:11, color:"rgba(255,255,255,0.55)", width:90, flexShrink:0 }}>{label}</span>
+                      <div style={{ flex:1, height:5, background:"rgba(255,255,255,0.07)", borderRadius:3, overflow:"hidden" }}>
+                        <div style={{ width:`${(val/20)*100}%`, height:"100%", background:scoreColor, borderRadius:3,
+                          transition:"width 0.6s ease" }} />
+                      </div>
+                      <span style={{ fontSize:11, fontWeight:700, color:scoreColor, width:32, textAlign:"right" }}>
+                        {val}<span style={{ fontSize:9, color:"rgba(255,255,255,0.3)" }}>/20</span>
+                      </span>
+                    </div>
+                  );
+                })}
               </div>
             )}
-
-            {/* Breakdown */}
-            <div style={{ display:"flex", flexDirection:"column", gap:4 }}>
-              {Object.entries(result.breakdown).map(([name, s]: [string, any]) => (
-                <div key={name} style={{ display:"flex", alignItems:"center", gap:8 }}>
-                  <span style={{ fontSize:11, color:"rgba(255,255,255,0.5)", flex:1,
-                    overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap" }}>{name}</span>
-                  <div style={{ width:80, height:4, background:"rgba(255,255,255,0.07)", borderRadius:2, overflow:"hidden" }}>
-                    <div style={{ width:`${(s/20)*100}%`, height:"100%", background:scoreColor, borderRadius:2 }} />
-                  </div>
-                  <span style={{ fontSize:11, fontWeight:700, color:scoreColor, width:28, textAlign:"right" }}>{s}</span>
-                </div>
-              ))}
-            </div>
           </motion.div>
         )}
       </AnimatePresence>
