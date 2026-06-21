@@ -316,8 +316,9 @@ def _run_bracket_sim() -> dict:
                 hg += hg2; ag += ag2
                 attempts += 1
             if hg == ag:
-                edge = 0.60 if res["home_win"] >= res["away_win"] else 0.40
-                winner = home if _random.random() < edge else away
+                # Resolve pens using model win probability (normalised, ignoring draw)
+                pen_p = res["home_win"] / (res["home_win"] + res["away_win"])
+                winner = home if _random.random() < pen_p else away
                 score = f"{hg}-{ag} (pens)"
             else:
                 winner = home if hg > ag else away
