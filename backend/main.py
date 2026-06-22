@@ -191,14 +191,24 @@ class SquadRequest(BaseModel):
 @app.post("/squad/score")
 def squad_score(req: SquadRequest):
     """
-    Score a 5-player squad out of 100 across 5 football-logic dimensions (20 pts each):
-      1. Attacking threat  — goals+assists per 90 for ATT/MID
-      2. Defensive solidity — tackles+interceptions per 90 for GK/DEF
-      3. Experience        — average international caps (80 caps = full marks)
-      4. Star vs balance   — elite star value + penalty for over-reliance (Gini-style)
-      5. Budget efficiency — rewrads spending 85-100% of the €300M budget
+    Score a 5-player squad out of 100 across 5 dimensions (20 pts each).
+    Reference values are calibrated to the ACTUAL player pool (p90 = elite):
+
+      1. Attacking threat (20) — ATT/MID goals & assists per 90 vs elite (0.35 G/90, 0.30 A/90)
+      2. Defensive solidity (20) — GK quality on value (8) + DEF tackles/interceptions (12)
+      3. Experience (20)       — average international caps (80 = full marks)
+      4. Star power vs balance (20) — top star value (14) minus over-reliance penalty (6)
+      5. Budget efficiency (20) — rewards spending 85-100% of the €300M budget
+
+    GKs are scored on market value, NOT tackles — the player pool has zero defensive
+    actions recorded for goalkeepers, so including them in tackle averages is invalid.
     """
     BUDGET = 300_000_000
+    # Elite (p90) reference values from the real player pool:
+    REF_ATT_G90, REF_ATT_A90 = 0.35, 0.30   # elite striker output per 90
+    REF_MID_G90, REF_MID_A90 = 0.22, 0.25   # elite midfielder output per 90
+    REF_TACKLES, REF_INTS    = 24.0, 22.0   # elite outfield defender season totals
+    REF_GK_VALUE             = 40_000_000    # a world-class GK (Kobel/Maignan tier)
 
     ps = req.players
     if len(ps) != 5:
@@ -208,36 +218,55 @@ def squad_score(req: SquadRequest):
     if total_value > BUDGET:
         raise HTTPException(status_code=400, detail="Budget exceeded")
 
-    # ── 1. Attacking threat (20 pts) ─────────────────────────────────────────
+    def clamp01(x): return max(0.0, min(1.0, x))
+
+    # ── 1. Attacking threat (20 pts) — ATT and MID players ────────────────────
     att_players = [p for p in ps if p.get("general_position") in ("ATT", "MID")]
     if att_players:
-        avg_g90  = sum(p.get("goals_per_90",   0) for p in att_players) / len(att_players)
-        avg_a90  = sum(p.get("assists_per_90", 0) for p in att_players) / len(att_players)
-        att_score = min(avg_g90 / 0.45 * 13 + avg_a90 / 0.35 * 7, 20)
+        per_player = []
+        for p in att_players:
+            is_att = p.get("general_position") == "ATT"
+            g_ref = REF_ATT_G90 if is_att else REF_MID_G90
+            a_ref = REF_ATT_A90 if is_att else REF_MID_A90
+            g = clamp01(p.get("goals_per_90", 0)   / g_ref)
+            a = clamp01(p.get("assists_per_90", 0) / a_ref)
+            per_player.append(g * 0.6 + a * 0.4)        # 0..1 per attacker
+        att_score = (sum(per_player) / len(per_player)) * 20
     else:
         att_score = 0.0
 
-    # ── 2. Defensive solidity (20 pts) ───────────────────────────────────────
-    def_players = [p for p in ps if p.get("general_position") in ("GK", "DEF")]
-    if def_players:
-        avg_tkl  = sum(p.get("tackles_won",   0) for p in def_players) / len(def_players)
-        avg_int  = sum(p.get("interceptions", 0) for p in def_players) / len(def_players)
-        # Reference: a solid WC defender averages ~60 tackles, ~50 interceptions per season
-        def_score = min(avg_tkl / 60 * 11 + avg_int / 50 * 9, 20)
+    # ── 2. Defensive solidity (20 pts) — GK value (8) + DEF actions (12) ───────
+    gks  = [p for p in ps if p.get("general_position") == "GK"]
+    defs = [p for p in ps if p.get("general_position") == "DEF"]
+    # GK component: scored on market value (no GK defensive stats exist in the pool)
+    if gks:
+        gk_quality = sum(clamp01(p.get("market_value", 0) / REF_GK_VALUE) for p in gks) / len(gks)
+        gk_pts = gk_quality * 8
     else:
-        def_score = 0.0
+        gk_pts = 0.0
+    # DEF component: tackles + interceptions vs elite reference
+    if defs:
+        d_scores = []
+        for p in defs:
+            t = clamp01(p.get("tackles_won", 0)   / REF_TACKLES)
+            i = clamp01(p.get("interceptions", 0) / REF_INTS)
+            d_scores.append((t + i) / 2)              # 0..1 per defender
+        def_pts = (sum(d_scores) / len(d_scores)) * 12
+    else:
+        def_pts = 0.0
+    def_score = gk_pts + def_pts
 
     # ── 3. Experience (20 pts) ────────────────────────────────────────────────
-    avg_caps   = sum(p.get("international_caps", 0) for p in ps) / len(ps)
-    exp_score  = min(avg_caps / 80, 1.0) * 20   # 80 caps average = full marks
+    avg_caps  = sum(p.get("international_caps", 0) for p in ps) / len(ps)
+    exp_score = clamp01(avg_caps / 80) * 20            # 80 caps average = full marks
 
     # ── 4. Star power vs squad balance (20 pts) ───────────────────────────────
     values     = [max(p.get("market_value", 0), 0) for p in ps]
     total_mv   = sum(values) or 1
     max_mv     = max(values)
-    star_share = max_mv / total_mv                          # fraction eaten by top star
-    star_pts   = min(max_mv / 150_000_000, 1.0) * 14       # up to 14 for a €150M+ player
-    balance_pts = (1 - star_share) * 6                     # up to 6 for balanced squad
+    star_share = max_mv / total_mv                     # fraction eaten by top star
+    star_pts   = clamp01(max_mv / 150_000_000) * 14    # up to 14 for a €150M+ player
+    balance_pts = (1 - star_share) * 6                 # up to 6 for a balanced squad
     star_score  = star_pts + balance_pts
 
     # ── 5. Budget efficiency (20 pts) ────────────────────────────────────────
@@ -257,6 +286,17 @@ def squad_score(req: SquadRequest):
         "Work in Progress 🔧"   if total >= 40 else
         "Back to the Bench 😬"
     )
+
+    # Transparent per-dimension explanation of what earned the points
+    explain = {
+        "attacking":  f"Avg goals/assists per 90 of your {len(att_players)} ATT/MID vs elite output",
+        "defending":  f"GK value €{(gks[0].get('market_value',0)/1e6 if gks else 0):.0f}M (€40M = elite) + "
+                      f"{len(defs)} defender tackles/interceptions vs elite (24 tkl, 22 int)",
+        "experience": f"Squad averages {avg_caps:.0f} caps (80 = full marks)",
+        "star_power": f"Top player €{max_mv/1e6:.0f}M; star eats {star_share*100:.0f}% of squad value",
+        "efficiency": f"Spent €{total_value/1e6:.0f}M of €300M ({efficiency*100:.0f}%)",
+    }
+
     return {
         "score":    total,
         "verdict":  verdict,
@@ -268,11 +308,12 @@ def squad_score(req: SquadRequest):
             "star_power": round(star_score,   1),
             "efficiency": round(budget_score, 1),
         },
+        "explain": explain,
         # kept for frontend backwards compat
         "chemistry_bonus": 0,
         "star_bonus":      round(star_pts, 1),
         "breakdown":       {p["player_name"]: round(
-            (att_score + def_score) / max(len(att_players) + len(def_players), 1), 1
+            (att_score + def_score) / max(len(att_players) + len(defs) + len(gks), 1), 1
         ) for p in ps},
     }
 

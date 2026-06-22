@@ -365,16 +365,20 @@ function SquadBuilder({ allPlayers }: { allPlayers: Player[] }) {
                   ["efficiency", "💰 Budget",     "How well you spent €300M"],
                 ] as [string, string, string][]).map(([key, label, tip]) => {
                   const val = result.dimensions[key] ?? 0;
+                  const why = result.explain?.[key] ?? tip;
                   return (
-                    <div key={key} style={{ display:"flex", alignItems:"center", gap:8 }} title={tip}>
-                      <span style={{ fontSize:11, color:"rgba(255,255,255,0.55)", width:90, flexShrink:0 }}>{label}</span>
-                      <div style={{ flex:1, height:5, background:"rgba(255,255,255,0.07)", borderRadius:3, overflow:"hidden" }}>
-                        <div style={{ width:`${(val/20)*100}%`, height:"100%", background:scoreColor, borderRadius:3,
-                          transition:"width 0.6s ease" }} />
+                    <div key={key} style={{ display:"flex", flexDirection:"column", gap:2 }}>
+                      <div style={{ display:"flex", alignItems:"center", gap:8 }}>
+                        <span style={{ fontSize:11, color:"rgba(255,255,255,0.55)", width:90, flexShrink:0 }}>{label}</span>
+                        <div style={{ flex:1, height:5, background:"rgba(255,255,255,0.07)", borderRadius:3, overflow:"hidden" }}>
+                          <div style={{ width:`${(val/20)*100}%`, height:"100%", background:scoreColor, borderRadius:3,
+                            transition:"width 0.6s ease" }} />
+                        </div>
+                        <span style={{ fontSize:11, fontWeight:700, color:scoreColor, width:32, textAlign:"right" }}>
+                          {val}<span style={{ fontSize:9, color:"rgba(255,255,255,0.3)" }}>/20</span>
+                        </span>
                       </div>
-                      <span style={{ fontSize:11, fontWeight:700, color:scoreColor, width:32, textAlign:"right" }}>
-                        {val}<span style={{ fontSize:9, color:"rgba(255,255,255,0.3)" }}>/20</span>
-                      </span>
+                      <span style={{ fontSize:9, color:"rgba(255,255,255,0.3)", paddingLeft:98, lineHeight:1.4 }}>{why}</span>
                     </div>
                   );
                 })}
