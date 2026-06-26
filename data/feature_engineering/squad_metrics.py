@@ -316,8 +316,10 @@ def fuse_squads_to_masterlist(squads: pd.DataFrame, master: pd.DataFrame) -> pd.
 
         matches.append({'player_name': row['player_name'], 'master_idx': mid})
 
-    match_df = pd.DataFrame(matches)
-    merged = squads.merge(match_df, on='player_name')
+    # Align by row position, not player_name — avoids cross-join when same name
+    # appears for two countries (e.g. Emiliano Martínez in ARG and URU).
+    match_df = pd.DataFrame(matches).reset_index(drop=True)
+    merged = squads.reset_index(drop=True).join(match_df[['master_idx']])
     # NOTE: we deliberately do NOT pull club_team from the masterlist — it comes
     # from stale Kaggle/Transfermarkt data (e.g. Haaland→Feyenoord, Kane→Leicester).
     # The 'club' column from wc2026_official_squads.csv (scraped Jun 2026) is the
@@ -519,6 +521,28 @@ def main():
     out_path = out_dir / 'team_squad_metrics.csv'
     metrics.to_csv(out_path, index=False)
     print(f"\n✅ Saved squad metrics for {len(metrics)} teams → {out_path}")
+
+    # ── Also save a player-level WC squad file for the /players endpoint ─────
+    # Use official squad data for caps/goals/club (more accurate than masterlist).
+    # role/versatility added downstream by tactical_clusters.py via player_id join.
+    group_map = elo.set_index('country')['group'].to_dict()
+    wc_players = fused[[
+        'player_name', 'country', 'player_id', 'club',
+        'age_at_wc', 'general_position', 'specific_position',
+        'market_value', 'caps', 'goals',
+        'goals_per_90', 'assists_per_90', 'interceptions', 'tackles_won', 'crosses',
+    ]].copy()
+    wc_players = wc_players.rename(columns={
+        'club':       'club_team',
+        'age_at_wc':  'age',
+        'caps':       'international_caps',
+        'goals':      'international_goals',
+    })
+    wc_players['wc_group'] = wc_players['country'].map(group_map)
+    wc_players['role']        = ''
+    wc_players['versatility'] = 0.5
+    wc_players.to_csv(out_dir / 'wc_squad_players.csv', index=False)
+    print(f"✅ Saved {len(wc_players)} WC squad players → wc_squad_players.csv")
 
     # ── Spot-checks ───────────────────────────────────────────────────────────
     pd.set_option('display.max_columns', None)

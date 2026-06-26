@@ -1,0 +1,1249 @@
+player_name,country,player_id,club_team,age,general_position,specific_position,market_value,international_caps,international_goals,goals_per_90,assists_per_90,interceptions,tackles_won,crosses,wc_group,role,versatility
+Matěj Kovář,Czech Republic,550829.0,PSV Eindhoven,26.1,GK,Goalkeeper,7000000.0,20,0,0.0,0.0,1.0,0.0,0.0,A,Goalkeeper,0.0
+David Zima,Czech Republic,544149.0,Slavia Prague,25.6,DEF,Centre-Back,4000000.0,25,1,0.0,0.0,25.0,15.0,4.0,A,Stopper CB,0.814
+Tomáš Holeš,Czech Republic,216278.0,Slavia Prague,33.2,DEF,Centre-Back,50000.0,41,2,0.0,0.0,5.0,4.0,2.8,A,Traditional CB,0.36
+Robin Hranáč,Czech Republic,620217.0,TSG Hoffenheim,26.4,DEF,Centre-Back,7000000.0,14,1,0.04,0.0,19.0,14.0,6.0,A,Traditional CB,0.765
+Vladimír Coufal,Czech Republic,157672.0,TSG Hoffenheim,33.8,DEF,Right-Back,2700000.0,62,2,0.03,0.25,37.0,33.0,191.0,A,Attacking Wing-Back,0.247
+Štěpán Chaloupek,Czech Republic,944827.0,Slavia Prague,23.3,DEF,Centre-Back,50000.0,5,0,0.18,0.04,8.6,8.2,8.6,A,Traditional CB,0.38
+Ladislav Krejčí,Czech Republic,345911.0,Wolverhampton Wanderers,27.1,DEF,Centre-Back,22000000.0,27,5,0.08,0.04,30.0,16.0,13.0,A,Stopper CB,0.577
+Vladimír Darida,Czech Republic,179643.0,Hradec Králové,35.8,MID,Central Midfield,400000.0,79,8,0.07,0.07,6.69,7.91,40.34,A,Pressing CM,0.548
+Adam Hložek,Czech Republic,552057.0,TSG Hoffenheim,23.9,ATT,Centre-Forward,15000000.0,43,5,0.0,0.0,0.0,0.0,0.0,A,Data-Limited,0.5
+Patrik Schick,Czech Republic,242086.0,Bayer Leverkusen,30.4,ATT,Centre-Forward,25000000.0,53,26,0.8,0.15,3.0,2.0,0.0,A,Poacher,0.517
+Jan Kuchta,Czech Republic,334802.0,Sparta Prague,29.4,ATT,Centre-Forward,4000000.0,31,3,0.0,0.47,6.0,8.0,13.0,A,Poacher,0.804
+Lukáš Červ,Czech Republic,611049.0,Viktoria Plzeň,25.2,MID,Central Midfield,50000.0,17,2,0.15,0.0,13.4,20.2,33.8,A,Box-to-Box,0.97
+Mojmír Chytil,Czech Republic,405855.0,Slavia Prague,27.1,ATT,Centre-Forward,50000.0,22,6,0.08,0.06,8.2,13.8,35.8,A,Target Forward,0.634
+David Jurásek,Czech Republic,500054.0,Slavia Prague,25.8,DEF,Left-Back,4500000.0,18,1,0.0,0.0,6.0,6.0,38.0,A,Full-Back,0.439
+Pavel Šulc,Czech Republic,500053.0,Lyon,25.4,ATT,Attacking Midfield,50000.0,21,5,0.69,0.19,6.0,12.0,13.0,A,Advanced Playmaker,0.604
+Jindřich Staněk,Czech Republic,242089.0,Slavia Prague,30.1,GK,Goalkeeper,3500000.0,14,0,0.0,0.0,0.0,0.0,0.0,A,Goalkeeper,0.0
+Lukáš Provod,Czech Republic,292779.0,Slavia Prague,29.6,MID,Left Winger,50000.0,38,3,0.07,0.03,2.2,7.0,19.4,A,Wide Playmaker,0.439
+Michal Sadílek,Czech Republic,321204.0,Slavia Prague,27.0,MID,Central Midfield,7500000.0,35,1,0.45,0.13,7.0,2.0,17.0,A,Pressing CM,0.578
+Tomáš Chorý,Czech Republic,198614.0,Slavia Prague,31.4,ATT,Centre-Forward,1800000.0,22,7,0.16,0.07,10.17,11.83,38.5,A,Target Forward,0.661
+Jaroslav Zelený,Czech Republic,142219.0,Sparta Prague,33.8,DEF,Centre-Back,50000.0,23,0,0.04,0.1,9.33,10.0,43.67,A,Ball-Playing CB,0.336
+David Douděra,Czech Republic,493758.0,Slavia Prague,28.0,DEF,Right Midfield,50000.0,17,2,0.05,0.01,21.0,20.0,22.4,A,Box-to-Box,0.619
+Tomáš Souček,Czech Republic,283628.0,West Ham United,31.3,MID,Defensive Midfield,12000000.0,90,17,0.23,0.0,16.0,21.0,12.0,A,Deep-Lying Playmaker,0.821
+Lukáš Horníček,Czech Republic,629773.0,Braga,23.9,GK,Goalkeeper,10000000.0,1,0,0.0,0.0,0.0,0.0,0.0,A,Goalkeeper,0.0
+Alexandr Sojka,Czech Republic,826103.0,Viktoria Plzeň,23.2,MID,Central Midfield,50000.0,2,0,0.14,0.1,5.0,10.6,17.8,A,Pressing CM,0.426
+Hugo Sochůrek,Czech Republic,1206877.0,Sparta Prague,18.0,MID,Central Midfield,50000.0,1,0,0.05,0.08,1.2,3.4,7.4,A,Pressing CM,0.422
+Denis Višinský,Czech Republic,652060.0,Viktoria Plzeň,23.2,ATT,Attacking Midfield,50000.0,2,1,0.14,0.05,21.6,20.4,5.2,A,Attacking Midfielder,0.338
+Raúl Rangel,Mexico,802855.0,Guadalajara,26.3,GK,Goalkeeper,50000.0,14,0,0.73,0.0,7.0,12.0,7.0,A,Goalkeeper,0.0
+Jorge Sánchez,Mexico,356044.0,PAOK,28.5,DEF,Right-Back,3500000.0,59,3,0.03,0.0,34.0,27.0,19.0,A,Holding Full-Back,0.547
+César Montes,Mexico,387687.0,Lokomotiv Moscow,29.3,DEF,Centre-Back,7000000.0,67,4,0.11,0.21,5.01,11.92,37.6,A,Ball-Playing CB,0.369
+Edson Álvarez,Mexico,401356.0,Fenerbahçe,28.6,DEF,Defensive Midfield,22000000.0,98,7,0.0,0.12,16.0,18.0,2.0,A,Box-to-Box DM,0.681
+Johan Vásquez,Mexico,532937.0,Genoa,27.6,DEF,Centre-Back,10000000.0,46,3,0.0,0.0,46.0,37.0,23.0,A,Stopper CB,0.4
+Érik Lira,Mexico,602324.0,Cruz Azul,26.1,MID,Defensive Midfield,50000.0,25,0,0.09,0.11,12.8,16.2,37.4,A,Box-to-Box DM,0.636
+Luis Romo,Mexico,532938.0,Guadalajara,31.0,MID,Centre-Back,50000.0,63,4,0.14,0.2,8.25,11.75,43.75,A,Ball-Playing CB,0.33
+Álvaro Fidalgo,Mexico,261503.0,Real Betis,29.2,MID,Central Midfield,7000000.0,4,0,0.19,0.0,3.0,5.0,6.0,A,Pressing CM,0.429
+Raúl Jiménez,Mexico,206040.0,Fulham,35.1,ATT,Centre-Forward,4000000.0,124,45,0.38,0.13,7.0,19.0,7.0,A,Poacher,0.837
+Alexis Vega,Mexico,424689.0,Toluca,28.5,ATT,Left Winger,50000.0,52,7,0.13,0.03,4.8,4.8,7.0,A,Wide Playmaker,0.422
+Santiago Giménez,Mexico,552955.0,Milan,25.1,ATT,Centre-Forward,40000000.0,47,6,0.0,0.0,1.0,4.0,1.0,A,Target Forward,0.467
+Carlos Acevedo,Mexico,356042.0,Santos Laguna,30.1,GK,Goalkeeper,50000.0,7,0,0.0,0.0,0.0,0.0,0.0,A,Goalkeeper,0.0
+Guillermo Ochoa,Mexico,29559.0,AEL Limassol,40.9,GK,Goalkeeper,1000000.0,152,0,0.0,0.0,0.0,0.0,0.0,A,Goalkeeper,0.0
+Armando González,Mexico,837619.0,Guadalajara,23.1,ATT,Centre-Forward,50000.0,7,1,0.26,0.06,12.4,12.2,3.4,A,Target Forward,0.882
+Israel Reyes,Mexico,687558.0,América,26.1,DEF,Right-Back,50000.0,34,2,0.22,0.1,15.6,14.0,25.0,A,Full-Back,0.619
+Julián Quiñones,Mexico,416090.0,Al-Qadsiah,29.2,ATT,Centre-Forward,50000.0,22,2,0.01,0.01,9.0,8.0,2.4,A,Target Forward,0.489
+Orbelín Pineda,Mexico,334042.0,AEK Athens,30.2,MID,Central Midfield,7000000.0,92,12,0.09,0.13,12.71,17.73,35.44,A,Box-to-Box,0.828
+Obed Vargas,Mexico,889435.0,Atlético Madrid,20.8,MID,Central Midfield,50000.0,6,0,0.0,0.19,8.0,11.0,4.0,A,Pressing CM,0.675
+Gilberto Mora,Mexico,1155723.0,Tijuana,17.7,MID,Attacking Midfield,50000.0,8,0,0.05,0.08,1.4,2.6,9.2,A,Attacking Midfielder,0.365
+Mateo Chávez,Mexico,1066953.0,AZ,22.1,DEF,Left-Back,50000.0,10,0,0.0,0.23,16.0,30.0,19.0,A,Holding Full-Back,0.65
+César Huerta,Mexico,540315.0,Anderlecht,25.5,ATT,Left Winger,5000000.0,26,3,0.24,0.16,6.5,14.0,51.0,A,Traditional Winger,0.681
+Guillermo Martínez,Mexico,347932.0,Pumas UNAM,31.2,ATT,Centre-Forward,50000.0,12,3,0.14,0.2,8.25,11.75,43.75,A,Target Forward,0.844
+Jesús Gallardo,Mexico,344854.0,Toluca,31.8,DEF,Left-Back,50000.0,121,3,0.05,0.0,2.6,4.2,12.2,A,Full-Back,0.371
+Luis Chávez,Mexico,331059.0,Dynamo Moscow,30.4,MID,Defensive Midfield,9000000.0,45,5,0.35,0.15,11.0,29.0,97.0,A,Deep-Lying Playmaker,0.722
+Roberto Alvarado,Mexico,353583.0,Guadalajara,27.8,ATT,Right Winger,50000.0,67,5,0.0,0.0,4.0,3.8,5.0,A,Wide Playmaker,0.427
+Brian Gutiérrez,Mexico,724443.0,Guadalajara,23.0,MID,Attacking Midfield,50000.0,7,2,0.4,0.13,20.0,25.0,21.0,A,Attacking Midfielder,0.828
+Ronwen Williams,South Africa,175577.0,Mamelodi Sundowns,34.4,GK,Goalkeeper,50000.0,62,0,0.0,0.0,0.0,0.0,0.0,A,Goalkeeper,0.0
+Thabang Matuludi,South Africa,1109254.0,Polokwane City,27.4,DEF,Right-Back,50000.0,3,0,0.06,0.01,11.0,13.8,28.4,A,Full-Back,0.488
+Khulumani Ndamane,South Africa,1283140.0,Mamelodi Sundowns,22.3,DEF,Centre-Back,50000.0,5,0,0.0,0.0,5.2,3.6,1.2,A,Traditional CB,0.362
+Teboho Mokoena,South Africa,436372.0,Mamelodi Sundowns,29.4,MID,Defensive Midfield,50000.0,51,9,0.14,0.06,11.2,9.8,18.0,A,Box-to-Box DM,0.556
+Thalente Mbatha,South Africa,735697.0,Orlando Pirates,26.3,MID,Central Midfield,50000.0,15,3,0.18,0.18,13.8,16.6,51.2,A,Box-to-Box,0.789
+Aubrey Modiba,South Africa,353432.0,Mamelodi Sundowns,30.9,DEF,Left-Back,50000.0,44,3,0.14,0.2,8.25,11.75,43.75,A,Full-Back,0.675
+Oswin Appollis,South Africa,673381.0,Orlando Pirates,24.8,ATT,Left Winger,50000.0,26,8,0.15,0.0,21.2,17.4,20.4,A,Traditional Winger,0.725
+Tshepang Moremi,South Africa,844485.0,Orlando Pirates,25.7,ATT,Left Winger,50000.0,10,1,0.17,0.03,2.4,2.0,5.2,A,Wide Playmaker,0.426
+Lyle Foster,South Africa,467623.0,Burnley,25.8,ATT,Centre-Forward,13000000.0,27,10,0.2,0.13,4.0,12.0,6.0,A,Target Forward,0.763
+Relebohile Mofokeng,South Africa,1125037.0,Orlando Pirates,21.6,ATT,Left Winger,50000.0,13,0,0.08,0.0,5.4,6.6,5.2,A,Wide Playmaker,0.442
+Themba Zwane,South Africa,,Mamelodi Sundowns,36.9,MID,,,54,12,,,,,,A,,0.5
+Thapelo Maseko,South Africa,,AEL Limassol,22.6,ATT,,,10,1,,,,,,A,,0.5
+Sphephelo Sithole,South Africa,,Tondela,27.3,MID,,,28,1,,,,,,A,,0.5
+Mbekezeli Mbokazi,South Africa,1378320.0,Chicago Fire FC,20.7,DEF,Centre-Back,50000.0,10,1,0.0,0.0,2.8,1.6,1.2,A,Traditional CB,0.356
+Iqraam Rayners,South Africa,337884.0,Mamelodi Sundowns,30.5,ATT,Centre-Forward,50000.0,14,4,0.14,0.2,8.25,11.75,43.75,A,Target Forward,0.844
+Sipho Chaine,South Africa,453370.0,Orlando Pirates,29.5,GK,Goalkeeper,50000.0,4,0,0.0,0.0,0.0,0.0,0.0,A,Goalkeeper,0.0
+Evidence Makgopa,South Africa,746781.0,Orlando Pirates,26.0,ATT,Centre-Forward,50000.0,26,6,0.09,0.11,12.8,16.2,37.4,A,False Nine,0.67
+Samukele Kabini,South Africa,1175086.0,Molde,22.2,DEF,Left-Back,50000.0,6,0,0.35,0.15,11.0,29.0,97.0,A,Holding Full-Back,0.72
+Nkosinathi Sibisi,South Africa,399068.0,Orlando Pirates,30.7,DEF,Centre-Back,50000.0,20,0,0.14,0.2,8.25,11.75,43.75,A,Ball-Playing CB,0.33
+Khuliso Mudau,South Africa,450806.0,Mamelodi Sundowns,31.1,DEF,Right-Back,50000.0,32,1,0.14,0.2,8.25,11.75,43.75,A,Full-Back,0.675
+Ime Okon,South Africa,,Hannover 96,22.3,DEF,,,8,1,,,,,,A,,0.5
+Ricardo Goss,South Africa,258304.0,Siwelele,32.2,GK,Goalkeeper,50000.0,5,0,0.0,0.0,0.0,0.0,0.0,A,Goalkeeper,0.0
+Jayden Adams,South Africa,804472.0,Mamelodi Sundowns,25.1,MID,Central Midfield,50000.0,5,0,0.06,0.05,9.4,14.4,48.6,A,Pressing CM,0.789
+Olwethu Makhanya,South Africa,1069801.0,Philadelphia Union,22.1,DEF,Centre-Back,50000.0,1,0,0.04,0.0,33.0,33.0,4.0,A,Stopper CB,0.366
+Kamogelo Sebelebele,South Africa,994370.0,Orlando Pirates,23.9,ATT,Right Winger,50000.0,3,0,0.04,0.1,10.0,14.6,43.0,A,Traditional Winger,0.795
+Bradley Cross,South Africa,,Kaizer Chiefs,25.4,DEF,,,1,0,,,,,,A,,0.5
+Kim Seung-gyu,South Korea,92076.0,FC Tokyo,35.7,GK,Goalkeeper,50000.0,87,0,0.0,0.0,0.0,0.0,0.0,A,Goalkeeper,0.0
+Lee Han-beom,South Korea,706963.0,Midtjylland,24.0,DEF,Centre-Back,1800000.0,8,0,0.0,0.0,11.0,8.0,21.0,A,Traditional CB,0.529
+Lee Gi-hyuk,South Korea,763349.0,Gangwon FC,25.9,MID,Centre-Back,50000.0,3,0,0.16,0.13,4.6,4.6,13.4,A,Traditional CB,0.648
+Kim Min-jae,South Korea,503482.0,Bayern Munich,29.6,DEF,Centre-Back,25000000.0,79,4,0.06,0.06,36.0,18.0,1.0,A,Stopper CB,0.505
+Kim Tae-hyeon,South Korea,645847.0,Kashima Antlers,25.7,DEF,Centre-Back,50000.0,7,0,0.06,0.22,11.0,10.6,11.6,A,,0.5
+Hwang In-beom,South Korea,365394.0,Feyenoord,29.7,MID,Defensive Midfield,4500000.0,73,6,0.09,0.28,10.0,10.0,41.0,A,Box-to-Box DM,0.74
+Son Heung-min,South Korea,91845.0,Los Angeles FC,33.9,ATT,Left Winger,17000000.0,144,56,1.01,0.22,1.0,5.0,36.0,A,Inside Forward,0.578
+Paik Seung-ho,South Korea,282689.0,Birmingham City,29.2,MID,Central Midfield,900000.0,27,3,0.13,0.0,4.0,10.0,39.0,A,Pressing CM,0.515
+Cho Gue-sung,South Korea,652537.0,Midtjylland,28.4,ATT,Centre-Forward,4500000.0,44,12,0.07,0.02,5.92,5.59,10.63,A,Target Forward,0.436
+Lee Jae-sung,South Korea,314398.0,Mainz 05,33.8,MID,Attacking Midfield,2000000.0,105,15,0.17,0.08,23.0,20.0,31.0,A,Attacking Midfielder,0.353
+Hwang Hee-chan,South Korea,292246.0,Wolverhampton Wanderers,30.4,MID,Centre-Forward,10000000.0,79,17,0.15,0.08,7.0,4.0,18.0,A,Target Forward,0.515
+Song Bum-keun,South Korea,508237.0,Jeonbuk Hyundai Motors,28.7,GK,Goalkeeper,50000.0,3,0,0.0,0.0,0.0,0.0,0.0,A,Goalkeeper,0.0
+Lee Tae-seok,South Korea,639027.0,Austria Wien,23.9,DEF,Left-Back,50000.0,15,1,0.01,0.09,17.4,17.0,26.0,A,Full-Back,0.835
+Cho Wi-je,South Korea,550978.0,Jeonbuk Hyundai Motors,24.8,DEF,Centre-Back,50000.0,1,0,0.15,0.01,9.8,14.0,30.2,A,Ball-Playing CB,0.807
+Kim Moon-hwan,South Korea,524592.0,Daejeon Hana Citizen,30.9,DEF,Right-Back,50000.0,35,0,0.14,0.2,8.25,11.75,43.75,A,Full-Back,0.675
+Park Jin-seob,South Korea,557469.0,Zhejiang,30.6,DEF,Defensive Midfield,50000.0,14,1,0.14,0.2,8.25,11.75,43.75,A,Box-to-Box DM,0.684
+Bae Jun-ho,South Korea,912081.0,Stoke City,22.8,MID,Attacking Midfield,50000.0,13,2,0.06,0.04,12.4,10.8,15.0,A,Attacking Midfielder,0.33
+Oh Hyeon-gyu,South Korea,639246.0,Beşiktaş,25.2,ATT,Centre-Forward,1800000.0,27,6,0.54,0.09,3.0,1.0,3.0,A,Poacher,0.775
+Lee Kang-in,South Korea,557149.0,Paris Saint-Germain,25.3,MID,Attacking Midfield,25000000.0,47,11,0.19,0.25,1.0,8.0,100.0,A,Advanced Playmaker,0.593
+Yang Hyun-jun,South Korea,853110.0,Celtic,24.0,MID,Right Winger,2000000.0,9,0,0.12,0.02,19.0,24.0,12.4,A,Traditional Winger,0.551
+Jo Hyeon-woo,South Korea,260171.0,Ulsan HD,34.7,GK,Goalkeeper,50000.0,48,0,0.0,0.0,0.0,0.0,0.0,A,Goalkeeper,0.0
+Seol Young-woo,South Korea,639414.0,Red Star Belgrade,27.5,DEF,Right-Back,50000.0,34,0,0.0,0.0,3.4,5.2,13.4,A,Full-Back,0.373
+Jens Castrop,South Korea,613192.0,Borussia Mönchengladbach,22.9,DEF,Central Midfield,1500000.0,7,0,0.17,0.06,17.0,27.0,21.0,A,Box-to-Box,0.572
+Kim Jin-gyu,South Korea,365377.0,Jeonbuk Hyundai Motors,29.3,MID,Central Midfield,50000.0,22,3,0.01,0.01,9.0,8.0,2.4,A,Pressing CM,0.54
+Eom Ji-sung,South Korea,706968.0,Swansea City,24.1,MID,Left Winger,50000.0,9,2,0.02,0.0,13.4,20.4,21.0,A,Traditional Winger,0.67
+Lee Dong-gyeong,South Korea,558086.0,Ulsan HD,28.7,MID,Attacking Midfield,50000.0,18,4,0.11,0.0,11.4,9.0,2.4,A,Attacking Midfielder,0.335
+Nikola Vasilj,Bosnia and Herzegovina,248454.0,FC St. Pauli,30.5,GK,Goalkeeper,4500000.0,26,0,0.0,0.0,1.0,1.0,0.0,B,Goalkeeper,0.0
+Nihad Mujakić,Bosnia and Herzegovina,380919.0,Gaziantep,28.2,DEF,Centre-Back,2000000.0,12,1,0.0,0.07,16.0,11.0,16.0,B,Traditional CB,0.621
+Dennis Hadžikadunić,Bosnia and Herzegovina,322065.0,Sampdoria,27.9,DEF,Centre-Back,3000000.0,32,0,0.19,0.37,8.89,13.58,51.37,B,Ball-Playing CB,0.309
+Tarik Muharemović,Bosnia and Herzegovina,679423.0,Sassuolo,23.3,DEF,Centre-Back,1200000.0,14,1,0.07,0.07,40.0,24.0,2.0,B,Stopper CB,0.409
+Sead Kolašinac,Bosnia and Herzegovina,94005.0,Atalanta,33.0,DEF,Centre-Back,10000000.0,65,0,0.0,0.0,10.0,18.0,3.0,B,Traditional CB,0.672
+Benjamin Tahirović,Bosnia and Herzegovina,787907.0,Brøndby,23.3,MID,Central Midfield,4500000.0,28,2,0.12,0.05,26.4,22.23,16.65,B,Box-to-Box,0.487
+Amar Dedić,Bosnia and Herzegovina,519184.0,Benfica,23.8,DEF,Right-Back,50000.0,28,1,0.05,0.2,16.0,18.0,35.0,B,Holding Full-Back,0.83
+Armin Gigović,Bosnia and Herzegovina,651269.0,Young Boys,24.2,MID,Central Midfield,2000000.0,20,1,0.12,0.0,19.33,19.0,3.67,B,Box-to-Box,0.823
+Samed Baždar,Bosnia and Herzegovina,710969.0,Jagiellonia Białystok,22.4,ATT,Centre-Forward,50000.0,13,1,0.01,0.0,6.4,5.4,2.4,B,Target Forward,0.436
+Ermedin Demirović,Bosnia and Herzegovina,335457.0,VfB Stuttgart,28.2,ATT,Centre-Forward,22000000.0,40,4,0.75,0.2,2.0,9.0,1.0,B,Poacher,0.441
+Edin Džeko,Bosnia and Herzegovina,28396.0,Schalke 04,40.2,ATT,Centre-Forward,2700000.0,148,73,0.0,0.0,1.0,1.0,1.0,B,Target Forward,0.479
+Mladen Jurkas,Bosnia and Herzegovina,,Borac Banja Luka,18.7,GK,,,0,0,,,,,,B,,0.5
+Ivan Bašić,Bosnia and Herzegovina,620560.0,Astana,24.1,MID,Central Midfield,1000000.0,17,0,0.05,0.0,6.0,7.4,14.8,B,Pressing CM,0.476
+Ivan Šunjić,Bosnia and Herzegovina,226097.0,Pafos,29.7,MID,Defensive Midfield,1500000.0,11,0,0.79,0.09,2.39,2.36,4.24,B,Box-to-Box DM,0.737
+Amar Memić,Bosnia and Herzegovina,638990.0,Viktoria Plzeň,25.4,MID,Right Midfield,50000.0,13,1,0.0,0.0,10.6,14.4,32.4,B,Pressing CM,0.758
+Amir Hadžiahmetović,Bosnia and Herzegovina,293213.0,Hull City,29.3,MID,Defensive Midfield,4200000.0,36,0,0.53,0.0,6.0,6.0,6.0,B,Box-to-Box DM,0.807
+Dženis Burnić,Bosnia and Herzegovina,251295.0,Karlsruher SC,28.1,MID,Defensive Midfield,550000.0,20,0,0.03,0.0,16.0,20.0,16.26,B,Box-to-Box DM,0.668
+Nikola Katić,Bosnia and Herzegovina,422051.0,Schalke 04,29.7,DEF,Centre-Back,1200000.0,17,2,0.12,0.12,2.5,5.0,30.5,B,Ball-Playing CB,0.565
+Kerim Alajbegović,Bosnia and Herzegovina,929994.0,Red Bull Salzburg,18.7,ATT,Left Winger,8000000.0,10,1,0.09,0.09,20.61,27.66,21.18,B,Traditional Winger,0.475
+Esmir Bajraktarević,Bosnia and Herzegovina,925862.0,PSV Eindhoven,21.3,ATT,Right Winger,5000000.0,16,1,0.37,0.37,3.0,13.0,46.0,B,Inside Forward,0.476
+Stjepan Radeljić,Bosnia and Herzegovina,384568.0,Rijeka,28.8,DEF,Centre-Back,50000.0,5,0,0.08,0.03,14.8,14.4,8.0,B,Traditional CB,0.628
+Martin Zlomislić,Bosnia and Herzegovina,495320.0,Rijeka,27.8,GK,Goalkeeper,50000.0,3,0,0.0,0.0,0.0,0.0,0.0,B,Goalkeeper,0.0
+Haris Tabaković,Bosnia and Herzegovina,203123.0,Borussia Mönchengladbach,32.0,ATT,Centre-Forward,3000000.0,10,4,0.45,0.12,0.0,5.0,2.0,B,Poacher,0.734
+Arjan Malić,Bosnia and Herzegovina,805534.0,Sturm Graz,20.8,DEF,Right-Back,50000.0,8,0,0.0,0.0,4.8,6.0,1.0,B,Full-Back,0.372
+Jovo Lukić,Bosnia and Herzegovina,457738.0,Universitatea Cluj,27.5,ATT,Centre-Forward,50000.0,3,0,0.04,0.0,3.8,3.0,2.4,B,Target Forward,0.449
+Ermin Mahmić,Bosnia and Herzegovina,803049.0,Slovan Liberec,21.2,MID,Attacking Midfield,50000.0,2,0,0.03,0.01,3.0,6.8,10.0,B,Attacking Midfielder,0.336
+Dayne St. Clair,Canada,439750.0,Inter Miami CF,29.1,GK,Goalkeeper,50000.0,20,0,0.0,0.0,1.0,0.0,0.0,B,Goalkeeper,0.0
+Alistair Johnston,Canada,637446.0,Celtic,27.7,DEF,Right-Back,8000000.0,58,1,0.0,0.0,0.0,0.0,0.0,B,Data-Limited,0.5
+Alfie Jones,Canada,340990.0,Middlesbrough,28.7,DEF,Centre-Back,2500000.0,2,0,0.05,0.0,7.5,6.0,1.5,B,Traditional CB,0.373
+Luc de Fougerolles,Canada,921995.0,Dender EH,20.7,DEF,Centre-Back,300000.0,13,0,0.0,0.0,0.0,0.0,0.0,B,Data-Limited,0.5
+Joel Waterman,Canada,441738.0,Chicago Fire FC,30.4,DEF,Centre-Back,50000.0,17,0,0.0,0.06,20.0,14.0,7.0,B,Traditional CB,0.817
+Mathieu Choinière,Canada,589006.0,Los Angeles FC,27.3,MID,Central Midfield,50000.0,23,0,0.14,0.0,8.0,12.0,3.0,B,Pressing CM,0.506
+Stephen Eustáquio,Canada,512913.0,Los Angeles FC,29.5,MID,Central Midfield,11000000.0,56,4,0.0,0.0,0.0,3.0,1.0,B,Pressing CM,0.449
+Ismaël Koné,Canada,921655.0,Sassuolo,24.0,MID,Central Midfield,14000000.0,40,4,0.22,0.0,10.0,15.0,4.0,B,Pressing CM,0.596
+Cyle Larin,Canada,343463.0,Southampton,31.2,ATT,Centre-Forward,3500000.0,90,30,0.0,0.57,0.0,3.0,0.0,B,Poacher,0.736
+Jonathan David,Canada,533738.0,Juventus,26.4,ATT,Centre-Forward,35000000.0,77,39,0.32,0.21,6.0,9.0,8.0,B,Poacher,0.744
+Liam Millar,Canada,604780.0,Hull City,26.7,MID,Central Midfield,50000.0,41,1,0.13,0.06,10.8,10.2,2.2,B,Pressing CM,0.514
+Tani Oluwaseyi,Canada,972465.0,Villarreal,26.1,ATT,Centre-Forward,50000.0,24,2,0.23,0.23,0.0,3.0,3.0,B,Poacher,0.871
+Derek Cornelius,Canada,328609.0,Rangers,28.5,DEF,Centre-Back,4000000.0,44,1,0.0,0.0,1.0,0.0,0.0,B,Traditional CB,0.355
+Jacob Shaffelburg,Canada,637632.0,Los Angeles FC,26.5,MID,Left Winger,50000.0,31,6,0.32,0.16,2.0,4.0,40.0,B,Wide Playmaker,0.757
+Moïse Bombito,Canada,1089202.0,Nice,26.2,DEF,Centre-Back,8000000.0,20,0,0.0,0.0,2.0,1.0,0.0,B,Traditional CB,0.357
+Maxime Crépeau,Canada,189014.0,Orlando City SC,32.1,GK,Goalkeeper,50000.0,32,0,0.0,0.0,0.0,0.0,0.0,B,Goalkeeper,0.0
+Tajon Buchanan,Canada,638793.0,Villarreal,27.3,ATT,Right Winger,8000000.0,60,8,0.38,0.05,22.0,18.0,29.0,B,Traditional Winger,0.611
+Owen Goodman,Canada,814848.0,Barnsley,22.5,GK,Goalkeeper,150000.0,0,0,0.0,0.0,0.0,0.0,0.0,B,Goalkeeper,0.0
+Alphonso Davies,Canada,424204.0,Bayern Munich,25.6,DEF,Left-Back,50000000.0,58,15,0.17,0.51,3.0,6.0,6.0,B,Full-Back,0.624
+Ali Ahmed,Canada,,Norwich City,25.7,ATT,,,24,1,,,,,,B,,0.5
+Jonathan Osorio,Canada,260807.0,Toronto FC,34.0,MID,Central Midfield,50000.0,90,10,0.19,0.05,18.0,13.0,16.0,B,Pressing CM,0.952
+Richie Laryea,Canada,417348.0,Toronto FC,31.4,DEF,Right-Back,50000.0,75,1,0.07,0.07,17.0,16.0,5.0,B,Full-Back,0.581
+Niko Sigur,Canada,1045375.0,Hajduk Split,22.8,DEF,Defensive Midfield,50000.0,19,2,0.16,0.08,12.6,17.8,24.6,B,Box-to-Box DM,0.801
+Promise David,Canada,888785.0,Union Saint-Gilloise,24.9,ATT,Centre-Forward,13000000.0,10,3,0.15,0.17,14.55,17.9,34.07,B,False Nine,0.526
+Nathan Saliba,Canada,294798.0,Anderlecht,22.3,MID,Attacking Midfield,2000000.0,15,2,0.0,0.0,35.0,16.0,1.0,B,,0.5
+Jayden Nelson,Canada,635445.0,Austin FC,23.7,ATT,Left Winger,50000.0,14,3,0.14,0.34,6.0,17.0,32.0,B,Traditional Winger,0.876
+Mahmud Abunada,Qatar,669629.0,Al-Rayyan,26.3,GK,Goalkeeper,50000.0,5,0,0.0,0.0,0.0,0.0,0.0,B,Goalkeeper,0.0
+Pedro Miguel,Qatar,228727.0,Al-Sadd,35.8,DEF,Centre-Back,50000.0,105,3,0.44,0.22,3.0,5.0,28.0,B,Ball-Playing CB,0.519
+Lucas Mendes,Qatar,83983.0,Al-Wakrah,35.9,DEF,Centre-Back,500000.0,25,1,0.0,0.0,14.0,19.0,48.0,B,Ball-Playing CB,0.453
+Issa Laye,Qatar,1264176.0,Al-Arabi,28.5,DEF,Centre-Back,50000.0,4,0,0.01,0.0,11.8,9.2,0.4,B,Traditional CB,0.434
+Jassem Gaber,Qatar,735813.0,Al-Rayyan,24.3,DEF,Defensive Midfield,50000.0,32,1,0.11,0.04,7.2,12.4,14.4,B,Box-to-Box DM,0.458
+Abdulaziz Hatem,Qatar,113915.0,Al-Rayyan,36.4,MID,Central Midfield,50000.0,117,11,0.0,0.0,0.0,1.0,0.0,B,Pressing CM,0.445
+Ahmed Alaaeldin,Qatar,187987.0,Al-Rayyan,33.4,ATT,Centre-Forward,50000.0,68,9,0.0,0.0,1.8,1.4,9.0,B,Target Forward,0.469
+Edmilson Junior,Qatar,237846.0,Al-Duhail,31.8,ATT,Left Winger,3000000.0,16,0,0.27,0.3,9.26,17.95,11.15,B,Traditional Winger,0.756
+Mohammed Muntari,Qatar,266935.0,Al-Gharafa,32.5,ATT,Centre-Forward,50000.0,67,16,0.0,0.0,4.0,3.4,10.4,B,Target Forward,0.443
+Hassan Al-Haydos,Qatar,86286.0,Al-Sadd,35.5,ATT,Attacking Midfield,50000.0,186,41,0.0,0.0,0.0,1.0,0.0,B,Attacking Midfielder,0.348
+Akram Afif,Qatar,336646.0,Al-Sadd,29.6,ATT,Left Winger,4500000.0,125,39,0.08,0.12,13.0,21.47,42.84,B,Traditional Winger,0.456
+Karim Boudiaf,Qatar,222385.0,Al-Duhail,35.7,MID,Defensive Midfield,50000.0,118,5,0.0,0.0,0.0,1.0,0.0,B,Box-to-Box DM,0.377
+Ayoub Al-Oui,Qatar,1054631.0,Al-Gharafa,21.3,DEF,Right-Back,50000.0,6,0,0.05,0.05,18.4,18.6,15.6,B,Full-Back,0.77
+Homam Ahmed,Qatar,,Cultural Leonesa,26.8,DEF,,,68,3,,,,,,B,,0.5
+Yusuf Abdurisag,Qatar,589099.0,Al-Wakrah,26.8,ATT,Left Winger,50000.0,39,3,0.01,0.04,14.0,13.0,14.0,B,Wide Playmaker,0.666
+Boualem Khoukhi,Qatar,222669.0,Al-Sadd,35.9,DEF,Centre-Back,50000.0,116,20,0.0,0.0,0.0,1.0,0.0,B,Traditional CB,0.355
+Ahmed Al-Ganehi,Qatar,670659.0,Al-Gharafa,25.7,MID,Right Winger,50000.0,13,1,0.14,0.09,11.6,15.2,42.4,B,Traditional Winger,0.636
+Sultan Al-Brake,Qatar,336665.0,Al-Duhail,30.2,DEF,Left-Back,50000.0,17,0,0.0,0.0,0.0,1.6,0.0,B,Full-Back,0.366
+Almoez Ali,Qatar,345095.0,Al-Duhail,29.8,ATT,Centre-Forward,50000.0,115,55,0.0,0.0,0.0,0.8,0.0,B,Target Forward,0.491
+Ahmed Fathy,Qatar,251183.0,Al-Arabi,33.4,MID,Defensive Midfield,50000.0,48,0,0.0,0.03,4.6,5.2,3.2,B,Box-to-Box DM,0.377
+Salah Zakaria,Qatar,632912.0,Al-Duhail,27.1,GK,Goalkeeper,50000.0,8,0,0.0,0.0,0.0,0.0,0.0,B,Goalkeeper,0.0
+Meshaal Barsham,Qatar,560423.0,Al-Sadd,28.3,GK,Goalkeeper,50000.0,52,0,0.0,0.0,0.0,0.0,0.0,B,Goalkeeper,0.0
+Assim Madibo,Qatar,336667.0,Al-Wakrah,29.6,MID,Defensive Midfield,300000.0,51,0,0.0,0.0,0.0,2.0,0.0,B,Box-to-Box DM,0.378
+Tahsin Jamshid,Qatar,1143849.0,Al-Duhail,20.0,ATT,Left Winger,50000.0,3,0,0.08,0.0,4.0,4.0,1.2,B,Wide Playmaker,0.421
+Al-Hashmi Al-Hussain,Qatar,943150.0,Al-Arabi,22.8,DEF,Centre-Back,50000.0,8,0,0.01,0.02,7.4,10.6,15.0,B,Traditional CB,0.459
+Mohamed Manai,Qatar,1062461.0,Al-Shamal,23.6,ATT,Left Winger,50000.0,10,0,0.0,0.0,4.8,6.0,1.0,B,Wide Playmaker,0.445
+Gregor Kobel,Switzerland,257814.0,Borussia Dortmund,28.5,GK,Goalkeeper,40000000.0,21,0,0.0,0.0,0.0,0.0,0.0,B,Goalkeeper,0.0
+Miro Muheim,Switzerland,298603.0,Hamburger SV,28.2,DEF,Left-Back,50000.0,10,0,0.0,0.15,27.0,35.0,147.0,B,Attacking Wing-Back,0.297
+Silvan Widmer,Switzerland,168989.0,Mainz 05,33.3,DEF,Right-Back,800000.0,60,5,0.11,0.0,16.0,26.0,33.0,B,Holding Full-Back,0.768
+Nico Elvedi,Switzerland,192635.0,Borussia Mönchengladbach,29.7,DEF,Centre-Back,8000000.0,67,3,0.0,0.0,35.0,30.0,1.0,B,Stopper CB,0.375
+Manuel Akanji,Switzerland,284730.0,Inter Milan,30.9,DEF,Centre-Back,22000000.0,81,4,0.07,0.0,37.0,24.0,3.0,B,Stopper CB,0.394
+Denis Zakaria,Switzerland,334526.0,Monaco,29.6,MID,Defensive Midfield,25000000.0,65,3,0.1,0.05,37.0,22.0,10.0,B,Deep-Lying Playmaker,0.436
+Breel Embolo,Switzerland,237662.0,Rennes,29.3,ATT,Centre-Forward,12000000.0,86,24,0.42,0.16,4.0,13.0,7.0,B,Poacher,0.655
+Remo Freuler,Switzerland,148252.0,Bologna,34.2,MID,Central Midfield,4000000.0,88,11,0.05,0.1,14.0,30.0,17.0,B,Box-to-Box,0.567
+Johan Manzambi,Switzerland,927353.0,SC Freiburg,20.7,MID,Central Midfield,30000000.0,12,3,0.24,0.1,26.0,12.0,30.0,B,Box-to-Box,0.651
+Granit Xhaka,Switzerland,111455.0,Sunderland,33.7,MID,Defensive Midfield,10000000.0,146,17,0.03,0.21,27.0,29.0,87.0,B,Deep-Lying Playmaker,0.604
+Dan Ndoye,Switzerland,365108.0,Nottingham Forest,25.6,ATT,Right Winger,40000000.0,31,8,0.08,0.08,10.0,11.0,41.0,B,Wide Playmaker,0.777
+Yvon Mvogo,Switzerland,147051.0,Lorient,32.0,GK,Goalkeeper,3000000.0,13,0,0.0,0.0,1.0,1.0,0.0,B,Goalkeeper,0.0
+Ricardo Rodriguez,Switzerland,86784.0,Real Betis,33.8,DEF,Left-Back,3500000.0,138,9,0.0,0.07,8.0,6.0,14.0,B,Full-Back,0.365
+Ardon Jashari,Switzerland,608172.0,Milan,23.9,MID,Defensive Midfield,32000000.0,8,0,0.0,0.18,5.0,8.0,8.0,B,Box-to-Box DM,0.489
+Djibril Sow,Switzerland,212723.0,Sevilla,29.3,MID,Central Midfield,9000000.0,52,0,0.24,0.1,19.0,21.0,22.0,B,Box-to-Box,0.648
+Christian Fassnacht,Switzerland,250490.0,Young Boys,32.6,ATT,Attacking Midfield,50000.0,23,5,0.0,0.0,1.2,0.0,0.0,B,Data-Limited,0.5
+Rubén Vargas,Switzerland,345886.0,Sevilla,27.8,ATT,Left Winger,9000000.0,61,11,0.21,0.35,7.0,12.0,70.0,B,Inside Forward,0.467
+Eray Cömert,Switzerland,298583.0,Valencia,28.3,DEF,Centre-Back,2000000.0,22,0,0.17,0.0,19.0,13.0,1.0,B,Traditional CB,0.688
+Noah Okafor,Switzerland,346890.0,Leeds United,26.0,ATT,Left Winger,18000000.0,25,2,0.46,0.06,12.0,15.0,36.0,B,Traditional Winger,0.702
+Michel Aebischer,Switzerland,237658.0,Pisa,29.4,MID,Central Midfield,4500000.0,40,2,0.03,0.03,33.0,36.0,41.0,B,Box-to-Box,0.427
+Marvin Keller,Switzerland,500763.0,Young Boys,23.9,GK,Goalkeeper,50000.0,1,0,0.0,0.0,0.0,0.0,0.0,B,Goalkeeper,0.0
+Fabian Rieder,Switzerland,507341.0,FC Augsburg,24.3,MID,Attacking Midfield,8000000.0,28,1,0.25,0.12,12.0,18.0,98.0,B,Advanced Playmaker,0.724
+Zeki Amdouni,Switzerland,548729.0,Burnley,25.5,ATT,Centre-Forward,9000000.0,29,11,0.0,0.0,0.0,0.0,0.0,B,Data-Limited,0.5
+Aurèle Amenda,Switzerland,635645.0,Eintracht Frankfurt,22.9,DEF,Centre-Back,6000000.0,7,0,0.0,0.0,27.0,10.0,4.0,B,Traditional CB,0.868
+Luca Jaquez,Switzerland,539798.0,VfB Stuttgart,23.0,DEF,Centre-Back,10000000.0,3,0,0.0,0.1,11.0,7.0,0.0,B,Traditional CB,0.458
+Cedric Itten,Switzerland,243856.0,Fortuna Düsseldorf,29.5,ATT,Centre-Forward,4500000.0,15,5,0.08,0.18,20.12,28.63,152.12,B,False Nine,0.35
+Alisson,Brazil,105470.0,Liverpool,33.7,GK,Goalkeeper,17000000.0,78,0,0.0,0.0,0.0,0.0,0.0,C,Goalkeeper,0.0
+Éderson Silva,Brazil,607854.0,Atalanta,26.9,MID,Central Midfield,40000000.0,3,0,0.04,0.0,24.0,31.0,12.0,C,Box-to-Box,0.512
+Gabriel Magalhães,Brazil,435338.0,Arsenal,28.5,DEF,Centre-Back,75000000.0,17,1,0.51,0.0,2.0,0.0,0.0,C,Traditional CB,0.356
+Marquinhos,Brazil,181767.0,Paris Saint-Germain,32.1,DEF,Centre-Back,30000000.0,105,7,0.0,0.0,6.0,9.0,2.0,C,Traditional CB,0.391
+Casemiro,Brazil,16306.0,Manchester United,34.3,MID,Defensive Midfield,8000000.0,86,9,0.34,0.07,26.0,43.0,19.0,C,Deep-Lying Playmaker,0.467
+Alex Sandro,Brazil,79960.0,Flamengo,35.4,DEF,Left-Back,2000000.0,45,2,0.21,0.22,6.51,11.71,56.84,C,Full-Back,0.781
+Vinícius Júnior,Brazil,371998.0,Real Madrid,25.9,ATT,Left Winger,180000000.0,49,9,0.47,0.18,2.0,15.0,56.0,C,Inside Forward,0.71
+Bruno Guimarães,Brazil,520624.0,Newcastle United,28.6,MID,Central Midfield,75000000.0,43,3,0.37,0.2,14.0,38.0,71.0,C,Midfield Playmaker,0.636
+Matheus Cunha,Brazil,517894.0,Manchester United,27.0,ATT,Left Winger,45000000.0,23,1,0.32,0.08,18.0,19.0,45.0,C,Traditional Winger,0.505
+Neymar,Brazil,68290.0,Santos,34.3,ATT,Attacking Midfield,50000000.0,128,79,0.21,0.2,10.11,15.53,35.37,C,Attacking Midfielder,0.556
+Raphinha,Brazil,411295.0,Barcelona,29.5,ATT,Left Winger,50000000.0,39,11,0.77,0.21,5.0,5.0,67.0,C,Inside Forward,0.484
+Weverton,Brazil,69400.0,Grêmio,38.5,GK,Goalkeeper,50000.0,11,0,0.0,0.0,0.0,0.0,0.0,C,Goalkeeper,0.0
+Danilo Luiz,Brazil,145707.0,Flamengo,34.9,DEF,Centre-Back,2500000.0,70,1,0.39,0.39,1.0,2.0,2.0,C,,0.5
+Bremer,Brazil,516716.0,Juventus,29.2,DEF,Centre-Back,35000000.0,8,1,0.19,0.14,24.0,11.0,1.0,C,Traditional CB,0.83
+Léo Pereira,Brazil,288431.0,Flamengo,30.4,DEF,Centre-Back,50000.0,4,0,0.07,0.04,7.8,9.8,19.4,C,,0.5
+Douglas Santos,Brazil,220793.0,Zenit Saint Petersburg,32.2,DEF,Left-Back,8000000.0,7,0,0.09,0.09,15.63,11.15,11.72,C,Full-Back,0.491
+Fabinho,Brazil,225693.0,Al-Ittihad,32.6,MID,Defensive Midfield,38000000.0,33,0,0.02,0.15,17.58,25.79,53.53,C,Deep-Lying Playmaker,0.954
+Danilo Santos,Brazil,808509.0,Botafogo,25.1,MID,Central Midfield,22000000.0,4,2,0.39,0.39,1.0,2.0,2.0,C,Pressing CM,0.635
+Endrick,Brazil,971570.0,Lyon,19.9,ATT,Centre-Forward,50000.0,17,4,0.0,0.0,0.0,0.0,0.0,C,Data-Limited,0.5
+Lucas Paquetá,Brazil,444523.0,Flamengo,28.8,MID,Attacking Midfield,35000000.0,63,13,0.24,0.06,7.0,22.0,36.0,C,Attacking Midfielder,0.443
+Luiz Henrique,Brazil,800175.0,Zenit Saint Petersburg,25.4,ATT,Right Winger,24000000.0,15,2,0.06,0.12,7.0,15.0,39.0,C,Traditional Winger,0.763
+Gabriel Martinelli,Brazil,655488.0,Arsenal,25.0,ATT,Left Winger,45000000.0,23,4,0.09,0.27,1.0,8.0,31.0,C,Wide Playmaker,0.669
+Ederson Moraes,Brazil,238223.0,Fenerbahçe,32.8,GK,Goalkeeper,15000000.0,32,0,0.04,0.0,24.0,31.0,12.0,C,Goalkeeper,0.0
+Roger Ibañez,Brazil,524481.0,Al-Ahli,27.5,DEF,Centre-Back,28000000.0,7,0,0.2,0.13,12.23,15.99,50.18,C,Ball-Playing CB,0.288
+Igor Thiago,Brazil,739443.0,Brentford,25.0,ATT,Centre-Forward,25000000.0,4,2,0.66,0.03,11.0,19.0,15.0,C,Poacher,0.868
+Rayan,Brazil,1012564.0,Bournemouth,19.9,ATT,Right Winger,50000.0,2,1,0.34,0.23,4.0,4.0,21.0,C,Wide Playmaker,0.758
+Johny Placide,Haiti,,Bastia,38.4,GK,,,82,0,,,,,,C,,0.5
+Carlens Arcus,Haiti,371686.0,Angers,30.0,DEF,Right-Back,700000.0,56,1,0.0,0.13,29.0,28.0,38.0,C,Holding Full-Back,0.411
+Keeto Thermoncy,Haiti,,Young Boys,20.2,DEF,,,1,0,,,,,,C,,0.5
+Ricardo Adé,Haiti,519748.0,LDU Quito,36.1,DEF,Left-Back,350000.0,59,2,0.09,0.04,15.84,13.21,18.63,C,Full-Back,0.53
+Hannes Delcroix,Haiti,338635.0,Lugano,27.3,DEF,Centre-Back,4000000.0,7,0,0.36,0.0,7.0,18.0,128.0,C,Ball-Playing CB,0.367
+Carl Sainté,Haiti,,El Paso Locomotive FC,23.8,MID,,,26,0,,,,,,C,,0.5
+Derrick Etienne Jr.,Haiti,354763.0,Toronto FC,29.5,ATT,Left Winger,50000.0,51,8,0.0,0.18,4.0,6.0,20.0,C,Wide Playmaker,0.494
+Martin Expérience,Haiti,565818.0,Nancy,27.3,DEF,Centre-Back,50000.0,21,0,0.01,0.01,12.0,12.6,8.6,C,Traditional CB,0.507
+Duckens Nazon,Haiti,345763.0,Esteghlal,32.2,ATT,Centre-Forward,1600000.0,82,44,0.0,0.0,4.81,5.58,7.12,C,Target Forward,0.434
+Jean-Ricner Bellegarde,Haiti,450050.0,Wolverhampton Wanderers,28.0,MID,Central Midfield,15000000.0,10,0,0.07,0.07,9.0,15.0,24.0,C,Pressing CM,0.61
+Louicius Deedson,Haiti,646108.0,FC Dallas,25.3,ATT,Right Winger,1200000.0,32,10,0.0,0.0,0.0,0.0,0.0,C,Data-Limited,0.5
+Alexandre Pierre,Haiti,,Sochaux,25.3,GK,,,16,0,,,,,,C,,0.5
+Duke Lacroix,Haiti,535959.0,Colorado Springs Switchbacks FC,32.7,DEF,Left Winger,2500000.0,16,3,0.0,0.13,3.0,5.0,31.0,C,Wide Playmaker,0.485
+Garven Metusala,Haiti,,Colorado Springs Switchbacks FC,26.4,DEF,,,16,0,,,,,,C,,0.5
+Ruben Providence,Haiti,536520.0,Almere City,24.9,ATT,Left Winger,300000.0,15,3,0.0,0.17,9.0,6.0,24.0,C,Wide Playmaker,0.498
+Lenny Joseph,Haiti,,Ferencváros,25.7,ATT,,,2,1,,,,,,C,,0.5
+Danley Jean Jacques,Haiti,628834.0,Philadelphia Union,26.1,MID,Defensive Midfield,2000000.0,31,6,0.11,0.11,42.0,28.0,11.0,C,Deep-Lying Playmaker,0.402
+Wilson Isidor,Haiti,494237.0,Sunderland,25.8,ATT,Centre-Forward,18000000.0,4,2,0.4,0.0,1.0,6.0,0.0,C,Target Forward,0.744
+Yassin Fortuné,Haiti,,Vizela,27.4,ATT,,,4,0,,,,,,C,,0.5
+Frantzdy Pierrot,Haiti,492955.0,Çaykur Rizespor,31.2,ATT,Centre-Forward,3000000.0,51,34,0.0,0.0,0.0,0.0,0.0,C,Data-Limited,0.5
+Josué Casimir,Haiti,763182.0,Auxerre,24.7,ATT,Right Winger,3500000.0,7,0,0.06,0.0,10.0,17.0,54.0,C,Traditional Winger,0.612
+Jean-Kévin Duverne,Haiti,344864.0,Gent,28.9,DEF,Centre-Back,3500000.0,17,1,0.1,0.1,9.0,8.0,40.0,C,Ball-Playing CB,0.378
+Josué Duverger,Haiti,,Cosmos Koblenz,26.1,GK,,,7,0,,,,,,C,,0.5
+Wilguens Paugain,Haiti,609691.0,Zulte Waregem,24.8,DEF,Right-Back,50000.0,8,0,0.0,0.01,13.6,12.0,23.8,C,Full-Back,0.486
+Dominique Simon,Haiti,988188.0,Tatran Prešov,25.9,MID,Defensive Midfield,50000.0,2,0,0.17,0.19,5.4,5.6,15.6,C,Box-to-Box DM,0.609
+Woodensky Pierre,Haiti,802646.0,Violette,21.4,MID,Central Midfield,50000.0,1,0,0.06,0.12,24.0,31.0,79.0,C,Midfield Playmaker,0.674
+Yassine Bounou,Morocco,207834.0,Al-Hilal,35.2,GK,Goalkeeper,9000000.0,90,0,0.0,0.0,0.0,0.0,0.0,C,Goalkeeper,0.0
+Achraf Hakimi,Morocco,398073.0,Paris Saint-Germain,27.6,DEF,Right-Back,80000000.0,96,11,0.13,0.13,11.0,13.0,43.0,C,Full-Back,0.672
+Noussair Mazraoui,Morocco,340456.0,Manchester United,28.6,DEF,Right-Back,22000000.0,45,2,0.0,0.0,9.0,12.0,12.0,C,Full-Back,0.405
+Sofyan Amrabat,Morocco,287579.0,Real Betis,29.8,MID,Defensive Midfield,22000000.0,75,0,0.0,0.0,10.0,11.0,6.0,C,Box-to-Box DM,0.44
+Marwane Saâdane,Morocco,210009.0,Al-Fateh,34.4,DEF,Centre-Back,800000.0,8,0,0.05,0.19,12.29,11.39,8.77,C,Traditional CB,0.874
+Ayyoub Bouaddi,Morocco,1097139.0,Lille,18.7,MID,Central Midfield,40000000.0,3,0,0.0,0.04,25.0,35.0,16.0,C,Box-to-Box,0.461
+Chemsdine Talbi,Morocco,743384.0,Sunderland,21.1,MID,Right Winger,22000000.0,5,0,0.25,0.06,3.0,6.0,47.0,C,Wide Playmaker,0.678
+Azzedine Ounahi,Morocco,593482.0,Girona,26.1,MID,Central Midfield,10000000.0,49,9,0.31,0.13,16.0,12.0,26.0,C,Pressing CM,0.913
+Soufiane Rahimi,Morocco,598506.0,Al Ain,30.0,ATT,Left Winger,50000.0,37,12,0.12,0.04,4.0,10.0,40.0,C,Wide Playmaker,0.706
+Brahim Díaz,Morocco,314678.0,Real Madrid,26.9,ATT,Right Winger,40000000.0,26,14,0.0,0.47,1.0,10.0,17.0,C,Wide Playmaker,0.911
+Ismael Saibari,Morocco,702869.0,PSV Eindhoven,25.4,MID,Attacking Midfield,32000000.0,30,9,0.64,0.34,7.0,20.0,20.0,C,Advanced Playmaker,0.484
+Munir Mohamedi,Morocco,,RS Berkane,37.1,GK,,,52,0,,,,,,C,,0.5
+Zakaria El Ouahdi,Morocco,820474.0,Genk,24.4,DEF,Right-Back,4500000.0,3,0,0.09,0.04,12.79,10.34,19.13,C,Full-Back,0.422
+Issa Diop,Morocco,272622.0,Fulham,29.4,DEF,Centre-Back,10000000.0,4,0,0.0,0.0,4.0,2.0,1.0,C,Traditional CB,0.358
+Samir El Mourabet,Morocco,1130514.0,Strasbourg,20.7,MID,Central Midfield,8000000.0,4,0,0.05,0.09,26.0,33.0,18.0,C,Box-to-Box,0.418
+Gessime Yassine,Morocco,1151929.0,Strasbourg,20.6,MID,Right Winger,50000.0,4,0,0.0,0.22,1.0,8.0,13.0,C,Wide Playmaker,0.548
+Amine Sbaï,Morocco,851220.0,Angers,25.6,ATT,Left Winger,50000.0,2,0,0.11,0.05,4.0,10.0,56.0,C,Wide Playmaker,0.894
+Chadi Riad,Morocco,689637.0,Crystal Palace,23.0,DEF,Centre-Back,12000000.0,6,1,0.0,0.29,1.0,3.0,6.0,C,Traditional CB,0.722
+Youssef Belammari,Morocco,518804.0,Al Ahly,27.7,DEF,Left-Back,50000.0,18,0,0.04,0.0,2.0,2.0,4.4,C,Full-Back,0.366
+Ayoub El Kaabi,Morocco,521127.0,Olympiacos,33.0,ATT,Centre-Forward,5000000.0,71,35,0.06,0.24,11.18,14.94,12.33,C,False Nine,0.851
+Ayoube Amaimouni,Morocco,799993.0,Eintracht Frankfurt,21.5,ATT,Right Winger,50000.0,2,0,0.31,0.47,2.0,5.0,29.0,C,Inside Forward,0.559
+Ahmed Reda Tagnaouti,Morocco,,AS FAR,30.2,GK,,,3,0,,,,,,C,,0.5
+Bilal El Khannouss,Morocco,654982.0,VfB Stuttgart,22.1,MID,Attacking Midfield,30000000.0,37,3,0.22,0.28,10.0,21.0,65.0,C,Advanced Playmaker,0.637
+Neil El Aynaoui,Morocco,901019.0,Roma,24.9,MID,Central Midfield,8000000.0,16,2,0.11,0.22,18.0,8.0,13.0,C,Box-to-Box,0.947
+Redouane Halhal,Morocco,913660.0,Mechelen,23.3,DEF,Centre-Back,100000.0,3,0,0.0,0.0,0.0,2.0,0.0,C,Traditional CB,0.357
+Anass Salah-Eddine,Morocco,485584.0,PSV Eindhoven,24.4,DEF,Left-Back,12000000.0,9,0,0.0,0.0,11.0,22.0,15.0,C,Full-Back,0.597
+Angus Gunn,Scotland,201574.0,Nottingham Forest,30.4,GK,Goalkeeper,2500000.0,22,0,0.0,0.0,0.0,0.0,0.0,C,Goalkeeper,0.0
+Aaron Hickey,Scotland,591949.0,Brentford,24.0,DEF,Right-Back,28000000.0,21,0,0.0,0.0,7.0,7.0,4.0,C,Full-Back,0.376
+Andy Robertson,Scotland,234803.0,Liverpool,32.3,DEF,Left-Back,30000000.0,94,4,0.09,0.0,6.0,10.0,46.0,C,Full-Back,0.508
+Scott McTominay,Scotland,315969.0,Napoli,29.5,MID,Central Midfield,45000000.0,70,15,0.32,0.11,21.0,13.0,9.0,C,Box-to-Box,0.908
+Grant Hanley,Scotland,121385.0,Hibernian,34.6,DEF,Centre-Back,1500000.0,68,2,0.0,0.0,6.0,2.0,10.0,C,Traditional CB,0.369
+Kieran Tierney,Scotland,300716.0,Celtic,29.0,DEF,Left-Back,8000000.0,56,2,0.1,0.09,9.03,12.17,21.47,C,Full-Back,0.405
+John McGinn,Scotland,193116.0,Aston Villa,31.6,MID,Central Midfield,15000000.0,86,20,0.18,0.14,12.0,16.0,73.0,C,Midfield Playmaker,0.793
+Tyler Fletcher,Scotland,364261.0,Manchester United,19.2,MID,Central Midfield,1800000.0,2,0,0.05,0.06,27.33,20.33,48.67,C,Box-to-Box,0.489
+Lyndon Dykes,Scotland,347138.0,Charlton Athletic,30.7,ATT,Centre-Forward,2500000.0,51,10,0.07,0.07,29.37,28.29,2.5,C,False Nine,0.327
+Ché Adams,Scotland,346779.0,Torino,29.9,ATT,Centre-Forward,18000000.0,47,13,0.25,0.1,1.0,9.0,13.0,C,Target Forward,0.754
+Ryan Christie,Scotland,188077.0,Bournemouth,31.3,MID,Central Midfield,9000000.0,68,10,0.19,0.0,11.0,17.0,16.0,C,Pressing CM,0.67
+Liam Kelly,Scotland,208772.0,Rangers,30.4,GK,Goalkeeper,800000.0,3,0,0.0,0.0,0.0,0.0,0.0,C,Goalkeeper,0.0
+Jack Hendry,Scotland,363223.0,Al-Ettifaq,31.1,DEF,Centre-Back,3000000.0,38,3,0.08,0.08,12.5,14.87,7.62,C,Traditional CB,0.63
+Ross Stewart,Scotland,447995.0,Southampton,29.9,ATT,Centre-Forward,2800000.0,3,0,0.05,0.05,23.73,17.62,2.61,C,False Nine,0.366
+John Souttar,Scotland,235767.0,Rangers,29.7,DEF,Centre-Back,3500000.0,24,2,0.0,0.0,0.0,0.0,0.0,C,Data-Limited,0.5
+Dominic Hyam,Scotland,927107.0,Wrexham,30.5,DEF,Centre-Back,50000.0,4,0,0.19,0.11,20.0,35.0,33.0,C,Ball-Playing CB,0.711
+Ben Gannon-Doak,Scotland,719673.0,Bournemouth,20.6,ATT,Right Winger,10000000.0,14,1,0.0,1.22,1.0,1.0,2.0,C,Inside Forward,0.642
+George Hirst,Scotland,420808.0,Ipswich Town,27.3,ATT,Centre-Forward,8000000.0,10,1,0.37,0.23,1.92,3.83,10.36,C,Poacher,0.653
+Lewis Ferguson,Scotland,428563.0,Bologna,26.8,MID,Central Midfield,20000000.0,24,1,0.07,0.0,10.0,13.0,24.0,C,Pressing CM,0.61
+Lawrence Shankland,Scotland,225744.0,Heart of Midlothian,30.8,ATT,Centre-Forward,2500000.0,20,7,0.07,0.07,29.37,28.29,2.5,C,False Nine,0.327
+Craig Gordon,Scotland,12589.0,Heart of Midlothian,43.4,GK,Goalkeeper,50000.0,84,0,0.0,0.0,0.0,0.0,0.0,C,Goalkeeper,0.0
+Nathan Patterson,Scotland,424015.0,Everton,24.7,DEF,Right-Back,10000000.0,26,1,0.0,0.0,2.0,4.0,6.0,C,Full-Back,0.368
+Kenny McLean,Scotland,126600.0,Norwich City,34.4,MID,Central Midfield,1200000.0,58,3,0.08,0.04,16.65,16.13,32.3,C,Box-to-Box,0.801
+Anthony Ralston,Scotland,388171.0,Celtic,27.6,DEF,Right-Back,1500000.0,27,1,0.1,0.0,10.0,10.0,0.0,C,Full-Back,0.401
+Findlay Curtis,Scotland,1082993.0,Kilmarnock,20.0,ATT,Left Winger,750000.0,3,1,0.05,0.09,19.87,24.94,34.62,C,Traditional Winger,0.468
+Scott McKenna,Scotland,255906.0,Dinamo Zagreb,29.6,DEF,Centre-Back,9000000.0,50,1,0.35,0.15,11.0,29.0,97.0,C,Ball-Playing CB,0.327
+Mathew Ryan,Australia,128969.0,Levante,34.2,GK,Goalkeeper,2000000.0,104,0,0.0,0.0,1.0,1.0,0.0,D,Goalkeeper,0.0
+Miloš Degenek,Australia,187353.0,APOEL,32.1,DEF,Centre-Back,50000.0,57,1,0.05,0.0,0.6,0.8,4.2,D,Traditional CB,0.353
+Alessandro Circati,Australia,867137.0,Parma,22.7,DEF,Centre-Back,50000.0,13,1,0.04,0.0,23.0,19.0,2.0,D,Stopper CB,0.666
+Jacob Italiano,Australia,545810.0,Grazer AK,24.9,DEF,Right-Back,50000.0,5,0,0.06,0.05,9.4,14.4,48.6,D,Full-Back,0.657
+Jordan Bos,Australia,855731.0,Feyenoord,23.6,DEF,Left-Back,5000000.0,27,4,0.12,0.13,19.38,19.37,69.9,D,Holding Full-Back,0.509
+Jason Geria,Australia,185175.0,Albirex Niigata,33.1,DEF,Right-Back,50000.0,14,0,0.01,0.04,10.2,9.6,11.0,D,Full-Back,0.379
+Mathew Leckie,Australia,126214.0,Melbourne City,35.3,ATT,Left Winger,700000.0,80,14,0.0,0.0,6.55,5.46,7.79,D,Wide Playmaker,0.441
+Connor Metcalfe,Australia,522223.0,FC St. Pauli,26.6,MID,Central Midfield,50000.0,36,1,0.0,0.24,4.0,7.0,12.0,D,Pressing CM,0.619
+Mohamed Touré,Australia,742770.0,Norwich City,22.2,ATT,Centre-Forward,1700000.0,10,2,0.06,0.06,12.9,13.37,45.28,D,False Nine,0.868
+Ajdin Hrustic,Australia,265625.0,Heracles Almelo,29.9,ATT,Central Midfield,600000.0,37,4,0.04,0.24,9.0,19.0,177.0,D,Midfield Playmaker,0.263
+Awer Mabil,Australia,,Castellón,30.7,ATT,,,38,10,,,,,,D,,0.5
+Paul Izzo,Australia,181921.0,Randers,31.4,GK,Goalkeeper,600000.0,4,0,0.0,0.0,0.0,0.0,0.0,D,Goalkeeper,0.0
+Aiden O'Neill,Australia,385918.0,New York City FC,27.9,MID,Defensive Midfield,1500000.0,31,0,0.0,0.0,13.0,30.0,8.0,D,Box-to-Box DM,0.73
+Cammy Devlin,Australia,399162.0,Heart of Midlothian,28.0,MID,Central Midfield,1200000.0,5,0,0.03,0.08,13.5,10.0,33.5,D,Pressing CM,0.799
+Kai Trewin,Australia,691326.0,New York City FC,25.1,DEF,Defensive Midfield,50000.0,6,0,0.01,0.01,14.6,17.8,45.4,D,Box-to-Box DM,0.569
+Aziz Behich,Australia,136834.0,Melbourne City,35.5,DEF,Left-Back,550000.0,84,3,0.03,0.0,18.89,22.71,13.91,D,Full-Back,0.916
+Nestory Irankunda,Australia,956920.0,Watford,20.3,ATT,Right Winger,6000000.0,15,5,0.16,0.03,11.5,10.57,8.93,D,Wide Playmaker,0.568
+Patrick Beach,Australia,983578.0,Melbourne City,22.8,GK,Goalkeeper,50000.0,2,0,0.0,0.0,3.0,0.0,0.0,D,Goalkeeper,0.0
+Harry Souttar,Australia,298091.0,Leicester City,27.6,DEF,Centre-Back,6000000.0,38,11,0.02,0.12,12.65,14.57,29.15,D,Ball-Playing CB,0.437
+Cristian Volpato,Australia,746891.0,Sassuolo,22.6,ATT,Attacking Midfield,4500000.0,1,0,0.19,0.38,4.0,10.0,43.0,D,Advanced Playmaker,0.729
+Cameron Burgess,Australia,255788.0,Swansea City,30.6,DEF,Centre-Back,500000.0,27,0,0.17,0.06,6.0,6.0,14.4,D,Traditional CB,0.456
+Jackson Irvine,Australia,192557.0,FC St. Pauli,33.3,MID,Central Midfield,1500000.0,82,14,0.0,0.0,26.0,13.0,10.0,D,Box-to-Box,0.702
+Nishan Velupillay,Australia,888140.0,Melbourne Victory,25.1,ATT,Left Winger,50000.0,7,3,0.09,0.01,19.6,23.4,36.6,D,Traditional Winger,0.476
+Paul Okon-Engstler,Australia,1064377.0,Sydney FC,21.4,MID,Defensive Midfield,50000.0,6,0,0.06,0.02,2.2,2.2,3.2,D,Box-to-Box DM,0.377
+Lucas Herrington,Australia,1279984.0,Colorado Rapids,18.8,DEF,Centre-Back,50000.0,4,0,0.0,0.0,14.0,19.0,48.0,D,Ball-Playing CB,0.453
+Tete Yengi,Australia,849429.0,Machida Zelvia,25.5,ATT,Centre-Forward,400000.0,1,1,0.0,0.28,16.0,13.5,7.5,D,False Nine,0.62
+Gatito Fernández,Paraguay,118997.0,Cerro Porteño,38.2,GK,Goalkeeper,600000.0,31,0,0.0,0.0,0.0,0.0,0.0,D,Goalkeeper,0.0
+Gustavo Velázquez,Paraguay,1116614.0,Cerro Porteño,35.2,DEF,Central Midfield,50000.0,13,1,0.14,0.07,11.0,32.0,50.0,D,Box-to-Box,0.65
+Omar Alderete,Paraguay,353032.0,Sunderland,29.5,DEF,Centre-Back,12000000.0,36,3,0.03,0.03,33.0,17.0,11.0,D,Stopper CB,0.503
+Juan José Cáceres,Paraguay,756494.0,Dynamo Moscow,26.0,DEF,Right-Back,4000000.0,17,0,0.0,0.0,25.0,15.0,4.0,D,Full-Back,0.797
+Fabián Balbuena,Paraguay,285548.0,Grêmio,34.8,DEF,Centre-Back,1500000.0,48,2,0.0,0.0,6.0,2.0,10.0,D,Traditional CB,0.369
+Júnior Alonso,Paraguay,273000.0,Atlético Mineiro,33.3,DEF,Centre-Back,8000000.0,71,3,0.08,0.14,22.16,18.4,25.33,D,Ball-Playing CB,0.579
+Ramón Sosa,Paraguay,745191.0,Palmeiras,26.8,MID,Second Striker,11000000.0,29,1,0.04,0.01,11.31,17.41,17.4,D,False Nine,0.786
+Diego Gómez,Paraguay,996897.0,Brighton & Hove Albion,23.2,MID,Central Midfield,25000000.0,24,3,0.22,0.04,17.0,48.0,22.0,D,Box-to-Box,0.536
+Antonio Sanabria,Paraguay,234523.0,Cremonese,30.3,ATT,Centre-Forward,7000000.0,48,7,0.1,0.1,1.0,2.0,1.0,D,Target Forward,0.577
+Miguel Almirón,Paraguay,272999.0,Atlanta United FC,32.3,MID,Right Winger,9000000.0,76,10,0.2,0.13,11.0,28.0,43.0,D,Traditional Winger,0.424
+Maurício,Paraguay,678439.0,Palmeiras,25.0,MID,Attacking Midfield,50000.0,3,0,0.0,0.12,15.0,22.0,1.0,D,Attacking Midfielder,0.354
+Orlando Gill,Paraguay,643259.0,San Lorenzo,26.0,GK,Goalkeeper,50000.0,6,0,0.0,0.0,0.0,0.0,0.0,D,Goalkeeper,0.0
+José Canale,Paraguay,402627.0,Lanús,29.9,DEF,Centre-Back,50000.0,2,0,0.0,0.01,12.4,11.4,3.2,D,Traditional CB,0.465
+Andrés Cubas,Paraguay,323872.0,Vancouver Whitecaps FC,30.1,MID,Defensive Midfield,4500000.0,33,0,0.0,0.0,32.0,44.0,3.0,D,Deep-Lying Playmaker,0.491
+Gustavo Gómez,Paraguay,215390.0,Palmeiras,33.1,DEF,Centre-Back,8500000.0,89,4,0.13,0.18,14.92,17.17,29.54,D,Ball-Playing CB,0.403
+Damián Bobadilla,Paraguay,861852.0,São Paulo,24.9,MID,Central Midfield,50000.0,19,1,0.15,0.04,8.0,11.8,22.0,D,Pressing CM,0.485
+Kaku,Paraguay,,Al Ain,31.4,ATT,,,33,6,,,,,,D,,0.5
+Álex Arce,Paraguay,970518.0,Independiente Rivadavia,31.0,ATT,Centre-Forward,50000.0,15,1,0.14,0.2,8.25,11.75,43.75,D,Target Forward,0.844
+Julio Enciso,Paraguay,660867.0,Strasbourg,22.4,ATT,Attacking Midfield,20000000.0,32,4,0.11,0.11,6.0,9.0,52.0,D,Attacking Midfielder,0.442
+Braian Ojeda,Paraguay,491596.0,Orlando City SC,26.0,MID,Defensive Midfield,50000.0,17,0,0.09,0.0,31.0,23.0,20.0,D,Deep-Lying Playmaker,0.51
+Gabriel Ávalos,Paraguay,358418.0,Independiente,34.9,ATT,Centre-Forward,50000.0,23,2,0.0,0.0,0.0,1.0,0.0,D,Target Forward,0.49
+Gastón Olveira,Paraguay,,Olimpia,33.1,GK,,,1,0,,,,,,D,,0.5
+Matías Galarza,Paraguay,661269.0,Atlanta United FC,24.3,MID,Central Midfield,50000.0,15,3,0.02,0.03,11.8,13.0,6.0,D,,0.5
+Gustavo Caballero,Paraguay,891672.0,Portsmouth,24.7,MID,Left Winger,50000.0,2,1,0.0,0.0,0.0,0.0,3.0,D,Wide Playmaker,0.413
+Isidro Pitta,Paraguay,675178.0,Red Bull Bragantino,26.8,ATT,Centre-Forward,50000.0,5,0,0.08,0.0,19.2,19.4,15.2,D,False Nine,0.396
+Alexandro Maidana,Paraguay,1371519.0,Talleres,20.9,DEF,Left-Back,50000.0,2,1,0.03,0.01,3.0,6.8,10.0,D,Full-Back,0.372
+Mert Günok,Türkiye,51894.0,Fenerbahçe,37.3,GK,Goalkeeper,500000.0,37,0,0.0,0.0,0.0,0.0,0.0,D,Goalkeeper,0.0
+Zeki Çelik,Türkiye,251075.0,Roma,29.3,DEF,Right-Back,12000000.0,61,3,0.04,0.08,18.0,33.0,73.0,D,Holding Full-Back,0.421
+Merih Demiral,Türkiye,340879.0,Al-Ahli,28.3,DEF,Centre-Back,20000000.0,62,6,0.39,0.11,4.09,5.6,10.22,D,Traditional CB,0.509
+Çağlar Söyüncü,Türkiye,320141.0,Fenerbahçe,30.1,DEF,Centre-Back,6000000.0,60,2,0.0,0.13,6.0,10.0,3.0,D,Traditional CB,0.496
+Salih Özcan,Türkiye,244940.0,Borussia Dortmund,28.4,MID,Defensive Midfield,3500000.0,30,1,0.0,0.0,0.0,1.0,2.0,D,Box-to-Box DM,0.377
+Orkun Kökçü,Türkiye,454567.0,Beşiktaş,25.4,MID,Central Midfield,25000000.0,50,4,0.27,0.27,8.0,14.0,129.0,D,Midfield Playmaker,0.296
+Kerem Aktürkoğlu,Türkiye,382528.0,Fenerbahçe,27.6,ATT,Left Winger,22000000.0,52,15,0.0,0.0,0.0,0.0,3.0,D,Wide Playmaker,0.413
+Arda Güler,Türkiye,861410.0,Real Madrid,21.3,ATT,Attacking Midfield,45000000.0,29,6,0.18,0.41,8.0,28.0,128.0,D,Advanced Playmaker,0.452
+Deniz Gül,Türkiye,1063292.0,Porto,21.9,ATT,Centre-Forward,50000.0,8,2,0.35,0.09,2.0,5.0,3.0,D,Target Forward,0.859
+Hakan Çalhanoğlu,Türkiye,126414.0,Inter Milan,32.3,MID,Defensive Midfield,22000000.0,105,22,0.49,0.22,19.0,17.0,86.0,D,Deep-Lying Playmaker,0.679
+Kenan Yıldız,Türkiye,845654.0,Juventus,21.1,ATT,Left Winger,75000000.0,28,5,0.35,0.21,7.0,7.0,108.0,D,Inside Forward,0.453
+Altay Bayındır,Türkiye,336077.0,Manchester United,28.2,GK,Goalkeeper,7000000.0,12,0,0.0,0.0,0.0,0.0,0.0,D,Goalkeeper,0.0
+Eren Elmalı,Türkiye,616894.0,Galatasaray,25.9,DEF,Left-Back,5000000.0,23,0,0.19,0.0,12.0,18.0,37.0,D,Full-Back,0.684
+Abdülkerim Bardakcı,Türkiye,199316.0,Galatasaray,31.8,DEF,Centre-Back,6500000.0,27,2,0.0,0.04,24.0,25.0,25.0,D,Stopper CB,0.641
+Ozan Kabak,Türkiye,361260.0,TSG Hoffenheim,26.2,DEF,Centre-Back,5000000.0,30,2,0.23,0.0,24.0,16.0,1.0,D,Stopper CB,0.816
+İsmail Yüksek,Türkiye,613725.0,Fenerbahçe,27.4,MID,Defensive Midfield,12000000.0,32,1,0.05,0.05,21.0,36.0,10.0,D,Deep-Lying Playmaker,0.574
+İrfan Can Kahveci,Türkiye,216603.0,Kasımpaşa,30.9,ATT,Right Winger,4500000.0,47,6,0.0,0.0,1.0,3.0,21.0,D,Wide Playmaker,0.438
+Mert Müldür,Türkiye,353922.0,Fenerbahçe,27.2,DEF,Right-Back,5000000.0,45,3,0.08,0.08,18.0,25.0,30.0,D,Holding Full-Back,0.628
+Yunus Akgün,Türkiye,396908.0,Galatasaray,25.9,ATT,Right Winger,5000000.0,19,4,0.37,0.47,10.0,13.0,37.0,D,Inside Forward,0.467
+Ferdi Kadıoğlu,Türkiye,369316.0,Brighton & Hove Albion,26.7,DEF,Left-Back,28000000.0,30,2,0.03,0.0,23.0,38.0,103.0,D,Holding Full-Back,0.774
+Barış Alper Yılmaz,Türkiye,541537.0,Galatasaray,26.1,ATT,Left Winger,20000000.0,35,4,0.32,0.4,3.0,13.0,117.0,D,Inside Forward,0.367
+Kaan Ayhan,Türkiye,119031.0,Galatasaray,31.6,MID,Defensive Midfield,4700000.0,73,5,0.0,0.0,4.0,7.0,5.0,D,Box-to-Box DM,0.392
+Uğurcan Çakır,Türkiye,292199.0,Galatasaray,30.2,GK,Goalkeeper,15000000.0,39,0,0.0,0.0,0.0,0.0,0.0,D,Goalkeeper,0.0
+Oğuz Aydın,Türkiye,563749.0,Fenerbahçe,25.6,ATT,Right Winger,10000000.0,11,0,0.0,0.17,2.0,7.0,38.0,D,Wide Playmaker,0.579
+Samet Akaydin,Türkiye,295024.0,Çaykur Rizespor,32.2,DEF,Centre-Back,1200000.0,19,1,0.11,0.04,60.0,25.0,1.0,D,Stopper CB,0.391
+Can Uzun,Türkiye,816585.0,Eintracht Frankfurt,20.6,ATT,Attacking Midfield,45000000.0,6,1,0.62,0.35,2.0,9.0,21.0,D,Advanced Playmaker,0.483
+Matt Turner,United States,425306.0,New England Revolution,32.0,GK,Goalkeeper,7000000.0,54,0,0.0,0.0,0.0,0.0,0.0,D,Goalkeeper,0.0
+Sergiño Dest,United States,361104.0,PSV Eindhoven,25.6,DEF,Right-Back,18000000.0,39,3,0.04,0.18,15.0,33.0,50.0,D,Holding Full-Back,0.464
+Chris Richards,United States,578539.0,Crystal Palace,26.2,DEF,Centre-Back,25000000.0,36,3,0.03,0.0,42.0,32.0,13.0,D,Stopper CB,0.353
+Tyler Adams,United States,332705.0,Bournemouth,27.3,MID,Defensive Midfield,25000000.0,54,2,0.12,0.12,26.0,20.0,2.0,D,Deep-Lying Playmaker,0.539
+Antonee Robinson,United States,349701.0,Fulham,28.8,DEF,Left-Back,30000000.0,54,5,0.0,0.0,21.0,24.0,67.0,D,Holding Full-Back,0.506
+Auston Trusty,United States,389253.0,Celtic,27.8,DEF,Centre-Back,5000000.0,8,0,0.14,0.14,15.5,18.5,59.5,D,Ball-Playing CB,0.301
+Giovanni Reyna,United States,504215.0,Borussia Mönchengladbach,23.6,MID,Attacking Midfield,6000000.0,38,9,0.0,0.0,10.0,9.0,31.0,D,Attacking Midfielder,0.345
+Weston McKennie,United States,332697.0,Juventus,27.8,MID,Central Midfield,22000000.0,66,12,0.18,0.18,21.0,20.0,32.0,D,Box-to-Box,0.532
+Ricardo Pepi,United States,627207.0,PSV Eindhoven,23.4,ATT,Centre-Forward,15000000.0,37,13,1.02,0.07,3.0,3.0,3.0,D,Poacher,0.55
+Christian Pulisic,United States,315779.0,Milan,27.7,ATT,Right Winger,60000000.0,86,33,0.47,0.18,3.0,8.0,32.0,D,Inside Forward,0.81
+Brenden Aaronson,United States,393323.0,Leeds United,25.6,ATT,Attacking Midfield,12000000.0,58,9,0.16,0.2,17.0,23.0,36.0,D,Attacking Midfielder,0.507
+Miles Robinson,United States,468022.0,FC Cincinnati,29.2,DEF,Centre-Back,50000.0,40,3,0.04,0.0,40.0,21.0,3.0,D,Stopper CB,0.425
+Tim Ream,United States,145466.0,Charlotte FC,38.7,DEF,Centre-Back,800000.0,82,1,0.0,0.0,34.0,12.0,8.0,D,Stopper CB,0.684
+Sebastian Berhalter,United States,734761.0,Vancouver Whitecaps FC,25.1,MID,Central Midfield,50000.0,13,1,0.16,0.39,30.0,37.0,230.0,D,Midfield Playmaker,0.26
+Cristian Roldan,United States,354792.0,Seattle Sounders FC,31.0,MID,Central Midfield,50000.0,47,0,0.03,0.07,43.0,49.0,19.0,D,Box-to-Box,0.413
+Alex Freeman,United States,985806.0,Villarreal,21.8,DEF,Right-Back,50000.0,17,2,0.0,0.0,4.0,4.0,1.0,D,Full-Back,0.368
+Malik Tillman,United States,467437.0,Bayer Leverkusen,24.0,MID,Attacking Midfield,35000000.0,30,3,0.34,0.06,17.0,29.0,16.0,D,Attacking Midfielder,0.561
+Max Arfsten,United States,993063.0,Columbus Crew,25.1,DEF,Left Winger,50000.0,20,1,0.14,0.18,20.0,32.0,95.0,D,Traditional Winger,0.646
+Haji Wright,United States,315291.0,Coventry City,28.2,ATT,Centre-Forward,7000000.0,20,7,0.08,0.1,19.71,23.34,24.43,D,False Nine,0.33
+Folarin Balogun,United States,503770.0,Monaco,24.9,ATT,Centre-Forward,22000000.0,27,9,0.57,0.17,4.0,6.0,13.0,D,Poacher,0.494
+Timothy Weah,United States,370846.0,Marseille,26.3,ATT,Right Midfield,20000000.0,51,7,0.08,0.08,14.0,34.0,60.0,D,Box-to-Box,0.601
+Mark McKenzie,United States,429259.0,Toulouse,27.3,DEF,Centre-Back,6000000.0,29,0,0.0,0.08,23.0,28.0,4.0,D,Stopper CB,0.472
+Joe Scally,United States,504153.0,Borussia Mönchengladbach,23.4,DEF,Right-Back,7000000.0,26,0,0.08,0.12,16.0,24.0,45.0,D,Holding Full-Back,0.551
+Matt Freese,United States,500309.0,New York City FC,27.8,GK,Goalkeeper,50000.0,15,0,0.0,0.0,0.0,0.0,0.0,D,Goalkeeper,0.0
+Chris Brady,United States,765504.0,Chicago Fire FC,22.3,GK,Goalkeeper,50000.0,1,0,0.0,0.0,0.0,2.0,0.0,D,Goalkeeper,0.0
+Alejandro Zendejas,United States,,América,28.3,ATT,,,14,2,,,,,,D,,0.5
+Eloy Room,Curaçao,79294.0,Miami FC,37.3,GK,Goalkeeper,200000.0,71,0,0.0,0.0,0.0,0.0,0.0,E,Goalkeeper,0.0
+Shurandy Sambo,Curaçao,412937.0,Sparta Rotterdam,24.8,DEF,Right-Back,2000000.0,8,0,0.0,0.06,20.0,29.0,22.0,E,Holding Full-Back,0.596
+Juriën Gaari,Curaçao,,Abha,32.5,DEF,,,60,1,,,,,,E,,0.5
+Roshon van Eijma,Curaçao,401029.0,RKC Waalwijk,28.0,DEF,Centre-Back,375000.0,28,1,0.0,0.0,0.04,1.03,4.07,E,Traditional CB,0.353
+Sherel Floranus,Curaçao,315211.0,PEC Zwolle,27.8,DEF,Left-Back,800000.0,28,0,0.03,0.1,47.0,33.0,38.0,E,Holding Full-Back,0.413
+Godfried Roemeratoe,Curaçao,393241.0,RKC Waalwijk,26.8,MID,Defensive Midfield,400000.0,28,1,0.0,0.55,3.0,5.0,8.0,E,Box-to-Box DM,0.583
+Juninho Bacuna,Curaçao,348863.0,Volendam,28.8,MID,Central Midfield,4500000.0,49,15,0.0,0.0,4.0,8.0,21.0,E,Pressing CM,0.503
+Livano Comenencia,Curaçao,626764.0,Zürich,22.4,MID,Right-Back,800000.0,20,2,0.01,0.0,7.83,9.67,17.33,E,Full-Back,0.391
+Jürgen Locadia,Curaçao,,Miami FC,32.6,ATT,,,13,1,,,,,,E,,0.5
+Leandro Bacuna,Curaçao,126014.0,Iğdır,34.8,MID,Central Midfield,900000.0,72,16,0.14,0.11,6.76,5.52,19.24,E,Pressing CM,0.432
+Jeremy Antonisse,Curaçao,594273.0,Kifisia,24.2,ATT,Left Winger,800000.0,27,4,0.01,0.0,11.75,13.5,21.0,E,Wide Playmaker,0.748
+Sontje Hansen,Curaçao,485582.0,Middlesbrough,24.1,ATT,Right Winger,3000000.0,6,1,0.0,0.0,0.0,4.0,20.0,E,Wide Playmaker,0.442
+Tyrese Noslin,Curaçao,708005.0,Telstar,23.7,ATT,Right Midfield,50000.0,7,1,0.04,0.08,30.0,43.0,65.0,E,Box-to-Box,0.766
+Kenji Gorré,Curaçao,,Maccabi Haifa,31.7,ATT,,,38,6,,,,,,E,,0.5
+Ar'jany Martha,Curaçao,572519.0,Rotherham United,22.8,MID,Right Winger,1200000.0,9,2,0.04,0.02,29.0,23.17,5.12,E,Traditional Winger,0.653
+Jearl Margaritha,Curaçao,,Beveren,26.2,ATT,,,22,5,,,,,,E,,0.5
+Brandley Kuwas,Curaçao,232219.0,Volendam,33.7,ATT,Right Winger,450000.0,35,2,0.23,0.19,4.0,12.0,38.0,E,Traditional Winger,0.902
+Armando Obispo,Curaçao,339337.0,PSV Eindhoven,27.3,DEF,Centre-Back,3000000.0,6,0,0.22,0.0,6.0,4.0,0.0,E,Traditional CB,0.367
+Gervane Kastaneer,Curaçao,,Terengganu,30.0,ATT,,,29,9,,,,,,E,,0.5
+Joshua Brenet,Curaçao,207006.0,Kayserispor,32.2,DEF,Right-Back,3500000.0,18,2,0.0,0.0,9.0,1.0,15.0,E,Full-Back,0.383
+Tahith Chong,Curaçao,,Sheffield United,26.5,MID,,,6,3,,,,,,E,,0.5
+Kevin Felida,Curaçao,433933.0,Den Bosch,26.6,MID,Defensive Midfield,350000.0,19,1,0.1,0.1,9.0,8.0,40.0,E,Box-to-Box DM,0.473
+Riechedly Bazoer,Curaçao,216443.0,Konyaspor,29.7,DEF,Centre-Back,2800000.0,5,0,0.0,0.0,10.0,8.0,1.0,E,Traditional CB,0.401
+Deveron Fonville,Curaçao,708989.0,NEC,23.1,DEF,Centre-Back,50000.0,2,0,0.0,0.14,17.0,26.0,21.0,E,Ball-Playing CB,0.783
+Tyrick Bodak,Curaçao,663961.0,Telstar,24.1,GK,Goalkeeper,50000.0,4,0,0.0,0.0,0.0,0.0,0.0,E,Goalkeeper,0.0
+Trevor Doornbusch,Curaçao,,VVV-Venlo,26.9,GK,,,8,0,,,,,,E,,0.5
+Hernán Galíndez,Ecuador,77127.0,Huracán,39.2,GK,Goalkeeper,50000.0,35,0,0.0,0.0,0.0,0.0,0.0,E,Goalkeeper,0.0
+Félix Torres,Ecuador,468174.0,Internacional,29.4,DEF,Centre-Back,50000.0,49,5,0.12,0.01,12.2,11.0,4.8,E,Traditional CB,0.452
+Piero Hincapié,Ecuador,659813.0,Arsenal,24.4,DEF,Centre-Back,50000000.0,52,3,0.05,0.11,24.0,25.0,31.0,E,Ball-Playing CB,0.626
+Joel Ordóñez,Ecuador,893661.0,Club Brugge,22.1,DEF,Centre-Back,6000000.0,17,0,0.0,0.0,0.0,1.0,2.0,E,Traditional CB,0.354
+Jordy Alcívar,Ecuador,598145.0,Independiente del Valle,26.9,MID,Defensive Midfield,50000.0,11,1,0.0,0.05,14.6,12.4,5.6,E,Box-to-Box DM,0.498
+Willian Pacho,Ecuador,661171.0,Paris Saint-Germain,24.7,DEF,Centre-Back,70000000.0,34,2,0.0,0.0,26.0,26.0,0.0,E,Stopper CB,0.451
+Pervis Estupiñán,Ecuador,349599.0,Milan,28.4,DEF,Left-Back,14000000.0,54,5,0.1,0.1,11.0,8.0,15.0,E,Full-Back,0.397
+Anthony Valencia,Ecuador,974374.0,Antwerp,22.9,MID,Right Winger,1000000.0,3,1,0.0,0.0,2.0,3.0,11.0,E,Wide Playmaker,0.425
+John Yeboah,Ecuador,439914.0,Venezia,26.0,ATT,Second Striker,1500000.0,23,3,0.0,0.0,0.0,0.0,0.0,E,Data-Limited,0.5
+Kendry Páez,Ecuador,1052439.0,River Plate,19.1,MID,Attacking Midfield,50000.0,26,2,0.21,0.0,3.0,4.0,18.0,E,Attacking Midfielder,0.394
+Kevin Rodríguez,Ecuador,684159.0,Union Saint-Gilloise,26.3,ATT,Centre-Forward,5000000.0,31,2,0.09,0.09,40.0,43.0,37.0,E,False Nine,0.326
+Moisés Ramírez,Ecuador,450233.0,Kifisia,25.8,GK,Goalkeeper,50000.0,7,0,0.0,0.0,0.0,0.0,0.0,E,Goalkeeper,0.0
+Enner Valencia,Ecuador,139503.0,Pachuca,36.6,ATT,Centre-Forward,3800000.0,105,49,0.01,0.74,15.14,19.99,32.19,E,False Nine,0.763
+Alan Minda,Ecuador,897051.0,Atlético Mineiro,23.1,MID,Right Winger,3000000.0,20,2,0.17,0.17,6.0,14.0,141.0,E,Inside Forward,0.631
+Pedro Vite,Ecuador,659806.0,Pumas UNAM,24.3,MID,Attacking Midfield,50000.0,17,1,0.26,0.13,7.0,9.0,75.0,E,Advanced Playmaker,0.92
+Jordy Caicedo,Ecuador,360412.0,Huracán,28.6,ATT,Centre-Forward,3500000.0,20,4,0.03,0.0,34.0,27.0,19.0,E,False Nine,0.338
+Ángelo Preciado,Ecuador,450241.0,Atlético Mineiro,28.3,DEF,Right-Back,5000000.0,55,0,0.14,0.14,9.0,8.0,6.0,E,Full-Back,0.413
+Denil Castillo,Ecuador,941418.0,Midtjylland,22.2,MID,Central Midfield,5500000.0,5,0,0.27,0.13,10.1,14.46,52.66,E,Pressing CM,0.861
+Gonzalo Plata,Ecuador,592735.0,Flamengo,25.6,ATT,Right Winger,5000000.0,50,8,0.24,0.16,6.5,14.0,51.0,E,Traditional Winger,0.681
+Nilson Angulo,Ecuador,903611.0,Sunderland,23.0,ATT,Left Winger,7000000.0,14,2,0.0,0.0,2.0,5.0,7.0,E,Wide Playmaker,0.436
+Alan Franco,Ecuador,400960.0,Atlético Mineiro,27.8,MID,Central Midfield,50000.0,58,1,0.17,0.17,6.0,14.0,141.0,E,Midfield Playmaker,0.282
+Gonzalo Valle,Ecuador,,LDU Quito,30.3,GK,,,4,0,,,,,,E,,0.5
+Moisés Caicedo,Ecuador,687626.0,Chelsea,24.6,MID,Defensive Midfield,110000000.0,61,3,0.11,0.04,53.0,44.0,8.0,E,Deep-Lying Playmaker,0.383
+Jeremy Arévalo,Ecuador,971663.0,VfB Stuttgart,21.2,ATT,Centre-Forward,50000.0,4,0,0.0,0.0,0.0,0.0,0.0,E,Data-Limited,0.5
+Jackson Porozo,Ecuador,491616.0,Tijuana,25.9,DEF,Centre-Back,3300000.0,10,1,0.1,0.05,8.0,12.0,28.83,E,Ball-Playing CB,0.699
+Yaimar Medina,Ecuador,893659.0,Genk,21.6,DEF,Left-Back,4000000.0,6,0,0.0,0.0,31.0,25.0,2.0,E,Holding Full-Back,0.706
+Manuel Neuer,Germany,17259.0,Bayern Munich,40.2,GK,Goalkeeper,4000000.0,124,0,0.0,0.0,0.0,0.0,0.0,E,Goalkeeper,0.0
+Antonio Rüdiger,Germany,86202.0,Real Madrid,33.3,DEF,Centre-Back,25000000.0,82,3,0.07,0.0,4.0,4.0,2.0,E,Traditional CB,0.36
+Waldemar Anton,Germany,193004.0,Borussia Dortmund,29.9,DEF,Centre-Back,18000000.0,13,0,0.07,0.0,24.0,38.0,11.0,E,Stopper CB,0.4
+Jonathan Tah,Germany,196357.0,Bayern Munich,30.3,DEF,Centre-Back,30000000.0,47,1,0.09,0.05,25.0,17.0,1.0,E,Stopper CB,0.717
+Aleksandar Pavlović,Germany,792380.0,Bayern Munich,22.1,MID,Defensive Midfield,65000000.0,11,1,0.18,0.06,13.0,15.0,15.0,E,Box-to-Box DM,0.794
+Joshua Kimmich,Germany,161056.0,Bayern Munich,31.3,DEF,Defensive Midfield,40000000.0,110,10,0.09,0.26,21.0,22.0,119.0,E,Deep-Lying Playmaker,0.758
+Kai Havertz,Germany,309400.0,Arsenal,27.0,ATT,Centre-Forward,55000000.0,58,22,0.2,0.41,0.0,3.0,3.0,E,Poacher,0.689
+Leon Goretzka,Germany,153084.0,Bayern Munich,31.3,MID,Central Midfield,15000000.0,70,15,0.25,0.1,24.0,15.0,6.0,E,Box-to-Box,0.716
+Jamie Leweling,Germany,518505.0,VfB Stuttgart,25.3,MID,Right Winger,25000000.0,5,1,0.29,0.33,12.0,11.0,117.0,E,Inside Forward,0.392
+Jamal Musiala,Germany,580195.0,Bayern Munich,23.3,MID,Attacking Midfield,130000000.0,42,9,0.5,0.67,3.0,2.0,4.0,E,Advanced Playmaker,0.474
+Nick Woltemade,Germany,455661.0,Newcastle United,24.3,ATT,Centre-Forward,70000000.0,11,4,0.37,0.16,4.0,12.0,3.0,E,Poacher,0.727
+Oliver Baumann,Germany,55089.0,TSG Hoffenheim,36.0,GK,Goalkeeper,3000000.0,13,0,0.0,0.0,1.0,0.0,0.0,E,Goalkeeper,0.0
+Pascal Groß,Germany,82873.0,Brighton & Hove Albion,35.0,MID,Central Midfield,3500000.0,18,1,0.07,0.2,9.0,16.0,101.0,E,Midfield Playmaker,0.398
+Maximilian Beier,Germany,578392.0,Borussia Dortmund,23.6,ATT,Centre-Forward,30000000.0,9,0,0.45,0.2,8.0,14.0,25.0,E,Poacher,0.632
+Nico Schlotterbeck,Germany,388198.0,Borussia Dortmund,26.5,DEF,Centre-Back,55000000.0,27,0,0.16,0.04,20.0,32.0,22.0,E,Stopper CB,0.552
+Angelo Stiller,Germany,443710.0,VfB Stuttgart,25.2,MID,Defensive Midfield,45000000.0,8,0,0.07,0.18,25.0,17.0,102.0,E,Deep-Lying Playmaker,0.711
+Florian Wirtz,Germany,598577.0,Liverpool,23.1,MID,Attacking Midfield,110000000.0,41,11,0.2,0.12,11.0,24.0,30.0,E,Attacking Midfielder,0.431
+Nathaniel Brown,Germany,691892.0,Eintracht Frankfurt,23.0,DEF,Left-Back,35000000.0,5,0,0.15,0.15,25.0,53.0,44.0,E,Holding Full-Back,0.387
+Leroy Sané,Germany,192565.0,Galatasaray,30.4,MID,Right Winger,23000000.0,76,17,0.29,0.21,11.0,21.0,74.0,E,Inside Forward,0.968
+Nadiem Amiri,Germany,232454.0,Mainz 05,29.6,MID,Central Midfield,17000000.0,11,1,0.54,0.1,17.0,16.0,118.0,E,Midfield Playmaker,0.341
+Alexander Nübel,Germany,195778.0,VfB Stuttgart,29.7,GK,Goalkeeper,12000000.0,3,0,0.0,0.03,1.0,0.0,0.0,E,Goalkeeper,0.0
+David Raum,Germany,318204.0,RB Leipzig,28.1,DEF,Left-Back,20000000.0,37,1,0.11,0.22,33.0,35.0,244.0,E,Attacking Wing-Back,0.234
+Felix Nmecha,Germany,406640.0,Borussia Dortmund,25.7,MID,Central Midfield,45000000.0,8,1,0.09,0.13,24.0,21.0,7.0,E,Box-to-Box,0.497
+Malick Thiaw,Germany,521964.0,Newcastle United,24.8,DEF,Centre-Back,25000000.0,5,0,0.13,0.0,26.0,30.0,9.0,E,Stopper CB,0.391
+Assan Ouédraogo,Germany,897424.0,RB Leipzig,20.1,MID,Central Midfield,50000.0,1,1,0.34,0.34,3.0,6.0,3.0,E,Pressing CM,0.658
+Deniz Undav,Germany,339314.0,VfB Stuttgart,29.9,ATT,Centre-Forward,25000000.0,9,6,0.78,0.26,4.0,13.0,16.0,E,Poacher,0.445
+Yahia Fofana,Ivory Coast,418651.0,Çaykur Rizespor,25.8,GK,Goalkeeper,2500000.0,35,0,0.0,0.04,1.0,0.0,0.0,E,Goalkeeper,0.0
+Ousmane Diomande,Ivory Coast,974982.0,Sporting CP,22.5,DEF,Centre-Back,45000000.0,15,1,0.0,0.0,12.0,10.0,3.0,E,Traditional CB,0.442
+Ghislain Konan,Ivory Coast,422850.0,Gil Vicente,30.5,DEF,Left-Back,6500000.0,54,0,0.0,0.0,24.0,25.0,57.0,E,Holding Full-Back,0.479
+Jean Michaël Seri,Ivory Coast,178614.0,Maribor,34.9,MID,Defensive Midfield,1500000.0,65,4,0.0,0.0,6.0,2.0,10.0,E,Box-to-Box DM,0.39
+Wilfried Singo,Ivory Coast,648779.0,Galatasaray,25.5,DEF,Centre-Back,28000000.0,34,1,0.21,0.1,14.0,11.0,9.0,E,Traditional CB,0.572
+Seko Fofana,Ivory Coast,182893.0,Porto,31.1,MID,Central Midfield,8000000.0,33,7,0.14,0.0,3.0,2.0,7.0,E,Pressing CM,0.418
+Odilon Kossounou,Ivory Coast,644771.0,Atalanta,25.4,DEF,Centre-Back,22000000.0,36,0,0.09,0.0,10.0,14.0,2.0,E,Traditional CB,0.516
+Franck Kessié,Ivory Coast,294808.0,Al-Ahli,29.5,MID,Central Midfield,20000000.0,102,15,0.33,0.04,1.13,2.94,2.51,E,Pressing CM,0.461
+Ange-Yoan Bonny,Ivory Coast,827734.0,Inter Milan,22.6,ATT,Centre-Forward,50000.0,1,0,0.47,0.28,1.0,9.0,3.0,E,Poacher,0.509
+Simon Adingra,Ivory Coast,658536.0,Monaco,24.4,ATT,Left Winger,22000000.0,29,5,0.14,0.0,2.0,8.0,27.0,E,Wide Playmaker,0.534
+Yan Diomande,Ivory Coast,1390649.0,RB Leipzig,19.6,ATT,Left Winger,45000000.0,10,3,0.47,0.27,15.0,18.0,40.0,E,Inside Forward,0.697
+Elye Wahi,Ivory Coast,659542.0,Nice,23.4,ATT,Centre-Forward,12000000.0,2,0,0.0,0.28,0.0,1.0,5.0,E,Target Forward,0.865
+Christopher Opéri,Ivory Coast,469976.0,İstanbul Başakşehir,29.1,DEF,Left-Back,4000000.0,12,0,0.0,0.2,22.0,17.0,66.0,E,Holding Full-Back,0.52
+Oumar Diakité,Ivory Coast,847279.0,Cercle Brugge,22.5,ATT,Centre-Forward,5000000.0,30,6,0.09,0.1,17.08,17.56,39.98,E,False Nine,0.424
+Amad Diallo,Ivory Coast,536835.0,Manchester United,23.9,ATT,Right Winger,50000000.0,19,6,0.09,0.09,13.0,21.0,42.0,E,Traditional Winger,0.452
+Mohamed Koné,Ivory Coast,911985.0,Charleroi,24.3,GK,Goalkeeper,800000.0,0,0,0.0,0.0,0.0,0.0,0.0,E,Goalkeeper,0.0
+Guéla Doué,Ivory Coast,711980.0,Strasbourg,23.6,DEF,Right-Back,18000000.0,20,3,0.1,0.3,25.0,35.0,45.0,E,Holding Full-Back,0.431
+Ibrahim Sangaré,Ivory Coast,375885.0,Nottingham Forest,28.5,MID,Defensive Midfield,22000000.0,57,12,0.09,0.09,18.0,30.0,8.0,E,Deep-Lying Playmaker,0.66
+Nicolas Pépé,Ivory Coast,343052.0,Villarreal,31.0,ATT,Right Winger,8500000.0,56,12,0.32,0.24,14.0,21.0,70.0,E,Inside Forward,0.802
+Emmanuel Agbadou,Ivory Coast,683895.0,Beşiktaş,29.0,DEF,Centre-Back,9000000.0,20,2,0.0,0.0,14.0,21.0,13.0,E,Stopper CB,0.847
+Evan Ndicka,Ivory Coast,371149.0,Roma,26.8,DEF,Centre-Back,30000000.0,28,0,0.07,0.08,8.59,12.37,22.08,E,Ball-Playing CB,0.943
+Evann Guessand,Ivory Coast,500689.0,Crystal Palace,24.9,ATT,Right Winger,28000000.0,21,4,0.0,0.15,3.0,9.0,10.0,E,Wide Playmaker,0.518
+Alban Lafont,Ivory Coast,357117.0,Panathinaikos,27.4,GK,Goalkeeper,3000000.0,4,0,0.0,0.0,0.0,0.0,0.0,E,Goalkeeper,0.0
+Bazoumana Touré,Ivory Coast,1067904.0,TSG Hoffenheim,20.3,ATT,Left Winger,25000000.0,6,2,0.17,0.37,6.0,20.0,109.0,E,Inside Forward,0.523
+Parfait Guiagon,Ivory Coast,624913.0,Charleroi,25.3,MID,Left Winger,4000000.0,5,0,0.2,0.07,11.0,15.0,30.75,E,Traditional Winger,0.725
+Christ Inao Oulaï,Ivory Coast,1279526.0,Trabzonspor,20.2,MID,Central Midfield,50000.0,9,0,0.09,0.19,19.0,26.0,26.0,E,Box-to-Box,0.473
+Zion Suzuki,Japan,432298.0,Parma,23.8,GK,Goalkeeper,20000000.0,24,0,0.0,0.0,0.0,0.0,0.0,F,Goalkeeper,0.0
+Yukinari Sugawara,Japan,405385.0,Werder Bremen,26.0,DEF,Right-Back,7500000.0,21,2,0.0,0.22,15.0,22.0,74.0,F,Holding Full-Back,0.541
+Shōgo Taniguchi,Japan,307870.0,Sint-Truiden,34.9,DEF,Centre-Back,800000.0,38,1,0.13,0.07,14.47,14.27,11.9,F,Traditional CB,0.671
+Kō Itakura,Japan,355816.0,Ajax,29.4,DEF,Centre-Back,10000000.0,40,2,0.07,0.0,16.0,9.0,4.0,F,Traditional CB,0.484
+Yūto Nagatomo,Japan,79522.0,FC Tokyo,39.7,DEF,Left-Back,300000.0,145,4,0.35,0.06,1.47,3.21,3.14,F,Full-Back,0.365
+Shūto Machino,Japan,550580.0,Borussia Mönchengladbach,26.7,ATT,Centre-Forward,7000000.0,14,5,0.28,0.09,3.0,4.0,9.0,F,Target Forward,0.685
+Ao Tanaka,Japan,489359.0,Leeds United,27.8,MID,Central Midfield,50000.0,38,8,0.17,0.0,17.0,11.0,32.0,F,Pressing CM,0.856
+Takefusa Kubo,Japan,405398.0,Real Sociedad,25.0,MID,Right Winger,30000000.0,49,7,0.13,0.26,8.0,16.0,34.0,F,Traditional Winger,0.711
+Keisuke Gotō,Japan,916623.0,Sint-Truiden,21.0,ATT,Centre-Forward,50000.0,4,0,0.01,0.02,14.2,15.8,11.4,F,False Nine,0.629
+Ritsu Dōan,Japan,358504.0,Eintracht Frankfurt,28.0,MID,Right Winger,18000000.0,65,11,0.21,0.21,15.0,21.0,104.0,F,Inside Forward,0.798
+Daizen Maeda,Japan,420931.0,Celtic,28.6,MID,Left Winger,14000000.0,27,4,0.36,0.07,5.47,12.09,25.3,F,Traditional Winger,0.964
+Keisuke Ōsako,Japan,415521.0,Sanfrecce Hiroshima,26.9,GK,Goalkeeper,50000.0,11,0,0.0,0.0,0.0,0.0,0.0,F,Goalkeeper,0.0
+Keito Nakamura,Japan,405397.0,Reims,25.9,MID,Left Winger,8000000.0,25,10,0.24,0.11,5.7,6.25,14.35,F,Wide Playmaker,0.526
+Junya Itō,Japan,348791.0,Genk,33.3,MID,Right Winger,3500000.0,69,15,0.0,0.09,15.35,13.05,54.01,F,Traditional Winger,0.896
+Daichi Kamada,Japan,356141.0,Crystal Palace,29.8,MID,Attacking Midfield,12000000.0,49,12,0.0,0.0,11.0,32.0,36.0,F,Attacking Midfielder,0.379
+Tsuyoshi Watanabe,Japan,598791.0,Feyenoord,29.3,DEF,Centre-Back,10000000.0,11,0,0.04,0.0,28.0,19.0,4.0,F,Stopper CB,0.535
+Yuito Suzuki,Japan,668606.0,SC Freiburg,24.6,MID,Second Striker,15000000.0,6,0,0.23,0.12,10.0,12.0,18.0,F,Target Forward,0.754
+Ayase Ueda,Japan,589128.0,Feyenoord,27.8,ATT,Centre-Forward,8000000.0,39,16,0.96,0.04,3.0,6.0,6.0,F,Poacher,0.574
+Kōki Ogawa,Japan,351567.0,NEC,28.8,ATT,Centre-Forward,2500000.0,15,11,0.59,0.22,3.0,6.0,1.0,F,Poacher,0.458
+Ayumu Seko,Japan,405389.0,Le Havre,26.0,DEF,Centre-Back,50000.0,14,0,0.0,0.0,31.0,24.0,5.0,F,Stopper CB,0.398
+Hiroki Itō,Japan,353892.0,Bayern Munich,27.1,DEF,Centre-Back,18000000.0,24,1,0.11,0.22,11.0,2.0,7.0,F,Traditional CB,0.757
+Takehiro Tomiyasu,Japan,331560.0,Ajax,27.6,DEF,Right-Back,12000000.0,43,1,0.0,0.0,6.0,2.0,0.0,F,Full-Back,0.369
+Tomoki Hayakawa,Japan,683271.0,Kashima Antlers,27.3,GK,Goalkeeper,50000.0,4,0,0.0,0.0,0.0,0.0,0.0,F,Goalkeeper,0.0
+Kaishū Sano,Japan,643574.0,Mainz 05,25.4,MID,Defensive Midfield,25000000.0,13,0,0.03,0.06,66.0,31.0,16.0,F,Deep-Lying Playmaker,0.427
+Junnosuke Suzuki,Japan,848856.0,Copenhagen,22.9,DEF,Centre-Back,50000.0,6,0,0.18,0.04,8.6,8.2,8.6,F,Traditional CB,0.38
+Kento Shiogai,Japan,1144627.0,VfL Wolfsburg,21.2,ATT,Centre-Forward,2500000.0,2,0,0.3,0.0,2.0,4.0,1.0,F,Target Forward,0.594
+Bart Verbruggen,Netherlands,565093.0,Brighton & Hove Albion,23.8,GK,Goalkeeper,35000000.0,29,0,0.0,0.0,0.0,1.0,0.0,F,Goalkeeper,0.0
+Lutsharel Geertruida,Netherlands,420210.0,Sunderland,25.9,DEF,Right-Back,32000000.0,21,0,0.0,0.0,17.0,20.0,7.0,F,Full-Back,0.665
+Marten de Roon,Netherlands,133179.0,Atalanta,35.2,MID,Defensive Midfield,7000000.0,43,1,0.04,0.07,20.0,41.0,13.0,F,Deep-Lying Playmaker,0.575
+Virgil van Dijk,Netherlands,139208.0,Liverpool,34.9,DEF,Centre-Back,18000000.0,92,12,0.12,0.0,20.0,15.0,1.0,F,Traditional CB,0.857
+Nathan Aké,Netherlands,177476.0,Manchester City,31.3,DEF,Centre-Back,18000000.0,59,5,0.0,0.0,4.0,6.0,4.0,F,Traditional CB,0.365
+Jan Paul van Hecke,Netherlands,576314.0,Brighton & Hove Albion,26.0,DEF,Centre-Back,35000000.0,12,0,0.09,0.09,37.0,29.0,21.0,F,Stopper CB,0.506
+Justin Kluivert,Netherlands,330659.0,Bournemouth,27.1,MID,Attacking Midfield,32000000.0,12,0,0.2,0.0,4.0,7.0,40.0,F,Attacking Midfielder,0.411
+Ryan Gravenberch,Netherlands,478573.0,Liverpool,24.1,MID,Defensive Midfield,90000000.0,27,1,0.14,0.1,39.0,31.0,6.0,F,Deep-Lying Playmaker,0.384
+Wout Weghorst,Netherlands,228645.0,Ajax,33.8,ATT,Centre-Forward,3500000.0,52,14,0.38,0.22,2.0,6.0,4.0,F,Poacher,0.621
+Memphis Depay,Netherlands,167850.0,Corinthians,32.3,ATT,Centre-Forward,10000000.0,109,55,0.0,0.0,0.0,4.0,5.0,F,Target Forward,0.48
+Cody Gakpo,Netherlands,434675.0,Liverpool,27.1,ATT,Left Winger,70000000.0,50,21,0.22,0.19,9.0,14.0,86.0,F,Inside Forward,0.737
+Mats Wieffer,Netherlands,415381.0,Brighton & Hove Albion,26.6,DEF,Right-Back,25000000.0,15,1,0.1,0.15,24.0,41.0,16.0,F,Holding Full-Back,0.471
+Robin Roefs,Netherlands,646991.0,Sunderland,23.4,GK,Goalkeeper,600000.0,1,0,0.0,0.0,0.0,0.0,0.0,F,Goalkeeper,0.0
+Tijjani Reijnders,Netherlands,460939.0,Manchester City,27.9,MID,Central Midfield,65000000.0,32,7,0.3,0.12,11.0,4.0,37.0,F,Pressing CM,0.631
+Micky van de Ven,Netherlands,557459.0,Tottenham Hotspur,25.1,DEF,Centre-Back,55000000.0,21,1,0.13,0.03,20.0,19.0,3.0,F,Stopper CB,0.762
+Guus Til,Netherlands,372267.0,PSV Eindhoven,28.5,MID,Attacking Midfield,15000000.0,7,1,0.56,0.17,2.0,11.0,24.0,F,Advanced Playmaker,0.658
+Noa Lang,Netherlands,339332.0,Galatasaray,27.0,ATT,Left Winger,25000000.0,15,3,0.14,0.27,2.0,8.0,44.0,F,Wide Playmaker,0.882
+Donyell Malen,Netherlands,326029.0,Roma,27.4,ATT,Centre-Forward,25000000.0,53,13,0.55,0.14,0.0,2.0,7.0,F,Poacher,0.63
+Brian Brobbey,Netherlands,473169.0,Sunderland,24.4,ATT,Centre-Forward,20000000.0,12,1,0.32,0.05,0.0,2.0,2.0,F,Target Forward,0.724
+Teun Koopmeiners,Netherlands,360518.0,Juventus,28.3,MID,Defensive Midfield,28000000.0,28,3,0.0,0.0,18.0,11.0,41.0,F,Box-to-Box DM,0.583
+Frenkie de Jong,Netherlands,326330.0,Barcelona,29.1,MID,Central Midfield,70000000.0,66,2,0.06,0.28,17.0,18.0,4.0,F,Box-to-Box,0.723
+Denzel Dumfries,Netherlands,321528.0,Inter Milan,30.1,DEF,Right-Back,25000000.0,72,11,0.22,0.07,7.0,8.0,29.0,F,Full-Back,0.401
+Mark Flekken,Netherlands,125714.0,Bayer Leverkusen,33.0,GK,Goalkeeper,8000000.0,12,0,0.0,0.0,0.0,0.0,0.0,F,Goalkeeper,0.0
+Crysencio Summerville,Netherlands,474701.0,West Ham United,24.6,ATT,Left Winger,22000000.0,2,0,0.2,0.04,14.0,22.0,52.0,F,Traditional Winger,0.423
+Jorrel Hato,Netherlands,904802.0,Chelsea,20.3,DEF,Left-Back,35000000.0,8,0,0.0,0.0,11.0,17.0,7.0,F,Full-Back,0.475
+Quinten Timber,Netherlands,420213.0,Marseille,25.0,MID,Central Midfield,28000000.0,11,1,0.0,0.0,8.0,16.0,7.0,F,Pressing CM,0.634
+Jacob Widell Zetterström,Sweden,549440.0,Derby County,27.9,GK,Goalkeeper,50000.0,3,0,0.0,0.0,0.0,0.0,0.0,F,Goalkeeper,0.0
+Gustaf Lagerbielke,Sweden,485395.0,Braga,26.2,DEF,Centre-Back,5000000.0,11,2,0.08,0.0,19.0,11.0,2.0,F,Traditional CB,0.604
+Victor Lindelöf,Sweden,184573.0,Aston Villa,31.9,DEF,Centre-Back,15000000.0,76,3,0.0,0.13,4.0,2.0,0.0,F,Traditional CB,0.424
+Isak Hien,Sweden,503075.0,Atalanta,27.4,DEF,Centre-Back,25000000.0,29,0,0.05,0.0,24.0,32.0,0.0,F,Stopper CB,0.431
+Gabriel Gudmundsson,Sweden,362108.0,Leeds United,27.1,DEF,Left-Back,15000000.0,24,0,0.0,0.0,28.0,47.0,88.0,F,Holding Full-Back,0.543
+Herman Johansson,Sweden,744853.0,FC Dallas,28.7,DEF,Right Midfield,50000.0,3,0,0.0,0.0,6.6,4.2,0.8,F,Pressing CM,0.496
+Lucas Bergvall,Sweden,866246.0,Tottenham Hotspur,20.4,MID,Central Midfield,40000000.0,10,0,0.09,0.28,3.0,14.0,18.0,F,Pressing CM,0.713
+Daniel Svensson,Sweden,579287.0,Borussia Dortmund,24.3,DEF,Left-Back,22000000.0,13,0,0.08,0.08,20.0,25.0,126.0,F,Attacking Wing-Back,0.496
+Alexander Isak,Sweden,349066.0,Liverpool,26.7,ATT,Centre-Forward,120000000.0,58,17,0.4,0.13,0.0,5.0,2.0,F,Poacher,0.792
+Benjamin Nygren,Sweden,475949.0,Celtic,24.9,MID,Attacking Midfield,6500000.0,11,3,0.26,0.03,8.68,8.79,29.82,F,Attacking Midfielder,0.441
+Anthony Elanga,Sweden,583189.0,Newcastle United,24.1,ATT,Right Winger,50000000.0,30,6,0.0,0.07,3.0,11.0,80.0,F,Traditional Winger,0.87
+Viktor Johansson,Sweden,273742.0,Stoke City,27.7,GK,Goalkeeper,50000.0,12,0,0.0,0.0,0.0,0.0,0.0,F,Goalkeeper,0.0
+Ken Sema,Sweden,252345.0,Pafos,32.7,MID,Left-Back,2500000.0,33,5,0.26,0.13,11.13,11.64,14.04,F,Full-Back,0.451
+Hjalmar Ekdal,Sweden,392179.0,Burnley,27.6,DEF,Centre-Back,6000000.0,13,0,0.0,0.0,12.0,17.0,1.0,F,Traditional CB,0.671
+Carl Starfelt,Sweden,258987.0,Celta Vigo,31.0,DEF,Centre-Back,6000000.0,18,0,0.0,0.0,16.0,16.0,0.0,F,Traditional CB,0.742
+Jesper Karlström,Sweden,222855.0,Udinese,31.0,MID,Defensive Midfield,4000000.0,25,0,0.03,0.0,35.0,32.0,11.0,F,Deep-Lying Playmaker,0.479
+Viktor Gyökeres,Sweden,325443.0,Arsenal,28.0,ATT,Centre-Forward,70000000.0,33,20,0.6,0.04,1.0,5.0,7.0,F,Poacher,0.761
+Yasin Ayari,Sweden,667287.0,Brighton & Hove Albion,22.7,MID,Central Midfield,30000000.0,21,3,0.14,0.14,25.0,25.0,23.0,F,Box-to-Box,0.422
+Mattias Svanberg,Sweden,342405.0,VfL Wolfsburg,27.4,MID,Central Midfield,12000000.0,41,2,0.36,0.12,7.0,7.0,8.0,F,Pressing CM,0.563
+Eric Smith,Sweden,292534.0,FC St. Pauli,29.4,DEF,Centre-Back,5000000.0,2,0,0.08,0.08,21.0,20.0,53.0,F,Ball-Playing CB,0.354
+Alexander Bernhardsson,Sweden,633454.0,Holstein Kiel,27.8,DEF,Right Winger,3000000.0,11,0,0.18,0.37,8.88,13.54,51.27,F,Inside Forward,0.608
+Besfort Zeneli,Sweden,715653.0,Union Saint-Gilloise,23.6,MID,Central Midfield,50000.0,8,0,0.02,0.0,13.4,20.4,21.0,F,Box-to-Box,0.954
+Kristoffer Nordfeldt,Sweden,75890.0,AIK,37.0,GK,Goalkeeper,300000.0,21,0,0.0,0.0,0.0,0.0,0.0,F,Goalkeeper,0.0
+Elliot Stroud,Sweden,687622.0,Mjällby AIF,24.0,DEF,Left Midfield,50000.0,1,0,0.03,0.05,12.0,18.6,35.0,F,Box-to-Box,0.956
+Gustaf Nilsson,Sweden,320440.0,Club Brugge,29.1,ATT,Centre-Forward,2500000.0,10,4,0.05,0.0,9.5,12.5,3.0,F,Target Forward,0.647
+Taha Ali,Sweden,731771.0,Malmö FF,27.9,ATT,Left Winger,50000.0,2,0,0.04,0.05,5.0,8.6,18.6,F,Wide Playmaker,0.473
+Mouhib Chamakh,Tunisia,,Club Africain,24.8,GK,,,3,0,,,,,,F,,0.5
+Ali Abdi,Tunisia,211474.0,Nice,32.5,DEF,Left-Back,2500000.0,46,7,0.25,0.0,10.0,9.0,31.0,F,Full-Back,0.445
+Montassar Talbi,Tunisia,496706.0,Lorient,28.0,DEF,Centre-Back,7000000.0,64,4,0.0,0.04,27.0,18.0,5.0,F,Stopper CB,0.573
+Omar Rekik,Tunisia,1466741.0,Maribor,24.5,DEF,,50000.0,6,0,0.05,0.05,3.2,4.6,1.2,F,Unknown,0.5
+Adem Arous,Tunisia,1071742.0,Kasımpaşa,21.9,DEF,Centre-Back,50000.0,2,0,0.06,0.0,20.0,17.0,4.0,F,Stopper CB,0.916
+Dylan Bronn,Tunisia,450417.0,Servette,31.0,DEF,Centre-Back,1300000.0,52,2,0.29,0.16,15.12,18.97,36.64,F,Ball-Playing CB,0.343
+Elias Achouri,Tunisia,645589.0,Copenhagen,27.3,ATT,Left Winger,3500000.0,30,4,0.05,0.01,8.12,8.19,17.36,F,Wide Playmaker,0.475
+Elias Saad,Tunisia,526466.0,Hannover 96,26.5,ATT,Left Winger,50000.0,15,4,0.0,0.0,1.0,8.0,9.0,F,Wide Playmaker,0.478
+Hazem Mastouri,Tunisia,953150.0,Dynamo Makhachkala,29.0,ATT,Centre-Forward,50000.0,19,4,0.0,0.0,8.2,6.6,2.0,F,Target Forward,0.447
+Hannibal Mejbri,Tunisia,607224.0,Burnley,23.4,MID,Attacking Midfield,9000000.0,45,1,0.09,0.26,7.0,13.0,25.0,F,Attacking Midfielder,0.49
+Ismaël Gharbi,Tunisia,810096.0,FC Augsburg,22.2,MID,Left Winger,7000000.0,17,2,0.0,0.0,0.0,1.0,4.0,F,Wide Playmaker,0.415
+Mortadha Ben Ouanes,Tunisia,230921.0,Kasımpaşa,31.9,DEF,Left Winger,1500000.0,18,0,0.09,0.21,25.0,12.0,62.0,F,Traditional Winger,0.812
+Rani Khedira,Tunisia,124410.0,Union Berlin,32.4,MID,Defensive Midfield,2000000.0,3,0,0.16,0.03,37.0,35.0,25.0,F,Deep-Lying Playmaker,0.384
+Khalil Ayari,Tunisia,,Paris Saint-Germain,21.4,MID,,,4,0,,,,,,F,,0.5
+Hadj Mahmoud,Tunisia,673513.0,Lugano,26.1,MID,Defensive Midfield,50000.0,9,0,0.17,0.03,2.4,2.0,5.2,F,Box-to-Box DM,0.465
+Aymen Dahmen,Tunisia,569433.0,CS Sfaxien,29.4,GK,Goalkeeper,50000.0,37,0,0.0,0.0,0.0,0.0,0.0,F,Goalkeeper,0.0
+Ellyes Skhiri,Tunisia,290587.0,Eintracht Frankfurt,31.1,MID,Defensive Midfield,6000000.0,83,4,0.0,0.0,20.0,6.0,2.0,F,Box-to-Box DM,0.591
+Rayan Elloumi,Tunisia,1273985.0,Vancouver Whitecaps FC,18.7,ATT,Centre-Forward,50000.0,4,0,0.89,0.0,0.0,2.0,1.0,F,Poacher,0.662
+Firas Chaouat,Tunisia,,Club Africain,30.1,ATT,,,30,6,,,,,,F,,0.5
+Yan Valery,Tunisia,406008.0,Young Boys,27.3,DEF,Right-Back,2000000.0,22,0,0.0,0.0,1.5,2.5,3.0,F,Full-Back,0.366
+Mohamed Amine Ben Hamida,Tunisia,192167.0,Espérance de Tunis,30.5,DEF,Right-Back,700000.0,13,0,0.0,0.03,20.85,10.01,4.21,F,Full-Back,0.573
+Sabri Ben Hessen,Tunisia,295381.0,Étoile du Sahel,30.0,GK,Goalkeeper,50000.0,2,0,0.0,0.0,0.0,0.0,0.0,F,Goalkeeper,0.0
+Moutaz Neffati,Tunisia,1034598.0,IFK Norrköping,21.8,DEF,Right-Back,50000.0,5,0,0.0,0.0,5.2,3.6,1.2,F,Full-Back,0.369
+Raed Chikhaoui,Tunisia,,US Monastir,22.0,DEF,,,0,0,,,,,,F,,0.5
+Anis Ben Slimane,Tunisia,387611.0,Norwich City,25.2,MID,Attacking Midfield,50000.0,41,4,0.0,0.0,3.0,3.0,9.0,F,Attacking Midfielder,0.345
+Sebastian Tounekti,Tunisia,539677.0,Celtic,23.9,MID,Left Winger,300000.0,12,1,0.0,0.0,1.67,5.33,8.33,F,Wide Playmaker,0.44
+Thibaut Courtois,Belgium,108390.0,Real Madrid,34.1,GK,Goalkeeper,28000000.0,109,0,0.0,0.0,0.0,1.0,0.0,G,Goalkeeper,0.0
+Zeno Debast,Belgium,548193.0,Sporting CP,22.6,DEF,Centre-Back,30000000.0,26,1,0.0,0.08,5.0,9.0,6.0,G,Traditional CB,0.416
+Arthur Theate,Belgium,368891.0,Eintracht Frankfurt,26.0,DEF,Centre-Back,24000000.0,33,1,0.04,0.0,31.0,20.0,13.0,G,Stopper CB,0.458
+Brandon Mechele,Belgium,236168.0,Club Brugge,33.4,DEF,Centre-Back,3000000.0,9,1,0.09,0.08,23.08,19.67,36.62,G,Ball-Playing CB,0.474
+Maxim De Cuyper,Belgium,429915.0,Brighton & Hove Albion,25.5,DEF,Left-Back,22000000.0,19,4,0.15,0.08,9.0,10.0,59.0,G,Full-Back,0.683
+Axel Witsel,Belgium,35047.0,Girona,37.4,MID,Defensive Midfield,1400000.0,138,12,0.04,0.08,26.0,22.0,1.0,G,Deep-Lying Playmaker,0.614
+Kevin De Bruyne,Belgium,88755.0,Napoli,35.0,MID,Attacking Midfield,15000000.0,119,37,0.43,0.09,5.0,6.0,55.0,G,Advanced Playmaker,0.779
+Youri Tielemans,Belgium,249565.0,Aston Villa,29.1,MID,Central Midfield,35000000.0,85,13,0.0,0.23,14.0,33.0,36.0,G,Box-to-Box,0.544
+Romelu Lukaku,Belgium,96341.0,Napoli,33.1,ATT,Centre-Forward,15000000.0,126,90,2.05,0.0,0.0,0.0,0.0,G,Poacher,0.581
+Leandro Trossard,Belgium,144028.0,Arsenal,31.5,ATT,Left Winger,20000000.0,51,12,0.25,0.3,9.0,15.0,55.0,G,Inside Forward,0.643
+Jérémy Doku,Belgium,486049.0,Manchester City,24.0,ATT,Left Winger,65000000.0,43,7,0.12,0.3,10.0,13.0,51.0,G,Inside Forward,0.9
+Senne Lammens,Belgium,503883.0,Manchester United,23.9,GK,Goalkeeper,25000000.0,2,0,0.0,0.0,0.0,1.0,0.0,G,Goalkeeper,0.0
+Mike Penders,Belgium,834397.0,Strasbourg,20.9,GK,Goalkeeper,1000000.0,0,0,0.0,0.0,0.0,0.0,0.0,G,Goalkeeper,0.0
+Dodi Lukébakio,Belgium,303259.0,Benfica,28.7,ATT,Right Winger,20000000.0,30,6,0.5,0.0,1.0,0.0,10.0,G,Wide Playmaker,0.593
+Thomas Meunier,Belgium,100986.0,Lille,34.7,DEF,Right-Back,1800000.0,80,10,0.1,0.1,16.0,17.0,46.0,G,Holding Full-Back,0.822
+Koni De Winter,Belgium,490384.0,Milan,24.0,DEF,Centre-Back,12000000.0,8,0,0.05,0.05,13.0,18.0,4.0,G,Traditional CB,0.761
+Charles De Ketelaere,Belgium,435772.0,Atalanta,25.3,ATT,Attacking Midfield,34000000.0,30,6,0.13,0.22,4.0,12.0,41.0,G,Attacking Midfielder,0.524
+Joaquin Seys,Belgium,981196.0,Club Brugge,21.2,DEF,Left-Back,600000.0,5,0,0.02,0.14,11.28,12.32,22.23,G,Full-Back,0.5
+Diego Moreira,Belgium,655006.0,Strasbourg,21.8,MID,Left Midfield,18000000.0,3,0,0.15,0.2,16.0,23.0,83.0,G,Midfield Playmaker,0.482
+Hans Vanaken,Belgium,137576.0,Club Brugge,33.8,MID,Attacking Midfield,6000000.0,34,7,0.18,0.12,7.89,9.77,21.17,G,Attacking Midfielder,0.387
+Timothy Castagne,Belgium,262226.0,Fulham,30.5,DEF,Right-Back,10000000.0,63,2,0.0,0.0,25.0,19.0,40.0,G,Holding Full-Back,0.633
+Alexis Saelemaekers,Belgium,381950.0,Milan,27.0,MID,Right Midfield,12000000.0,24,2,0.07,0.11,30.0,36.0,77.0,G,Midfield Playmaker,0.745
+Nicolas Raskin,Belgium,422763.0,Rangers,25.3,MID,Defensive Midfield,6500000.0,13,2,0.26,0.03,8.03,8.85,29.04,G,Box-to-Box DM,0.713
+Amadou Onana,Belgium,485706.0,Aston Villa,24.8,MID,Defensive Midfield,42000000.0,29,1,0.1,0.0,19.0,29.0,0.0,G,Deep-Lying Playmaker,0.713
+Nathan Ngoy,Belgium,548254.0,Lille,23.0,DEF,Centre-Back,3500000.0,4,0,0.04,0.08,36.0,19.0,6.0,G,Stopper CB,0.483
+Matias Fernandez-Pardo,Belgium,724129.0,Lille,21.3,ATT,Centre-Forward,3000000.0,2,0,0.34,0.21,8.0,13.0,52.0,G,Poacher,0.74
+Mohamed El Shenawy,Egypt,134573.0,Al Ahly,37.5,GK,Goalkeeper,50000.0,76,0,0.0,0.0,0.0,0.0,0.0,G,Goalkeeper,0.0
+Yasser Ibrahim,Egypt,237425.0,Al Ahly,33.3,DEF,Centre-Back,50000.0,17,1,0.0,0.0,1.8,0.0,0.0,G,Traditional CB,0.356
+Mohamed Hany,Egypt,343974.0,Al Ahly,30.4,DEF,Right-Back,50000.0,42,0,0.14,0.06,4.6,12.2,39.0,G,Full-Back,0.478
+Hossam Abdelmaguid,Egypt,737524.0,Zamalek,25.1,DEF,Centre-Back,50000.0,13,0,0.15,0.0,17.2,22.8,43.2,G,Ball-Playing CB,0.562
+Ramy Rabia,Egypt,172623.0,Al Ain,33.1,DEF,Centre-Back,400000.0,44,5,0.09,0.12,6.0,8.62,52.17,G,Ball-Playing CB,0.323
+Mohamed Abdelmonem,Egypt,566025.0,Nice,27.4,DEF,Centre-Back,3000000.0,36,3,0.02,0.06,10.99,24.41,35.51,G,Ball-Playing CB,0.479
+Trézéguet,Egypt,234189.0,Al Ahly,31.7,ATT,Left Winger,4500000.0,96,23,0.11,0.32,20.0,50.0,117.0,G,Traditional Winger,0.953
+Emam Ashour,Egypt,,Al Ahly,28.3,MID,,,29,0,,,,,,G,,0.5
+Hamza Abdelkarim,Egypt,956518.0,Barcelona B,18.4,ATT,Defensive Midfield,50000.0,2,0,0.03,0.01,3.0,6.8,10.0,G,Box-to-Box DM,0.382
+Mohamed Salah,Egypt,148455.0,Liverpool,34.0,ATT,Right Winger,30000000.0,116,67,0.31,0.26,3.0,12.0,107.0,G,Inside Forward,0.432
+Mostafa Ziko,Egypt,1133856.0,Pyramids,29.1,MID,Right Winger,50000.0,2,2,0.05,0.08,3.0,6.4,11.4,G,Wide Playmaker,0.418
+Haissem Hassan,Egypt,620164.0,Oviedo,24.3,ATT,Right Winger,1500000.0,4,0,0.0,0.16,6.0,23.0,102.0,G,Traditional Winger,0.658
+Ahmed Fatouh,Egypt,465966.0,Zamalek,28.2,DEF,Left-Back,50000.0,39,1,0.01,0.0,18.4,13.4,10.4,G,Full-Back,0.576
+Hamdy Fathy,Egypt,340303.0,Al-Wakrah,31.7,MID,Defensive Midfield,50000.0,63,3,0.05,0.0,0.6,0.8,4.2,G,Box-to-Box DM,0.381
+Karim Hafez,Egypt,362278.0,Pyramids,30.2,DEF,Centre-Forward,50000.0,9,0,0.14,0.2,8.25,11.75,43.75,G,Target Forward,0.844
+El Mahdy Soliman,Egypt,,Zamalek,39.0,GK,,,0,0,,,,,,G,,0.5
+Mohanad Lasheen,Egypt,,Pyramids,30.0,MID,,,23,0,,,,,,G,,0.5
+Nabil Emad,Egypt,,Al-Najma,30.2,MID,,,12,0,,,,,,G,,0.5
+Marwan Attia,Egypt,,Al Ahly,27.9,MID,,,34,1,,,,,,G,,0.5
+Ibrahim Adel,Egypt,677278.0,Nordsjælland,25.1,ATT,Left Winger,50000.0,24,3,0.03,0.01,18.0,20.0,34.2,G,Traditional Winger,0.593
+Mahmoud Saber,Egypt,729390.0,ZED,24.9,MID,Central Midfield,50000.0,15,1,0.02,0.01,21.2,29.0,48.0,G,Box-to-Box,0.522
+Omar Marmoush,Egypt,445939.0,Manchester City,27.3,ATT,Centre-Forward,65000000.0,50,11,0.16,0.47,2.0,7.0,12.0,G,Poacher,0.674
+Mostafa Shobeir,Egypt,,Al Ahly,26.1,GK,,,9,0,,,,,,G,,0.5
+Tarek Alaa,Egypt,,ZED,24.4,DEF,,,3,0,,,,,,G,,0.5
+Zizo,Egypt,,Al Ahly,30.4,ATT,,,63,5,,,,,,G,,0.5
+Mohamed Alaa,Egypt,134573.0,El Gouna,27.4,GK,Goalkeeper,50000.0,0,0,0.0,0.0,0.0,0.0,0.0,G,Goalkeeper,0.0
+Alireza Beiranvand,Iran,,Tractor,33.7,GK,,,86,0,,,,,,G,,0.5
+Saleh Hardani,Iran,927107.0,Esteghlal,27.5,DEF,Centre-Back,50000.0,18,1,0.19,0.11,20.0,35.0,33.0,G,Ball-Playing CB,0.711
+Ehsan Hajsafi,Iran,77547.0,Sepahan,36.3,DEF,Left-Back,275000.0,146,7,0.03,0.03,2.93,2.79,3.68,G,Full-Back,0.363
+Shojae Khalilzadeh,Iran,,Tractor,37.1,DEF,,,58,2,,,,,,G,,0.5
+Milad Mohammadi,Iran,333355.0,Persepolis,32.7,DEF,Left-Back,1300000.0,76,1,0.26,0.13,17.0,15.0,20.0,G,Full-Back,0.707
+Saeid Ezatolahi,Iran,,Shabab Al Ahli,29.7,MID,,,83,2,,,,,,G,,0.5
+Alireza Jahanbakhsh,Iran,213268.0,Dender EH,32.8,MID,Right Winger,3000000.0,98,17,0.09,0.08,22.92,19.55,36.34,G,Traditional Winger,0.499
+Mohammad Mohebi,Iran,603149.0,Rostov,27.5,MID,Left Winger,3500000.0,37,14,0.13,0.03,19.54,19.92,35.65,G,Traditional Winger,0.494
+Mehdi Taremi,Iran,307058.0,Olympiacos,33.9,ATT,Centre-Forward,2500000.0,105,60,0.39,0.13,5.0,10.0,16.0,G,Poacher,0.802
+Mehdi Ghayedi,Iran,478192.0,Al Nasr,27.5,ATT,Left Winger,50000.0,30,10,0.01,0.05,19.0,16.6,12.4,G,Wide Playmaker,0.973
+Ali Alipour,Iran,249360.0,Persepolis,30.6,ATT,Centre-Forward,1000000.0,14,1,0.0,0.0,11.0,14.0,1.0,G,Target Forward,0.887
+Payam Niazmand,Iran,,Persepolis,31.2,GK,,,15,0,,,,,,G,,0.5
+Hossein Kanaanizadegan,Iran,,Persepolis,32.2,DEF,,,65,6,,,,,,G,,0.5
+Saman Ghoddos,Iran,,Kalba,32.8,MID,,,68,3,,,,,,G,,0.5
+Rouzbeh Cheshmi,Iran,,Esteghlal,32.9,MID,,,40,3,,,,,,G,,0.5
+Mahdi Torabi,Iran,,Tractor,31.8,MID,,,52,7,,,,,,G,,0.5
+Arya Yousefi,Iran,,Sepahan,24.1,DEF,,,14,1,,,,,,G,,0.5
+Amirhossein Hosseinzadeh,Iran,542380.0,Tractor,25.6,ATT,Centre-Forward,700000.0,18,5,0.04,0.0,22.0,19.0,71.0,G,False Nine,0.376
+Ali Nemati,Iran,55605.0,Foolad,30.3,DEF,Left-Back,75000.0,18,0,0.01,0.0,1.78,4.91,8.41,G,Full-Back,0.371
+Shahriyar Moghanlou,Iran,,Kalba,31.5,ATT,,,21,2,,,,,,G,,0.5
+Mohammad Ghorbani,Iran,856087.0,Al Wahda,24.7,MID,Defensive Midfield,800000.0,16,0,0.0,0.0,9.0,13.0,10.0,G,Box-to-Box DM,0.441
+Hossein Hosseini,Iran,,Sepahan,33.9,GK,,,13,0,,,,,,G,,0.5
+Ramin Rezaeian,Iran,188312.0,Foolad,36.2,DEF,Right-Back,450000.0,74,8,0.07,0.09,5.48,5.62,14.18,G,Full-Back,0.371
+Dennis Eckert,Iran,249303.0,Standard Liège,29.4,ATT,Centre-Forward,2000000.0,0,0,0.18,0.0,6.5,14.5,17.5,G,Target Forward,0.575
+Danial Eiri,Iran,333603.0,Malavan,22.6,DEF,Right-Back,50000.0,0,0,0.0,0.0,4.0,2.0,1.4,G,Full-Back,0.366
+Amirmohammad Razzaghinia,Iran,,Esteghlal,20.2,MID,,,4,0,,,,,,G,,0.5
+Max Crocombe,New Zealand,207843.0,Millwall,32.8,GK,Goalkeeper,50000.0,24,0,0.0,0.0,0.0,0.0,0.0,G,Goalkeeper,0.0
+Tim Payne,New Zealand,149901.0,Wellington Phoenix,32.4,DEF,Right-Back,50000.0,51,3,0.05,0.0,1.2,1.4,4.2,G,Full-Back,0.366
+Francis de Vries,New Zealand,207061.0,Auckland FC,31.5,DEF,Left-Back,50000.0,20,1,0.05,0.0,1.2,1.0,3.0,G,Full-Back,0.365
+Tyler Bindon,New Zealand,1007720.0,Sheffield United,21.4,DEF,Centre-Back,1500000.0,25,3,0.14,0.01,9.6,12.4,6.0,G,Traditional CB,0.459
+Michael Boxall,New Zealand,81723.0,Minnesota United FC,37.8,DEF,Centre-Back,50000.0,63,1,0.03,0.03,25.0,12.0,10.0,G,Traditional CB,0.966
+Joe Bell,New Zealand,345700.0,Viking,27.1,MID,Defensive Midfield,1200000.0,32,1,0.06,0.08,16.14,11.39,27.51,G,Box-to-Box DM,0.576
+Logan Rogerson,New Zealand,312317.0,Auckland FC,28.0,ATT,Right Winger,50000.0,18,2,0.15,0.01,20.4,16.8,15.6,G,Traditional Winger,0.816
+Marko Stamenić,New Zealand,617018.0,Swansea City,24.3,MID,Central Midfield,3000000.0,39,3,0.25,0.2,10.67,14.11,15.0,G,Pressing CM,0.783
+Chris Wood,New Zealand,108725.0,Nottingham Forest,34.5,ATT,Centre-Forward,8000000.0,90,45,0.37,0.0,1.0,1.0,1.0,G,Target Forward,0.694
+Sarpreet Singh,New Zealand,350357.0,Wellington Phoenix,27.3,MID,Attacking Midfield,600000.0,28,3,0.12,0.02,18.0,26.0,73.5,G,Attacking Midfielder,0.513
+Elijah Just,New Zealand,485672.0,Motherwell,26.1,MID,Right Winger,350000.0,44,9,0.16,0.16,16.95,9.0,29.88,G,Wide Playmaker,0.642
+Alex Paulsen,New Zealand,617009.0,Lechia Gdańsk,23.9,GK,Goalkeeper,50000.0,8,0,0.0,0.0,0.0,0.0,0.0,G,Goalkeeper,0.0
+Liberato Cacace,New Zealand,469211.0,Wrexham,25.7,DEF,Left-Back,3000000.0,37,1,0.36,0.14,17.0,12.0,17.0,G,Full-Back,0.616
+Alex Rufer,New Zealand,256019.0,Wellington Phoenix,30.0,MID,Defensive Midfield,50000.0,26,0,0.14,0.06,4.4,12.8,38.8,G,Box-to-Box DM,0.488
+Nando Pijnaker,New Zealand,455425.0,Auckland FC,27.3,DEF,Centre-Back,175000.0,25,0,0.0,0.03,9.63,10.17,4.84,G,Traditional CB,0.393
+Finn Surman,New Zealand,724809.0,Portland Timbers,22.7,DEF,Centre-Back,50000.0,19,2,0.0,0.0,34.0,20.0,2.0,G,Stopper CB,0.463
+Kosta Barbarouses,New Zealand,50200.0,Western Sydney Wanderers,36.3,ATT,Centre-Forward,500000.0,76,10,0.0,0.0,12.0,8.0,23.0,G,Target Forward,0.638
+Ben Waine,New Zealand,539502.0,Port Vale,25.0,ATT,Centre-Forward,50000.0,31,9,0.09,0.01,18.8,20.8,42.6,G,False Nine,0.38
+Ben Old,New Zealand,617021.0,Saint-Étienne,23.8,MID,Left-Back,600000.0,24,2,0.09,0.11,6.33,6.33,21.33,G,Full-Back,0.391
+Callum McCowatt,New Zealand,400797.0,Silkeborg,27.1,MID,Attacking Midfield,2000000.0,32,4,0.0,0.0,1.5,2.5,3.0,G,Attacking Midfielder,0.344
+Jesse Randall,New Zealand,677509.0,Auckland FC,23.8,ATT,Left Winger,50000.0,11,2,0.27,0.08,9.6,12.8,18.4,G,Wide Playmaker,0.93
+Michael Woud,New Zealand,350347.0,Auckland FC,27.4,GK,Goalkeeper,250000.0,6,0,0.0,0.0,0.0,0.0,0.0,G,Goalkeeper,0.0
+Ryan Thomas,New Zealand,203357.0,PEC Zwolle,31.5,MID,Defensive Midfield,900000.0,25,3,0.04,0.0,51.0,43.0,11.0,G,Deep-Lying Playmaker,0.414
+Callan Elliot,New Zealand,482204.0,Auckland FC,26.9,DEF,Right-Back,300000.0,11,0,0.0,0.03,2.2,2.6,3.8,G,Full-Back,0.363
+Lachlan Bayliss,New Zealand,1109358.0,Newcastle Jets,23.9,MID,Central Midfield,50000.0,4,0,0.03,0.05,10.4,18.0,22.2,G,Pressing CM,0.799
+Tommy Smith,New Zealand,54381.0,Braintree Town,36.2,DEF,Centre-Back,50000.0,56,2,0.0,0.0,0.0,1.0,0.0,G,Traditional CB,0.355
+Vozinha,Cape Verde,,Chaves,40.0,GK,,,90,0,,,,,,H,,0.5
+Stopira,Cape Verde,,Torreense,38.1,DEF,,,61,4,,,,,,H,,0.5
+Diney,Cape Verde,,Al Bataeh,31.4,DEF,,,32,2,,,,,,H,,0.5
+Pico,Cape Verde,213528.0,Shamrock Rovers,34.0,DEF,Defensive Midfield,50000.0,45,0,0.08,0.08,11.5,7.0,16.5,H,Box-to-Box DM,0.45
+Logan Costa,Cape Verde,484988.0,Villarreal,25.2,DEF,Centre-Back,18000000.0,28,0,0.27,0.0,5.0,8.0,8.0,H,Traditional CB,0.384
+Kevin Pina,Cape Verde,900195.0,Krasnodar,29.4,MID,Left Winger,30000000.0,31,3,0.1,0.1,9.0,8.0,40.0,H,Wide Playmaker,0.595
+Jovane Cabral,Cape Verde,448466.0,Estrela Amadora,28.0,MID,Left Winger,800000.0,29,3,0.4,0.0,8.0,26.0,26.0,H,Traditional Winger,0.5
+João Paulo,Cape Verde,623965.0,FCSB,28.0,MID,Defensive Midfield,50000.0,41,1,0.0,0.0,11.0,10.0,7.0,H,,0.5
+Gilson Benchimol,Cape Verde,820252.0,Akron Tolyatti,24.4,ATT,Centre-Forward,650000.0,21,6,0.05,0.02,15.44,15.98,14.67,H,False Nine,0.556
+Jamiro Monteiro,Cape Verde,272930.0,PEC Zwolle,32.5,MID,Central Midfield,750000.0,55,5,0.16,0.16,10.0,23.0,23.0,H,Box-to-Box,0.885
+Garry Rodrigues,Cape Verde,170895.0,Apollon Limassol,35.5,MID,Right Winger,325000.0,61,10,0.06,0.0,11.0,23.0,4.0,H,Traditional Winger,0.661
+Márcio Rosa,Cape Verde,,Montana,29.3,GK,,,11,0,,,,,,H,,0.5
+Sidny Lopes Cabral,Cape Verde,611855.0,Benfica,23.7,DEF,Left-Back,50000.0,11,3,0.26,0.01,12.6,18.8,21.4,H,Full-Back,0.584
+Deroy Duarte,Cape Verde,,Ludogorets Razgrad,26.9,MID,,,33,0,,,,,,H,,0.5
+Laros Duarte,Cape Verde,258513.0,Puskás Akadémia,29.3,MID,Defensive Midfield,1000000.0,20,1,0.08,0.06,19.5,26.0,33.5,H,Deep-Lying Playmaker,0.702
+Yannick Semedo,Cape Verde,1093267.0,Farense,30.5,MID,Right-Back,50000.0,11,1,0.08,0.17,13.0,34.0,136.0,H,Attacking Wing-Back,0.381
+Willy Semedo,Cape Verde,,Omonia,32.1,MID,,,38,3,,,,,,H,,0.5
+Telmo Arcanjo,Cape Verde,791528.0,Vitória de Guimarães,25.0,MID,Right Winger,3000000.0,16,1,0.08,0.0,8.0,13.0,76.0,H,Traditional Winger,0.733
+Dailon Livramento,Cape Verde,676411.0,Casa Pia,25.1,ATT,Centre-Forward,50000.0,22,7,0.0,0.0,1.0,2.0,11.0,H,Target Forward,0.474
+Ryan Mendes,Cape Verde,,Iğdır,36.4,ATT,,,98,22,,,,,,H,,0.5
+Nuno da Costa,Cape Verde,306166.0,İstanbul Başakşehir,35.3,MID,Centre-Forward,800000.0,9,2,0.32,0.11,7.0,9.0,10.0,H,Target Forward,0.838
+Steven Moreira,Cape Verde,203517.0,Columbus Crew,31.8,DEF,Right-Back,1500000.0,20,0,0.04,0.07,16.0,29.0,36.0,H,Holding Full-Back,0.56
+CJ dos Santos,Cape Verde,532096.0,San Diego FC,25.8,GK,Goalkeeper,50000.0,1,0,0.0,0.0,0.0,2.0,0.0,H,Goalkeeper,0.0
+Wagner Pina,Cape Verde,1072017.0,Trabzonspor,23.6,DEF,Right-Back,7000000.0,14,0,0.0,0.27,23.0,37.0,66.0,H,Holding Full-Back,0.412
+Kelvin Pires,Cape Verde,638722.0,SJK,26.0,DEF,Right Winger,50000.0,6,1,0.1,0.1,9.0,8.0,40.0,H,Wide Playmaker,0.595
+Hélio Varela,Cape Verde,840836.0,Maccabi Tel Aviv,24.1,MID,Left Winger,1200000.0,21,0,0.0,0.0,11.0,8.0,21.0,H,Wide Playmaker,0.5
+Nawaf Al-Aqidi,Saudi Arabia,886183.0,Al-Nassr,26.1,GK,Goalkeeper,50000.0,24,0,0.0,0.0,0.0,0.0,0.0,H,Goalkeeper,0.0
+Ali Majrashi,Saudi Arabia,672391.0,Al-Ahli,26.7,DEF,Right-Back,50000.0,21,0,0.08,0.01,10.4,17.0,12.6,H,Full-Back,0.472
+Ali Lajami,Saudi Arabia,264909.0,Al-Hilal,30.1,DEF,Centre-Back,50000.0,24,1,0.07,0.03,2.2,7.4,19.4,H,Traditional CB,0.529
+Abdulelah Al-Amri,Saudi Arabia,509894.0,Al-Nassr,29.4,DEF,Centre-Back,50000.0,44,1,0.2,0.0,3.6,2.6,2.0,H,Traditional CB,0.357
+Hassan Al-Tambakti,Saudi Arabia,509897.0,Al-Hilal,27.3,DEF,Centre-Back,50000.0,54,1,0.04,0.01,18.0,17.2,25.8,H,Stopper CB,0.886
+Nasser Al-Dawsari,Saudi Arabia,509911.0,Al-Hilal,27.5,MID,Central Midfield,50000.0,47,1,0.01,0.0,15.6,14.6,17.0,H,Pressing CM,0.922
+Musab Al-Juwayr,Saudi Arabia,901181.0,Al-Qadsiah,23.0,MID,Central Midfield,50000.0,37,6,0.2,0.05,10.2,9.8,13.2,H,Pressing CM,0.51
+Ayman Yahya,Saudi Arabia,735815.0,Al-Nassr,25.1,ATT,Left-Back,50000.0,26,0,0.03,0.01,18.0,20.0,34.2,H,Holding Full-Back,0.899
+Firas Al-Buraikan,Saudi Arabia,631922.0,Al-Ahli,26.1,ATT,Centre-Forward,50000.0,72,16,0.1,0.05,6.0,4.8,5.8,H,Target Forward,0.451
+Salem Al-Dawsari,Saudi Arabia,195332.0,Al-Hilal,34.8,ATT,Left Winger,2000000.0,111,27,0.17,0.16,12.87,12.38,55.5,H,Traditional Winger,0.761
+Saleh Al-Shehri,Saudi Arabia,242267.0,Al-Ittihad,32.6,ATT,Centre-Forward,650000.0,59,17,0.0,0.0,3.0,0.0,0.0,H,Target Forward,0.47
+Saud Abdulhamid,Saudi Arabia,631927.0,Lens,26.9,DEF,Right-Back,3000000.0,55,1,0.14,0.28,9.0,22.0,46.0,H,Holding Full-Back,0.82
+Nawaf Boushal,Saudi Arabia,821377.0,Al-Nassr,26.7,DEF,Right-Back,50000.0,27,0,0.16,0.02,16.0,20.8,24.2,H,Full-Back,0.826
+Hassan Kadesh,Saudi Arabia,260859.0,Al-Ittihad,33.7,DEF,Left-Back,50000.0,21,2,0.04,0.1,9.33,10.0,43.67,H,Full-Back,0.55
+Abdullah Al-Khaibari,Saudi Arabia,437903.0,Al-Nassr,29.8,MID,Defensive Midfield,50000.0,42,0,0.0,0.0,0.0,1.6,0.0,H,Box-to-Box DM,0.377
+Ziyad Al-Johani,Saudi Arabia,901079.0,Al-Ahli,24.6,MID,Defensive Midfield,50000.0,12,0,0.15,0.0,17.2,22.8,43.2,H,Deep-Lying Playmaker,0.853
+Khalid Al-Ghannam,Saudi Arabia,631923.0,Al-Ettifaq,25.6,ATT,Left Winger,50000.0,7,0,0.06,0.22,11.0,10.6,11.6,H,Wide Playmaker,0.632
+Alaa Al-Hejji,Saudi Arabia,443937.0,Neom,30.5,MID,Central Midfield,50000.0,3,0,0.14,0.2,8.25,11.75,43.75,H,Pressing CM,0.783
+Abdullah Al-Hamdan,Saudi Arabia,68626.0,Al-Nassr,26.7,ATT,Centre-Forward,50000.0,52,13,0.04,0.01,18.0,17.2,25.8,H,False Nine,0.445
+Sultan Mandash,Saudi Arabia,210349.0,Al-Hilal,31.6,ATT,Right Winger,50000.0,7,2,0.0,0.0,0.2,0.6,2.2,H,Wide Playmaker,0.414
+Mohammed Al-Owais,Saudi Arabia,262845.0,Al-Ula,34.7,GK,Goalkeeper,50000.0,65,0,0.0,0.0,0.0,0.0,0.0,H,Goalkeeper,0.0
+Ahmed Al-Kassar,Saudi Arabia,177956.0,Al-Qadsiah,35.1,GK,Goalkeeper,50000.0,9,0,0.0,0.0,0.0,0.0,0.0,H,Goalkeeper,0.0
+Mohamed Kanno,Saudi Arabia,308120.0,Al-Hilal,31.7,MID,Central Midfield,50000.0,79,8,0.0,0.0,1.8,4.2,10.0,H,Pressing CM,0.46
+Moteb Al-Harbi,Saudi Arabia,869509.0,Al-Hilal,26.3,DEF,Left-Back,50000.0,13,0,0.14,0.09,11.6,15.2,42.4,H,Full-Back,0.702
+Jehad Thakri,Saudi Arabia,901334.0,Al-Qadsiah,24.9,DEF,Centre-Back,50000.0,8,0,0.0,0.01,13.6,12.0,23.8,H,Traditional CB,0.719
+Mohammed Abu Al-Shamat,Saudi Arabia,1181852.0,Al-Qadsiah,23.8,DEF,Right-Back,50000.0,8,0,0.07,0.07,16.8,23.8,26.6,H,Holding Full-Back,0.789
+David Raya,Spain,262749.0,Arsenal,30.7,GK,Goalkeeper,35000000.0,13,0,0.0,0.0,1.0,1.0,1.0,H,Goalkeeper,0.0
+Marc Pubill,Spain,844637.0,Atlético Madrid,23.0,DEF,Centre-Back,4000000.0,2,0,0.0,0.08,16.0,9.0,4.0,H,Traditional CB,0.515
+Álex Grimaldo,Spain,932350.0,Bayer Leverkusen,30.7,DEF,Central Midfield,50000.0,14,0,0.18,0.07,11.0,13.6,13.4,H,Pressing CM,0.577
+Eric García,Spain,466794.0,Barcelona,25.4,DEF,Centre-Back,20000000.0,21,0,0.04,0.04,46.0,41.0,13.0,H,Stopper CB,0.355
+Marcos Llorente,Spain,282411.0,Atlético Madrid,31.4,DEF,Right-Back,22000000.0,24,0,0.0,0.19,11.0,33.0,38.0,H,Holding Full-Back,0.598
+Mikel Merino,Spain,338424.0,Arsenal,30.0,MID,Central Midfield,30000000.0,43,10,0.36,0.27,9.0,13.0,4.0,H,Pressing CM,0.777
+Ferran Torres,Spain,398184.0,Barcelona,26.3,ATT,Centre-Forward,30000000.0,57,24,0.76,0.05,4.0,6.0,2.0,H,Poacher,0.622
+Fabián Ruiz,Spain,350219.0,Paris Saint-Germain,30.2,MID,Central Midfield,40000000.0,42,6,0.09,0.28,12.0,6.0,14.0,H,Pressing CM,0.806
+Gavi,Spain,646740.0,Barcelona,21.8,MID,Central Midfield,40000000.0,30,5,0.0,0.28,2.0,4.0,1.0,H,Pressing CM,0.6
+Dani Olmo,Spain,293385.0,Barcelona,28.1,ATT,Attacking Midfield,60000000.0,50,12,0.34,0.34,13.0,22.0,28.0,H,Advanced Playmaker,0.61
+Yéremy Pino,Spain,568157.0,Crystal Palace,23.6,ATT,Right Winger,30000000.0,23,4,0.1,0.05,7.0,19.0,73.0,H,Traditional Winger,0.497
+Pedro Porro,Spain,553875.0,Tottenham Hotspur,26.7,DEF,Right-Back,40000000.0,18,0,0.04,0.07,25.0,39.0,205.0,H,Attacking Wing-Back,0.251
+Joan Garcia,Spain,561613.0,Barcelona,25.1,GK,Goalkeeper,30000000.0,2,0,0.0,0.0,0.0,3.0,0.0,H,Goalkeeper,0.0
+Aymeric Laporte,Spain,176553.0,Athletic Bilbao,32.0,DEF,Centre-Back,20000000.0,46,2,0.0,0.05,22.0,13.0,1.0,H,Traditional CB,0.801
+Álex Baena,Spain,548111.0,Atlético Madrid,24.9,MID,Left Winger,40000000.0,17,2,0.13,0.2,15.0,9.0,105.0,H,Inside Forward,0.642
+Rodri,Spain,357565.0,Manchester City,30.0,MID,Defensive Midfield,75000000.0,62,4,0.06,0.0,11.0,23.0,4.0,H,Box-to-Box DM,0.601
+Nico Williams,Spain,709187.0,Athletic Bilbao,23.9,ATT,Left Winger,60000000.0,30,6,0.33,0.16,7.0,9.0,70.0,H,Inside Forward,0.666
+Martín Zubimendi,Spain,423440.0,Arsenal,27.4,MID,Defensive Midfield,50000000.0,26,3,0.16,0.03,39.0,39.0,12.0,H,Deep-Lying Playmaker,0.379
+Lamine Yamal,Spain,937958.0,Barcelona,18.9,ATT,Right Winger,120000000.0,25,6,0.64,0.44,8.0,20.0,77.0,H,Inside Forward,0.422
+Pedri,Spain,683840.0,Barcelona,23.5,MID,Central Midfield,80000000.0,41,6,0.09,0.38,22.0,32.0,11.0,H,Box-to-Box,0.541
+Mikel Oyarzabal,Spain,351478.0,Real Sociedad,29.1,ATT,Centre-Forward,25000000.0,53,25,0.53,0.11,3.0,14.0,16.0,H,Poacher,0.636
+Pau Cubarsí,Spain,962110.0,Barcelona,19.4,DEF,Centre-Back,30000000.0,12,0,0.04,0.0,28.0,26.0,0.0,H,Stopper CB,0.431
+Unai Simón,Spain,262396.0,Athletic Bilbao,29.0,GK,Goalkeeper,30000000.0,58,0,0.0,0.0,0.0,0.0,0.0,H,Goalkeeper,0.0
+Marc Cucurella,Spain,284857.0,Chelsea,27.9,DEF,Left-Back,50000000.0,24,1,0.04,0.12,26.0,35.0,30.0,H,Holding Full-Back,0.417
+Víctor Muñoz,Spain,935231.0,Osasuna,22.9,ATT,Left Winger,50000.0,2,1,0.18,0.07,10.0,13.0,95.0,H,Traditional Winger,0.817
+Borja Iglesias,Spain,278359.0,Celta Vigo,33.4,ATT,Centre-Forward,5000000.0,8,0,0.65,0.11,0.0,4.0,3.0,H,Poacher,0.584
+Sergio Rochet,Uruguay,264014.0,Internacional,33.2,GK,Goalkeeper,3500000.0,35,0,0.0,0.0,0.0,0.0,0.0,H,Goalkeeper,0.0
+José María Giménez,Uruguay,250845.0,Atlético Madrid,31.4,DEF,Centre-Back,22000000.0,99,8,0.0,0.08,15.0,12.0,0.0,H,Traditional CB,0.57
+Sebastián Cáceres,Uruguay,532389.0,América,26.8,DEF,Centre-Back,50000.0,24,0,0.08,0.06,8.2,13.8,35.8,H,Ball-Playing CB,0.443
+Ronald Araújo,Uruguay,480267.0,Barcelona,27.3,DEF,Centre-Back,70000000.0,27,1,0.27,0.0,10.0,10.0,5.0,H,Traditional CB,0.422
+Manuel Ugarte,Uruguay,476701.0,Manchester United,25.2,MID,Defensive Midfield,30000000.0,36,1,0.0,0.0,20.0,30.0,1.0,H,Deep-Lying Playmaker,0.893
+Rodrigo Bentancur,Uruguay,354362.0,Tottenham Hotspur,29.0,MID,Defensive Midfield,27000000.0,74,3,0.06,0.06,28.0,27.0,7.0,H,Deep-Lying Playmaker,0.474
+Nicolás de la Cruz,Uruguay,397458.0,Flamengo,29.0,MID,Central Midfield,50000.0,34,5,0.13,0.03,7.4,6.2,5.0,H,Pressing CM,0.438
+Federico Valverde,Uruguay,369081.0,Real Madrid,27.9,MID,Central Midfield,120000000.0,73,9,0.18,0.28,23.0,25.0,29.0,H,Box-to-Box,0.521
+Darwin Núñez,Uruguay,546543.0,Al-Hilal,27.0,ATT,Centre-Forward,70000000.0,38,13,0.05,0.05,20.0,24.0,6.0,H,False Nine,0.338
+Giorgian de Arrascaeta,Uruguay,248410.0,Flamengo,32.0,MID,Attacking Midfield,50000.0,60,13,0.0,0.0,0.0,0.4,1.2,H,Attacking Midfielder,0.35
+Facundo Pellistri,Uruguay,676318.0,Panathinaikos,24.5,ATT,Right Winger,7000000.0,39,2,0.12,0.0,10.0,16.0,39.5,H,Traditional Winger,0.678
+Santiago Mele,Uruguay,320739.0,Monterrey,28.8,GK,Goalkeeper,50000.0,8,0,0.0,0.0,0.0,0.0,0.0,H,Goalkeeper,0.0
+Guillermo Varela,Uruguay,188862.0,Flamengo,33.2,DEF,Right-Back,2000000.0,28,0,0.25,0.25,6.0,3.0,60.0,H,Full-Back,0.671
+Agustín Canobbio,Uruguay,457533.0,Fluminense,27.7,MID,Left Winger,50000.0,15,1,0.08,0.01,3.4,6.6,18.2,H,Wide Playmaker,0.444
+Emiliano Martínez,Uruguay,707447.0,Palmeiras,26.8,MID,Defensive Midfield,9000000.0,10,0,0.0,0.0,0.0,0.0,0.0,H,,0.5
+Mathías Olivera,Uruguay,376514.0,Napoli,28.6,DEF,Left-Back,18000000.0,35,2,0.0,0.0,14.0,22.0,6.0,H,Full-Back,0.626
+Matías Viña,Uruguay,439072.0,River Plate,28.6,DEF,Left-Back,10000000.0,43,1,0.02,0.15,14.18,14.01,28.8,H,Full-Back,0.679
+Brian Rodríguez,Uruguay,465818.0,América,26.1,ATT,Left Winger,50000.0,32,4,0.06,0.0,11.0,23.0,4.0,H,Traditional Winger,0.661
+Rodrigo Aguirre,Uruguay,189410.0,Tigres UANL,31.7,ATT,Centre-Forward,4500000.0,10,3,0.06,0.0,11.0,23.0,4.0,H,False Nine,0.602
+Maximiliano Araújo,Uruguay,690533.0,Sporting CP,26.3,MID,Defensive Midfield,50000.0,28,3,0.1,0.15,10.0,25.0,6.0,H,Box-to-Box DM,0.801
+Federico Viñas,Uruguay,578419.0,Oviedo,27.9,ATT,Centre-Forward,50000.0,11,2,0.38,0.04,11.0,30.0,3.0,H,False Nine,0.533
+Joaquín Piquerez,Uruguay,496268.0,Palmeiras,27.8,MID,Left-Back,50000.0,19,0,0.01,0.05,12.6,12.4,15.4,H,Full-Back,0.427
+Fernando Muslera,Uruguay,58088.0,Estudiantes,40.0,GK,Goalkeeper,750000.0,134,0,0.18,0.18,1.0,6.0,4.0,H,Goalkeeper,0.0
+Santiago Bueno,Uruguay,438001.0,Wolverhampton Wanderers,27.6,DEF,Centre-Back,10000000.0,8,0,0.12,0.04,22.0,30.0,5.0,H,Stopper CB,0.432
+Juan Manuel Sanabria,Uruguay,446106.0,Real Salt Lake,26.2,MID,Left-Back,7000000.0,5,1,0.11,0.03,14.86,22.94,51.7,H,Holding Full-Back,0.673
+Rodrigo Zalazar,Uruguay,606752.0,Braga,26.8,MID,Attacking Midfield,20000000.0,8,2,0.77,0.19,5.0,14.0,69.0,H,Advanced Playmaker,0.443
+Brice Samba,France,191056.0,Rennes,32.1,GK,Goalkeeper,10000000.0,4,0,0.0,0.0,0.0,0.0,0.0,I,Goalkeeper,0.0
+Malo Gusto,France,620322.0,Chelsea,23.1,DEF,Right-Back,35000000.0,11,0,0.09,0.14,26.0,22.0,49.0,I,Holding Full-Back,0.433
+Lucas Digne,France,126664.0,Aston Villa,32.9,DEF,Left-Back,8000000.0,58,0,0.0,0.26,12.0,24.0,103.0,I,Attacking Wing-Back,0.864
+Dayot Upamecano,France,344695.0,Bayern Munich,27.6,DEF,Centre-Back,70000000.0,38,2,0.05,0.05,20.0,24.0,6.0,I,Stopper CB,0.542
+Jules Koundé,France,411975.0,Barcelona,27.6,DEF,Right-Back,45000000.0,48,0,0.04,0.13,28.0,24.0,35.0,I,Holding Full-Back,0.455
+Manu Koné,France,624690.0,Roma,25.1,MID,Central Midfield,50000000.0,14,0,0.08,0.08,19.0,26.0,1.0,I,Box-to-Box,0.575
+Ousmane Dembélé,France,288230.0,Paris Saint-Germain,29.1,ATT,Centre-Forward,100000000.0,59,7,0.97,0.58,0.0,2.0,46.0,I,Poacher,0.465
+Aurélien Tchouaméni,France,413112.0,Real Madrid,26.4,MID,Defensive Midfield,100000000.0,46,3,0.04,0.0,34.0,36.0,8.0,I,Deep-Lying Playmaker,0.459
+Marcus Thuram,France,318528.0,Inter Milan,28.8,ATT,Centre-Forward,60000000.0,34,3,0.6,0.25,1.0,13.0,19.0,I,Poacher,0.469
+Kylian Mbappé,France,342229.0,Real Madrid,27.5,ATT,Centre-Forward,180000000.0,98,56,0.9,0.15,3.0,1.0,25.0,I,Poacher,0.515
+Michael Olise,France,566723.0,Bayern Munich,24.5,ATT,Right Winger,130000000.0,17,7,0.57,0.78,14.0,11.0,144.0,I,Inside Forward,0.342
+Bradley Barcola,France,708265.0,Paris Saint-Germain,23.8,ATT,Left Winger,70000000.0,20,3,0.57,0.06,12.0,16.0,24.0,I,Traditional Winger,0.762
+N'Golo Kanté,France,225083.0,Fenerbahçe,35.2,MID,Defensive Midfield,12000000.0,69,2,0.19,0.0,18.0,19.0,7.0,I,Deep-Lying Playmaker,0.832
+Adrien Rabiot,France,182913.0,Milan,31.2,MID,Central Midfield,20000000.0,59,7,0.25,0.16,15.0,26.0,49.0,I,Box-to-Box,0.638
+Ibrahima Konaté,France,357119.0,Liverpool,27.0,DEF,Centre-Back,45000000.0,28,0,0.03,0.0,26.0,30.0,3.0,I,Stopper CB,0.406
+Mike Maignan,France,182906.0,Milan,30.9,GK,Goalkeeper,38000000.0,40,0,0.0,0.0,1.0,0.0,0.0,I,Goalkeeper,0.0
+William Saliba,France,495666.0,Arsenal,25.2,DEF,Centre-Back,90000000.0,32,0,0.04,0.0,15.0,21.0,9.0,I,Stopper CB,0.822
+Warren Zaïre-Emery,France,810092.0,Paris Saint-Germain,20.3,MID,Central Midfield,50000000.0,11,1,0.11,0.15,11.0,29.0,15.0,I,Box-to-Box,0.678
+Théo Hernandez,France,339808.0,Al-Hilal,28.7,DEF,Left-Back,60000000.0,44,2,0.27,0.15,12.7,18.43,11.12,I,Full-Back,0.619
+Désiré Doué,France,914562.0,Paris Saint-Germain,21.0,ATT,Right Winger,90000000.0,7,2,0.44,0.22,8.0,19.0,55.0,I,Inside Forward,0.757
+Lucas Hernandez,France,281963.0,Paris Saint-Germain,30.3,DEF,Left-Back,20000000.0,42,0,0.0,0.11,19.0,13.0,15.0,I,Full-Back,0.664
+Jean-Philippe Mateta,France,420002.0,Crystal Palace,29.0,ATT,Centre-Forward,40000000.0,4,2,0.44,0.0,6.0,4.0,10.0,I,Target Forward,0.736
+Robin Risser,France,743515.0,Lens,21.5,GK,Goalkeeper,10000000.0,0,0,0.0,0.03,0.0,0.0,0.0,I,Goalkeeper,0.0
+Rayan Cherki,France,607223.0,Manchester City,22.8,MID,Attacking Midfield,50000000.0,7,2,0.23,0.58,7.0,15.0,70.0,I,Advanced Playmaker,0.416
+Maghnes Akliouche,France,745200.0,Monaco,24.3,MID,Right Winger,45000000.0,9,1,0.24,0.24,16.0,23.0,48.0,I,Traditional Winger,0.649
+Maxence Lacroix,France,434224.0,Crystal Palace,26.2,DEF,Centre-Back,35000000.0,4,0,0.03,0.07,41.0,34.0,5.0,I,Stopper CB,0.361
+Fahad Talib,Iraq,377268.0,Al-Talaba,31.6,GK,Goalkeeper,50000.0,21,0,0.0,0.0,0.0,0.0,0.0,I,Goalkeeper,0.0
+Rebin Sulaka,Iraq,217073.0,Port,34.2,DEF,Centre-Back,50000.0,56,1,0.04,0.1,9.33,10.0,43.67,I,Ball-Playing CB,0.336
+Hussein Ali,Iraq,585325.0,Pogoń Szczecin,24.3,DEF,Right-Back,400000.0,27,1,0.0,0.0,11.0,18.0,6.0,I,Full-Back,0.489
+Zaid Tahseen,Iraq,931147.0,Pakhtakor,25.4,DEF,Centre-Back,50000.0,28,1,0.03,0.01,18.0,20.0,34.2,I,Ball-Playing CB,0.709
+Akam Hashim,Iraq,933541.0,Al-Zawraa,27.8,DEF,Centre-Back,50000.0,14,1,0.01,0.0,18.6,13.6,4.8,I,Traditional CB,0.717
+Munaf Younis,Iraq,945266.0,Al-Shorta,29.6,DEF,Centre-Back,50000.0,34,1,0.14,0.06,4.4,12.8,38.8,I,Ball-Playing CB,0.426
+Youssef Amyn,Iraq,684307.0,AEK Larnaca,22.8,MID,Left Winger,50000.0,27,2,0.02,0.0,14.8,14.6,8.8,I,Wide Playmaker,0.751
+Ibrahim Bayesh,Iraq,560957.0,Al Dhafra,26.1,MID,Attacking Midfield,50000.0,76,8,0.1,0.05,6.0,4.8,5.8,I,Attacking Midfielder,0.353
+Ali Al-Hamadi,Iraq,610581.0,Luton Town,24.3,ATT,Centre-Forward,2000000.0,20,5,0.12,0.0,19.33,19.0,3.67,I,False Nine,0.401
+Mohanad Ali,Iraq,589646.0,Dibba,26.0,ATT,Centre-Forward,350000.0,72,27,0.16,0.16,16.95,9.0,29.88,I,False Nine,0.759
+Ahmed Qasem,Iraq,833817.0,Nashville SC,22.9,ATT,Right Winger,50000.0,3,0,0.15,0.07,14.0,11.0,16.0,I,Wide Playmaker,0.6
+Jalal Hassan,Iraq,206782.0,Al-Zawraa,35.1,GK,Goalkeeper,50000.0,102,0,0.0,0.0,0.0,0.0,0.0,I,Goalkeeper,0.0
+Ali Yousif,Iraq,576265.0,Al-Talaba,30.4,ATT,Centre-Forward,50000.0,7,1,0.0,0.0,18.0,7.0,1.0,I,False Nine,0.852
+Zidane Iqbal,Iraq,686845.0,Utrecht,23.1,MID,Central Midfield,3000000.0,25,2,0.0,0.0,3.0,3.0,0.0,I,Pressing CM,0.464
+Ahmed Maknzi,Iraq,,Al-Karma,24.7,DEF,,,7,0,,,,,,I,,0.5
+Amir Al-Ammari,Iraq,303766.0,Cracovia,28.9,MID,Defensive Midfield,50000.0,51,3,0.12,0.01,5.4,5.6,3.4,I,Box-to-Box DM,0.439
+Ali Jasim,Iraq,877672.0,Al-Najma,22.4,ATT,Left Winger,50000.0,36,2,0.01,0.0,10.8,9.4,1.6,I,Wide Playmaker,0.502
+Aymen Hussein,Iraq,401054.0,Al-Karma,30.2,ATT,Centre-Forward,50000.0,95,33,0.08,0.03,6.0,8.0,19.8,I,Target Forward,0.448
+Kevin Yakob,Iraq,413268.0,AGF,25.7,MID,Central Midfield,600000.0,9,0,0.1,0.1,9.0,8.0,40.0,I,Pressing CM,0.593
+Aimar Sher,Iraq,579294.0,Sarpsborg 08,23.5,MID,Central Midfield,750000.0,7,0,0.04,0.0,22.0,38.0,39.0,I,Box-to-Box,0.484
+Marko Farji,Iraq,663153.0,Venezia,22.2,ATT,Left Winger,50000.0,12,0,0.0,1.2,4.6,5.2,1.0,I,Inside Forward,0.621
+Ahmed Basil,Iraq,560952.0,Al-Shorta,29.8,GK,Goalkeeper,50000.0,16,0,0.0,0.0,0.0,0.0,0.0,I,Goalkeeper,0.0
+Merchas Doski,Iraq,530527.0,Viktoria Plzeň,26.5,DEF,Left-Back,50000.0,31,1,0.17,0.02,10.0,17.0,37.0,I,Full-Back,0.601
+Zaid Ismail,Iraq,1132850.0,Al-Talaba,24.4,MID,Defensive Midfield,50000.0,6,0,0.03,0.05,10.4,18.0,22.2,I,Box-to-Box DM,0.471
+Mustafa Saadoon,Iraq,952341.0,Al-Shorta,25.0,DEF,Right-Back,50000.0,17,0,0.02,0.01,21.2,29.0,48.0,I,Holding Full-Back,0.473
+Frans Putros,Iraq,166460.0,Persib,32.9,DEF,Centre-Back,400000.0,28,0,0.08,0.05,5.35,7.65,45.2,I,Ball-Playing CB,0.424
+Ørjan Nyland,Norway,73517.0,Sevilla,35.8,GK,Goalkeeper,900000.0,71,0,0.0,0.0,0.0,0.0,0.0,I,Goalkeeper,0.0
+Morten Thorsby,Norway,226524.0,Cremonese,30.1,MID,Central Midfield,3000000.0,31,0,0.19,0.0,2.0,5.0,0.0,I,Pressing CM,0.43
+Kristoffer Ajer,Norway,328658.0,Brentford,28.2,DEF,Centre-Back,16000000.0,52,2,0.0,0.05,12.0,21.0,7.0,I,Traditional CB,0.978
+Leo Østigård,Norway,367284.0,Genoa,26.5,DEF,Centre-Back,10000000.0,38,1,0.03,0.16,16.01,15.68,32.55,I,Ball-Playing CB,0.37
+David Møller Wolfe,Norway,661427.0,Wolverhampton Wanderers,24.1,DEF,Left-Back,4500000.0,22,1,0.0,0.21,6.0,5.0,27.0,I,Full-Back,0.485
+Patrick Berg,Norway,308439.0,Bodø/Glimt,28.5,MID,Defensive Midfield,4500000.0,43,0,0.0,0.0,3.0,0.0,0.0,I,Box-to-Box DM,0.38
+Alexander Sørloth,Norway,238407.0,Atlético Madrid,30.5,ATT,Centre-Forward,20000000.0,72,26,0.61,0.0,0.0,6.0,10.0,I,Poacher,0.843
+Sander Berge,Norway,333014.0,Fulham,28.3,MID,Defensive Midfield,25000000.0,66,1,0.0,0.03,25.0,40.0,12.0,I,Deep-Lying Playmaker,0.565
+Erling Haaland,Norway,418560.0,Manchester City,25.9,ATT,Centre-Forward,200000000.0,50,55,0.81,0.23,4.0,7.0,3.0,I,Poacher,0.443
+Martin Ødegaard,Norway,316264.0,Arsenal,27.5,MID,Attacking Midfield,75000000.0,68,5,0.07,0.36,7.0,9.0,22.0,I,Attacking Midfielder,0.639
+Jørgen Strand Larsen,Norway,429983.0,Crystal Palace,26.3,ATT,Centre-Forward,40000000.0,28,6,0.44,0.0,1.0,0.0,0.0,I,Target Forward,0.785
+Sander Tangvik,Norway,549378.0,Hamburger SV,23.5,GK,Goalkeeper,50000.0,0,0,0.0,0.0,0.0,0.0,0.0,I,Goalkeeper,0.0
+Egil Selvik,Norway,380744.0,Watford,28.9,GK,Goalkeeper,1300000.0,7,0,0.0,0.0,0.0,0.0,0.0,I,Goalkeeper,0.0
+Fredrik Aursnes,Norway,223367.0,Benfica,30.5,MID,Central Midfield,17000000.0,22,1,0.13,0.08,25.0,32.0,90.0,I,Midfield Playmaker,0.47
+Fredrik André Bjørkan,Norway,364938.0,Bodø/Glimt,27.8,DEF,Left-Back,1800000.0,21,1,0.0,0.28,19.0,20.0,25.0,I,Holding Full-Back,0.736
+Marcus Holmgren Pedersen,Norway,268151.0,Torino,25.9,DEF,Centre-Back,50000.0,32,0,0.01,0.0,10.8,10.2,3.8,I,Traditional CB,0.432
+Torbjørn Heggem,Norway,464469.0,Bologna,27.4,DEF,Centre-Back,50000.0,15,0,0.0,0.0,24.0,16.0,1.0,I,Stopper CB,0.816
+Kristian Thorstvedt,Norway,564785.0,Sassuolo,27.2,MID,Central Midfield,8000000.0,37,4,0.13,0.13,25.0,16.0,12.0,I,Box-to-Box,0.547
+Thelo Aasgaard,Norway,647384.0,Rangers,24.1,MID,Attacking Midfield,50000.0,8,5,0.02,0.0,13.4,20.4,21.0,I,Attacking Midfielder,0.329
+Antonio Nusa,Norway,894914.0,RB Leipzig,21.1,MID,Left Winger,32000000.0,24,8,0.18,0.14,7.0,14.0,67.0,I,Traditional Winger,0.679
+Andreas Schjelderup,Norway,670103.0,Benfica,22.0,MID,Left Winger,14000000.0,12,1,0.41,0.29,2.0,12.0,71.0,I,Inside Forward,0.411
+Oscar Bobb,Norway,661207.0,Fulham,22.9,MID,Right Winger,25000000.0,20,2,0.0,0.0,4.0,5.0,4.0,I,Wide Playmaker,0.435
+Jens Petter Hauge,Norway,422355.0,Bodø/Glimt,26.7,MID,Left Winger,2500000.0,15,1,0.26,0.1,10.69,12.96,12.01,I,Wide Playmaker,0.872
+Sondre Langås,Norway,737837.0,Derby County,25.4,DEF,Centre-Back,50000.0,3,0,0.03,0.05,22.0,20.0,20.8,I,Stopper CB,0.644
+Henrik Falchener,Norway,743088.0,Viking,23.1,DEF,Centre-Back,50000.0,1,0,0.07,0.03,7.4,8.6,2.6,I,Traditional CB,0.366
+Julian Ryerson,Norway,370789.0,Borussia Dortmund,28.6,DEF,Right-Back,20000000.0,43,1,0.0,0.58,11.0,18.0,222.0,I,Attacking Wing-Back,0.257
+Yehvann Diouf,Senegal,448632.0,Nice,26.6,GK,Goalkeeper,8000000.0,2,0,0.0,0.0,2.0,0.0,0.0,I,Goalkeeper,0.0
+Mamadou Sarr,Senegal,910905.0,Chelsea,20.8,DEF,Centre-Back,25000000.0,8,0,0.0,0.0,1.0,0.0,0.0,I,Traditional CB,0.355
+Kalidou Koulibaly,Senegal,93128.0,Al-Hilal,35.0,DEF,Centre-Back,12000000.0,103,2,0.0,0.0,9.0,10.0,1.0,I,Traditional CB,0.42
+Abdoulaye Seck,Senegal,265383.0,Maccabi Haifa,34.0,DEF,Centre-Back,1500000.0,22,4,0.0,0.04,12.0,13.0,4.0,I,Traditional CB,0.498
+Idrissa Gueye,Senegal,126665.0,Everton,36.7,MID,Defensive Midfield,1000000.0,131,7,0.0,0.0,3.0,3.0,4.0,I,Box-to-Box DM,0.383
+Pathé Ciss,Senegal,525578.0,Rayo Vallecano,32.2,MID,Central Midfield,2000000.0,30,0,0.11,0.0,25.0,26.0,1.0,I,Box-to-Box,0.572
+Assane Diao,Senegal,1061282.0,Como,20.8,ATT,Left Winger,12000000.0,5,0,0.22,0.11,2.0,4.0,24.0,I,Wide Playmaker,0.497
+Lamine Camara,Senegal,918969.0,Monaco,22.4,MID,Central Midfield,30000000.0,33,7,0.05,0.22,37.0,30.0,92.0,I,Midfield Playmaker,0.481
+Bamba Dieng,Senegal,822458.0,Lorient,26.2,ATT,Centre-Forward,4000000.0,23,2,0.73,0.08,2.0,2.0,2.0,I,Poacher,0.617
+Sadio Mané,Senegal,200512.0,Al-Nassr,34.2,ATT,Left Winger,25000000.0,128,55,0.09,0.07,16.59,16.57,12.4,I,Traditional Winger,0.913
+Nicolas Jackson,Senegal,776890.0,Bayern Munich,25.0,ATT,Centre-Forward,45000000.0,33,8,0.67,0.1,4.0,4.0,6.0,I,Poacher,0.594
+Cherif Ndiaye,Senegal,480705.0,Samsunspor,30.4,ATT,Centre-Forward,3500000.0,19,4,0.47,0.07,0.0,9.0,3.0,I,Poacher,0.812
+Iliman Ndiaye,Senegal,623570.0,Everton,26.3,ATT,Right Winger,45000000.0,40,4,0.22,0.11,15.0,38.0,50.0,I,Traditional Winger,0.465
+Ismail Jakobs,Senegal,375137.0,Galatasaray,26.8,DEF,Left-Back,6000000.0,30,0,0.0,0.07,13.0,14.0,48.0,I,Full-Back,0.78
+Krépin Diatta,Senegal,490426.0,Monaco,27.3,DEF,Right Midfield,6000000.0,61,2,0.0,0.09,15.0,16.0,39.0,I,Box-to-Box,0.781
+Édouard Mendy,Senegal,442531.0,Al-Ahli,34.3,GK,Goalkeeper,10000000.0,57,0,0.0,0.0,0.0,0.0,0.0,I,Goalkeeper,0.0
+Pape Matar Sarr,Senegal,568693.0,Tottenham Hotspur,23.7,MID,Central Midfield,35000000.0,40,4,0.13,0.2,13.0,21.0,7.0,I,Box-to-Box,0.817
+Ismaïla Sarr,Senegal,410225.0,Crystal Palace,28.3,ATT,Right Winger,35000000.0,83,19,0.34,0.05,7.0,9.0,18.0,I,Wide Playmaker,0.724
+Moussa Niakhaté,Senegal,291200.0,Lyon,30.3,DEF,Centre-Back,16000000.0,31,0,0.0,0.07,29.0,19.0,4.0,I,Stopper CB,0.543
+Ibrahim Mbaye,Senegal,1185888.0,Paris Saint-Germain,18.4,ATT,Right Winger,25000000.0,11,3,0.19,0.19,4.0,7.0,15.0,I,Wide Playmaker,0.551
+Habib Diarra,Senegal,876631.0,Sunderland,22.4,MID,Central Midfield,32000000.0,21,4,0.13,0.07,4.0,7.0,27.0,I,Pressing CM,0.427
+Bara Sapoko Ndiaye,Senegal,1497653.0,Bayern Munich,18.4,MID,Central Midfield,50000.0,1,0,0.07,0.07,3.8,3.4,8.0,I,Pressing CM,0.417
+Mory Diaw,Senegal,164904.0,Le Havre,33.0,GK,Goalkeeper,1800000.0,5,0,0.0,0.04,2.0,0.0,0.0,I,Goalkeeper,0.0
+Antoine Mendy,Senegal,891998.0,Nice,22.0,DEF,Centre-Back,4000000.0,7,0,0.05,0.0,17.0,33.0,18.0,I,Stopper CB,0.482
+El Hadji Malick Diouf,Senegal,1111589.0,West Ham United,21.4,DEF,Left-Back,50000.0,20,1,0.0,0.18,29.0,19.0,91.0,I,Holding Full-Back,0.657
+Pape Gueye,Senegal,485963.0,Villarreal,27.4,MID,Central Midfield,6000000.0,41,5,0.19,0.09,32.0,20.0,14.0,I,Box-to-Box,0.496
+Melvin Mastil,Algeria,,Stade Nyonnais,26.3,GK,,,3,0,,,,,,J,,0.5
+Aïssa Mandi,Algeria,80293.0,Lille,34.6,DEF,Centre-Back,1800000.0,120,9,0.04,0.0,41.0,20.0,8.0,J,Stopper CB,0.425
+Achref Abada,Algeria,949929.0,USM Alger,27.0,DEF,Centre-Back,50000.0,9,1,0.0,0.05,14.6,12.4,5.6,J,Traditional CB,0.538
+Mohamed Amine Tougai,Algeria,592396.0,Espérance de Tunis,26.4,DEF,Centre-Back,50000.0,31,2,0.1,0.15,7.2,6.6,6.0,J,Traditional CB,0.559
+Zineddine Belaïd,Algeria,625142.0,JS Kabylie,27.2,DEF,Centre-Back,1200000.0,13,1,0.06,0.07,10.39,8.31,29.01,J,Ball-Playing CB,0.662
+Ramiz Zerrouki,Algeria,416660.0,Twente,28.0,MID,Defensive Midfield,9000000.0,54,3,0.11,0.04,31.0,37.0,71.0,J,Deep-Lying Playmaker,0.383
+Riyad Mahrez,Algeria,171424.0,Al-Ahli,35.3,ATT,Right Winger,18000000.0,117,38,0.24,0.09,9.89,10.89,18.91,J,Wide Playmaker,0.726
+Houssem Aouar,Algeria,395693.0,Al-Ittihad,27.9,MID,Attacking Midfield,10000000.0,23,6,0.04,0.08,31.0,29.0,81.0,J,Attacking Midfielder,0.557
+Amine Gouiri,Algeria,418659.0,Marseille,26.3,ATT,Centre-Forward,28000000.0,24,12,0.55,0.24,3.0,8.0,37.0,J,Poacher,0.459
+Farès Chaïbi,Algeria,855015.0,Eintracht Frankfurt,23.5,MID,Attacking Midfield,15000000.0,32,3,0.11,0.48,13.0,20.0,89.0,J,Advanced Playmaker,0.519
+Anis Hadj Moussa,Algeria,917911.0,Feyenoord,24.3,ATT,Right Winger,2000000.0,16,3,0.32,0.24,8.0,14.0,182.0,J,Inside Forward,0.477
+Nadhir Benbouali,Algeria,,Győri ETO,26.1,ATT,,,5,1,,,,,,J,,0.5
+Jaouen Hadjam,Algeria,750903.0,Young Boys,23.2,DEF,Left-Back,2000000.0,19,3,0.38,0.12,2.87,4.71,3.0,J,Full-Back,0.38
+Hicham Boudaoui,Algeria,560593.0,Nice,26.7,MID,Central Midfield,12000000.0,35,0,0.06,0.12,18.0,14.0,18.0,J,Box-to-Box,0.742
+Rayan Aït-Nouri,Algeria,578391.0,Manchester City,25.0,DEF,Left-Back,40000000.0,31,0,0.0,0.21,13.0,20.0,19.0,J,Full-Back,0.847
+Oussama Benbot,Algeria,437982.0,USM Alger,31.7,GK,Goalkeeper,50000.0,4,0,0.0,0.0,0.0,0.0,0.0,J,Goalkeeper,0.0
+Rafik Belghali,Algeria,864306.0,Hellas Verona,24.0,DEF,Right-Back,7000000.0,14,1,0.11,0.0,14.0,10.0,55.0,J,Full-Back,0.735
+Mohamed Amoura,Algeria,746910.0,VfL Wolfsburg,26.1,ATT,Centre-Forward,32000000.0,48,19,0.38,0.14,7.0,22.0,34.0,J,Poacher,0.869
+Nabil Bentaleb,Algeria,245537.0,Lille,31.5,MID,Defensive Midfield,5000000.0,62,6,0.15,0.15,14.0,8.0,21.0,J,Box-to-Box DM,0.736
+Adil Boulbina,Algeria,748443.0,Al-Duhail,23.1,ATT,Left Winger,50000.0,11,4,0.26,0.06,12.4,12.2,3.4,J,Wide Playmaker,0.738
+Ramy Bensebaini,Algeria,284732.0,Borussia Dortmund,31.2,DEF,Centre-Back,7000000.0,82,9,0.29,0.12,18.0,14.0,11.0,J,Traditional CB,0.813
+Ibrahim Maza,Algeria,905011.0,Bayer Leverkusen,20.5,MID,Attacking Midfield,600000.0,18,2,0.16,0.22,15.0,22.0,56.0,J,Attacking Midfielder,0.72
+Luca Zidane,Algeria,283489.0,Granada,28.1,GK,Goalkeeper,2000000.0,7,0,0.0,0.0,0.0,0.0,0.0,J,Goalkeeper,0.0
+Yacine Titraoui,Algeria,748445.0,Charleroi,22.9,MID,Central Midfield,5000000.0,5,0,0.12,0.3,2.77,11.03,31.25,J,Pressing CM,0.716
+Farès Ghedjemis,Algeria,1292917.0,Frosinone,23.8,ATT,Central Midfield,50000.0,1,1,0.0,0.0,15.0,24.0,45.0,J,Box-to-Box,0.703
+Samir Chergui,Algeria,668167.0,Paris FC,27.3,DEF,Centre-Back,50000.0,6,0,0.08,0.0,9.0,12.0,6.0,J,Traditional CB,0.455
+Juan Musso,Argentina,242359.0,Atlético Madrid,32.1,GK,Goalkeeper,5000000.0,4,0,0.0,0.0,0.0,0.0,0.0,J,Goalkeeper,0.0
+Marcos Senesi,Argentina,469781.0,Bournemouth,29.1,DEF,Centre-Back,22000000.0,3,0,0.0,0.15,46.0,31.0,27.0,J,Stopper CB,0.73
+Nicolás Tagliafico,Argentina,131225.0,Lyon,33.8,DEF,Left-Back,8000000.0,76,1,0.0,0.21,17.0,14.0,20.0,J,Full-Back,0.806
+Gonzalo Montiel,Argentina,402733.0,River Plate,29.4,DEF,Right-Back,4500000.0,39,2,0.06,0.06,20.92,25.91,36.46,J,Holding Full-Back,0.499
+Leandro Paredes,Argentina,166237.0,Boca Juniors,32.0,MID,Defensive Midfield,5000000.0,77,5,0.08,0.15,15.59,19.66,15.57,J,Box-to-Box DM,0.894
+Lisandro Martínez,Argentina,480762.0,Manchester United,28.4,DEF,Centre-Back,50000000.0,28,1,0.0,0.0,11.0,8.0,2.0,J,Traditional CB,0.406
+Rodrigo De Paul,Argentina,255901.0,Inter Miami CF,32.0,MID,Central Midfield,15000000.0,87,2,0.0,0.3,5.0,5.0,30.0,J,Pressing CM,0.719
+Valentín Barco,Argentina,849410.0,Strasbourg,21.9,MID,Central Midfield,13000000.0,4,2,0.04,0.18,13.0,33.0,101.0,J,Midfield Playmaker,0.376
+Julián Alvarez,Argentina,576024.0,Atlético Madrid,26.4,ATT,Centre-Forward,100000000.0,51,14,0.38,0.19,3.0,13.0,86.0,J,Poacher,0.649
+Lionel Messi,Argentina,28003.0,Inter Miami CF,39.0,ATT,Right Winger,35000000.0,199,117,1.08,0.59,4.0,9.0,62.0,J,Inside Forward,0.375
+Giovani Lo Celso,Argentina,348795.0,Real Betis,30.2,MID,Attacking Midfield,16000000.0,67,4,0.15,0.23,5.0,11.0,51.0,J,Attacking Midfielder,0.661
+Gerónimo Rulli,Argentina,229604.0,Marseille,34.1,GK,Goalkeeper,9000000.0,8,0,0.0,0.0,0.0,0.0,0.0,J,Goalkeeper,0.0
+Cristian Romero,Argentina,355915.0,Tottenham Hotspur,28.1,DEF,Centre-Back,60000000.0,51,3,0.19,0.05,31.0,30.0,1.0,J,Stopper CB,0.385
+Exequiel Palacios,Argentina,401578.0,Bayer Leverkusen,27.7,MID,Central Midfield,30000000.0,40,0,0.0,0.1,6.0,9.0,2.0,J,Pressing CM,0.523
+Nicolás González,Argentina,,Atlético Madrid,28.2,MID,,,51,6,,,,,,J,,0.5
+Thiago Almada,Argentina,576028.0,Atlético Madrid,25.1,ATT,Left Winger,20000000.0,16,5,0.23,0.08,7.0,16.0,35.0,J,Traditional Winger,0.611
+Giuliano Simeone,Argentina,742201.0,Atlético Madrid,23.5,ATT,Right Winger,40000000.0,13,2,0.18,0.27,19.0,23.0,45.0,J,Traditional Winger,0.637
+Nico Paz,Argentina,948294.0,Como,21.8,ATT,Attacking Midfield,65000000.0,9,1,0.36,0.12,8.86,13.87,17.08,J,Attacking Midfielder,0.647
+Nicolás Otamendi,Argentina,54781.0,Benfica,38.3,DEF,Centre-Back,1000000.0,132,8,0.07,0.0,43.0,29.0,5.0,J,Stopper CB,0.363
+Alexis Mac Allister,Argentina,534033.0,Liverpool,27.5,MID,Central Midfield,85000000.0,46,6,0.08,0.16,17.0,23.0,19.0,J,Box-to-Box,0.527
+José Manuel López,Argentina,844797.0,Palmeiras,25.5,ATT,Centre-Forward,50000.0,5,0,0.09,0.07,15.0,13.4,6.2,J,False Nine,0.666
+Lautaro Martínez,Argentina,406625.0,Inter Milan,28.8,ATT,Centre-Forward,85000000.0,77,37,0.74,0.19,4.0,10.0,16.0,J,Poacher,0.448
+Emiliano Martínez,Argentina,111873.0,Aston Villa,33.8,GK,Goalkeeper,15000000.0,59,0,0.0,0.0,0.0,0.0,0.0,J,Goalkeeper,0.0
+Enzo Fernández,Argentina,648195.0,Chelsea,25.4,MID,Central Midfield,85000000.0,42,6,0.26,0.1,19.0,23.0,71.0,J,Midfield Playmaker,0.804
+Facundo Medina,Argentina,474800.0,Marseille,27.0,DEF,Centre-Back,20000000.0,9,0,0.0,0.08,17.0,12.0,13.0,J,Traditional CB,0.665
+Nahuel Molina,Argentina,424042.0,Atlético Madrid,28.2,DEF,Right-Back,15000000.0,58,1,0.14,0.14,14.0,23.0,47.0,J,Holding Full-Back,0.63
+Alexander Schlager,Austria,186374.0,Red Bull Salzburg,30.4,GK,Goalkeeper,50000.0,26,0,0.0,0.0,0.0,0.0,0.0,J,Goalkeeper,0.0
+David Affengruber,Austria,452483.0,Elche,25.2,DEF,Centre-Back,50000.0,1,0,0.04,0.04,45.0,41.0,7.0,J,Stopper CB,0.349
+Kevin Danso,Austria,263236.0,Tottenham Hotspur,27.7,DEF,Centre-Back,22000000.0,32,0,0.0,0.0,16.0,10.0,7.0,J,Traditional CB,0.512
+Xaver Schlager,Austria,223979.0,RB Leipzig,28.7,MID,Central Midfield,28000000.0,51,4,0.1,0.05,7.0,24.0,10.0,J,Pressing CM,0.741
+Stefan Posch,Austria,223974.0,Mainz 05,29.1,DEF,Centre-Back,14000000.0,52,5,0.23,0.0,4.0,3.0,10.0,J,Traditional CB,0.367
+Nicolas Seiwald,Austria,404950.0,RB Leipzig,25.1,MID,Defensive Midfield,16000000.0,47,1,0.0,0.07,60.0,43.0,5.0,J,Deep-Lying Playmaker,0.416
+Marko Arnautović,Austria,41384.0,Red Star Belgrade,37.1,ATT,Centre-Forward,2500000.0,133,47,0.12,0.06,5.51,5.86,2.91,J,Target Forward,0.452
+David Alaba,Austria,59016.0,Real Madrid,34.0,DEF,Centre-Back,20000000.0,113,15,0.0,0.0,0.0,4.0,0.0,J,Traditional CB,0.362
+Marcel Sabitzer,Austria,106987.0,Borussia Dortmund,32.2,MID,Central Midfield,7000000.0,98,26,0.05,0.11,18.0,16.0,37.0,J,Box-to-Box,0.632
+Florian Grillitsch,Austria,195736.0,Braga,30.8,MID,Defensive Midfield,2000000.0,58,1,0.08,0.08,20.0,13.0,7.0,J,Box-to-Box DM,0.86
+Michael Gregoritsch,Austria,120205.0,FC Augsburg,32.1,ATT,Centre-Forward,1500000.0,75,24,0.47,0.24,3.0,4.0,5.0,J,Poacher,0.548
+Florian Wiegele,Austria,393999.0,Viktoria Plzeň,25.2,GK,Goalkeeper,50000.0,1,0,0.0,0.0,0.0,0.0,0.0,J,Goalkeeper,0.0
+Patrick Pentz,Austria,223972.0,Brøndby,29.4,GK,Goalkeeper,2200000.0,18,0,0.0,0.0,3.0,0.0,0.0,J,Goalkeeper,0.0
+Saša Kalajdžić,Austria,369567.0,LASK,28.9,ATT,Centre-Forward,2000000.0,22,4,0.0,0.0,1.0,0.0,0.0,J,Target Forward,0.485
+Philipp Lienhart,Austria,225657.0,SC Freiburg,29.9,DEF,Centre-Back,12000000.0,41,3,0.0,0.0,12.0,11.0,13.0,J,Traditional CB,0.509
+Phillipp Mwene,Austria,127573.0,Mainz 05,32.4,DEF,Left-Back,1500000.0,30,0,0.0,0.1,9.0,15.0,71.0,J,Holding Full-Back,0.964
+Carney Chukwuemeka,Austria,659459.0,Borussia Dortmund,22.6,MID,Central Midfield,25000000.0,3,1,0.2,0.0,6.0,15.0,1.0,J,Pressing CM,0.524
+Romano Schmid,Austria,346853.0,Werder Bremen,26.4,MID,Attacking Midfield,17000000.0,34,3,0.13,0.26,13.0,27.0,151.0,J,Advanced Playmaker,0.562
+Dejan Ljubičić,Austria,,Schalke 04,28.7,MID,,,9,1,,,,,,J,,0.5
+Konrad Laimer,Austria,223967.0,Bayern Munich,29.0,MID,Right-Back,32000000.0,57,7,0.14,0.38,17.0,22.0,38.0,J,Holding Full-Back,0.669
+Patrick Wimmer,Austria,533295.0,VfL Wolfsburg,25.0,ATT,Right Winger,15000000.0,30,1,0.24,0.18,20.0,15.0,24.0,J,Traditional Winger,0.769
+Alexander Prass,Austria,434116.0,TSG Hoffenheim,25.0,MID,Left Midfield,5000000.0,19,0,0.22,0.15,6.0,22.0,45.0,J,Pressing CM,0.895
+Marco Friedl,Austria,156990.0,Werder Bremen,28.2,DEF,Centre-Back,12000000.0,11,0,0.04,0.0,33.0,23.0,15.0,J,Stopper CB,0.405
+Paul Wanner,Austria,900909.0,PSV Eindhoven,20.5,MID,Central Midfield,14000000.0,3,0,0.12,0.12,3.0,27.0,25.0,J,Pressing CM,0.81
+Michael Svoboda,Austria,438961.0,Venezia,27.7,DEF,Centre-Back,900000.0,4,0,0.11,0.03,12.15,4.8,10.91,J,Traditional CB,0.397
+Alessandro Schöpf,Austria,118397.0,Wolfsberger AC,32.3,MID,Central Midfield,1800000.0,35,6,0.27,0.04,10.75,10.94,32.62,J,Pressing CM,0.64
+Yazeed Abulaila,Jordan,261850.0,Al-Hussein,33.4,GK,Goalkeeper,50000.0,76,0,0.0,0.0,0.0,0.0,0.0,J,Goalkeeper,0.0
+Mohammad Abu Hashish,Jordan,895249.0,Al-Karma,31.1,DEF,Left-Back,50000.0,56,1,0.14,0.2,8.25,11.75,43.75,J,Full-Back,0.675
+Abdallah Nasib,Jordan,882197.0,Al-Zawraa,32.3,DEF,Centre-Back,50000.0,65,3,0.0,0.0,0.0,0.4,1.2,J,Traditional CB,0.354
+Husam Abu Dahab,Jordan,895291.0,Al-Faisaly,26.1,DEF,Centre-Back,50000.0,18,0,0.2,0.1,10.6,9.8,18.0,J,Traditional CB,0.799
+Yazan Al-Arab,Jordan,539961.0,FC Seoul,30.4,DEF,Centre-Back,50000.0,80,3,0.07,0.03,2.2,7.4,19.4,J,Traditional CB,0.529
+Amer Jamous,Jordan,744040.0,Al-Zawraa,23.9,MID,Central Midfield,50000.0,19,1,0.02,0.0,17.6,26.0,31.8,J,Box-to-Box,0.613
+Mohammad Abu Zrayq,Jordan,658533.0,Raja Casablanca,28.4,ATT,Central Midfield,2000000.0,41,5,0.0,0.0,8.0,12.0,0.0,J,Pressing CM,0.575
+Noor Al-Rawabdeh,Jordan,561485.0,Selangor,29.3,MID,Central Midfield,50000.0,68,3,0.01,0.0,11.0,9.4,1.2,J,Pressing CM,0.594
+Ali Olwan,Jordan,664057.0,Al-Sailiya,26.2,ATT,Centre-Forward,50000.0,66,29,0.12,0.02,7.8,5.0,1.8,J,Target Forward,0.464
+Musa Al-Taamari,Jordan,,Rennes,29.0,ATT,,,92,24,,,,,,J,,0.5
+Odeh Al-Fakhouri,Jordan,,Pyramids,20.6,ATT,,,10,1,,,,,,J,,0.5
+Nour Bani Attiah,Jordan,261837.0,Al-Faisaly,33.4,GK,Goalkeeper,50000.0,5,0,0.0,0.0,0.0,0.0,0.0,J,Goalkeeper,0.0
+Mahmoud Al-Mardi,Jordan,401086.0,Al-Hussein,32.7,ATT,Left Winger,50000.0,89,9,0.0,0.0,1.8,1.4,9.0,J,Wide Playmaker,0.418
+Rajaei Ayed,Jordan,261842.0,Al-Hussein,32.9,MID,Central Midfield,50000.0,72,0,0.0,0.0,1.8,0.0,0.0,J,Pressing CM,0.45
+Ibrahim Sadeh,Jordan,709974.0,Al-Karma,26.1,MID,Central Midfield,50000.0,57,3,0.0,0.0,0.0,1.0,0.0,J,Pressing CM,0.445
+Mo Abualnadi,Jordan,658052.0,Selangor,25.3,DEF,Centre-Back,50000.0,18,0,0.15,0.0,17.2,22.8,43.2,J,Ball-Playing CB,0.562
+Salim Obaid,Jordan,658807.0,Al-Hussein,34.4,DEF,Centre-Back,50000.0,11,0,0.04,0.1,9.33,10.0,43.67,J,Ball-Playing CB,0.336
+Mohammad Taha,Jordan,895249.0,Al-Hussein,20.9,MID,Left-Back,50000.0,2,0,0.14,0.2,8.25,11.75,43.75,J,Full-Back,0.675
+Saed Al-Rosan,Jordan,561481.0,Al-Hussein,29.4,DEF,Centre-Back,50000.0,21,2,0.04,0.0,9.8,8.4,0.6,J,Traditional CB,0.406
+Mohannad Abu Taha,Jordan,883111.0,Al-Quwa Al-Jawiya,23.4,MID,Left-Back,50000.0,29,1,0.08,0.04,21.6,19.4,12.6,J,Full-Back,0.943
+Nizar Al-Rashdan,Jordan,734751.0,Qatar SC,27.2,MID,Defensive Midfield,50000.0,47,4,0.06,0.01,17.0,17.4,24.0,J,Box-to-Box DM,0.696
+Abdallah Al-Fakhouri,Jordan,658805.0,Al-Wehdat,26.4,GK,Goalkeeper,50000.0,11,0,0.0,0.0,0.0,0.0,0.0,J,Goalkeeper,0.0
+Ihsan Haddad,Jordan,310943.0,Al-Hussein,32.3,DEF,Right-Back,50000.0,92,2,0.0,0.0,2.0,4.0,9.8,J,Full-Back,0.37
+Ali Azaizeh,Jordan,1059056.0,Al-Shabab,22.2,ATT,Right Winger,50000.0,4,0,0.0,0.0,2.0,3.8,1.8,J,Wide Playmaker,0.427
+Mohammad Al-Dawoud,Jordan,310801.0,Al-Wehdat,34.2,MID,Central Midfield,50000.0,13,1,0.04,0.1,9.33,10.0,43.67,J,Pressing CM,0.702
+Anas Badawi,Jordan,,Al-Faisaly,28.7,DEF,,,1,0,,,,,,J,,0.5
+David Ospina,Colombia,73396.0,Atlético Nacional,37.8,GK,Goalkeeper,3000000.0,130,0,0.0,0.0,0.0,0.0,0.0,K,Goalkeeper,0.0
+Daniel Muñoz,Colombia,493003.0,Crystal Palace,30.0,DEF,Right-Back,27000000.0,46,3,0.18,0.09,22.0,39.0,57.0,K,Holding Full-Back,0.381
+Jhon Lucumí,Colombia,413565.0,Bologna,28.0,DEF,Centre-Back,17000000.0,37,1,0.04,0.0,29.0,20.0,1.0,K,Stopper CB,0.515
+Santiago Arias,Colombia,120443.0,Independiente,34.4,DEF,Right-Back,2500000.0,68,0,0.39,0.13,5.0,10.0,16.0,K,Full-Back,0.408
+Kevin Castaño,Colombia,857948.0,River Plate,25.7,MID,Defensive Midfield,5000000.0,25,0,0.1,0.1,9.0,8.0,40.0,K,Box-to-Box DM,0.473
+Richard Ríos,Colombia,735573.0,Benfica,26.0,MID,Defensive Midfield,50000.0,32,2,0.16,0.16,17.0,28.0,20.0,K,Deep-Lying Playmaker,0.671
+Luis Díaz,Colombia,480692.0,Bayern Munich,29.4,ATT,Left Winger,70000000.0,74,22,0.58,0.5,17.0,13.0,42.0,K,Inside Forward,0.423
+Jorge Carrascal,Colombia,354145.0,Flamengo,28.0,MID,Attacking Midfield,9000000.0,24,2,0.26,0.05,8.59,16.55,30.14,K,Attacking Midfielder,0.431
+Jhon Córdoba,Colombia,185245.0,Krasnodar,33.1,ATT,Centre-Forward,10000000.0,21,6,0.14,0.02,7.4,8.4,12.95,K,Target Forward,0.478
+James Rodríguez,Colombia,88103.0,Minnesota United FC,34.9,MID,Attacking Midfield,6000000.0,126,31,0.06,0.0,11.0,23.0,4.0,K,Attacking Midfielder,0.329
+Jhon Arias,Colombia,588989.0,Palmeiras,28.7,MID,Right Winger,50000.0,38,6,0.08,0.0,7.0,27.0,30.0,K,Traditional Winger,0.477
+Camilo Vargas,Colombia,74113.0,Atlas,37.3,GK,Goalkeeper,50000.0,42,0,0.0,0.0,0.0,0.0,0.0,K,Goalkeeper,0.0
+Yerry Mina,Colombia,289446.0,Cagliari,31.7,DEF,Centre-Back,3000000.0,54,8,0.05,0.0,21.0,15.0,1.0,K,Traditional CB,0.914
+Gustavo Puerta,Colombia,936981.0,Racing Santander,22.9,DEF,Central Midfield,3000000.0,6,1,0.04,0.08,10.9,9.08,12.64,K,Pressing CM,0.561
+Juan Portilla,Colombia,585747.0,Athletico Paranaense,27.7,MID,Central Midfield,50000.0,10,0,0.1,0.0,3.4,1.8,6.0,K,Pressing CM,0.423
+Jefferson Lerma,Colombia,262980.0,Crystal Palace,31.6,MID,Defensive Midfield,8000000.0,65,5,0.0,0.13,18.0,14.0,11.0,K,Box-to-Box DM,0.701
+Johan Mojica,Colombia,262939.0,Mallorca,33.8,DEF,Left-Back,1800000.0,45,1,0.0,0.14,22.0,29.0,119.0,K,Attacking Wing-Back,0.526
+Willer Ditta,Colombia,609255.0,Cruz Azul,28.4,DEF,Centre-Back,50000.0,5,0,0.14,0.01,3.6,5.0,18.0,K,Traditional CB,0.454
+Cucho Hernández,Colombia,459463.0,Real Betis,27.1,ATT,Centre-Forward,18000000.0,9,2,0.32,0.12,10.0,14.0,23.0,K,Target Forward,0.933
+Juan Fernando Quintero,Colombia,122582.0,River Plate,33.4,MID,Attacking Midfield,2500000.0,49,6,0.18,0.18,1.0,6.0,4.0,K,Attacking Midfielder,0.445
+Jaminton Campaz,Colombia,491553.0,Rosario Central,26.0,ATT,Left Winger,50000.0,10,1,0.18,0.1,6.6,6.0,15.4,K,Wide Playmaker,0.466
+Deiver Machado,Colombia,332560.0,Nantes,32.8,DEF,Left-Back,4000000.0,15,0,0.0,0.0,3.0,1.0,4.0,K,Full-Back,0.366
+Davinson Sánchez,Colombia,341429.0,Galatasaray,30.0,DEF,Centre-Back,18000000.0,79,4,0.04,0.0,23.0,33.0,4.0,K,Stopper CB,0.421
+Álvaro Montero,Colombia,292985.0,Vélez Sarsfield,31.2,GK,Goalkeeper,50000.0,12,0,0.0,0.0,0.0,0.0,0.0,K,Goalkeeper,0.0
+Luis Suárez,Colombia,424784.0,Sporting CP,28.5,ATT,Centre-Forward,3500000.0,12,5,0.39,0.39,6.0,13.0,18.0,K,,0.5
+Andrés Gómez,Colombia,957461.0,Vasco da Gama,23.7,ATT,Left Winger,5000000.0,8,2,0.04,0.0,22.0,38.0,39.0,K,Traditional Winger,0.447
+Lionel Mpasi,DR Congo,,Le Havre,31.9,GK,,,29,0,,,,,,K,,0.5
+Aaron Wan-Bissaka,DR Congo,477758.0,West Ham United,28.5,DEF,Right-Back,22000000.0,12,0,0.0,0.09,39.0,22.0,40.0,K,Holding Full-Back,0.47
+Steve Kapuadi,DR Congo,679709.0,Widzew Łódź,28.1,DEF,Centre-Back,50000.0,4,0,0.04,0.0,3.8,3.0,2.4,K,Traditional CB,0.357
+Axel Tuanzebe,DR Congo,342046.0,Burnley,28.6,DEF,Centre-Back,5000000.0,14,1,0.1,0.0,9.0,6.0,1.0,K,Traditional CB,0.381
+Dylan Batubinsika,DR Congo,289432.0,AEL,30.3,DEF,Centre-Back,700000.0,14,1,0.0,0.03,20.85,10.01,4.21,K,Traditional CB,0.612
+Ngal'ayel Mukau,DR Congo,1016015.0,Lille,21.6,MID,Defensive Midfield,12000000.0,14,0,0.07,0.0,10.0,17.0,1.0,K,Box-to-Box DM,0.507
+Nathanaël Mbuku,DR Congo,557614.0,Montpellier,24.2,MID,Left Winger,2000000.0,19,2,0.12,0.0,19.33,19.0,3.67,K,Traditional Winger,0.808
+Samuel Moutoussamy,DR Congo,353403.0,Atromitos,29.8,MID,Central Midfield,1200000.0,58,0,0.35,0.15,11.0,29.0,97.0,K,Midfield Playmaker,0.387
+Brian Cipenga,DR Congo,429916.0,Castellón,28.3,ATT,Defensive Midfield,3000000.0,8,0,0.22,0.16,12.5,15.5,37.0,K,Box-to-Box DM,0.992
+Théo Bongonda,DR Congo,280701.0,Spartak Moscow,30.6,MID,Right Winger,5000000.0,38,7,0.1,0.08,17.55,21.52,29.59,K,Traditional Winger,0.487
+Gaël Kakuta,DR Congo,74297.0,AEL,35.0,ATT,Attacking Midfield,1800000.0,31,5,0.11,0.09,21.5,20.24,55.12,K,Attacking Midfielder,0.431
+Joris Kayembe,DR Congo,129586.0,Genk,31.8,DEF,Left-Back,2500000.0,26,1,0.22,0.14,9.5,4.5,0.5,K,Full-Back,0.406
+Meschak Elia,DR Congo,423678.0,Alanyaspor,28.8,ATT,Attacking Midfield,50000.0,69,12,0.16,0.0,5.0,3.0,26.0,K,Attacking Midfielder,0.382
+Noah Sadiki,DR Congo,727089.0,Sunderland,21.5,MID,Central Midfield,5000000.0,20,0,0.0,0.03,32.0,25.0,17.0,K,Box-to-Box,0.475
+Aaron Tshibola,DR Congo,243633.0,Kilmarnock,31.4,MID,Central Midfield,450000.0,17,1,0.05,0.12,2.87,2.74,15.07,K,Pressing CM,0.442
+Timothy Fayulu,DR Congo,541420.0,Noah,26.9,GK,Goalkeeper,50000.0,3,0,0.0,0.0,0.0,0.0,0.0,K,Goalkeeper,0.0
+Cédric Bakambu,DR Congo,127048.0,Real Betis,35.2,ATT,Centre-Forward,1400000.0,70,21,0.52,0.17,1.0,2.0,2.0,K,Poacher,0.605
+Charles Pickel,DR Congo,243879.0,Espanyol,29.1,MID,Defensive Midfield,3200000.0,34,1,0.15,0.0,6.0,5.0,2.0,K,Box-to-Box DM,0.481
+Fiston Mayele,DR Congo,,Pyramids,32.0,ATT,,,37,6,,,,,,K,,0.5
+Yoane Wissa,DR Congo,388165.0,Newcastle United,29.8,ATT,Centre-Forward,28000000.0,38,9,0.19,0.0,0.0,4.0,1.0,K,Target Forward,0.544
+Matthieu Epolo,DR Congo,680218.0,Standard Liège,21.4,GK,Goalkeeper,800000.0,1,0,0.0,0.0,0.0,0.0,0.0,K,Goalkeeper,0.0
+Chancel Mbemba,DR Congo,203348.0,Lille,31.8,DEF,Centre-Back,2500000.0,109,7,0.0,0.0,13.0,8.0,0.0,K,Traditional CB,0.432
+Simon Banza,DR Congo,344869.0,Al Jazira,29.8,ATT,Centre-Forward,11000000.0,15,2,0.05,0.0,26.0,38.0,34.0,K,False Nine,0.34
+Gédéon Kalulu,DR Congo,,Aris Limassol,28.8,DEF,,,28,0,,,,,,K,,0.5
+Edo Kayembe,DR Congo,,Watford,28.0,MID,,,43,2,,,,,,K,,0.5
+Arthur Masuaku,DR Congo,181380.0,Lens,32.6,DEF,Left-Back,2500000.0,45,4,0.0,0.0,2.0,2.0,8.0,K,Full-Back,0.367
+Diogo Costa,Portugal,357153.0,Porto,26.7,GK,Goalkeeper,40000000.0,43,0,0.0,0.0,0.0,0.0,0.0,K,Goalkeeper,0.0
+Nélson Semedo,Portugal,231572.0,Fenerbahçe,32.6,DEF,Right-Back,7500000.0,50,0,0.05,0.1,29.0,30.0,41.0,K,Holding Full-Back,0.397
+Rúben Dias,Portugal,258004.0,Manchester City,29.1,DEF,Centre-Back,60000000.0,76,3,0.09,0.0,22.0,6.0,9.0,K,Traditional CB,0.566
+Tomás Araújo,Portugal,504087.0,Benfica,24.1,DEF,Centre-Back,28000000.0,5,0,0.06,0.06,20.0,19.0,7.0,K,Stopper CB,0.746
+Diogo Dalot,Portugal,357147.0,Manchester United,27.2,DEF,Right-Back,28000000.0,35,3,0.04,0.11,24.0,28.0,54.0,K,Holding Full-Back,0.371
+Matheus Nunes,Portugal,601883.0,Manchester City,27.8,MID,Right-Back,38000000.0,20,2,0.04,0.18,26.0,38.0,59.0,K,Holding Full-Back,0.368
+Cristiano Ronaldo,Portugal,8198.0,Al-Nassr,41.3,ATT,Centre-Forward,15000000.0,228,143,0.26,0.03,6.76,7.9,28.28,K,Target Forward,0.552
+Bruno Fernandes,Portugal,240306.0,Manchester United,31.8,MID,Attacking Midfield,40000000.0,89,29,0.27,0.63,17.0,32.0,159.0,K,Advanced Playmaker,0.377
+Gonçalo Ramos,Portugal,550550.0,Paris Saint-Germain,25.0,ATT,Centre-Forward,35000000.0,25,10,0.46,0.08,3.0,11.0,1.0,K,Poacher,0.804
+Bernardo Silva,Portugal,241641.0,Manchester City,31.8,MID,Attacking Midfield,27000000.0,109,14,0.07,0.14,17.0,20.0,58.0,K,Attacking Midfielder,0.471
+João Félix,Portugal,462250.0,Al-Nassr,26.6,ATT,Second Striker,25000000.0,54,12,0.12,0.12,26.0,20.0,2.0,K,False Nine,0.345
+José Sá,Portugal,249994.0,Wolverhampton Wanderers,33.4,GK,Goalkeeper,5000000.0,5,0,0.0,0.0,0.0,0.0,0.0,K,Goalkeeper,0.0
+Renato Veiga,Portugal,805714.0,Villarreal,22.9,DEF,Centre-Back,25000000.0,13,1,0.0,0.0,26.0,7.0,2.0,K,Traditional CB,0.676
+Gonçalo Inácio,Portugal,549006.0,Sporting CP,24.8,DEF,Centre-Back,45000000.0,22,2,0.04,0.12,24.0,26.0,4.0,K,Stopper CB,0.54
+João Neves,Portugal,670681.0,Paris Saint-Germain,21.7,MID,Central Midfield,110000000.0,22,3,0.39,0.08,5.0,12.0,3.0,K,Pressing CM,0.576
+Francisco Trincão,Portugal,412669.0,Sporting CP,26.5,ATT,Attacking Midfield,35000000.0,18,3,0.21,0.38,10.0,20.0,122.0,K,Advanced Playmaker,0.43
+Rafael Leão,Portugal,357164.0,Milan,27.0,ATT,Left Winger,90000000.0,44,5,0.47,0.16,4.0,2.0,17.0,K,Wide Playmaker,0.76
+Pedro Neto,Portugal,487465.0,Chelsea,26.3,ATT,Right Winger,60000000.0,25,3,0.18,0.15,6.0,10.0,178.0,K,Inside Forward,0.582
+Gonçalo Guedes,Portugal,225122.0,Real Sociedad,29.5,ATT,Left Winger,6000000.0,34,8,0.4,0.2,4.0,15.0,70.0,K,Inside Forward,0.61
+João Cancelo,Portugal,182712.0,Barcelona,32.0,DEF,Right-Back,25000000.0,68,12,0.12,0.24,11.0,18.0,23.0,K,Full-Back,0.786
+Rúben Neves,Portugal,225161.0,Al-Hilal,29.2,MID,Defensive Midfield,40000000.0,67,1,0.0,0.17,9.0,6.0,24.0,K,Box-to-Box DM,0.505
+Rui Silva,Portugal,234811.0,Sporting CP,32.3,GK,Goalkeeper,8000000.0,3,0,0.0,0.0,0.0,0.0,0.0,K,Goalkeeper,0.0
+Vitinha,Portugal,487469.0,Paris Saint-Germain,26.3,MID,Defensive Midfield,110000000.0,38,0,0.22,0.04,14.0,30.0,60.0,K,Deep-Lying Playmaker,0.718
+Samú Costa,Portugal,657430.0,Mallorca,25.5,DEF,Defensive Midfield,15000000.0,6,0,0.26,0.07,24.0,32.0,27.0,K,Deep-Lying Playmaker,0.487
+Nuno Mendes,Portugal,616341.0,Paris Saint-Germain,24.0,DEF,Left-Back,75000000.0,44,1,0.29,0.36,14.0,20.0,44.0,K,Holding Full-Back,0.727
+Francisco Conceição,Portugal,487474.0,Juventus,23.5,ATT,Right Winger,30000000.0,17,4,0.15,0.2,7.0,21.0,71.0,K,Traditional Winger,0.644
+Utkir Yusupov,Uzbekistan,311958.0,Navbahor Namangan,35.4,GK,Goalkeeper,50000.0,40,0,0.0,0.0,0.0,0.0,0.0,K,Goalkeeper,0.0
+Abdukodir Khusanov,Uzbekistan,763079.0,Manchester City,22.3,DEF,Centre-Back,35000000.0,27,0,0.0,0.0,26.0,17.0,2.0,K,Stopper CB,0.674
+Khojiakbar Alijonov,Uzbekistan,492558.0,Pakhtakor,29.1,DEF,Right-Back,50000.0,40,2,0.11,0.0,10.8,8.8,0.4,K,Full-Back,0.401
+Farrukh Sayfiev,Uzbekistan,212499.0,Neftchi Fergana,35.4,DEF,Left-Back,50000.0,46,1,0.09,0.09,8.0,17.99,2.03,K,Full-Back,0.463
+Rustam Ashurmatov,Uzbekistan,288883.0,Esteghlal,29.9,DEF,Centre-Back,800000.0,49,1,0.0,0.19,7.95,12.9,31.73,K,Ball-Playing CB,0.403
+Akmal Mozgovoy,Uzbekistan,562022.0,Pakhtakor,27.2,MID,Central Midfield,50000.0,25,1,0.08,0.06,8.2,13.8,35.8,K,Pressing CM,0.627
+Otabek Shukurov,Uzbekistan,294525.0,Baniyas,30.0,MID,Central Midfield,1600000.0,84,9,0.0,0.0,3.69,4.28,5.45,K,Pressing CM,0.471
+Jamshid Iskanderov,Uzbekistan,260857.0,Neftchi Fergana,32.7,MID,Attacking Midfield,50000.0,38,4,0.0,0.03,4.6,5.2,3.2,K,Attacking Midfielder,0.342
+Odiljon Hamrobekov,Uzbekistan,288915.0,Tractor,30.3,MID,Defensive Midfield,50000.0,72,1,0.07,0.03,2.2,7.4,19.4,K,Box-to-Box DM,0.384
+Ruslanbek Jiyanov,Uzbekistan,754040.0,Navbahor Namangan,25.0,MID,Left Winger,400000.0,5,0,0.0,0.0,9.67,13.0,33.0,K,Wide Playmaker,0.809
+Oston Urunov,Uzbekistan,492556.0,Persepolis,25.5,MID,Left Winger,1000000.0,42,10,0.12,0.04,14.33,18.0,46.0,K,Traditional Winger,0.512
+Abduvohid Nematov,Uzbekistan,527866.0,Nasaf,25.2,GK,Goalkeeper,50000.0,8,0,0.0,0.0,0.0,0.0,0.0,K,Goalkeeper,0.0
+Sherzod Nasrullaev,Uzbekistan,608537.0,Nasaf,27.9,DEF,Left-Back,50000.0,31,2,0.14,0.06,18.6,14.0,16.4,K,Full-Back,0.639
+Eldor Shomurodov,Uzbekistan,358166.0,İstanbul Başakşehir,31.0,ATT,Centre-Forward,5000000.0,92,44,0.66,0.13,3.0,13.0,18.0,K,Poacher,0.522
+Umar Eshmurodov,Uzbekistan,493725.0,Nasaf,33.5,DEF,Centre-Back,50000.0,29,0,0.04,0.1,9.33,10.0,43.67,K,Ball-Playing CB,0.336
+Botirali Ergashev,Uzbekistan,312690.0,Neftchi Fergana,31.0,GK,Goalkeeper,50000.0,2,0,0.0,0.0,0.0,0.0,0.0,K,Goalkeeper,0.0
+Dostonbek Khamdamov,Uzbekistan,294502.0,Pakhtakor,29.9,MID,Right Winger,750000.0,34,5,0.0,0.0,0.0,2.0,0.0,K,Wide Playmaker,0.418
+Abdulla Abdullaev,Uzbekistan,570272.0,Dibba,28.8,DEF,Defensive Midfield,50000.0,17,0,0.02,0.04,14.2,13.2,15.4,K,Box-to-Box DM,0.491
+Azizjon Ganiev,Uzbekistan,431911.0,Al Bataeh,28.3,MID,Central Midfield,50000.0,19,0,0.15,0.0,10.2,9.2,9.4,K,Pressing CM,0.512
+Azizbek Amonov,Uzbekistan,,Dinamo Samarqand,28.6,ATT,,,12,2,,,,,,K,,0.5
+Igor Sergeev,Uzbekistan,185372.0,Persepolis,33.1,ATT,Centre-Forward,50000.0,83,25,0.0,0.0,1.0,0.0,0.0,K,Target Forward,0.485
+Abbosbek Fayzullaev,Uzbekistan,754037.0,İstanbul Başakşehir,22.7,MID,Right Winger,7000000.0,32,9,0.18,0.18,6.0,17.0,74.0,K,Traditional Winger,0.779
+Sherzod Esanov,Uzbekistan,989068.0,Bukhara,23.4,MID,Central Midfield,50000.0,1,0,0.21,0.05,10.2,14.4,10.0,K,Pressing CM,0.581
+Bekhruz Karimov,Uzbekistan,,Surkhon Termiz,18.8,DEF,,,2,0,,,,,,K,,0.5
+Avazbek Ulmasaliev,Uzbekistan,538764.0,AGMK,26.2,DEF,Centre-Back,50000.0,0,0,0.23,0.19,7.8,6.4,28.8,K,Ball-Playing CB,0.49
+Jakhongir Urozov,Uzbekistan,989069.0,Dinamo Samarqand,22.4,DEF,Centre-Back,50000.0,4,0,0.13,0.04,4.0,5.0,6.2,K,Traditional CB,0.352
+Dominik Livaković,Croatia,205927.0,Dinamo Zagreb,31.4,GK,Goalkeeper,11000000.0,75,0,0.0,0.0,0.0,0.0,0.0,L,Goalkeeper,0.0
+Josip Stanišić,Croatia,483046.0,Bayern Munich,26.2,DEF,Right-Back,32000000.0,31,0,0.1,0.16,17.0,20.0,32.0,L,Holding Full-Back,0.76
+Marin Pongračić,Croatia,282144.0,Fiorentina,28.7,DEF,Centre-Back,7500000.0,20,0,0.0,0.0,34.0,14.0,4.0,L,Stopper CB,0.62
+Joško Gvardiol,Croatia,475959.0,Manchester City,24.4,DEF,Centre-Back,70000000.0,48,4,0.14,0.14,14.0,13.0,2.0,L,Traditional CB,0.663
+Duje Ćaleta-Car,Croatia,238266.0,Real Sociedad,29.7,DEF,Centre-Back,7000000.0,38,1,0.05,0.0,27.0,13.0,1.0,L,Stopper CB,0.904
+Josip Šutalo,Croatia,371001.0,Ajax,26.3,DEF,Centre-Back,17000000.0,33,0,0.0,0.0,40.0,8.0,2.0,L,Stopper CB,0.763
+Nikola Moro,Croatia,316934.0,Bologna,28.2,MID,Defensive Midfield,6500000.0,10,0,0.11,0.0,17.0,7.0,47.0,L,Box-to-Box DM,0.627
+Mateo Kovačić,Croatia,51471.0,Manchester City,32.1,MID,Central Midfield,15000000.0,113,5,0.0,0.0,0.0,0.0,0.0,L,Data-Limited,0.5
+Andrej Kramarić,Croatia,46580.0,TSG Hoffenheim,35.0,ATT,Attacking Midfield,3000000.0,116,36,0.61,0.22,6.0,4.0,79.0,L,Advanced Playmaker,0.426
+Luka Modrić,Croatia,27992.0,Milan,40.8,MID,Central Midfield,4000000.0,198,29,0.06,0.1,35.0,26.0,109.0,L,Midfield Playmaker,0.387
+Ante Budimir,Croatia,46413.0,Osasuna,34.9,ATT,Centre-Forward,3000000.0,38,6,0.55,0.0,6.0,16.0,4.0,L,Poacher,0.921
+Ivor Pandur,Croatia,371013.0,Hull City,26.2,GK,Goalkeeper,2000000.0,0,0,0.0,0.0,0.0,0.0,0.0,L,Goalkeeper,0.0
+Nikola Vlašić,Croatia,293200.0,Torino,28.7,MID,Attacking Midfield,10000000.0,63,10,0.26,0.1,20.0,37.0,46.0,L,Attacking Midfielder,0.662
+Ivan Perišić,Croatia,42460.0,PSV Eindhoven,37.4,ATT,Left Winger,1300000.0,154,38,0.22,0.44,22.0,21.0,152.0,L,Inside Forward,0.457
+Mario Pašalić,Croatia,205938.0,Atalanta,31.3,MID,Central Midfield,7000000.0,85,12,0.15,0.2,10.0,17.0,11.0,L,Pressing CM,0.839
+Martin Baturina,Croatia,580451.0,Como,23.3,MID,Attacking Midfield,50000.0,19,1,0.4,0.2,5.0,12.0,66.0,L,Advanced Playmaker,0.49
+Petar Sučić,Croatia,668207.0,Inter Milan,22.6,MID,Central Midfield,30000000.0,17,1,0.06,0.13,7.0,16.0,26.0,L,Pressing CM,0.663
+Kristijan Jakić,Croatia,374954.0,FC Augsburg,29.1,DEF,Defensive Midfield,6000000.0,17,2,0.11,0.06,16.0,25.0,4.0,L,Deep-Lying Playmaker,0.885
+Toni Fruk,Croatia,432758.0,Rijeka,25.3,MID,Attacking Midfield,50000.0,7,1,0.09,0.01,19.6,23.4,36.6,L,Attacking Midfielder,0.353
+Igor Matanović,Croatia,605268.0,SC Freiburg,23.2,ATT,Centre-Forward,7000000.0,9,2,0.53,0.07,8.0,11.0,0.0,L,Poacher,0.803
+Luka Sučić,Croatia,502722.0,Real Sociedad,23.8,MID,Central Midfield,10000000.0,21,1,0.35,0.12,3.0,5.0,4.0,L,Pressing CM,0.505
+Luka Vušković,Croatia,892160.0,Hamburger SV,19.3,DEF,Centre-Back,40000000.0,5,1,0.2,0.0,31.0,17.0,2.0,L,Stopper CB,0.57
+Dominik Kotarski,Croatia,370997.0,Copenhagen,26.3,GK,Goalkeeper,6000000.0,4,0,0.0,0.0,0.0,0.0,0.0,L,Goalkeeper,0.0
+Marco Pašalić,Croatia,395928.0,Orlando City SC,25.7,ATT,Right Winger,350000.0,15,1,0.42,0.18,14.0,15.0,44.0,L,Inside Forward,0.913
+Martin Erlić,Croatia,357003.0,Midtjylland,28.4,DEF,Centre-Back,4000000.0,13,1,0.08,0.0,45.0,38.0,24.0,L,Stopper CB,0.41
+Petar Musa,Croatia,387110.0,FC Dallas,28.3,ATT,Centre-Forward,8000000.0,11,1,0.71,0.24,5.0,7.0,12.0,L,Poacher,0.447
+Jordan Pickford,England,130164.0,Everton,32.3,GK,Goalkeeper,15000000.0,84,0,0.0,0.0,0.0,1.0,0.0,L,Goalkeeper,0.0
+Ezri Konsa,England,413403.0,Aston Villa,28.6,DEF,Centre-Back,35000000.0,20,1,0.0,0.0,22.0,7.0,5.0,L,Traditional CB,0.573
+Nico O'Reilly,England,743413.0,Manchester City,21.2,DEF,Left-Back,40000000.0,5,0,0.19,0.11,20.0,35.0,33.0,L,Holding Full-Back,0.44
+Declan Rice,England,357662.0,Arsenal,27.4,MID,Central Midfield,120000000.0,73,7,0.12,0.15,31.0,31.0,165.0,L,Midfield Playmaker,0.256
+John Stones,England,186590.0,Manchester City,32.0,DEF,Centre-Back,18000000.0,89,3,0.0,0.0,2.0,0.0,4.0,L,Traditional CB,0.353
+Marc Guéhi,England,392757.0,Manchester City,25.9,DEF,Centre-Back,55000000.0,29,1,0.1,0.1,24.0,19.0,10.0,L,Stopper CB,0.661
+Bukayo Saka,England,433177.0,Arsenal,24.8,ATT,Right Winger,130000000.0,49,14,0.31,0.18,15.0,15.0,115.0,L,Inside Forward,0.564
+Elliot Anderson,England,567576.0,Nottingham Forest,23.6,MID,Central Midfield,60000000.0,9,0,0.09,0.06,38.0,56.0,166.0,L,Midfield Playmaker,0.29
+Harry Kane,England,132098.0,Bayern Munich,32.9,ATT,Centre-Forward,65000000.0,114,79,1.35,0.2,7.0,12.0,12.0,L,Poacher,0.469
+Jude Bellingham,England,581678.0,Real Madrid,23.0,MID,Attacking Midfield,160000000.0,48,6,0.23,0.17,12.0,33.0,15.0,L,Attacking Midfielder,0.546
+Marcus Rashford,England,258923.0,Barcelona,28.6,ATT,Left Winger,40000000.0,72,18,0.41,0.41,2.0,8.0,98.0,L,Inside Forward,0.338
+Trevoh Chalobah,England,346314.0,Chelsea,26.9,DEF,Centre-Back,35000000.0,1,0,0.1,0.0,36.0,22.0,5.0,L,Stopper CB,0.409
+Dean Henderson,England,258919.0,Crystal Palace,29.2,GK,Goalkeeper,28000000.0,5,0,0.0,0.0,1.0,0.0,0.0,L,Goalkeeper,0.0
+Jordan Henderson,England,61651.0,Brentford,36.0,MID,Defensive Midfield,2000000.0,90,3,0.05,0.15,16.0,13.0,44.0,L,Box-to-Box DM,0.704
+Dan Burn,England,134270.0,Newcastle United,34.1,DEF,Centre-Back,5000000.0,8,0,0.04,0.09,18.0,24.0,11.0,L,Stopper CB,0.625
+Kobbie Mainoo,England,820374.0,Manchester United,21.1,MID,Central Midfield,40000000.0,14,0,0.0,0.14,12.0,18.0,13.0,L,Box-to-Box,0.96
+Morgan Rogers,England,503743.0,Aston Villa,23.9,MID,Attacking Midfield,70000000.0,15,1,0.27,0.15,13.0,18.0,46.0,L,Attacking Midfielder,0.696
+Anthony Gordon,England,503733.0,Newcastle United,25.3,ATT,Left Winger,60000000.0,19,3,0.3,0.1,3.0,13.0,69.0,L,Traditional Winger,0.845
+Ollie Watkins,England,324358.0,Aston Villa,30.4,ATT,Centre-Forward,30000000.0,22,7,0.39,0.07,5.0,13.0,6.0,L,Target Forward,0.965
+Noni Madueke,England,503987.0,Arsenal,24.3,ATT,Right Winger,50000000.0,11,1,0.16,0.08,4.0,10.0,76.0,L,Traditional Winger,0.84
+Eberechi Eze,England,479999.0,Arsenal,28.0,MID,Attacking Midfield,65000000.0,17,3,0.38,0.11,10.0,12.0,8.0,L,Attacking Midfielder,0.633
+Ivan Toney,England,251664.0,Al-Ahli,30.2,ATT,Centre-Forward,50000000.0,8,1,0.23,0.22,8.72,17.45,55.54,L,Poacher,0.897
+James Trafford,England,566799.0,Manchester City,23.7,GK,Goalkeeper,18000000.0,2,0,0.0,0.0,0.0,1.0,0.0,L,Goalkeeper,0.0
+Reece James,England,472423.0,Chelsea,26.5,DEF,Right-Back,50000000.0,24,1,0.09,0.19,31.0,32.0,123.0,L,Attacking Wing-Back,0.447
+Djed Spence,England,483348.0,Tottenham Hotspur,25.8,DEF,Left-Back,8000000.0,6,0,0.0,0.0,15.0,24.0,45.0,L,Holding Full-Back,0.742
+Jarell Quansah,England,632349.0,Bayer Leverkusen,23.4,DEF,Centre-Back,40000000.0,3,0,0.13,0.0,24.0,20.0,21.0,L,Stopper CB,0.583
+Lawrence Ati-Zigi,Ghana,254285.0,St. Gallen,29.5,GK,Goalkeeper,50000.0,29,0,0.0,0.0,0.0,0.0,0.0,L,Goalkeeper,0.0
+Alidu Seidu,Ghana,798404.0,Rennes,26.0,DEF,Centre-Back,6000000.0,24,1,0.0,0.08,16.0,21.0,11.0,L,Stopper CB,0.794
+Caleb Yirenkyi,Ghana,1240763.0,Nordsjælland,20.4,MID,Central Midfield,50000.0,11,1,0.0,0.0,0.8,0.4,0.0,L,Pressing CM,0.447
+Jonas Adjetey,Ghana,734676.0,VfL Wolfsburg,22.5,DEF,Centre-Back,50000.0,10,0,0.0,0.0,1.0,1.0,4.0,L,Traditional CB,0.353
+Thomas Partey,Ghana,230784.0,Villarreal,33.0,MID,Defensive Midfield,5000000.0,57,15,0.0,0.0,11.0,6.0,2.0,L,Box-to-Box DM,0.43
+Abdul Mumin,Ghana,451801.0,Rayo Vallecano,28.0,DEF,Centre-Back,2500000.0,5,0,0.0,0.0,0.0,0.0,0.0,L,Data-Limited,0.5
+Abdul Fatawu,Ghana,864121.0,Leicester City,22.3,ATT,Right Winger,20000000.0,28,3,0.08,0.14,11.8,13.93,16.46,L,Wide Playmaker,0.829
+Kwasi Sibo,Ghana,538006.0,Oviedo,28.0,MID,Central Midfield,300000.0,8,0,0.0,0.0,13.0,20.0,2.0,L,Pressing CM,0.902
+Jordan Ayew,Ghana,108354.0,Leicester City,34.7,ATT,Centre-Forward,1800000.0,120,34,0.11,0.08,24.09,20.58,52.47,L,False Nine,0.338
+Brandon Thomas-Asante,Ghana,251680.0,Coventry City,27.4,ATT,Left Winger,1000000.0,8,1,0.08,0.05,12.25,15.25,24.0,L,Traditional Winger,0.932
+Antoine Semenyo,Ghana,583255.0,Manchester City,26.4,MID,Right Winger,65000000.0,34,3,0.5,0.15,6.0,20.0,28.0,L,Traditional Winger,0.779
+Joseph Anang,Ghana,576099.0,St Patrick's Athletic,26.0,GK,Goalkeeper,300000.0,1,0,0.0,0.0,0.0,0.0,0.0,L,Goalkeeper,0.0
+Christopher Bonsu Baah,Ghana,1119447.0,Al-Qadsiah,21.5,ATT,Left Winger,3500000.0,9,0,0.04,0.09,23.45,36.24,4.14,L,Traditional Winger,0.496
+Gideon Mensah,Ghana,397171.0,Auxerre,27.9,DEF,Left-Back,3500000.0,40,0,0.0,0.04,23.0,33.0,57.0,L,Holding Full-Back,0.4
+Elisha Owusu,Ghana,395695.0,Auxerre,28.6,MID,Defensive Midfield,2500000.0,20,0,0.0,0.0,18.0,42.0,1.0,L,Deep-Lying Playmaker,0.753
+Benjamin Asare,Ghana,,Hearts of Oak,33.9,GK,,,11,0,,,,,,L,,0.5
+Abdul Rahman Baba,Ghana,224884.0,PAOK,31.9,DEF,Left-Back,2000000.0,51,1,0.08,0.2,16.0,21.0,140.0,L,Attacking Wing-Back,0.343
+Jerome Opoku,Ghana,408563.0,İstanbul Başakşehir,27.7,DEF,Centre-Back,2000000.0,11,1,0.0,0.04,33.0,15.0,6.0,L,Stopper CB,0.583
+Iñaki Williams,Ghana,255508.0,Athletic Bilbao,32.0,ATT,Right Winger,25000000.0,26,2,0.1,0.19,5.0,8.0,57.0,L,Wide Playmaker,0.802
+Augustine Boakye,Ghana,579263.0,Saint-Étienne,25.6,MID,Right Winger,4000000.0,0,0,0.0,0.0,20.0,12.5,3.0,L,Wide Playmaker,0.609
+Kojo Peprah Oppong,Ghana,1113451.0,Nice,22.0,DEF,Centre-Back,50000.0,4,0,0.04,0.0,28.0,26.0,5.0,L,Stopper CB,0.398
+Kamaldeen Sulemana,Ghana,746695.0,Atalanta,24.3,ATT,Left Winger,18000000.0,28,1,0.2,0.1,2.0,5.0,19.0,L,Wide Playmaker,0.478
+Derrick Luckassen,Ghana,645955.0,Pafos,30.9,DEF,Left Winger,50000.0,1,0,0.53,0.0,1.0,2.0,8.0,L,Wide Playmaker,0.639
+Ernest Nuamah,Ghana,955070.0,Lyon,22.6,ATT,Right Winger,12000000.0,18,4,0.05,0.15,24.47,30.06,129.91,L,Traditional Winger,0.76
+Prince Kwabena Adu,Ghana,207593.0,Viktoria Plzeň,22.7,ATT,Centre-Forward,50000.0,5,0,0.42,0.1,3.0,17.0,10.0,L,Poacher,0.804
+Marvin Senaya,Ghana,830890.0,Auxerre,25.4,DEF,Right-Back,3000000.0,2,0,0.05,0.0,34.0,31.0,40.0,L,Holding Full-Back,0.447
+Luis Mejía,Panama,,Nacional,35.2,GK,,,56,0,,,,,,L,,0.5
+César Blackman,Panama,440383.0,Slovan Bratislava,28.2,DEF,Right-Back,50000.0,40,3,0.14,0.06,18.6,14.0,16.4,L,Full-Back,0.639
+José Córdoba,Panama,698415.0,Norwich City,25.0,DEF,Centre-Back,50000.0,32,1,0.09,0.01,18.8,20.8,42.6,L,Ball-Playing CB,0.536
+Fidel Escobar,Panama,345716.0,Saprissa,31.4,DEF,Centre-Back,50000.0,99,4,0.14,0.2,8.25,11.75,43.75,L,Ball-Playing CB,0.33
+Edgardo Fariña,Panama,923177.0,Pari Nizhny Novgorod,24.6,DEF,Centre-Back,1000000.0,18,0,0.09,0.0,8.67,10.33,17.33,L,Traditional CB,0.496
+Cristian Martínez,Panama,419247.0,Ironi Kiryat Shmona,29.3,MID,Defensive Midfield,50000.0,66,2,0.0,0.0,7.0,5.8,9.2,L,Box-to-Box DM,0.4
+José Luis Rodríguez,Panama,425028.0,Juárez,28.0,MID,Left Winger,2000000.0,70,8,0.06,0.0,11.0,23.0,4.0,L,Traditional Winger,0.661
+Adalberto Carrasquilla,Panama,375300.0,Pumas UNAM,27.5,MID,Central Midfield,50000.0,73,3,0.01,0.0,13.6,8.4,3.6,L,Pressing CM,0.647
+Tomás Rodríguez,Panama,569205.0,Saprissa,27.3,ATT,Centre-Forward,50000.0,13,4,0.06,0.0,11.0,23.0,4.0,L,False Nine,0.602
+Ismael Díaz,Panama,243298.0,León,29.1,MID,Left Winger,1000000.0,57,17,0.08,0.06,19.5,26.0,33.5,L,Traditional Winger,0.455
+Yoel Bárcenas,Panama,283473.0,Mazatlán,32.6,MID,Right Winger,50000.0,104,10,0.0,0.0,3.0,0.0,0.0,L,Data-Limited,0.5
+César Samudio,Panama,,Marathón,32.3,GK,,,5,0,,,,,,L,,0.5
+Jiovany Ramos,Panama,403809.0,Puerto Cabello,29.4,DEF,Centre-Back,50000.0,23,2,0.03,0.06,6.6,6.2,16.4,L,Traditional CB,0.502
+Carlos Harvey,Panama,628806.0,Minnesota United FC,26.4,DEF,Defensive Midfield,50000.0,28,3,0.12,0.06,23.0,30.0,3.0,L,Deep-Lying Playmaker,0.459
+Eric Davis,Panama,121791.0,Plaza Amador,35.2,DEF,Left-Back,50000.0,107,9,0.09,0.09,8.0,17.99,2.03,L,Full-Back,0.463
+Andrés Andrade,Panama,403808.0,LASK,27.7,DEF,Centre-Back,1000000.0,50,1,0.04,0.0,22.0,38.0,39.0,L,Stopper CB,0.902
+José Fajardo,Panama,425028.0,Universidad Católica,32.8,ATT,Left Winger,2000000.0,68,17,0.06,0.0,11.0,23.0,4.0,L,Traditional Winger,0.661
+Cecilio Waterman,Panama,,Universidad de Concepción,35.2,ATT,,,55,15,,,,,,L,,0.5
+Alberto Quintero,Panama,126019.0,Plaza Amador,38.5,MID,Right Winger,50000.0,141,7,0.44,0.22,3.0,5.0,28.0,L,Inside Forward,0.875
+Aníbal Godoy,Panama,161671.0,San Diego FC,36.3,MID,Defensive Midfield,50000.0,159,4,0.05,0.05,16.0,14.0,3.0,L,Box-to-Box DM,0.57
+César Yanis,Panama,741098.0,Cobresal,30.4,MID,Right Winger,50000.0,56,5,0.07,0.03,2.2,7.4,19.4,L,Wide Playmaker,0.446
+Orlando Mosquera,Panama,402979.0,Al-Fayha,31.5,GK,Goalkeeper,50000.0,48,0,0.0,0.0,0.0,0.0,0.0,L,Goalkeeper,0.0
+Michael Amir Murillo,Panama,354482.0,Beşiktaş,30.3,DEF,Right-Back,10000000.0,94,9,0.04,0.0,29.0,23.0,2.0,L,Holding Full-Back,0.788
+Azarias Londoño,Panama,860998.0,Universidad Católica,25.0,ATT,Centre-Forward,50000.0,11,0,0.17,0.01,16.8,19.4,21.6,L,False Nine,0.445
+Roderick Miller,Panama,515638.0,Turan Tovuz,34.2,DEF,Right Winger,1200000.0,50,2,0.18,0.04,3.18,3.99,2.66,L,Wide Playmaker,0.438
+Jorge Gutiérrez,Panama,443379.0,Deportivo La Guaira,27.8,DEF,Left-Back,50000.0,18,0,0.05,0.01,21.0,20.0,22.4,L,Holding Full-Back,0.928

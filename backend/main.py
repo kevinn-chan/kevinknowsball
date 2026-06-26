@@ -149,7 +149,7 @@ def get_groups():
     return output
 
 
-_PLAYERS_CSV = os.path.join(BASE, "data", "engineered", "players_with_clusters.csv")
+_PLAYERS_CSV = os.path.join(BASE, "data", "engineered", "wc_squad_players.csv")
 _players_df: Optional[pd.DataFrame] = None
 
 def _load_players() -> pd.DataFrame:

@@ -369,6 +369,18 @@ def main():
     clustered.to_csv(out_dir / 'players_with_clusters.csv', index=False)
     print(f"  Saved {len(clustered)} players → players_with_clusters.csv")
 
+    # Enrich WC squad player file with role + versatility via player_id join
+    wc_players_path = out_dir / 'wc_squad_players.csv'
+    if wc_players_path.exists():
+        wc = pd.read_csv(wc_players_path)
+        roles = clustered[['player_id', 'role', 'versatility']].drop_duplicates('player_id')
+        wc = wc.drop(columns=['role', 'versatility'], errors='ignore') \
+               .merge(roles, on='player_id', how='left')
+        wc['role'] = wc['role'].fillna('')
+        wc['versatility'] = wc['versatility'].fillna(0.5)
+        wc.to_csv(wc_players_path, index=False)
+        print(f"  Enriched {(wc['role'] != '').sum()} WC squad players with roles → wc_squad_players.csv")
+
     print("\nBuilding team archetype balance...")
     balance = team_archetype_balance(clustered, squads, squad_metrics)
     balance.to_csv(out_dir / 'team_archetype_balance.csv', index=False)
