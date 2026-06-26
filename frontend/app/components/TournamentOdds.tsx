@@ -170,9 +170,12 @@ export default function TournamentOdds() {
       fetch(`${API}/monte-carlo?n=1000`)
         .then((r) => r.json())
         .then((data: MonteCarloResponse) => {
-          // Rank: win% → reach-final% → reach-semi% (each as tiebreaker)
+          // Rank: win% → reach-final% → reach-semi%. Compare at DISPLAYED precision
+          // (0.1%) so teams that tie on-screen fall through to the next tiebreaker —
+          // otherwise sub-decimal raw differences in win% pre-empt reach-final.
+          const r = (x: number) => Math.round(x * 1000); // 0.1% buckets
           const byOdds = (a: TeamResult, b: TeamResult) =>
-            b.win - a.win || b.final - a.final || b.semi - a.semi;
+            r(b.win) - r(a.win) || r(b.final) - r(a.final) || r(b.semi) - r(a.semi);
           if (data.leaderboard) {
             const ranked = [...data.leaderboard]
               .sort(byOdds)
