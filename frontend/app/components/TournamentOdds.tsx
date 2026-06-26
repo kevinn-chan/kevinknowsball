@@ -170,14 +170,20 @@ export default function TournamentOdds() {
       fetch(`${API}/monte-carlo?n=1000`)
         .then((r) => r.json())
         .then((data: MonteCarloResponse) => {
+          // Rank: win% → reach-final% → reach-semi% (each as tiebreaker)
+          const byOdds = (a: TeamResult, b: TeamResult) =>
+            b.win - a.win || b.final - a.final || b.semi - a.semi;
           if (data.leaderboard) {
-            setLeaderboard(data.leaderboard);
+            const ranked = [...data.leaderboard]
+              .sort(byOdds)
+              .map((t, i) => ({ ...t, rank: i + 1 }));
+            setLeaderboard(ranked);
             setCached(data.cached);
             setLoading(false);
           } else if (data.results) {
             const ranked = Object.entries(data.results)
-              .map(([team, stats], i) => ({ rank: i + 1, team, ...stats }))
-              .sort((a, b) => b.win - a.win)
+              .map(([team, stats]) => ({ rank: 0, team, ...stats }))
+              .sort(byOdds)
               .map((t, i) => ({ ...t, rank: i + 1 }));
             setLeaderboard(ranked);
             setCached(data.cached);
